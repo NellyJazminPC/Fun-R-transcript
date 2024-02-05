@@ -1,2 +1,3 @@
-# Intro-Prog-Bioinfo
-Curso: Introducción a la Programación para Bioinformática. 2024
+# Fundamentos de Programación en R para análisis transcriptómicos
+Curso 2024
+
