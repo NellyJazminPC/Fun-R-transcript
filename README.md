@@ -23,7 +23,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 ### TEMARIO 
 
-- **Fundamentos de programación en R**
+- **FUNDAMENTOS DE PROGRAMACIÓN EN R**
   - **Unidad 1** *(Lunes 17 de Junio)*
     - Introducción a R
     - Uso R Studio
@@ -49,27 +49,27 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Limpieza de datos
     - Estadística inferencial 
 
-UNIDAD 5 
-Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom 
+  - **Unidad 5** *(Viernes 21 de Junio)*
+    - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom 
 
-UNIDAD 6 
-Análisis de agrupamiento 
-Componentes principales 
-Presentación de resultados en Rmarkdown 
+  - **Unidad 6** *(Lunes 24 de Junio)*
+    - Análisis de agrupamiento
+    - Componentes principales
+    - Presentación de resultados en Rmarkdown 
 
-- **Enfoque en transcriptómica**
+- **ENFOQUE EN TRANSCRIPTÓMICA**
 
-UNIDAD 7
-Secuenciación masiva
-RNA-seq 
+  - **Unidad 7** *(Martes 25 de Junio)*
+    - Secuenciación masiva
+    - RNA-seq 
 
-UNIDAD 8
-Flujo de trabajo
-Expresión diferencial
+  - **Unidad 8** *(Miércoles 26 de Junio)*
+    - Flujo de trabajo
+    - Expresión diferencial
 
-UNIDAD 9
-Gráficos y visualización de resultados
-Material: Se propone realizarlo en fundación UNAM con apoyo de un cañón para proyectar los scripts.
+  - **Unidad 9** *(Jueves 27 de Junio)*
+    - Gráficos y visualización de resultados
+    - Material: Se propone realizarlo en fundación UNAM con apoyo de un cañón para proyectar los scripts.
 
-UNIDAD 10 
-Aplicaciones reales y dudas 2 horas
+  - **Unidad 10** *(Viernes 28 de Junio)*
+    - Aplicaciones reales y dudas 2 horas
