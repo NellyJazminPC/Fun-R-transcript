@@ -3,8 +3,12 @@
 
 #Ignore la carpeta Pruebas dentro de bin/
 bin/Pruebas
-
 #Ignora por ahora el .Rproj
 
-*.Rproj
+*.Rproj*
+
+*.RData*
+*.Rhistory
+
+*.Rproj.user/
 
