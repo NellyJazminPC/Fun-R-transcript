@@ -2,7 +2,7 @@
 .DS_store
 
 #Ignore la carpeta Pruebas dentro de bin/
-bin/Pruebas
+bin/Pruebas/
 #Ignora por ahora el .Rproj
 
 *.Rproj*
@@ -12,4 +12,5 @@ bin/Pruebas
 
 *.Rproj.user/
 
-.Rproj.user
+*.Rproj.user*
+
