@@ -1,0 +1,10 @@
+# Ignora archivos del sistema Mac
+.DS_store
+
+#Ignore la carpeta Pruebas dentro de bin/
+bin/Pruebas
+
+#Ignora por ahora el .Rproj
+
+*.Rproj
+
