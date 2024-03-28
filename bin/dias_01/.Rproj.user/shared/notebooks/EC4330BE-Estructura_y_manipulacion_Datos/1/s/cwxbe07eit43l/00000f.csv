@@ -1,0 +1,2 @@
+"0","df <- data.frame(distance=c(4,4,4,7,8,5), condition=c(""a"",""a"",""a"",""b"",""b"",""b""))"
+"0","df"

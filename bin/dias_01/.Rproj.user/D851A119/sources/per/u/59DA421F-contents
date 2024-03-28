@@ -1,0 +1,37 @@
+5 + 5
+10*8 + 3*(6 - 2/4)^10
+3*(6 - 2/4)^10
+
+x <- 5
+y<- x + 10
+x
+y
+10 -> x
+x
+10 <- x
+ls()
+getwd()
+plot(x,y)
+
+pressure
+help()
+?plot
+
+getwd()
+dir()
+
+
+library(MASS)
+head(Animals)
+Animals
+subset(x=Animals , subset=body > 1000)
+
+
+attach(Traffic)
+head(Traffic)
+aggregate(data=Traffic ,formula=y~year*limit ,FUN=mean)
+class(Traffic)
+aggregate(x=Traffic,by=list(year,limit),FUN=mean)
+detach(Traffic)
+
+
