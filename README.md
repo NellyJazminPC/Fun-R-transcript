@@ -1,7 +1,16 @@
-# Fundamentos de Programación en R para análisis transcriptómicos
-Curso 2024
+# CURSO: Fundamentos de Programación en R para análisis transcriptómicos
 
 
+### INSTRUCTORES:
+- Dr. Jorge E. Campos Contreras
+    - jorge.campos@iztacala.unam.mx
+- Dr. Hector Salgado Ortiz
+    - bio.h.salgado@gmail.com
+- M. en C. Olga Andrea Hernández Miranda
+    - andii.manch@gmail.com
+- M. en C. Nelly Jazmín Pacheco Cruz
+    - nelly.pacheco.cruz@iztacala.unam.mx
+  
 ----- 
 ### OBJETIVO GENERAL 
 
@@ -73,3 +82,17 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
   - **Unidad 10** *(Viernes 28 de Junio)*
     - Aplicaciones reales y dudas 2 horas
+   
+
+
+## DINÁMICA DEL CURSO:
+
+- Curso teórico y práctico
+- Horario: 9:00-13:00. Receso intermedio.
+- Proyecto final: equipos de 4-5 personas (viernes 28 de junio)
+
+- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
+
+- 
+
+
