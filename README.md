@@ -123,6 +123,13 @@ Esto es un **Repositorio**, basicamente son espacios de almacenamiento donde se 
 
 ![alt text](image-2.png)
 
+Puedes descargar este repositorio entero y tenerlo  en tu computadora como otra carpeta más:
+
+Haz click en **< > Code** y en la opción de **Download Zip**
+![alt text](image-3.png)
+
+**¡LISTO! ahora solo tienes que descomprimirla**
+
 ---
 - **¿Qué necesitamos?**
   - Computadora personal
