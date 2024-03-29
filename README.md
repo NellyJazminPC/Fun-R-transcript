@@ -115,10 +115,11 @@ En resumen, GitHub proporciona una plataforma robusta y colaborativa que puede m
 
 
 
+![alt text](image-2.png)
 
 ---
- ¿qué necesitamos?
-- Computadora personal
+- **¿Qué necesitamos?**
+  - Computadora personal
   - Windows 10. 4GB RAM
   - MacOS  > x10.11
   - Linux - Ubuntu
