@@ -30,6 +30,17 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 -----
 
+### DINÁMICA DEL CURSO:
+
+- Curso teórico y práctico
+- Horario: 9:00-13:00. Receso intermedio.
+- Proyecto final: equipos de 4-5 personas. Presentación el viernes 28 de junio
+
+- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
+
+---
+
+
 ### TEMARIO 
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
@@ -81,18 +92,25 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Material: Se propone realizarlo en fundación UNAM con apoyo de un cañón para proyectar los scripts.
 
   - **Unidad 10** *(Viernes 28 de Junio)*
+    - Exposiciones de sus proyectos finales
     - Aplicaciones reales y dudas 2 horas
    
 
-
-## DINÁMICA DEL CURSO:
-
-- Curso teórico y práctico
-- Horario: 9:00-13:00. Receso intermedio.
-- Proyecto final: equipos de 4-5 personas (viernes 28 de junio)
-
-- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
-
-- 
+---
+### Antes de empezar, ¿qué necesitamos?
+- Computadora personal
+  - Windows 10. 4GB RAM
+  - MacOS  > x10.11
+  - Linux - Ubuntu
+- Espacio libre en disco duro, mínimo 30 GB.
+- Tener instalado R y Rstudio. _Puedes descargarlo desde_ https://posit.co/download/rstudio-desktop/
 
 
+Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a lo largo del curso: (en progreso)
+- ggplot2
+- tidyr
+
+
+---
+### Fuentes de información recomendadas:
+- [Para instalación de R y Rstudio](https://swcarpentry.github.io/r-novice-gapminder-es/index.html) 
