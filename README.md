@@ -94,11 +94,13 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 - Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
 
 ---
-### Antes de empezar
+## Antes de empezar...
 
 - **¿Qué es [Github](https://github.com/)?**  
 
-GitHub es una **plataforma en línea** que facilita el desarrollo colaborativo de software.  
+![alt text](image.png)
+
+**GitHub** es una **plataforma en línea** que facilita el desarrollo colaborativo de software.  
 Permite a los desarrolladores **trabajar juntos** en proyectos de software al **alojar y compartir código fuente**, realizar seguimiento de problemas, proponer y revisar cambios, y colaborar en el desarrollo de aplicaciones y proyectos.
 
 En resumen es una **plataforma de desarrollo colaborativo** y de **acceso gratuito** (con límite de acciones y repositorios privados)
@@ -111,9 +113,13 @@ En resumen es una **plataforma de desarrollo colaborativo** y de **acceso gratui
 4. **Gestión de proyectos:** GitHub ofrece funciones de gestión de proyectos, como tableros Kanban y seguimiento de problemas, que pueden ser útiles para organizar las tareas y el progreso del trabajo bioinformático. Por ejemplo, los estudiantes pueden utilizar estas herramientas para administrar sus proyectos y seguir el estado de las actividades asignadas.
 5. **Control de versiones:** GitHub utiliza Git como sistema de control de versiones, lo que permite realizar un seguimiento de los cambios en el código y los archivos de datos a lo largo del tiempo. Esto facilita la gestión de proyectos y la reversión a versiones anteriores en caso de errores o cambios no deseados.
 
+![alt text](image-1.png)
+
 En resumen, GitHub proporciona una plataforma robusta y colaborativa que puede mejorar significativamente la experiencia de aprendizaje al facilitar la colaboración, el control de versiones, la transparencia, la retroalimentación y la gestión de proyectos.
 
+- **¿En que parte de Github estamos?**
 
+Esto es un **Repositorio**, basicamente son espacios de almacenamiento donde se guarda el código de un proyecto. Cada repositorio tiene su propia URL.
 
 ![alt text](image-2.png)
 
@@ -123,13 +129,15 @@ En resumen, GitHub proporciona una plataforma robusta y colaborativa que puede m
   - Windows 10. 4GB RAM
   - MacOS  > x10.11
   - Linux - Ubuntu
-- Espacio libre en disco duro, mínimo 30 GB.
-- Tener instalado R y Rstudio. _Puedes descargarlo desde_ https://posit.co/download/rstudio-desktop/
+  - Espacio libre en disco duro, mínimo 30 GB.
+  - Tener instalado R y Rstudio. Puedes descargarlo desde https://posit.co/download/rstudio-desktop/
 
 
 Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a lo largo del curso: (en progreso)
 - ggplot2
 - tidyr
+- dplyr
+- reshape2
 
 
 ---
