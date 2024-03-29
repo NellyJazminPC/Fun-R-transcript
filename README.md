@@ -28,19 +28,7 @@ Conocer los fundamentos teóricos del campo de estudio de la transcriptómica y 
 
 El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a viernes durante dos semanas (40h).
 
------
-
-### DINÁMICA DEL CURSO:
-
-- Curso teórico y práctico
-- Horario: 9:00-13:00. Receso intermedio.
-- Proyecto final: equipos de 4-5 personas. Presentación el viernes 28 de junio
-
-- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
-
 ---
-
-
 ### TEMARIO 
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
@@ -95,9 +83,41 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Exposiciones de sus proyectos finales
     - Aplicaciones reales y dudas 2 horas
    
+-----
+
+### DINÁMICA DEL CURSO:
+
+- Curso teórico y práctico
+- Horario: 9:00-13:00. Receso intermedio.
+- Proyecto final: equipos de 4-5 personas. Presentación el viernes 28 de junio
+
+- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
 
 ---
-### Antes de empezar, ¿qué necesitamos?
+### Antes de empezar
+
+- **¿Qué es [Github](https://github.com/)?**  
+
+GitHub es una **plataforma en línea** que facilita el desarrollo colaborativo de software.  
+Permite a los desarrolladores **trabajar juntos** en proyectos de software al **alojar y compartir código fuente**, realizar seguimiento de problemas, proponer y revisar cambios, y colaborar en el desarrollo de aplicaciones y proyectos.
+
+En resumen es una **plataforma de desarrollo colaborativo** y de **acceso gratuito** (con límite de acciones y repositorios privados)
+
+- **¿Por qué usar Github?**
+
+1. **Transparencia y reproducibilidad:** Al alojar el código y los datos en GitHub, los estudiantes pueden crear un registro transparente de su trabajo bioinformático. Esto facilita la revisión y la reproducción de los análisis realizados, lo que contribuye a la transparencia y la reproducibilidad de los resultados.
+1. **Colaboración y trabajo en equipo:** GitHub facilita la colaboración, permitiendo que múltiples personas trabajen juntas en proyectos de bioinformática. Por ejemplo, los estudiantes pueden compartir código, datos y documentos de manera eficiente, lo que fomenta el trabajo en equipo y la colaboración.
+3. **Comentarios y retroalimentación:** GitHub proporciona herramientas para que los estudiantes y el profesor comenten y revisen el código y los documentos compartidos. Esto facilita la comunicación y la retroalimentación, lo que puede mejorar la comprensión y la calidad del trabajo realizado.
+4. **Gestión de proyectos:** GitHub ofrece funciones de gestión de proyectos, como tableros Kanban y seguimiento de problemas, que pueden ser útiles para organizar las tareas y el progreso del trabajo bioinformático. Por ejemplo, los estudiantes pueden utilizar estas herramientas para administrar sus proyectos y seguir el estado de las actividades asignadas.
+5. **Control de versiones:** GitHub utiliza Git como sistema de control de versiones, lo que permite realizar un seguimiento de los cambios en el código y los archivos de datos a lo largo del tiempo. Esto facilita la gestión de proyectos y la reversión a versiones anteriores en caso de errores o cambios no deseados.
+
+En resumen, GitHub proporciona una plataforma robusta y colaborativa que puede mejorar significativamente la experiencia de aprendizaje al facilitar la colaboración, el control de versiones, la transparencia, la retroalimentación y la gestión de proyectos.
+
+
+
+
+---
+ ¿qué necesitamos?
 - Computadora personal
   - Windows 10. 4GB RAM
   - MacOS  > x10.11
@@ -114,3 +134,6 @@ Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a 
 ---
 ### Fuentes de información recomendadas:
 - [Para instalación de R y Rstudio](https://swcarpentry.github.io/r-novice-gapminder-es/index.html) 
+- [Documentación en la página oficial de GitHub](https://docs.github.com/es)
+
+- [Aprende Git y GitHub - Curso desde Cero (Youtube)](https://www.youtube.com/watch?v=mBYSUUnMt9M)
