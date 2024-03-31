@@ -2,12 +2,13 @@
 
 
 ### INSTRUCTORES:
+
 - Dr. Jorge E. Campos Contreras
     - jorge.campos@iztacala.unam.mx
 - Dr. Hector Salgado Ortiz
     - bio.h.salgado@gmail.com
 - M. en C. Olga Andrea Hernández Miranda
-    - andii.manch@gmail.com
+  - andii.manch@gmail.com
 - M. en C. Nelly Jazmín Pacheco Cruz
     - nelly.pacheco.cruz@iztacala.unam.mx
   
@@ -17,6 +18,7 @@
 El participante conocerá los fundamentos de programación en R para su aplicación en análisis transcriptómicos. 
 
 ---- 
+
 ### OBJETIVOS ESPECÍFICOS
 
 Comprender los fundamentos de programación en R para el análisis de datos biológicos.
@@ -29,12 +31,13 @@ Conocer los fundamentos teóricos del campo de estudio de la transcriptómica y 
 El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a viernes durante dos semanas (40h).
 
 ---
+
 ### TEMARIO 
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
   - **Unidad 1** *(Lunes 17 de Junio)*
     - Introducción a R
-    - Uso R Studio
+    - Uso de R Studio
     - Funciones
     - Estructuras de datos: Vectores, matrices, arreglos, marcos de datos y listas
     - Lectura y guardado de datos
