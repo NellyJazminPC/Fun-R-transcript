@@ -153,3 +153,4 @@ Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a 
 - [Documentación en la página oficial de GitHub](https://docs.github.com/es)
 
 - [Aprende Git y GitHub - Curso desde Cero (Youtube)](https://www.youtube.com/watch?v=mBYSUUnMt9M)
+- [RNASeq Workshop R-Bioconductor](http://biocluster.ucr.edu/~rkaundal/workshops/R_mar2016/RNAseq.html)
