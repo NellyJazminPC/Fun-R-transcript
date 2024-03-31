@@ -20,10 +20,11 @@ A continuación se mencionan seis puntos que explican qué es R:
 6. **Integración con otras tecnologías:** R se integra fácilmente con otras tecnologías y lenguajes de programación, lo que lo hace interoperable con una variedad de herramientas y plataformas. Por ejemplo, existen paquetes que permiten la conexión de R con bases de datos, sistemas de almacenamiento en la nube, herramientas de big data como Hadoop y Spark, y lenguajes como Python, facilitando la integración de R en flujos de trabajo complejos y entornos tecnológicos diversos.
 
 ---
-### ~Datos curiosos~
+### Datos curiosos
 
-R fue desarrollado inicialmente por Ross Ihaka y Robert Gentleman en 1993
-La pregunta más frecuente sobre R: "¿Por qué las versiones de R tienen nombres raros?"
+R fue desarrollado inicialmente por Ross Ihaka y Robert Gentleman en 1993.  
+
+La pregunta más frecuente sobre R: **"¿Por qué las versiones de R tienen nombres raros?"**
 
 
 ![alt text](Imagen_1_1.png)
