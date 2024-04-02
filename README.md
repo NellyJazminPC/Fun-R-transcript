@@ -36,8 +36,8 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
   - **Unidad 1** *(Lunes 17 de Junio)*
-    - Introducción a R
-    - Uso de R Studio
+    - [Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/U1_Intro_R.md)
+    - [Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/U1_Rstudio.md)
     - Funciones
     - Estructuras de datos: Vectores, matrices, arreglos, marcos de datos y listas
     - Lectura y guardado de datos
