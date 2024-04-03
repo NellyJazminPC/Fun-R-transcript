@@ -30,6 +30,16 @@ R es un lenguaje de programación y su entorno puede llegar a ser dificil maneja
 
 ![alt text](Imagen_1_4.png)
 
+R, el lenguaje de programación es la base.
+RStudio, es una interfaz gráfica que nos ayuda a trabajar con R pero desde un ambiente amigable para el usuario.
+RStudio Cloud, es RStudio en línea donde la principal ventaja es que no necesitas instalar nada en tu computadora personal, aunque necesitarás una buena conexión de internet.
+
+![alt text](Imagen_1_5.png)
+
+En resumen: la principal ventaja de usar RStudio es el **Editor** pero además sus otras ventanas nos permiten trabajar con **R** (el lenguaje de programación) pero desde una **interfaz gráfica** más **amigable** con el usuario.
+
+![alt text](Imagen_1_6.png)
+
 ### Fuentes de información:
 
 - [Descargar RStudio](https://posit.co/downloads/
