@@ -36,9 +36,20 @@ RStudio Cloud, es RStudio en línea donde la principal ventaja es que no necesit
 
 ![alt text](Imagen_1_5.png)
 
-En resumen: la principal ventaja de usar RStudio es el **Editor** pero además sus otras ventanas nos permiten trabajar con **R** (el lenguaje de programación) pero desde una **interfaz gráfica** más **amigable** con el usuario.
+En resumen: la principal ventaja de usar RStudio es el **Editor** pero además sus otras ventanas permiten trabajar con **R** (el lenguaje de programación) desde una **interfaz gráfica** más **amigable** con el usuario.
+
 
 ![alt text](Imagen_1_6.png)
+
+
+### Empecemos explorando la interfaz y como cambiar su apariencia a gusto personal
+
+**Estética del editor.** Podemos elegir el resaltado de la sintaxis, el tipo y tamaño de la letra, el fondo, etc.
+
+![alt text](Imagen_1_7.png)
+
+
+
 
 ### Fuentes de información:
 
