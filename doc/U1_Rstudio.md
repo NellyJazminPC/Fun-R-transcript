@@ -48,7 +48,43 @@ En resumen: la principal ventaja de usar RStudio es el **Editor** pero además s
 
 ![alt text](Imagen_1_7.png)
 
+En **Appearance** podemos cambiar varias características de la estética de la interfaz.
 
+Para ver los cambios da click en **Apply** y si te convencen, da click en **OK**.
+
+
+
+### ¿Cuáles son las ventanas de trabajo en RStudio?
+
+Es una interfaz gráfica estándar con cuatro ventanas principales:
+
+1. Consola
+2. Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda
+3. Ambiente de trabajo (environment)
+4. Editor de los scripts
+
+![alt text](Imagen_1_6.png)
+
+1. Consola:
+
+- La línea de comando es una gran y compleja calculadora.
+- En Rstudio ya tenemos el panel de la Consola listo.
+
+![alt text](Imagen_1_8.png)
+
+2. Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda
+
+En esta ventana tenemos múltiples pestañas.
+
+La primera nos muestra en dónde estamos, así como los otros archivos que se encuentran ahí. 
+
+La segunda ventana nos muestra los gráficos que se generan en R después de ejecutar líneas de código, desde ahí podemos exportar imágenes. 
+
+En la tercera pestaña se enlistan los paquetes instalados en R, si quieres activar alguno desde esta pestaña solo necesitar dar click en el recuadro a la izquierda de su nombre y aparecerá una palomita.
+
+La cuarta pestaña es la de Ayuda. Al ingresar el comando, función o paquete, buscará información en toda la documentación de R.
+
+![alt text](Imagen_1_9.png)
 
 
 ### Fuentes de información:
