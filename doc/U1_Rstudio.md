@@ -38,10 +38,6 @@ RStudio Cloud, es RStudio en línea donde la principal ventaja es que no necesit
 
 En resumen: la principal ventaja de usar RStudio es el **Editor** pero además sus otras ventanas permiten trabajar con **R** (el lenguaje de programación) desde una **interfaz gráfica** más **amigable** con el usuario.
 
-
-![alt text](Imagen_1_6.png)
-
-
 ### Empecemos explorando la interfaz y como cambiar su apariencia a gusto personal
 
 **Estética del editor.** Podemos elegir el resaltado de la sintaxis, el tipo y tamaño de la letra, el fondo, etc.
@@ -58,21 +54,21 @@ Para ver los cambios da click en **Apply** y si te convencen, da click en **OK**
 
 Es una interfaz gráfica estándar con cuatro ventanas principales:
 
-1. Consola
-2. Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda
-3. Ambiente de trabajo (Environment)
-4. Editor de los scripts
+1. **Consola**
+2. **Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda**
+3. **Ambiente de trabajo (Environment)**
+4. **Editor de los scripts**
 
 ![alt text](Imagen_1_6.png)
 
-1. Consola:
+1. **Consola:**
 
 - La línea de comando es una gran y compleja calculadora.
 - En Rstudio ya tenemos el panel de la Consola listo.
 
 ![alt text](Imagen_1_8.png)
 
-2. Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda
+2. **Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda**
 
 En esta ventana tenemos múltiples pestañas.
 
@@ -86,7 +82,7 @@ En esta ventana tenemos múltiples pestañas.
 
 ![alt text](Imagen_1_9.png)
 
-3. Ambiente de trabajo (Environment)
+3. **Ambiente de trabajo (Environment)**
 
 Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **ambiente o environment** (1) y el **historial** (2).
 
@@ -96,7 +92,7 @@ Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **am
 
 ![alt text](Imagen_1_10.png)
 
-4. Editor de los scripts
+4. **Editor de los scripts**
 
 Aquí es donde escribiremos nuestro código.
 
