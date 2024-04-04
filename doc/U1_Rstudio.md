@@ -60,7 +60,7 @@ Es una interfaz gráfica estándar con cuatro ventanas principales:
 
 1. Consola
 2. Directorio de trabajo/Visualizador de gráficas/Paquetes/Ayuda
-3. Ambiente de trabajo (environment)
+3. Ambiente de trabajo (Environment)
 4. Editor de los scripts
 
 ![alt text](Imagen_1_6.png)
@@ -76,16 +76,31 @@ Es una interfaz gráfica estándar con cuatro ventanas principales:
 
 En esta ventana tenemos múltiples pestañas.
 
-La primera nos muestra en dónde estamos, así como los otros archivos que se encuentran ahí. 
+- La primera nos muestra la ruta de nuestro **directorio de trabajo** (en dónde estamos), así como los archivos que se encuentran ahí. 
 
-La segunda ventana nos muestra los gráficos que se generan en R después de ejecutar líneas de código, desde ahí podemos exportar imágenes. 
+- La segunda ventana nos muestra los **gráficos** que se generan en R después de ejecutar líneas de código, desde ahí podemos exportar imágenes. 
 
-En la tercera pestaña se enlistan los paquetes instalados en R, si quieres activar alguno desde esta pestaña solo necesitar dar click en el recuadro a la izquierda de su nombre y aparecerá una palomita.
+- En la tercera pestaña se enlistan los **paquetes** instalados en R, si quieres activar alguno desde esta pestaña solo necesitar dar click en el recuadro a la izquierda de su nombre y aparecerá una palomita.
 
-La cuarta pestaña es la de Ayuda. Al ingresar el comando, función o paquete, buscará información en toda la documentación de R.
+- La cuarta pestaña es la de **Ayuda**. Al ingresar el comando, función o paquete, buscará información en toda la documentación de R.
 
 ![alt text](Imagen_1_9.png)
 
+3. Ambiente de trabajo (Environment)
+
+Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **ambiente o environment** (1) y el **historial** (2).
+
+- En el ambiente se enlistan las variables creadas. Podemos visualizarlas al darl click en su nombre o desglosar sus características al dar click en la figura azul a la izquierda de su nombre.
+
+- En el historial podemos ver el registro de todos los comandos que hemos ejecutado para esa sesión en R.
+
+![alt text](Imagen_1_10.png)
+
+4. Editor de los scripts
+
+Aquí es donde escribiremos nuestro código.
+
+![alt text](Imagen_1_11-1.png)
 
 ### Fuentes de información:
 
