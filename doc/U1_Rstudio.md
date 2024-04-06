@@ -96,7 +96,48 @@ Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **am
 
 Aquí es donde escribiremos nuestro código.
 
-![alt text](Imagen_1_11-1.png)
+![alt text](Imagen_1_11.png)
+
+Podemos enviar ejecutar todo el código (_el script_) seleccionando todas las lineas que quiera y das click en `Run` o si solo quieres ejecutar una línea de comando debes poner el cursor en esa línea y dar click en `Run` o con el teclado presiona  `Ctrl` + `Enter` (Windows y Linux) en MacOs presionas `Command` + `Enter`.
+
+> Tip importante: Para documentar tus scripts usa # para escribir tus comentarios.
+
+
+![alt text](Imagen_1_12.png)
+
+
+El texto después de cada línea de código se llama **“comentario”**. Todo lo que sigue después del símbolo **hash** (o numeral) **#** es ignorado por R cuando se ejecuta el código.
+
+Otra ventaja de usar el editor es que puede ayudarnos a auto-completar los comandos.
+
+![alt text](Imagen_1_13.png)
+
+En la imagen vemos conceptos como paquetes y funciones que veremos con mayor detalle más adelante pero por ahora, es importante saber que acceder a sus descripciones es una buena manera de tener documentación resumida que nos ayudará a la hora de escribir y ejecutar nuestros scripts, y podemos acceder a esto desde el Editor.
+
+### Ejercicio
+
+Empecemos usando R como si lo hicieramos con una calculadora.
+
+El orden de las operaciones es el mismo que has aprendido en la escuela.
+
+```R
+# Operaciones básicas
+
+3 + 5   # 8  Suma
+8 - 3   # 5  Resta
+7 * 5   # 35
+1/2     # 0.5
+4 ^ 4   # 256
+4 ** 4  # 256
+5 %% 3  # 2
+5 %/% 3 # 1
+````
+¿Qué obtienes al ejecutar cada línea de código?
+
+>Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
+
+
+
 
 ### Fuentes de información:
 
