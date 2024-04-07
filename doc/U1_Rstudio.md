@@ -186,15 +186,21 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 - Nombre todos archivos de tal manera que reflejen su contenido o función.
 
 
-¿Cómo crear un proyecto nuevo en RStudio?
-Hacer clic en el menú “File”, luego en “New Project”
-Hacer clic en “New Directory”
-Hacer clic en “New Project”
-Introducir el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”.
-Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
-Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
-Hacer clic en el botón “Create Project”
+### ¿Cómo crear un proyecto nuevo en RStudio?
 
+A continuación veremos  dos formas para crear un proyecto en RStudio, la primera es cuando no tenemos ningún directorio o carpeta ya creado, y la segunda es cuando queremos enlazar nuestro proyecto a un directorio o carpeta ya existente.
+
+En el primer caso:
+
+- Haz clic en el menú “File”, luego en “New Project”
+- Haz clic en “New Directory”
+- Haz clic en “New Project”
+- Introduce el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”. Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
+    -  Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
+
+- Haz clic en el botón “Create Project”
+
+![alt text](Imagen_1_16.png)
 
 
 ### Fuentes de información:
