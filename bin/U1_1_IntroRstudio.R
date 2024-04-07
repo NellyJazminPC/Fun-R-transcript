@@ -16,3 +16,16 @@
 # %*%	Multiplicación matricial
 # %o%	Producto exterior
 # %x%	Producto Kronecker
+
+
+#Los números pequeños o grandes tienen una notación científica:
+
+2/10000 
+
+# Resultado: 2e-04
+
+# es la abreviatura de “multiplicado por 10 ^ XX” 
+# Entonces 2e-4 es la abreviatura de 2 * 10^(-4)
+# También puedes escribir números en notación científica:
+5e3  # nota la falta del signo menos aquí, ¿cuál fue el resultado?
+5e-3 # ¿Qué obuviste al agregar el signo - ?
