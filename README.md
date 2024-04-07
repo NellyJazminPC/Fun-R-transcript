@@ -38,11 +38,12 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
   - **Unidad 1** *(Lunes 17 de Junio)*
     - [Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/U1_Intro_R.md)
     - [Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/U1_Rstudio.md)
-    - Funciones
-    - Estructuras de datos: Vectores, matrices, arreglos, marcos de datos y listas
+    - Generación de proyectos
     - Lectura y guardado de datos
+    - Introducción a las variables y funciones
 
   - **Unidad 2** *(Martes 18 de Junio)*
+      - Estructuras de datos: Vectores, matrices, arreglos, marcos de datos y listas
     - Manipulación y arreo de datos en R
     - Indicación y subconjuntos
     - Unión de dataframes

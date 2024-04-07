@@ -6,10 +6,13 @@
 #Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
 3 + 5   #   Suma
 8 - 3   #   Resta
-7 * 5   #  
-1/2     # 
-4 ^ 4   # 
-4 ** 4  # 
-5 %% 3  #
-5 %/% 3 #
+7 * 5   #   Multiplicación
+1/2     #   División
+4 ^ 4   #   Exponencial
+4 ** 4  #   Exponencial
+5 %% 3  #   Módulo
+5 %/% 3 #   División entera
 
+# %*%	Multiplicación matricial
+# %o%	Producto exterior
+# %x%	Producto Kronecker

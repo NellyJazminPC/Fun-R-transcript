@@ -88,7 +88,8 @@ Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **am
 
 - En el ambiente se enlistan las variables creadas. Podemos visualizarlas al darl click en su nombre o desglosar sus características al dar click en la figura azul a la izquierda de su nombre.
 
-- En el historial podemos ver el registro de todos los comandos que hemos ejecutado para esa sesión en R.
+- En el historial podemos ver el registro de todos los comandos que hemos ejecutado para esa sesión en R. Otra forma para navegar por el historial es desde la **consola** usando las **teclas arriba y abajo**.
+
 
 ![alt text](Imagen_1_10.png)
 
@@ -108,7 +109,10 @@ Podemos enviar ejecutar todo el código (_el script_) seleccionando todas las li
 
 El texto después de cada línea de código se llama **“comentario”**. Todo lo que sigue después del símbolo **hash** (o numeral) **#** es ignorado por R cuando se ejecuta el código.
 
-Otra ventaja de usar el editor es que puede ayudarnos a auto-completar los comandos.
+La documentación es muy importante para la **reproducibilidad** de los análisis y de hecho en varias revistas, para publicar tu trabajo pediran que compartas tus scripts, sin embargo, antes de publicar tu script recuerda revisarlo nuevamente.
+
+
+Otra ventaja de usar el editor es que puede ayudarnos a **auto-completar** los comandos.
 
 ![alt text](Imagen_1_13.png)
 
@@ -123,29 +127,78 @@ El orden de las operaciones es el mismo que has aprendido en la escuela.
 ```R
 # Operaciones básicas
 
-3 + 5   # 8  Suma
-8 - 3   # 5  Resta
-7 * 5   # 35
-1/2     # 0.5
-4 ^ 4   # 256
-4 ** 4  # 256
-5 %% 3  # 2
-5 %/% 3 # 1
+3 + 5   #   Suma
+8 - 3   #   Resta
+7 * 5   #   Multiplicación
+1/2     #   División
+4 ^ 4   #   Exponencial
+4 ** 4  #   Exponencial
+5 %% 3  #   Módulo
+5 %/% 3 #   División entera
+
+# Otros operadores:
+# %*%	Multiplicación matricial
+# %o%	Producto exterior
+# %x%	Producto Kronecker
 ````
 ¿Qué obtienes al ejecutar cada línea de código?
 
 >Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
 
 
+Los números pequeños o grandes tienen una notación científica:
+
+```R
+2/10000 
+# Resultado: 2e-04
+# es la abreviatura de “multiplicado por 10 ^ XX” 
+# Entonces 2e-4 es la abreviatura de 2 * 10^(-4)
+# También puedes escribir números en notación científica:
+5e3  # nota la falta del signo menos aquí, ¿cuál fue el resultado?
+5e-3 # ¿Qué obuviste al agregar el signo - ?
+````
+
+Podemos ir aumentando los términos en las operaciones matemáticas:
+
+```R
+5 + 5
+10*8 + 3*(6 - 2/4)^10
+````
+
+### Fuentes de información:
+
+- [Descargar RStudio](https://posit.co/downloads/)
+- [RStudio is now Posit!](https://www.youtube.com/watch?v=0_UNtwEh7kY)
+- [RStudio Cloud](https://posit.cloud/plans)
+- [Instalación de R y RStudio](https://bookdown.org/daniel_dauber_io/r4np_book/setting-up-r-and-rstudio.html)
+
+## Gestionar proyectos
+
+![alt text](Imagen_1_15.png)
+
+
+[Good Enough Practices for Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) brinda las siguientes recomendaciones para la organización de proyectos:
+
+- Coloque cada proyecto en su propio directorio, el cual lleva el nombre del proyecto.
+- Coloque documentos de texto asociados con proyecto en el directorio doc.
+- Coloque los datos sin procesar y los metadatos en el directorio data, y archivos generados durante la limpieza y análisis en el directorio results.
+- Coloque los scripts fuente del proyecto y los programas en el directorio src o bin (si tienes programas traídos de otra parte o compilados localmente, en el directorio bin).
+- Nombre todos archivos de tal manera que reflejen su contenido o función.
+
+
+¿Cómo crear un proyecto nuevo en RStudio?
+Hacer clic en el menú “File”, luego en “New Project”
+Hacer clic en “New Directory”
+Hacer clic en “New Project”
+Introducir el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”.
+Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
+Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
+Hacer clic en el botón “Create Project”
+
 
 
 ### Fuentes de información:
 
-- [Descargar RStudio](https://posit.co/downloads/
-)
-- [RStudio is now Posit!](https://www.youtube.com/watch?v=0_UNtwEh7kY
-)
-- [RStudio Cloud](https://posit.cloud/plans
-)
-- [Instalación de R y RStudio](https://bookdown.org/daniel_dauber_io/r4np_book/setting-up-r-and-rstudio.html
-)
+- [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
+
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
