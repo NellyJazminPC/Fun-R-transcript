@@ -38,7 +38,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
   - **Unidad 1** *(Lunes 17 de Junio)*
     - [Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_Intro_R.md)
     - [Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_Rstudio.md)
-    - Generación de proyectos
+    - [Generación de proyectos](doc/Unidad_01/U1_Rstudio.md#gestionar-proyectos)
     - Lectura y guardado de datos
     - Introducción a las variables y funciones
 
