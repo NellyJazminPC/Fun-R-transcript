@@ -186,11 +186,11 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 - Nombre todos archivos de tal manera que reflejen su contenido o función.
 
 
-### ¿Cómo crear un proyecto nuevo en RStudio?
+### ¿Cómo crear un proyecto en RStudio?
 
 A continuación veremos  dos formas para crear un proyecto en RStudio, la primera es cuando no tenemos ningún directorio o carpeta ya creado, y la segunda es cuando queremos enlazar nuestro proyecto a un directorio o carpeta ya existente.
 
-En el primer caso:
+**En el primer caso - Nuevo directorio:**
 
 - Haz clic en el menú “File”, luego en “New Project”
 - Haz clic en “New Directory”
@@ -200,7 +200,42 @@ En el primer caso:
 
 - Haz clic en el botón “Create Project”
 
+**En el segundo caso -  Directorio existente:**
+
+- Haz clic en el menú “File”, luego en “New Project”
+- Haz clic en “Existing Directory”
+- Haz clic en “Browse” y selecciona la carpeta con la que quieres enlazar tu proyecto
+- Haz clic en el botón “Create Project”
+
+
 ![alt text](Imagen_1_16.png)
+
+**Ejercicio**
+
+- Crea tu proyecto de R enlazándolo a la carpeta del curso que descargaste desde Github.
+
+Tip: [Descarga la carpeta desde Github como un archivo Zip]()
+
+## Conceptos básicos: carpetas
+
+Podemos movernos entre carpetas y archivos por medio de comandos.
+
+```R
+# ¿Cuál es el directorio de trabajo en el que estas?
+
+getwd()
+
+# ¿Para que funciona setwd()?
+?setwd() #Este comando cumple la misma función que Session > Set working directory 
+# ¿Qué nos muestra el comando dir() ?
+dir() # muestra los archivos que están en la carpeta donde te encuentras
+
+```
+
+## Conceptos básicos: packages
+
+Un paquete en R es una unidad organizada de código, funciones, datos y documentación que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
+
 
 
 ### Fuentes de información:

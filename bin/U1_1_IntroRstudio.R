@@ -29,3 +29,18 @@
 # También puedes escribir números en notación científica:
 5e3  # nota la falta del signo menos aquí, ¿cuál fue el resultado?
 5e-3 # ¿Qué obuviste al agregar el signo - ?
+
+
+# Carpetas y directorios
+
+# ¿Cuál es el directorio de trabajo en el que estas?
+getwd() 
+
+# ¿Para que funciona setwd()?
+?setwd() 
+#Este comando cumple la misma función que Session > Set working directory 
+
+# ¿Qué nos muestra el comando dir() ?
+dir() 
+# muestra los archivos que están en la carpeta donde te encuentras
+
