@@ -261,6 +261,7 @@ Hay tres formas para instalar paquetes:
 3. Desde el Editor/Consola: con el comando `install.packages()`
 
 **Ejercicio**
+
 Instala el paquete de `ggplot2` desde cualquier de las tres opciones anteriores.
 
 Tip:
