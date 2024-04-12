@@ -214,9 +214,9 @@ A continuación veremos  dos formas para crear un proyecto en RStudio, la primer
 
 - Crea tu proyecto de R enlazándolo a la carpeta del curso que descargaste desde Github.
 
-Tip: [Descarga la carpeta desde Github como un archivo Zip]()
+Tip: [Descarga la carpeta desde Github como un archivo Zip](../../README.md)
 
-## Conceptos básicos: carpetas
+### Conceptos básicos: carpetas
 
 Podemos movernos entre carpetas y archivos por medio de comandos.
 
@@ -232,7 +232,7 @@ dir() # muestra los archivos que están en la carpeta donde te encuentras
 
 ```
 
-## Conceptos básicos: packages
+### Conceptos básicos: packages
 
 Un paquete en R es una unidad organizada de código, funciones, datos y documentación que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
 
