@@ -44,3 +44,8 @@ getwd()
 dir() 
 # muestra los archivos que están en la carpeta donde te encuentras
 
+
+
+# Línea para probar source()
+print("Haz entrado a la M A T R I X")
+print("ACEPTAS?")

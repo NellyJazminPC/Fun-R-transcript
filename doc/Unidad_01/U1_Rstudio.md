@@ -234,9 +234,105 @@ dir() # muestra los archivos que están en la carpeta donde te encuentras
 
 ### Conceptos básicos: packages
 
-Un paquete en R es una unidad organizada de código, funciones, datos y documentación que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
+En R, un paquete (package) se define como una **unidad organizada** de **código**, **funciones**, **datos** y **documentación** que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
+
+Aspectos claves que definen un paquete en R:
+
+- **Estructura organizada:** sigue una estructura de directorios organizada que incluye subdirectorios específicos para almacenar código fuente, datos, documentación y otros archivos relacionados con el paquete.
+
+- **Código y funciones:** contiene código fuente que define nuevas funciones y métodos para realizar tareas específicas de análisis de datos, modelado estadístico, visualización y más. Estas funciones están diseñadas para ser reutilizables y pueden ser llamadas por los usuarios en sus propios scripts y análisis.
+
+- **Datos y conjuntos de datos:** los paquetes pueden incluir conjuntos de datos de ejemplo, archivos de datos o bases de datos que son utilizados por las funciones del paquete para ejemplificar su uso o para realizar análisis demostrativos.
+
+- **Documentación:** incluyen documentación detallada que describe el propósito del paquete, cómo instalarlo, cómo usar sus funciones y métodos, ejemplos de uso y más. Se puede acceder a esta documentación a través de funciones de ayuda integradas en R.
+
+- **Compilación y distribución:** Los paquetes de R se distribuyen en archivos comprimidos con una extensión ".tar.gz" para sistemas operativos del tipo Unix y ".zip" para sistemas Windows. Estos archivos contienen todos los componentes del paquete, incluido el código fuente, la documentación y los datos, y se pueden instalar fácilmente en R utilizando la función `install.packages()`.
+
+![alt text](Imagen_1_17.png)
+
+Actualmente, el repositorio de paquetes CRAN (The Comprehensive R Archive Network) cuenta con 20,420 paquetes disponibles, ha sido un gran incremento desde el 2017 cuando tenía aproximadamente 10,000 paquetes.
+
+**¿Cómo se instalan los paquetes en RStudio?**
+
+Hay tres formas para instalar paquetes:
+
+1. Desde la barra de Menús de Rstudio: en _Tools_ > _Install packages..._
+2. Desde la venta de Directorio de Trabajo/Gráficos/Paquetes: como vimos previamente en la ventana de _Paquetes_ y dando click en _Instalar_. 
+3. Desde el Editor/Consola: con el comando `install.packages()`
+
+**Ejercicio**
+Instala el paquete de `ggplot2` desde cualquier de las tres opciones anteriores.
+
+Tip:
+
+```R
+#Desde el editor en RStudio puedes averiguar más acerca de la función install.packages
+?install.packages()
+
+#Después de revisar su sintaxis encontrarás que debemos poner el nombre del paquete que quieras instalar dentro de los paréntesis:
+
+install.packages(ggplot2)
+
+# Cuidado: si te aparece un error puede ser por la versión de R, en algunas versiones previas necesitas poner entre comillas el nombre del paquete: install.packages("ggplot2") 
+```
+
+### Conceptos básicos: salir
+
+Para salir de R desde la interfaz de Rstudio:
+
+- _File_ > _Quit Session_. Pueden guardar la sesión para que cuando vuelvan a abrir Rstudio se abra el editor y el script de inmediato.
+
+- Cerrar la venta de Rstudio
+
+Los archivos de R se guardan con la extensión **.r** o **.R**
 
 
+
+### Extra: source
+
+La función `source` básicamente lee y ejecuta el código contenido en un archivo (extensión **.R**) y lo incorpora al espacio de trabajo de RStudio como si hubiera sido escrito directamente en la consola o en el Editor.
+
+La sintaxis básica de la función "source" es la siguiente:
+
+```R
+source("ruta/del/archivo.R")
+```
+
+Donde "ruta/del/archivo.R" es la ubicación del archivo que contiene el código R que deseas ejecutar.
+
+La función "source" es útil en el análisis de datos por varias razones:
+
+1. **Reutilización de código:** Permite reutilizar fragmentos de código R almacenados en archivos externos en lugar de tener que volver a escribirlos manualmente en cada sesión. Esto facilita la gestión y mantenimiento del código, especialmente cuando se trabaja con análisis complejos que requieren múltiples pasos.
+
+2. **Organización del código:** Al dividir el código en archivos separados, puedes organizar y estructurar tu análisis de datos de manera más ordenada y modular. Esto facilita la comprensión y la colaboración con otros usuarios, ya que pueden revisar y ejecutar cada parte del análisis por separado.
+
+3. **Automatización de tareas:** Puedes usar la función "source" en scripts de R para automatizar tareas recurrentes. Esto te permite ahorrar tiempo y minimizar errores al evitar la necesidad de ejecutar manualmente cada paso del análisis.
+
+En resumen, la función "source" en R es una herramienta poderosa que permite cargar y ejecutar código R desde archivos externos, lo que facilita la reutilización, organización y automatización del análisis de datos.
+
+**Ejemplo:**
+Podemos enviar la totalidad de nuestro archivo a la línea de comando con **Source**.
+
+O seleccionando todas las líneas del **Editor** y presionar **Run** o presionar `Ctrl` + `Enter`
+
+```R
+#Desde tu sesión en RStudio, abre un nuevo archivo de R Script y desde tu Editor ejecuta la siguiente línea de código:
+
+source("U1_1_IntroRstudio.R")
+
+# ¿Qué paso?
+```
+
+### Fuentes de información:
+
+- [The Comprehensive R Archive Network](https://cran.r-project.org/)
+- [8. Introduction to R Packages by Ken Rice
+Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
+
+- [Contributed Packages. CRAN](https://cran.r-project.org/web/packages/
+)
+- [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/
+)
 
 ### Fuentes de información:
 
