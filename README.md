@@ -81,7 +81,6 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
   - **Unidad 9** *(Jueves 27 de Junio)*
     - Gráficos y visualización de resultados
-    - Material: Se propone realizarlo en fundación UNAM con apoyo de un cañón para proyectar los scripts.
 
   - **Unidad 10** *(Viernes 28 de Junio)*
     - Exposiciones de sus proyectos finales
