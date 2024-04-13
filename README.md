@@ -36,11 +36,10 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
   - **Unidad 1** *(Lunes 17 de Junio)*
-    - [Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_Intro_R.md)
-    - [Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_Rstudio.md)
-    - [Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_Rstudio.md#gestionar-proyectos)
-    - Lectura y guardado de datos
-    - Introducción a las variables y funciones
+    - [1.1 Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_1_Intro_R.md)
+    - [1.2 Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_2_Rstudio.md)
+    - [1.3 Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_3_Gestion_proyectos.md)
+    - [1.4 Introducción a las variables y funciones](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_4_Intro_var_funcion.md)
 
   - **Unidad 2** *(Martes 18 de Junio)*
       - Estructuras de datos: Vectores, matrices, arreglos, marcos de datos y listas
