@@ -1,5 +1,44 @@
 ###### Sesión de la Unidad 6 ######
 ## Lunes 24 de junio de 2024
+
+## Análisis de agrupamiento (Clustering)
+
+#### Ejemplo sencillo
+
+# Cargar el conjunto de datos iris
+data(iris)
+
+# Seleccionar solo las variables numéricas
+datos <- iris[, 1:4]
+
+# Realizar análisis de agrupamiento utilizando el algoritmo de k-means
+set.seed(123) # Fijar semilla para reproducibilidad
+clusters <- kmeans(datos, centers = 3)
+
+# Mostrar los resultados
+print(clusters)
+
+# Visualizar los grupos
+plot(datos, col = clusters$cluster, pch = 20, main = "Clustering de flores iris")
+
+
+## Empecemos con los métodos más usados para análisis de agrupamiento
+
+library(cluster)     ## Funciones para el análisis de agrupamiento
+library(factoextra)  ## Funciones para la visualización de los agrupamientos
+library(tidyr)       ## Manipulación de datos
+library(dplyr)       ## Manipulación de datos
+
+# k-Means Clustering
+
+k2 <- kmeans(USArrests, centers = 2, nstart = 25)
+
+fviz_cluster(k2, data = USArrests)
+
+# https://remiller1450.github.io/s230f19/clustering.html
+
+
+
 ## Análisis de Agrupamiento y de Componentes Principales (PCA)
 ## Nelly Jazmín Pacheco Cruz
 ## Fuentes de referencia: https://rstudio-pubs-static.s3.amazonaws.com/841127_fd111ed9c6a040e1a90e92686f90e3f8.html
