@@ -33,6 +33,8 @@ library(dplyr)       ## Manipulación de datos
 
 k2 <- kmeans(USArrests, centers = 2, nstart = 25)
 
+# Visualización del agrupamiento
+
 fviz_cluster(k2, data = USArrests)
 
 # https://remiller1450.github.io/s230f19/clustering.html
