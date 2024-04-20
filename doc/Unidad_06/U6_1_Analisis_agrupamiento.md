@@ -59,14 +59,48 @@ library(dplyr)       ## Manipulación de datos
 ```
 
 
-con esta función podemos agrupar los estados en los datos de USArrests en dos clusters. 
- 
- ```R
+
+Con esta función podemos agrupar los estados de los datos de USArrests en dos clusters. 
+
+```R
  k2 <- kmeans(USArrests, centers = 2, nstart = 25)
- ````
+ ```
 
  
- El argumento centers describe el número de conglomerados que queremos (es decir, k), mientras que nstart describe un punto de partida para el algoritmo. Podemos visualizar estos clusters usando fviz_cluster, que muestra los clusters utilizando un gráfico de dispersión donde las dos primeras puntuaciones de componentes principales definen las coordenadas X-Y de cada observación. Observa que fviz_cluster etiqueta cada punto. Por defecto, estas etiquetas están determinadas por los rownames del objeto de datos. Puede cambiarlas utilizando la función rownames. Además, puede especificar repel = TRUE para pedir a fviz_cluster que evite la superposición de etiquetas. En lugar de utilizar PC1 y PC2, podríamos optar por mostrar los conglomerados utilizando cualquiera de las dos variables originales.
+El argumento `centers` describe el número de grupos (clusters) que queremos (es decir, k), mientras que `nstart` describe un punto de partida para el algoritmo. 
+
+Podemos visualizar estos clusters usando `fviz_cluster`, que muestra los clusters utilizando un gráfico de dispersión donde las dos primeras puntuaciones de componentes principales definen las coordenadas X-Y de cada observación. 
+
+```R
+fviz_cluster(k2, data = USArrests)
+ ```
+
+Nota que la función `fviz_cluster` etiqueta cada punto. Esa etiqueta viene definida por default como el nombres de las filas (rownames) pero puedes cambiarlas con la función `rownames`. Además, si no quieres que las etiquetas de los nombres se sobrelapen en el gráfico puedes usar `repel = TRUE`.
+
+```R
+fviz_cluster(k2, data = USArrests, repel = TRUE)
+```
+
+Por otro lado, ya que las variables de la base de datos USArrests están en escalas diferentes, se recomienda la [estandarización de los datos](https://nicolasurrego.medium.com/transformando-datos-en-oro-c%C3%B3mo-la-estandarizaci%C3%B3n-y-normalizaci%C3%B3n-mejoran-tus-resultados-fbe0840d2b94#:~:text=Al%20estandarizar%20los%20datos%2C%20se,2022.) y esto lo puedes hacer con la función `scale` antes de la agrupación.
+
+```R
+# Estandarización
+Std_USArrests <- scale(USArrests)
+#Análisis de agrupamiento k-means
+ks <- kmeans(Std_USArrests, centers = 2)
+#Visualización del agrupamiento
+fviz_cluster(ks, data = Std_USArrests)
+```
+
+La estandarización ayuda a que cada variable tenga la misma importancia a la hora de determinar los grupos. En muchos casos, estandarizar los datos es lo más recomendado, pero hay algunas situaciones en las que es mejor agrupar en clusters datos no estandarizados, más adelante veremos un ejemplo. 
+
+Después del análisis de agrupamiento podemos revisar cada uno de los grupos generados mediante una breve descripción o un resumen de ellos, para esto podemos usar los centros de los clusters, que en este caso son los valores medios de cada miembro del cluster para cada variable.
+
+```R
+# Descripción o resumen de cada cluster
+ks$centers
+```
+
 
 ### Fuentes de información
 

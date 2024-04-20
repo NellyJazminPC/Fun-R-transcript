@@ -36,6 +36,21 @@ k2 <- kmeans(USArrests, centers = 2, nstart = 25)
 # Visualización del agrupamiento
 
 fviz_cluster(k2, data = USArrests)
+### Para que las etiquetas de los nombres no se sobrelapen
+fviz_cluster(k2, data = USArrests, repel = TRUE)
+
+# Estandarización
+Std_USArrests <- scale(USArrests)
+#Análisis de agrupamiento k-means
+ks <- kmeans(Std_USArrests, centers = 2)
+#Visualización del agrupamiento
+fviz_cluster(ks, data = Std_USArrests)
+
+
+
+
+
+
 
 # https://remiller1450.github.io/s230f19/clustering.html
 
