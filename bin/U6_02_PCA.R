@@ -46,11 +46,59 @@ ks <- kmeans(Std_USArrests, centers = 2)
 #Visualización del agrupamiento
 fviz_cluster(ks, data = Std_USArrests)
 
+# Descripción o resumen de cada cluster
+ks$centers
+
+ks$cluster
+
+#### El método Elbow (codo)
+
+fviz_nbclust(Std_USArrests, kmeans, method = "wss", k.max = 8)
+
+#### El método Silhouette
+
+fviz_nbclust(Std_USArrests, kmeans, method = "silhouette", k.max = 8)
+
+k2 <- kmeans(USArrests, centers = 2, nstart = 25)
+sil <- silhouette(k2$cluster, dist(USArrests), ordered = FALSE)
+row.names(sil) <- row.names(USArrests) # Needed to use label option
+fviz_silhouette(sil, label = TRUE)
+
+#### El método Gap
+
+fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 
 
+### PAM Clustering
+
+pam_std <- pam(Std_USArrests, k = 3)
+pam_std$medoids  ## Imprime los medoids
+fviz_cluster(pam_std) ## Grafica los clusters
+
+### Agrupación jerárquica (hierarchical clustering)
+
+d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance matrix
+ag <- agnes(d)  ## AGNES
+fviz_dend(ag, cex = 0.4, k = 4)
 
 
+di <- diana(d)  ## DIANA
+fviz_dend(di, cex = 0.4, k = 4)
 
+
+### Variables categóricas y distancia de Gower
+
+homes <- read.csv("https://remiller1450.github.io/data/IowaCityHomeSales.csv")
+homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
+
+#library(cluster)
+
+#homes2$style <- as.factor(homes2$style)
+#homes2$bsmt <- as.factor(homes2$bsmt)
+#homes2$ac <- as.factor(homes2$ac)
+
+D <- daisy(homes2, metric = "gower") ## Use daisy to calculate distance matrix
+fviz_dist(D, show_labels = FALSE)  ## We could view the distance matrix
 
 # https://remiller1450.github.io/s230f19/clustering.html
 
