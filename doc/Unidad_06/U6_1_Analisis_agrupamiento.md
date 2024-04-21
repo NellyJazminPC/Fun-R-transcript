@@ -177,7 +177,13 @@ Estas ventajas no vienen sin debilidades, la mayor de ellas es la eficiencia com
 
 ### Agrupación jerárquica (hierarchical clustering)
 
+Tanto _k-means_ como PAM son algoritmos de partición que requieren un número predeterminado de _clusters_. En cambio, el clustering jerárquico agrega (o divide) los datos en una representación en forma de árbol conocida como dendrograma, que puede cortarse para definir el número deseado de clusters.
+Existen dos categorías de enfoques para la agrupación jerárquica:
 
+1. Los métodos aglomerativos o "ascendentes", que comienzan con cada punto de datos como su propio conglomerado, y luego proceden a agregar conglomerados hasta agrupar todas las observaciones.
+2. Métodos divisivos o "de arriba abajo", que comienzan con todos los puntos de datos en un único conglomerado y, a continuación, proceden a dividir los conglomerados hasta que todas las observaciones constituyen su propio conglomerado.
+
+Existen muchas implementaciones y algoritmos diferentes que se engloban en estos dos esquemas generales. El ejemplo siguiente ilustra la anidación aglomerativa (AGNES), un algoritmo aglomerativo, y el análisis divisivo (DIANA), un algoritmo divisivo.
 
 ```R
 d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance matrix
