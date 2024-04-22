@@ -64,9 +64,9 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom 
 
   - **Unidad 6** *(Lunes 24 de Junio)*
-    - Análisis de agrupamiento
-    - Componentes principales
-    - Presentación de resultados en Rmarkdown 
+    - [Análisis de agrupamiento](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_1_Analisis_agrupamiento.md)
+    - [Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_2_Analisis_Componentes_Principales.md)
+    - [Generación de reportes en Rmarkdown]()
 
 - **ENFOQUE EN TRANSCRIPTÓMICA**
 
