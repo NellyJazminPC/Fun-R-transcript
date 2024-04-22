@@ -123,22 +123,97 @@ plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
 
 # Fuente: https://remiller1450.github.io/s230f19/clustering.html
 
+
+#########################################################################
+#########################################################################
+#########################################################################
+
 ## Análisis de Agrupamiento y de Componentes Principales (PCA)
 ## Nelly Jazmín Pacheco Cruz
 ## Fuentes de referencia: https://rstudio-pubs-static.s3.amazonaws.com/841127_fd111ed9c6a040e1a90e92686f90e3f8.html
 
-#el analisis de componentes principales tiene como objetivo extraer la información importante de una tabla de datos variables y para expresar esta información como un conjunto de algunas variables nuevas llamadas componentes principales. Estas nuevas variables corresponden a una combinación lineal de originales. El número de componentes principales es menor o igual al número de variables originales.
-
+# Cargar bibliotecas
 
 library(FactoMineR) #PCA
 library(factoextra)
 library(ggplot2)
 
+data(decathlon2)
+head(decathlon2)
+
+decathlon2.active <- decathlon2[1:23, 1:10]
+head(decathlon2.active[, 1:6], 4)
+
+# PCA con FactoMineR
+res.pca <- PCA(decathlon2.active, graph = FALSE)
+
+# Los valores propios y la proporción de varianza (es decir, la información) retenida por los componentes principales PC pueden extraerse utilizando la función get_eigenvalue()
+
+eig.val <- get_eigenvalue(res.pca)
+eig.val
+
+# Visualización con factoextra de los eigenvalues
+
+fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
+
+# Graficar las variables
+
+var <- get_pca_var(res.pca)
+var
+
+head(var$coord)
+
+# Cos2: calidad en el mapa de factores
+head(var$cos2)
+
+# Contribuciones a los componentes principales
+head(var$contrib)
+
+# Círculo de correlación
+head(var$coord, 4)
+fviz_pca_var(res.pca, col.var = "pink")
+
+# Colores para valores de cos2
+fviz_pca_var(res.pca, col.var = "cos2",
+             
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE )
+
+# Contribuciones de variables a PCs
+
+
+# Las variables mas importantes son subrayadas en correlacion con la siguiente funcion.
+fviz_pca_var(res.pca, col.var = "contrib",
+             
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
+
+
+# Gráfico de individuos
+ind <- get_pca_ind(res.pca)
+ind
+
+# Graficos: Calidad y contribucion
+fviz_pca_ind(res.pca)
+
+
+# Agregamos colores y puntos
+fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE )
+
+
+####################
+### Vamos a hacer un PCA con los datos del curso U3_2.csv
+
+# Primero hay que cargar los datos csv en R
 data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",")
 
+#Verifica que los datos esten bien
 data_expresion
-
+# Para ver las primeras filas
 head(data_expresion)
+
+# Realiza un PCA con el paquete FactoMineR
 
 expresion.pca <- PCA(data_expresion[,-5], graph=T)
 
@@ -186,12 +261,8 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
 
 fviz_pca_var(expresion.pca, axes.linetype = "blank")
 
-
-fviz_pca_biplot(expresion.pca, repel = TRUE,
-                
-                col.var = "#FF0000",
-                col.ind = "#696969" 
-)
+#Revisar:
+#fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#696969" )
 
 
 #hacer una biplot de individuos y variables
