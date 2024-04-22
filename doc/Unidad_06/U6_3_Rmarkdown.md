@@ -133,3 +133,9 @@ Markdown está diseñado para ser fácil de leer y fácil de escribir, siendo ta
 Genera un reporte Rmarkdown copiando algunas líneas de código que hemos visto en esta sesión y de preferencia aquellas que generan algún gráfico, agrega tus notas y guarda tu reporte en formato html.
 
 > Puedes cambiar de `Source`a `Visual` para ver como se vería tu reporte final y si quieres cambiar otras cosas.
+
+
+### Fuentes de información recomendadas:
+
+- [Quarto or R Markdown?](https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/)
+- [Notebook format](https://bookdown.org/yihui/rmarkdown/notebook.html)
