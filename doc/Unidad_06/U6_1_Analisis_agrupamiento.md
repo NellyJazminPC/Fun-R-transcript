@@ -75,11 +75,14 @@ Podemos visualizar estos clusters usando `fviz_cluster`, que muestra los cluster
 fviz_cluster(k2, data = USArrests)
  ```
 
+![alt text](image.png)
+
 Nota que la función `fviz_cluster` etiqueta cada punto. Esa etiqueta viene definida por default como el nombres de las filas (rownames) pero puedes cambiarlas con la función `rownames`. Además, si no quieres que las etiquetas de los nombres se sobrelapen en el gráfico puedes usar `repel = TRUE`.
 
 ```R
 fviz_cluster(k2, data = USArrests, repel = TRUE)
 ```
+![alt text](image-1.png)
 
 Por otro lado, ya que las variables de la base de datos USArrests están en escalas diferentes, se recomienda la [estandarización de los datos](https://nicolasurrego.medium.com/transformando-datos-en-oro-c%C3%B3mo-la-estandarizaci%C3%B3n-y-normalizaci%C3%B3n-mejoran-tus-resultados-fbe0840d2b94#:~:text=Al%20estandarizar%20los%20datos%2C%20se,2022.) y esto lo puedes hacer con la función `scale` antes de la agrupación.
 
@@ -91,6 +94,7 @@ ks <- kmeans(Std_USArrests, centers = 2)
 #Visualización del agrupamiento
 fviz_cluster(ks, data = Std_USArrests)
 ```
+![alt text](image-2.png)
 
 La estandarización ayuda a que cada variable tenga la misma importancia a la hora de determinar los grupos. En muchos casos, estandarizar los datos es lo más recomendado, pero hay algunas situaciones en las que es mejor agrupar en clusters datos no estandarizados, más adelante veremos un ejemplo. 
 
@@ -98,7 +102,9 @@ Después del análisis de agrupamiento podemos revisar cada uno de los grupos ge
 
 ```R
 # Descripción o resumen de cada cluster
-ks$centers
+ks$centers 
+#¿Notas diferencias entre el cluster 1 y el 2 (filas)?
+
 ```
 
 Después de ejecutar este código podrás ver que el primer _cluster_ contiene estados con bajos índices de delincuencia y menor urbanización, mientras que el segundo _cluster_ contiene estados con mayores índices de delincuencia y mayor urbanización.
@@ -126,6 +132,7 @@ Podemos visualizar esto con la función `fviz_nbclust`.
 ```R
 fviz_nbclust(Std_USArrests, kmeans, method = "wss", k.max = 8)
 ```
+![alt text](image-3.png)
 
 El método Elbow sugiere que el número óptimo de _clusters_ debe elegirse en función del "codo" de este gráfico, es decir, el punto en el que la línea parece curvarse formando un codo.
 
@@ -138,6 +145,7 @@ Este método mide cuantitativamente la adecuación de cada punto del set de dato
 ```R
 fviz_nbclust(Std_USArrests, kmeans, method = "silhouette", k.max = 8)
 ```
+![alt text](image-4.png)
 
 Para los datos de USArrest, este método sugiere que _K = 2_ es óptima.
 El método Silhouettes también se utiliza para comprender mejor la "pertenencia a un cluster" (cluster membership) de las observaciones individuales.
@@ -148,6 +156,7 @@ sil <- silhouette(k2$cluster, dist(USArrests), ordered = FALSE)
 row.names(sil) <- row.names(USArrests) # Needed to use label option
 fviz_silhouette(sil, label = TRUE)
 ```
+![alt text](image-5.png)
 
 En este ejemplo vemos que hay varios estados que no encajan muy bien en los grupos que se les han asignado, por lo que deberíamos tener precaución para evitar hacer demasiado hincapié en la pertenencia a grupos de estos estados a la hora de informar sobre las tendencias de los datos.
 
@@ -158,8 +167,9 @@ El estadístico de Gap compara el _wss_ que se consigue con una determinada elec
 ```R
 fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 ```
+![alt text](image-6.png)
 
-En los ejemplos que hemos visto con la base de USArrests cada método sugiere un número ligeramente diferente de _clusters_, esto es algo habitual, y el valor exacto suele depender de una decisión tomada por el analista. Se recomienda considerar el método de Elbow, Silhoutte, y Gap como herramientas para guiar su elección de k.
+En los ejemplos que hemos visto con la base de USArrests cada método podría sugerir un número ligeramente diferente de _clusters_, esto es algo habitual, y el valor exacto suele depender de una decisión tomada por el analista. Se recomienda considerar el método de Elbow, Silhoutte, y Gap como herramientas para guiar su elección de k.
 
 
 ### PAM Clustering
@@ -171,6 +181,7 @@ pam_std <- pam(Std_USArrests, k = 3)
 pam_std$medoids  ## Imprime los medoids
 fviz_cluster(pam_std) ## Grafica los clusters
 ```
+![alt text](image-7.png)
 
 PAM resuelve muchos de los inconvenientes de k-means. Es más robusto a los valores atípicos (outliers), sus centros de cluster son los mismos puntos del conjunto de datos, haciendo los resultados más interpretables, además  PAM puede usarse para clusterizar datos con variables categóricas.
 Estas ventajas no vienen sin debilidades, la mayor de ellas es la eficiencia computacional, PAM no se ejecuta bien con grandes conjuntos de datos. Además, PAM puede ser sensible a los medoides de partida, es decir, las configuraciones iniciales.
@@ -190,26 +201,78 @@ d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance 
 ag <- agnes(d)  ## AGNES
 fviz_dend(ag, cex = 0.4, k = 4)
 ```
-
+![alt text](image-8.png)
 
 ```R
 di <- diana(d)  ## DIANA
 fviz_dend(di, cex = 0.4, k = 4)
 ```
+![alt text](image-9.png)
+
+Este ejemplo puede utilizarse para resaltar algunos aspectos clave de la agrupación jerárquica:
+
+- El _eje y_ del dendrograma es una medida de proximidad entre puntos de datos/clusters, para nuestra aplicación se basa en la distancia euclidiana, la medida de distancia por defecto utilizada por [`get_dist`](https://www.rdocumentation.org/packages/asbio/versions/0.3-42/topics/get.dist).
+
+- En `fviz_dend`, el argumento _k_ = 4 se utiliza para cortar el dendrograma en un punto que produce 4 clusters.
+
+- Los algoritmos de agrupación jerárquica son de tipo [_greedy_](https://en.wikipedia.org/wiki/Greedy_algorithm), por lo que los métodos divisivos y aglomerativos casi siempre producen dendrogramas muy diferentes.
 
 
 ### Variables categóricas y distancia de Gower
 
+Hasta ahora hemos revisado solo conjuntos de datos con predictores numéricos, ya que los métodos de agrupación que hemos utilizado se basan en cálculos de distancia que no son aplicables a las categorías. 
+
+Para extender el clustering a conjuntos de datos que incluyen predictores categóricos, necesitamos un enfoque alternativo para calcular la distancia.
+
+
+La _distancia de Gower_ es una medida que permite calcular la distancia tanto para predictores numéricos como categóricos.
+
+
+Utilizando la distancia de Gower, podemos crear una matriz de distancias que nos permita aplicar métodos de agrupación como PAM, AGNES y DIANA. La función `daisy` se puede emplear para generar esta matriz de distancias de Gower.
 
 ```R
+# Ejemplo de https://remiller1450.github.io/s230f19/clustering.html
+
 homes <- read.csv("https://remiller1450.github.io/data/IowaCityHomeSales.csv")
 homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
 
-D <- daisy(homes2, metric = "gower") ## Use daisy to calculate distance matrix
-fviz_dist(D, show_labels = FALSE)  ## We could view the distance matrix
+D <- daisy(homes2, metric = "gower") ## Utiliza daisy para calcular la matriz de distancias
+fviz_dist(D, show_labels = FALSE)  ## Podríamos ver la matriz de distancias
 ```
 
+![alt text](image-10.png)
 
+```R
+pam_homes <- pam(D, k = 3)
+homes2[pam_homes$medoids, ]  ## Muestra los medoides
+```
+
+Para muchas aplicaciones nos gustaría comprobar si el uso de clusters es apropiado. 
+
+Lamentablemente, la función `fviz_nbclust` sólo acepta matrices de datos numéricos, pero podemos hacer unos ajustos manualmente. Además, el estadístico Gap no puede calcularse para datos no numéricos. Pero aún podemos utilizar la anchura media de la silueta (_average silhouette width_) y el método del codo (_Elbow_) con un poco de código adicional:
+
+```R
+### Anchura media de Silhouette
+avg_sil = numeric(9) ## Configurar el objeto para almacenar el ancho medio de la silueta para cada posible k
+for(k in 2:10){
+  pam_homes <- pam(D, k = k)
+  avg_sil[k-1] <- pam_homes$silinfo$avg.width
+}
+plot(x = 2:10, y = avg_sil, type = "b", xlab = "k", ylab = "Avg Silhouette")
+ ```
+![alt text](image-11.png)
+
+```R
+### Método Elbow 
+elbow = numeric(9)
+for(k in 2:10){
+  pam_homes <- pam(D, k = k)
+  elbow[k-1] <- pam_homes$objective[1]
+}
+plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
+```
+
+![alt text](image-12.png)
 
 ### Fuentes de información
 

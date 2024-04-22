@@ -48,7 +48,7 @@ fviz_cluster(ks, data = Std_USArrests)
 
 # Descripción o resumen de cada cluster
 ks$centers
-
+#¿Notas diferencias entre el cluster 1 y el 2 (filas)?
 ks$cluster
 
 #### El método Elbow (codo)
@@ -97,12 +97,31 @@ homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
 #homes2$bsmt <- as.factor(homes2$bsmt)
 #homes2$ac <- as.factor(homes2$ac)
 
-D <- daisy(homes2, metric = "gower") ## Use daisy to calculate distance matrix
-fviz_dist(D, show_labels = FALSE)  ## We could view the distance matrix
+D <- daisy(homes2, metric = "gower") ## Usa daisy para calcular la matriz de distancias
+fviz_dist(D, show_labels = FALSE)  ## Podemos ver la matriz de distancias
 
-# https://remiller1450.github.io/s230f19/clustering.html
+# Para observar los medoides
+pam_homes <- pam(D, k = 3)
+homes2[pam_homes$medoids, ]  ## Muestra los medoides
 
+# Comprobar si el número de cluster (k) es el óptimo
+### Anchura media de Silhouette
+avg_sil = numeric(9) ## Configurar el objeto para almacenar el ancho medio de la silueta para cada posible k
+for(k in 2:10){
+  pam_homes <- pam(D, k = k)
+  avg_sil[k-1] <- pam_homes$silinfo$avg.width
+}
+plot(x = 2:10, y = avg_sil, type = "b", xlab = "k", ylab = "Avg Silhouette")
 
+### Método Elbow 
+elbow = numeric(9)
+for(k in 2:10){
+  pam_homes <- pam(D, k = k)
+  elbow[k-1] <- pam_homes$objective[1]
+}
+plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
+
+# Fuente: https://remiller1450.github.io/s230f19/clustering.html
 
 ## Análisis de Agrupamiento y de Componentes Principales (PCA)
 ## Nelly Jazmín Pacheco Cruz
