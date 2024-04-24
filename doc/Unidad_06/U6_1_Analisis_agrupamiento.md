@@ -22,13 +22,18 @@ Vamos a usar el conjunto de datos "iris", que contiene mediciones de diferentes 
 ```R
 # Cargar el conjunto de datos iris
 data(iris)
+```
+Exploremos la base de datos `iris`. ¿Cuáles son las variables que midieron para generar esas base? ¿Qué hay en las filas?
+
+
+```R
 
 # Seleccionar solo las variables numéricas
 datos <- iris[, 1:4]
 
 # Realizar análisis de agrupamiento utilizando el algoritmo de k-means
 set.seed(123) # Fijar semilla para reproducibilidad
-clusters <- kmeans(datos, centers = 3)
+clusters <- kmeans(datos, centers = 3) # ¿Por qué usamos una k = 3 ?
 
 # Mostrar los resultados
 print(clusters)
@@ -38,17 +43,33 @@ plot(datos, col = clusters$cluster, pch = 20, main = "Clustering de flores iris"
 
 ```
 
+
+![alt text](image-19.png)
+
+El algoritmo K-means se basa en calcular distancias entre puntos de datos en un espacio multidimensional y agruparlos en función de su similitud. Utiliza una técnica iterativa para ajustar los centroides de los clusters y minimizar la suma de las distancias al cuadrado de los puntos de datos a los centroides asignados.
+
+La visualización de los resultados del K-means en gráficos comparando pares de variables es una herramienta útil para comprender la estructura de los datos y cómo se agrupan en el espacio de características, pero no es parte del proceso de agrupamiento en sí mismo.
+
+### Métodos más usados para los análisis de agrupamiento:
+
+---
+
 ### K-means
 
-En el ejemplo anterior, como habrás notado usamos la función `kmeans`, ¿qué es el método k-Means?
+En el ejemplo anterior, como habrás notado usamos la función `kmeans`, pero **¿qué es el método k-Means?**
 
 El k-Means Clustering es una técnica de agrupamiento que divide un conjunto de datos en k clusters, donde cada cluster contiene objetos similares entre sí y diferentes de los objetos en otros clusters.
 
+El objetivo del algoritmo K-means es minimizar la suma de las distancias al cuadrado de cada punto de datos al centroide de su grupo asignado. Esto significa que los puntos dentro de un mismo grupo son similares entre sí, mientras que los puntos en grupos diferentes son diferentes.
+
+El algoritmo de K-means es rápido y eficiente, pero su resultado final puede depender de la inicialización aleatoria de los centroides y puede converger a un mínimo local subóptimo. Por lo tanto, es común ejecutar el algoritmo varias veces con diferentes inicializaciones aleatorias y seleccionar la solución que minimice la función objetivo.
+
+> En el algoritmo de K-means, los **centroides** se definen como los puntos medios de los grupos formados por los datos asignados a cada cluster. Durante la inicialización, se eligen k centroides de manera aleatoria. Después de asignar cada punto al centroide más cercano, los centroides se actualizan como el promedio de todas las coordenadas de los puntos asignados al cluster correspondiente. Este proceso se repite hasta que los centroides ya no cambian significativamente o se alcanza un criterio de convergencia.
 
 ![alt text](k-means-clusters.gif)
 
 
-A continuación vamos a profundizar en este método en R
+A continuación vamos a profundizar en este método con R
 
 ```R
 #Cargamos las siguientes bibliotecas
@@ -58,16 +79,24 @@ library(tidyr)       ## Manipulación de datos
 library(dplyr)       ## Manipulación de datos
 ```
 
+Vamos a trabajar con la base de datos de arrestos en los EUA `USArrests`.
 
+```R
+#Describir la base de datos:
+head(USArrests)
+#¿Cómo podemos ver las dimensiones de la base de datos?
+dim(USArrests)
+#¿Cómo podemos ver el tipo de objeto que es USArrests?
+class(USArrests)
+```
 
-Con esta función podemos agrupar los estados de los datos de USArrests en dos clusters. 
+Con la función `kmeans` podemos agrupar los estados de los datos de USArrests en dos clusters.
 
 ```R
  k2 <- kmeans(USArrests, centers = 2, nstart = 25)
  ```
 
- 
-El argumento `centers` describe el número de grupos (clusters) que queremos (es decir, k), mientras que `nstart` describe un punto de partida para el algoritmo. 
+El argumento `centers` describe el número de grupos (clusters) que queremos (es decir, k), mientras que `nstart` describe un punto de partida para el algoritmo.
 
 Podemos visualizar estos clusters usando `fviz_cluster`, que muestra los clusters utilizando un gráfico de dispersión donde las dos primeras puntuaciones de componentes principales definen las coordenadas X-Y de cada observación. 
 
@@ -279,3 +308,5 @@ plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
 - [Introduction to Clustering](https://remiller1450.github.io/s230f19/clustering.html)
 
 - [K-means Clustering: Choosing Optimal K, Process, and Evaluation Methods](https://medium.com/@nirmalsankalana/k-means-clustering-choosing-optimal-k-process-and-evaluation-methods-2c69377a7ee4#:~:text=Elbow%20Method,like%20shape%20in%20the%20plot.)
+
+

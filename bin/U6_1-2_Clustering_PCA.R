@@ -1,7 +1,8 @@
 ###### Sesión de la Unidad 6 ######
 ## Lunes 24 de junio de 2024
-
+## Nelly Jazmín Pacheco Cruz
 ## Análisis de agrupamiento (Clustering)
+# Fuente: https://remiller1450.github.io/s230f19/clustering.html
 
 #### Ejemplo sencillo
 
@@ -13,7 +14,7 @@ datos <- iris[, 1:4]
 
 # Realizar análisis de agrupamiento utilizando el algoritmo de k-means
 set.seed(123) # Fijar semilla para reproducibilidad
-clusters <- kmeans(datos, centers = 3)
+clusters <- kmeans(datos, centers = 3) # ¿Por qué usamos una k = 3 ?
 
 # Mostrar los resultados
 print(clusters)
@@ -24,6 +25,7 @@ plot(datos, col = clusters$cluster, pch = 20, main = "Clustering de flores iris"
 
 ## Empecemos con los métodos más usados para análisis de agrupamiento
 
+
 library(cluster)     ## Funciones para el análisis de agrupamiento
 library(factoextra)  ## Funciones para la visualización de los agrupamientos
 library(tidyr)       ## Manipulación de datos
@@ -31,13 +33,39 @@ library(dplyr)       ## Manipulación de datos
 
 # k-Means Clustering
 
+
+#Utilizaremos al base de datos de arrestos en EUA
+#Describir la base de datos:
+head(USArrests)
+#dim(USArrests)
+class(USArrests)
+
+# Ejecutamos el análisis de k-means considerado k = 2 y que empezamos 
 k2 <- kmeans(USArrests, centers = 2, nstart = 25)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Visualización del agrupamiento
 
 fviz_cluster(k2, data = USArrests)
+
 ### Para que las etiquetas de los nombres no se sobrelapen
 fviz_cluster(k2, data = USArrests, repel = TRUE)
+
+# Intermedio para que prueben K = 3 y K = 4.
+
+
 
 # Estandarización
 Std_USArrests <- scale(USArrests)
@@ -51,9 +79,16 @@ ks$centers
 #¿Notas diferencias entre el cluster 1 y el 2 (filas)?
 ks$cluster
 
+##### Discusión de por qué escalar los datos (revisar los datos de la base original)
+##### Que se puede interpretar de ks$centers, que puede diferenciar el cluster 1 del cluster 2
+
+
+
 #### El método Elbow (codo)
 
 fviz_nbclust(Std_USArrests, kmeans, method = "wss", k.max = 8)
+head(USArrests)
+
 
 #### El método Silhouette
 
@@ -66,6 +101,7 @@ fviz_silhouette(sil, label = TRUE)
 
 #### El método Gap
 
+#### ¿Qué son las barras en los puntos?
 fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 
 
@@ -74,6 +110,10 @@ fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 pam_std <- pam(Std_USArrests, k = 3)
 pam_std$medoids  ## Imprime los medoids
 fviz_cluster(pam_std) ## Grafica los clusters
+
+################## Intermedio para que prueben k= 2 y k=4
+
+
 
 ### Agrupación jerárquica (hierarchical clustering)
 
@@ -85,6 +125,9 @@ fviz_dend(ag, cex = 0.4, k = 4)
 di <- diana(d)  ## DIANA
 fviz_dend(di, cex = 0.4, k = 4)
 
+#### Ejercicio fviz_dend(di, cex = 0.4, k = 2) K= 5, qué pasa?
+
+##### Curiosidad: ver si el UPGMA y el NJ pertenecen al anidado aglomerativo
 
 ### Variables categóricas y distancia de Gower
 
@@ -93,11 +136,12 @@ homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
 
 #library(cluster)
 
-#homes2$style <- as.factor(homes2$style)
-#homes2$bsmt <- as.factor(homes2$bsmt)
-#homes2$ac <- as.factor(homes2$ac)
+homes2$style <- as.factor(homes2$style)
+homes2$bsmt <- as.factor(homes2$bsmt)
+homes2$ac <- as.factor(homes2$ac)
 
 D <- daisy(homes2, metric = "gower") ## Usa daisy para calcular la matriz de distancias
+D
 fviz_dist(D, show_labels = FALSE)  ## Podemos ver la matriz de distancias
 
 # Para observar los medoides
@@ -121,7 +165,12 @@ for(k in 2:10){
 }
 plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
 
-# Fuente: https://remiller1450.github.io/s230f19/clustering.html
+
+
+### Ejercicio: con la base datos de Iris que revisamos al inicio de la sesión ejecuta el método del codo para elegir el K óptimo.
+
+### fviz_nbclust(datos, kmeans, method = "wss", k.max = 8)
+
 
 
 #########################################################################
