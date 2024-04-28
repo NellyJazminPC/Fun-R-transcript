@@ -93,10 +93,14 @@ class(USArrests)
 Con la función `kmeans` podemos agrupar los estados de los datos de USArrests en dos clusters.
 
 ```R
- k2 <- kmeans(USArrests, centers = 2, nstart = 25)
+ k2 <- kmeans(USArrests, centers = 2, nstart = 20)
  ```
 
-El argumento `centers` describe el número de grupos (clusters) que queremos (es decir, k), mientras que `nstart` describe un punto de partida para el algoritmo.
+El argumento `centers` describe el número de grupos (clusters) que queremos (es decir, k), mientras que `nstart` describe cuántos conjuntos aleatorios deben elegirse, en otras palabras especifica el número de veces que se debe ejecutar el algoritmo de K-means con diferentes centroides iniciales.
+
+El valor predeterminado de  `nstart` es 1, lo que significa que el algoritmo de K-means se ejecutará una vez. Sin embargo, es común establecer un valor más alto, como 10 o 20, para aumentar las posibilidades de encontrar una solución óptima.
+
+El resultado final de la función `kmeans` será el resultado del mejor de los `nstart` ajustes, es decir, el ajuste que produzca el valor más bajo de la suma de las distancias al cuadrado entre los puntos de datos y sus centroides asignados.
 
 Podemos visualizar estos clusters usando `fviz_cluster`, que muestra los clusters utilizando un gráfico de dispersión donde las dos primeras puntuaciones de componentes principales definen las coordenadas X-Y de cada observación. 
 
@@ -112,6 +116,14 @@ Nota que la función `fviz_cluster` etiqueta cada punto. Esa etiqueta viene defi
 fviz_cluster(k2, data = USArrests, repel = TRUE)
 ```
 ![alt text](image-1.png)
+
+¿Que observas en este gráfico? ¿Considerar que hay dos grupos en este conjunto de datos?
+
+**Ejercicio:** Cambia el valor de K a 3 y 4 y vuelve a ejecutar las lineas de código. ¿Cambio algo?
+
+---
+
+#### Estandarización
 
 Por otro lado, ya que las variables de la base de datos USArrests están en escalas diferentes, se recomienda la [estandarización de los datos](https://nicolasurrego.medium.com/transformando-datos-en-oro-c%C3%B3mo-la-estandarizaci%C3%B3n-y-normalizaci%C3%B3n-mejoran-tus-resultados-fbe0840d2b94#:~:text=Al%20estandarizar%20los%20datos%2C%20se,2022.) y esto lo puedes hacer con la función `scale` antes de la agrupación.
 
@@ -136,13 +148,16 @@ ks$centers
 
 ```
 
+- _centers_: contiene las coordenadas de los centroides finales de los clusters. Cada fila representa las coordenadas de un centroide en el espacio de características.
+- _cluster_: indica a qué cluster pertenece cada punto de datos. Cada número entero representa un cluster diferente.
+
 Después de ejecutar este código podrás ver que el primer _cluster_ contiene estados con bajos índices de delincuencia y menor urbanización, mientras que el segundo _cluster_ contiene estados con mayores índices de delincuencia y mayor urbanización.
 
 Para interpretar los centros de los _clusters_ es importante considerar si los datos fueron estandarizados antes del análisis de agrupación. Para el ejemplo que acabamos de hacer incluimos la estandarización de los datos, por lo que los centros están en unidades estandarizadas y hay que describirlas e interpretarlas considerando esto.
 
 ### ¿Cuántos grupos (clusters) hay que elegir?
 
-¿Pará necesitamos saber el número de grupos? Como vimos anteriormente con el análisis _k-means_ se requiere especificar el número de grupos posibles (_k_) para poder ejecutar el análisis, sin embargo, si recién estamos explorando nuestros datos resultará complicado elegir el número óptimo de grupos (_k_). 
+¿Para qué necesitamos saber el número de grupos? Como vimos anteriormente con el análisis _k-means_ se requiere especificar el número de grupos posibles (_k_) para poder ejecutar el análisis, sin embargo, si recién estamos explorando nuestros datos resultará complicado elegir el número óptimo de grupos (_k_). 
 
 De manera general, se recomienda de _k_ sea lo suficientemente grande como para generar _clusters_ relativamente homogéneos, pero lo suficientemente pequeño como para limitar la complejidad innecesaria. Para resolver esta complicación se han empleado varias técnicas:
 
@@ -198,12 +213,21 @@ fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 ```
 ![alt text](image-6.png)
 
-En los ejemplos que hemos visto con la base de USArrests cada método podría sugerir un número ligeramente diferente de _clusters_, esto es algo habitual, y el valor exacto suele depender de una decisión tomada por el analista. Se recomienda considerar el método de Elbow, Silhoutte, y Gap como herramientas para guiar su elección de k.
+- Número de clusters vs. Gap statistic: El eje x mostrará el número de clusters considerados, mientras que el eje y mostrará el valor de la gap statistic para cada número de clusters. La gap statistic es una medida que compara la dispersión dentro de los clusters con la dispersión esperada si los datos se distribuyeran aleatoriamente.
+- Barras de error: Para cada número de clusters, es probable que haya barras de error que indiquen la variabilidad de la gap statistic. Esto puede ayudar a determinar la estabilidad de la estimación del número óptimo de clusters.
+- Puntos de inflexión: En la gráfica, es común buscar puntos de inflexión donde la gap statistic alcanza un máximo o comienza a disminuir de manera significativa. Estos puntos pueden sugerir el número óptimo de clusters.
 
+---
+
+En los ejemplos que hemos visto con la base de USArrests, cada método podría sugerir un número ligeramente diferente de _clusters_, esto es algo habitual, y el valor exacto suele depender de una decisión tomada por el analista. Se recomienda considerar el método de Elbow, Silhoutte, y Gap como herramientas para guiar su elección de k.
+
+---
 
 ### PAM Clustering
 
-Partitioning Around Medoids (PAM) es un enfoque alternativo de agrupación que busca puntos de datos llamados medoides, que sirven como centros de cluster. Los demás puntos de datos se asignan al cluster definido por el medoide más cercano.
+Partición alrededor de medoides (_Partitioning Around Medoids_, PAM) es un enfoque alternativo de agrupación que busca puntos de datos llamados medoides, que sirven como centros de cluster. Los demás puntos de datos se asignan al cluster definido por el medoide más cercano.
+
+> un medoide es un punto de datos dentro de un cluster que se utiliza como su representante central.
 
 ```R
 pam_std <- pam(Std_USArrests, k = 3)
@@ -212,8 +236,14 @@ fviz_cluster(pam_std) ## Grafica los clusters
 ```
 ![alt text](image-7.png)
 
+
 PAM resuelve muchos de los inconvenientes de k-means. Es más robusto a los valores atípicos (outliers), sus centros de cluster son los mismos puntos del conjunto de datos, haciendo los resultados más interpretables, además  PAM puede usarse para clusterizar datos con variables categóricas.
+
 Estas ventajas no vienen sin debilidades, la mayor de ellas es la eficiencia computacional, PAM no se ejecuta bien con grandes conjuntos de datos. Además, PAM puede ser sensible a los medoides de partida, es decir, las configuraciones iniciales.
+
+**Ejercicio:** Prueba ahora con K igual a 2 y 4, ¿cambio algo?
+
+---
 
 ### Agrupación jerárquica (hierarchical clustering)
 

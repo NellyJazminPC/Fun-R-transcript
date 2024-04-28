@@ -41,20 +41,7 @@ head(USArrests)
 class(USArrests)
 
 # Ejecutamos el análisis de k-means considerado k = 2 y que empezamos 
-k2 <- kmeans(USArrests, centers = 2, nstart = 25)
-
-
-
-
-
-
-
-
-
-
-
-
-
+k2 <- kmeans(USArrests, centers = 2, nstart = 20)
 
 # Visualización del agrupamiento
 
@@ -65,12 +52,12 @@ fviz_cluster(k2, data = USArrests, repel = TRUE)
 
 # Intermedio para que prueben K = 3 y K = 4.
 
-
-
-# Estandarización
+### Estandarización
 Std_USArrests <- scale(USArrests)
+
 #Análisis de agrupamiento k-means
 ks <- kmeans(Std_USArrests, centers = 2)
+
 #Visualización del agrupamiento
 fviz_cluster(ks, data = Std_USArrests)
 
@@ -79,10 +66,7 @@ ks$centers
 #¿Notas diferencias entre el cluster 1 y el 2 (filas)?
 ks$cluster
 
-##### Discusión de por qué escalar los datos (revisar los datos de la base original)
-##### Que se puede interpretar de ks$centers, que puede diferenciar el cluster 1 del cluster 2
-
-
+## Elección de K 
 
 #### El método Elbow (codo)
 
@@ -107,11 +91,25 @@ fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 
 ### PAM Clustering
 
-pam_std <- pam(Std_USArrests, k = 3)
+pam_std <- pam(Std_USArrests, k = 4)
 pam_std$medoids  ## Imprime los medoids
 fviz_cluster(pam_std) ## Grafica los clusters
 
 ################## Intermedio para que prueben k= 2 y k=4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
