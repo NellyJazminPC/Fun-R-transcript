@@ -268,11 +268,15 @@ fviz_dend(di, cex = 0.4, k = 4)
 ```
 ![alt text](image-9.png)
 
+
+
 Este ejemplo puede utilizarse para resaltar algunos aspectos clave de la agrupación jerárquica:
 
-- El _eje y_ del dendrograma es una medida de proximidad entre puntos de datos/clusters, para nuestra aplicación se basa en la distancia euclidiana, la medida de distancia por defecto utilizada por [`get_dist`](https://www.rdocumentation.org/packages/asbio/versions/0.3-42/topics/get.dist).
+- El _eje y_ del dendrograma es una medida de proximidad entre puntos de datos/clusters, para nuestro ejemplo se basa en la distancia euclidiana, la medida de distancia por defecto utilizada por [`get_dist`](https://www.rdocumentation.org/packages/asbio/versions/0.3-42/topics/get.dist).
 
 - En `fviz_dend`, el argumento _k_ = 4 se utiliza para cortar el dendrograma en un punto que produce 4 clusters.
+
+**Ejercicio:** Prueba con k igual a 2 y a 5, ¿qué pasa?
 
 - Los algoritmos de agrupación jerárquica son de tipo [_greedy_](https://en.wikipedia.org/wiki/Greedy_algorithm), por lo que los métodos divisivos y aglomerativos casi siempre producen dendrogramas muy diferentes.
 

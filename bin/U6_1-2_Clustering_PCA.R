@@ -99,20 +99,6 @@ fviz_cluster(pam_std) ## Grafica los clusters
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Agrupación jerárquica (hierarchical clustering)
 
 d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance matrix
@@ -123,9 +109,7 @@ fviz_dend(ag, cex = 0.4, k = 4)
 di <- diana(d)  ## DIANA
 fviz_dend(di, cex = 0.4, k = 4)
 
-#### Ejercicio fviz_dend(di, cex = 0.4, k = 2) K= 5, qué pasa?
-
-##### Curiosidad: ver si el UPGMA y el NJ pertenecen al anidado aglomerativo
+#### Ejercicio k = 2 y k= 5, ¿qué pasa?
 
 ### Variables categóricas y distancia de Gower
 
