@@ -89,17 +89,17 @@ fviz_silhouette(sil, label = TRUE)
 fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 
 
-### PAM Clustering
+#### PAM Clustering
 
 pam_std <- pam(Std_USArrests, k = 4)
 pam_std$medoids  ## Imprime los medoids
 fviz_cluster(pam_std) ## Grafica los clusters
-
+class(pam_std)
 ################## Intermedio para que prueben k= 2 y k=4
 
 
 
-### Agrupación jerárquica (hierarchical clustering)
+#### Agrupación jerárquica (hierarchical clustering)
 
 d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance matrix
 ag <- agnes(d)  ## AGNES
@@ -109,28 +109,32 @@ fviz_dend(ag, cex = 0.4, k = 4)
 di <- diana(d)  ## DIANA
 fviz_dend(di, cex = 0.4, k = 4)
 
-#### Ejercicio k = 2 y k= 5, ¿qué pasa?
+################## Intermedio para que prueben k= 2 y k=5
 
-### Variables categóricas y distancia de Gower
-
+#### Variables categóricas y distancia de Gower
+#Descargar la base de datos IowaCityHomeSales
 homes <- read.csv("https://remiller1450.github.io/data/IowaCityHomeSales.csv")
+#Seleccionamos un conjunto de variables numéricas y con caracteres
 homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
 
-#library(cluster)
-
+### Paso extra para convertir las columnas con datos de caracteres a factores
 homes2$style <- as.factor(homes2$style)
 homes2$bsmt <- as.factor(homes2$bsmt)
 homes2$ac <- as.factor(homes2$ac)
-
-D <- daisy(homes2, metric = "gower") ## Usa daisy para calcular la matriz de distancias
+#
+## Usa daisy para calcular la matriz de distancias
+D <- daisy(homes2, metric = "gower") 
 D
-fviz_dist(D, show_labels = FALSE)  ## Podemos ver la matriz de distancias
+## Podemos ver la matriz de distancias
+fviz_dist(D, show_labels = FALSE)  
 
 # Para observar los medoides
 pam_homes <- pam(D, k = 3)
 homes2[pam_homes$medoids, ]  ## Muestra los medoides
 
+
 # Comprobar si el número de cluster (k) es el óptimo
+
 ### Anchura media de Silhouette
 avg_sil = numeric(9) ## Configurar el objeto para almacenar el ancho medio de la silueta para cada posible k
 for(k in 2:10){
@@ -151,9 +155,18 @@ plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
 
 ### Ejercicio: con la base datos de Iris que revisamos al inicio de la sesión ejecuta el método del codo para elegir el K óptimo.
 
-### fviz_nbclust(datos, kmeans, method = "wss", k.max = 8)
+fviz_nbclust(datos, kmeans, method = "wss", k.max = 8)
 
+# Prueba con otros métodos para determinar el número óptimo de K
 
+irisK <- kmeans(datos, centers = 2, nstart = 20)
+
+# Visualización del agrupamiento
+
+fviz_cluster(irisK, data = datos)
+
+# Para que las etiquetas no se sobrelapen
+fviz_cluster(irisK, data = datos, repel = TRUE)
 
 #########################################################################
 #########################################################################

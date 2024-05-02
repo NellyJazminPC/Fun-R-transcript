@@ -295,8 +295,10 @@ Utilizando la distancia de Gower, podemos crear una matriz de distancias que nos
 
 ```R
 # Ejemplo de https://remiller1450.github.io/s230f19/clustering.html
-
+# Descargar la base de datos IowaCityHomeSales
 homes <- read.csv("https://remiller1450.github.io/data/IowaCityHomeSales.csv")
+
+# Seleccionamos un conjunto de variables numéricas y con caracteres
 homes2 <- select(homes, style, built, bedrooms, bsmt, ac, area.living, area.lot)
 
 D <- daisy(homes2, metric = "gower") ## Utiliza daisy para calcular la matriz de distancias
@@ -305,10 +307,18 @@ fviz_dist(D, show_labels = FALSE)  ## Podríamos ver la matriz de distancias
 
 ![alt text](image-10.png)
 
+La distancia entre variables categóricas según el método Gower se calcula determinando si las categorías coinciden o no entre dos objetos. Se asigna un valor de 0 si las categorías son iguales y 1 si son diferentes. Luego, se calcula la fracción de categorías diferentes entre los dos objetos. Este enfoque permite comparar variables categóricas sin asumir un orden entre las categorías
+
+La función de visualización puede ser útil para comprender la estructura de similitud o distancia entre las observaciones en un conjunto de datos, lo que puede proporcionar información sobre la agrupación natural o la distribución de los datos.
+
 ```R
 pam_homes <- pam(D, k = 3)
 homes2[pam_homes$medoids, ]  ## Muestra los medoides
 ```
+
+La función `pam` toma como entrada una matriz de distancias y agrupa las observaciones en clusters utilizando el algoritmo _PAM_. Puedes especificar el número deseado de clusters (_k_) como argumento de la función.
+
+---
 
 Para muchas aplicaciones nos gustaría comprobar si el uso de clusters es apropiado. 
 
@@ -337,10 +347,33 @@ plot(x = 2:10, y = elbow, type = "b", xlab = "k", ylab = "Objective")
 
 ![alt text](image-12.png)
 
+**Ejercicio:**
+
+```R
+### Ejercicio: con la base datos de Iris que revisamos al inicio de la sesión ejecuta el método del codo para elegir el K óptimo.
+
+fviz_nbclust(datos, kmeans, method = "wss", k.max = 8)
+
+# Prueba con otros métodos para determinar el número óptimo de K
+
+irisK <- kmeans(datos, centers = 2, nstart = 20)
+
+# Visualización del agrupamiento
+
+fviz_cluster(irisK, data = datos)
+
+# Para que las etiquetas no se sobrelapen
+fviz_cluster(irisK, data = datos, repel = TRUE)
+```
+
+
+
+
 ### Fuentes de información
 
 - [Introduction to Clustering](https://remiller1450.github.io/s230f19/clustering.html)
 
 - [K-means Clustering: Choosing Optimal K, Process, and Evaluation Methods](https://medium.com/@nirmalsankalana/k-means-clustering-choosing-optimal-k-process-and-evaluation-methods-2c69377a7ee4#:~:text=Elbow%20Method,like%20shape%20in%20the%20plot.)
 
-
+- [Gower, J.C. (1971). "A General Coefficient of Similarity and Some of its Properties". Biometrics, 27(4), 857–871.](https://www.jstor.org/stable/2528823?casa_token=_lIKNqCrt8sAAAAA%3APC-WkPkGbM8dJ0hjnVnk6EXz8-Tk8vmx6y_uuQ8IwOOgjAyxWDFZcJqQMIoP9-2RDggBIw09SNvL3xYS2FjES8dV94p0os79nAiPD5EQFWDVa2ECX8_jTQ&seq=5)
+- [Hastie, T., Tibshirani, R., & Friedman, J. (2009). "The Elements of Statistical Learning: Data Mining, Inference, and Prediction". Springer.](https://link.springer.com/book/10.1007/978-0-387-21606-5)
