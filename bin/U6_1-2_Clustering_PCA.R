@@ -175,6 +175,7 @@ fviz_cluster(irisK, data = datos, repel = TRUE)
 ## Análisis de Agrupamiento y de Componentes Principales (PCA)
 ## Nelly Jazmín Pacheco Cruz
 ## Fuentes de referencia: https://rstudio-pubs-static.s3.amazonaws.com/841127_fd111ed9c6a040e1a90e92686f90e3f8.html
+## https://bookdown.org/jsalinas/tecnicas_multivariadas/af.html
 
 # Cargar bibliotecas
 
