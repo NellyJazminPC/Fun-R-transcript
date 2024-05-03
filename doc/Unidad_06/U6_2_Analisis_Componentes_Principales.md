@@ -252,7 +252,56 @@ ggpubr::color_palette("npg")
 
 ¿Qué observaste en estos análisis?
 
+
+### Extra: otros métodos inspirados o relacionados con los PCA 
+
+#### FA (Factorial Analysis)
+
+El Análisis Factorial (AF) es una técnica estadística utilizada para identificar patrones subyacentes en un conjunto de variables observadas y para modelar las relaciones entre estas variables y un conjunto más pequeño de factores latentes no observados. 
+
+Aunque el AF y el PCA son técnicas relacionadas que comparten algunos conceptos y objetivos, difieren en su enfoque y aplicación específicos. Por ejemplo, ambos buscan reducir la dimensionalidad de los datos; sin embargo, el PCA se centra en la variabilidad de las variables observadas, mientras que el AF se centra en modelar las relaciones entre las variables observadas y los factores latentes
+
+El AF es comúnmente utilizado en psicometría y ciencias sociales para investigar la estructura interna de constructos teóricos como la personalidad, la inteligencia, la actitud, entre otros. También se utiliza en otras disciplinas, como la biología, la economía y la salud, para explorar y modelar relaciones entre variables observadas.
+
+Para mayor información puedes revisar este [tutorial](https://bookdown.org/jsalinas/tecnicas_multivariadas/af.html) que muestra paso a paso como realizar un Análisis Factorial en R.
+
+
+#### DAPC (Discriminant Analysis of Principal Components)
+
+El Análisis Discriminante de Componentes Principales (DAPC) es una técnica estadística utilizada para analizar datos de genética de poblaciones y ecología, entre otras disciplinas. Es una extensión del Análisis de Componentes Principales (PCA) que incorpora el análisis discriminante para mejorar la capacidad de discriminación entre grupos o poblaciones en los datos. 
+
+Para más información puedes revisar el manual del [paquete `adegenet` en R](https://adegenet.r-forge.r-project.org/files/tutorial-dapc.pdf) que tiene la función para realizar el DAPC.
+
+#### MCA (Multiple Correspondence Analysis)
+
+El Análisis de Múltiples Correspondencias (MCA) es una técnica similar al PCA, pero diseñada específicamente para el análisis de datos categóricos o nominales, a diferencia del PCA que se utiliza principalmente para datos cuantitativos continuos.
+
+Este método utiliza una matriz de frecuencias de ocurrencia de categorías para calcular los componentes principales y reducir la dimensionalidad de los datos.
+
+Para mayor información puedes consultar el siguiente [tutoral de MCA en R](https://rpubs.com/gaston/MCA), que muestra los pasos para ejecutar este análisis con el paquete FactoMineR que ya hemos explorado en esta sesión y con otros cuatro paquetes.
+
+> Importante: no hay que confundir el MCA con el CA (Análisis de Correspondencias), la principal diferencia entre ambos esta en la cantidad de variables categóricas que se analizan simultáneamente.
+
+#### CA (Correspondence Analysis)
+
+El Análisis de Correspondencias (CA), es una técnica útil para analizar la asociación entre variables categóricas y para visualizar la estructura de asociación en un espacio de dimensiones reducidas. Es similar al Análisis de Componentes Principales (PCA), pero está diseñado específicamente para datos categóricos o nominales.
+
+Es ampliamente utilizado en campos como la sociología, la investigación de mercado, la biología, la ecología y muchas otras disciplinas donde las variables categóricas son comunes.
+
+Para mayor información puedes revisar el siguiente tutorial de [Análisis de Correspondencia Simple en R](https://bookdown.org/jsalinas/tecnicas_multivariadas/intro.html).
+
+#### rPCs (regional Principal Components)
+
+Otros método que se inspira en los Componentes Principales (PCA) es el método de Componentes Principales Regionales (rPC), que también reducen la dimensionalidad de los datos conservando la mayor cantidad posible de información, y es utilizada en conjuntos de datos multivariados y espaciales.
+
+En análisis espacial, los datos suelen tener una estructura geográfica, lo que significa que las observaciones están relacionadas debido a su proximidad geográfica. Los métodos tradicionales de PCA no consideran esta estructura, lo que puede resultar en la pérdida de información.
+
+Los rPC abordan este problema al considerar la estructura espacial. Utilizan una matriz de ponderación espacial para reflejar la proximidad entre las observaciones en el cálculo de los componentes principales. Esto permite capturar mejor la variabilidad espacial y proporcionar una representación más precisa de la estructura de los datos.
+
+Para mayor información puedes revisar el pre-print de [Galván y colaboradores (2024)](https://www.biorxiv.org/content/10.1101/2024.05.01.590171v1), y en la descripción de su [paquete en R](https://www.bioconductor.org/packages/release/bioc/html/regionalpcs.html) que se encuentra en desarrollo.
+
 ### Fuentes de información
 
 - [Types of Ordination Methods](https://uw.pressbooks.pub/appliedmultivariatestatistics/chapter/types-of-ordination-methods/)
 - [Principal Component Analysis in R: prcomp vs princomp](http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/118-principal-component-analysis-in-r-prcomp-vs-princomp/#google_vignette)
+- Artículo de rPCs. [Galván, S. C., Martínez-Salazar, M., Galván, V. M., Méndez, R., Díaz-Contreras, G. T., Alvarado-Hermida, M., ... & García-Carrancá, A. (2011). Analysis of CpG methylation sites and CGI among human papillomavirus DNA genomes. BMC genomics, 12, 1-11.](https://www.biorxiv.org/content/10.1101/2024.05.01.590171v1.full.pdf)
