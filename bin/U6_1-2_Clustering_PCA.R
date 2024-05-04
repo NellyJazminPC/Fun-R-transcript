@@ -175,7 +175,58 @@ fviz_cluster(irisK, data = datos, repel = TRUE)
 ## Análisis de Agrupamiento y de Componentes Principales (PCA)
 ## Nelly Jazmín Pacheco Cruz
 ## Fuentes de referencia: https://rstudio-pubs-static.s3.amazonaws.com/841127_fd111ed9c6a040e1a90e92686f90e3f8.html
-## https://bookdown.org/jsalinas/tecnicas_multivariadas/af.html
+## https://bookdown.org/jsalinas/tecnicas_multivariadas/acp.html
+
+
+# Empecemos un ejemplo sencillo de un PCA con la base de datos de iris
+
+# Cargar bibliotecas
+library(ggplot2)
+library(dplyr)
+
+# Cargar el conjunto de datos iris
+data(iris)
+
+# Seleccionar solo las variables numéricas
+datos <- iris[, 1:4]
+
+# Realizar el PCA con la función prcomp del paquete Stats
+
+pca_resultado <- prcomp(datos, scale. = TRUE)
+
+# Obtener las coordenadas de los componentes principales
+coordenadas_pca <- as.data.frame(pca_resultado$x)
+
+# Añadir la especie como variable para el color
+coordenadas_pca$especie <- iris$Species
+
+# Crear un gráfico de dispersión de los componentes principales
+ggplot(coordenadas_pca, aes(x = PC1, y = PC2, color = especie)) +
+  geom_point() +
+  labs(x = "PC1", y = "PC2", title = "PCA de conjunto de datos iris")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Exploración de un PCA con 
 
 # Cargar bibliotecas
 

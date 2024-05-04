@@ -14,10 +14,86 @@ El Análisis de Componentes Principales (PCA, por sus siglas en inglés) es una 
 
 En términos simples, PCA encuentra una nueva representación de los datos donde la mayor parte de la variabilidad se explica por un pequeño número de componentes principales. Estos componentes son combinaciones lineales de las variables originales y son ortogonales entre sí.
 
-Un ejemplo de PCA sería considerar un conjunto de datos con múltiples características, como la altura, el peso, la edad y la presión arterial de diferentes individuos. PCA podría ayudarnos a identificar patrones y relaciones entre estas variables, y reducir la dimensionalidad de los datos para resumir la información en un conjunto más pequeño de componentes principales que capturan la mayor parte de la variabilidad en los datos. Esto facilitaría la visualización y comprensión de la estructura subyacente de los datos.
+Un ejemplo de PCA sería considerar un conjunto de datos con múltiples características, como la altura, el peso, la edad y la presión arterial de diferentes individuos. El PCA podría ayudarnos a identificar patrones y relaciones entre estas variables, y reducir la dimensionalidad de los datos para resumir la información en un conjunto más pequeño de componentes principales que capturan la mayor parte de la variabilidad en los datos. Esto facilitaría la visualización y comprensión de la estructura subyacente de los datos.
+
+![alt text](image-20.png)
 
 
-En R se dispone de varias funciones de diferentes paquetes para calcular un PCA
+
+Para mayor información, te recomiendo el video de [StatQuest: Análisis de componentes principales (PCA), paso a paso](https://www.youtube.com/watch?v=FgakZw6K1QQ).
+
+
+En R se dispone de varias funciones de diferentes paquetes para calcular un PCA. Vamos a empezar con la función `prcomp`, la cuál es una _función base de R_ que se encuentra en el paquete `stats`. Este paquete ya viene preinstalado con R, por lo que no requiere la instalación de paquetes adicionales.
+
+
+```R
+# Empecemos un ejemplo sencillo de un PCA con la base de datos de iris
+
+# Cargar bibliotecas
+library(ggplot2)
+library(dplyr)
+
+# Cargar el conjunto de datos iris
+data(iris)
+
+# Seleccionar solo las variables numéricas
+datos <- iris[, 1:4]
+
+# Realizar el PCA con la función prcomp del paquete Stats
+
+pca_resultado <- prcomp(datos, scale. = TRUE)
+
+# Obtener las coordenadas de los componentes principales
+coordenadas_pca <- as.data.frame(pca_resultado$x)
+
+# Añadir la especie como variable para el color
+coordenadas_pca$especie <- iris$Species
+
+# Crear un gráfico de dispersión de los componentes principales
+ggplot(coordenadas_pca, aes(x = PC1, y = PC2, color = especie)) +
+  geom_point() +
+  labs(x = "PC1", y = "PC2", title = "PCA de conjunto de datos iris")
+
+```
+
+¿Qué puedes interpretar del gráfico que se generó a partir del análisis de componentes principales
+
+![alt text](image-21.png)
+
+- Cada punto en el gráfico representa una observación en el conjunto de datos iris.
+- Los ejes X e Y representan las dos primeras componentes principales (PC1 y PC2) obtenidas del PCA.
+- Los puntos están coloreados según la especie de flor iris a la que pertenecen.
+- El gráfico muestra cómo las observaciones se distribuyen en el espacio definido por las dos primeras componentes principales, lo que puede ayudar a visualizar la separación o agrupación de las observaciones según la especie de flor iris.
+
+
+
+
+
+FactoMineR::PCA() es parte del paquete FactoMineR, que se enfoca en técnicas de análisis multivariado y minería de datos. Este paquete debe ser instalado previamente desde CRAN o desde una fuente externa.
+
+Diferencias entre los paquetes:
+
+- Funcionalidad adicional:
+
+FactoMineR::PCA() proporciona una gama más amplia de herramientas para análisis exploratorio de datos, incluyendo gráficos de resultados, pruebas de significancia, análisis de contribuciones de variables, entre otros.
+stats::prcomp() se centra principalmente en calcular las componentes principales y no incluye funcionalidades adicionales para el análisis exploratorio.
+
+- Salida de resultados:
+
+La salida de stats::prcomp() es un objeto de clase "prcomp", que contiene los valores propios, los vectores propios (componentes principales) y otros resultados del PCA.
+La salida de FactoMineR::PCA() es un objeto de clase "PCA" que también incluye información adicional como valores propios, coordenadas de variables y contribuciones de variables.
+
+En resumen, stats::prcomp() es una función básica de R que proporciona los cálculos básicos de PCA, mientras que FactoMineR::PCA() es más completa y ofrece una gama más amplia de herramientas para análisis exploratorio de datos multivariados. La elección entre una u otra depende de las necesidades específicas de análisis y visualización de los datos.
+
+
+
+
+
+
+
+
+
+
 
 ```R
 library(FactoMineR) 
