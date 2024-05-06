@@ -22,6 +22,7 @@ Un ejemplo de PCA sería considerar un conjunto de datos con múltiples caracter
 
 Para mayor información, te recomiendo el video de [StatQuest: Análisis de componentes principales (PCA), paso a paso](https://www.youtube.com/watch?v=FgakZw6K1QQ).
 
+---
 
 En R se dispone de varias funciones de diferentes paquetes para calcular un PCA. Vamos a empezar con la función `prcomp`, la cuál es una _función base de R_ que se encuentra en el paquete `stats`. Este paquete ya viene preinstalado con R, por lo que no requiere la instalación de paquetes adicionales.
 
@@ -65,69 +66,75 @@ ggplot(coordenadas_pca, aes(x = PC1, y = PC2, color = especie)) +
 - Los puntos están coloreados según la especie de flor iris a la que pertenecen.
 - El gráfico muestra cómo las observaciones se distribuyen en el espacio definido por las dos primeras componentes principales, lo que puede ayudar a visualizar la separación o agrupación de las observaciones según la especie de flor iris.
 
+---
 
+Vamos a continuar con el paquete `FactoMineR` y la función `PCA`. Este paquete se enfoca en técnicas de análisis multivariado y minería de datos, a diferencia del paquete anterior, `stats`. Para utilizar `FactoMineR`, debe ser instalado previamente desde CRAN.
 
-
-
-FactoMineR::PCA() es parte del paquete FactoMineR, que se enfoca en técnicas de análisis multivariado y minería de datos. Este paquete debe ser instalado previamente desde CRAN o desde una fuente externa.
-
-Diferencias entre los paquetes:
+Algunas de las principales diferencias entre los dos paquetes:
 
 - Funcionalidad adicional:
 
-FactoMineR::PCA() proporciona una gama más amplia de herramientas para análisis exploratorio de datos, incluyendo gráficos de resultados, pruebas de significancia, análisis de contribuciones de variables, entre otros.
-stats::prcomp() se centra principalmente en calcular las componentes principales y no incluye funcionalidades adicionales para el análisis exploratorio.
+  - `FactoMineR::PCA()` proporciona una gama más amplia de herramientas para análisis exploratorio de datos, incluyendo gráficos de resultados, pruebas de significancia, análisis de contribuciones de variables, entre otros.
+  - `stats::prcomp()` se centra principalmente en calcular las componentes principales y no incluye funcionalidades adicionales para el análisis exploratorio.
 
 - Salida de resultados:
 
-La salida de stats::prcomp() es un objeto de clase "prcomp", que contiene los valores propios, los vectores propios (componentes principales) y otros resultados del PCA.
-La salida de FactoMineR::PCA() es un objeto de clase "PCA" que también incluye información adicional como valores propios, coordenadas de variables y contribuciones de variables.
+  - La salida de `stats::prcomp()` es un objeto de clase "prcomp", que contiene los valores propios, los vectores propios (componentes principales) y otros resultados del PCA.
+  - La salida de `FactoMineR::PCA()` es un objeto de clase "PCA" que también incluye información adicional como valores propios, coordenadas de variables y contribuciones de variables.
 
-En resumen, stats::prcomp() es una función básica de R que proporciona los cálculos básicos de PCA, mientras que FactoMineR::PCA() es más completa y ofrece una gama más amplia de herramientas para análisis exploratorio de datos multivariados. La elección entre una u otra depende de las necesidades específicas de análisis y visualización de los datos.
+En resumen, `stats::prcomp()` es una función básica de R que proporciona los cálculos básicos de PCA, mientras que `FactoMineR::PCA()` es más completa y ofrece una gama más amplia de herramientas para análisis exploratorio de datos multivariados. La elección entre una u otra depende de las necesidades específicas de análisis y visualización de los datos.
 
+---
 
-
-
-
-
-
-
-
-
+Continuemos con un ejercicio. Vamos a utilizar los conjuntos de datos de demostración `decathlon2` del paquete `factoextra`. Los datos utilizados aquí describen el rendimiento de los atletas durante dos eventos deportivos (Desctar y OlympicG). Contiene **27 individuos** (atletas) descritos por **13 variables**.
 
 ```R
-library(FactoMineR) 
-library(factoextra)
+#Carga las bibliotecas:
+library(FactoMineR) # Análisis de PCA
+library(factoextra) # Base de datos
 library(ggplot2) # Para graficar resultados
-```
-
-Para el ejemplo, vamos a utilizar los conjuntos de datos de demostración `decathlon2` del paquete `factoextra`. Los datos utilizados aquí describen el rendimiento de los atletas durante dos eventos deportivos (Desctar y OlympicG). Contiene **27 individuos** (atletas) descritos por **13 variables**.
-
-```R
+# Carga la base de datos decathlon2
 data(decathlon2)
+#Explora la base de datos; recuerda otras funciones además de head()?
 head(decathlon2)
 ```
-Comenzamos por obtener un subconjunto de los individuos activos y las variables activas para el análisis de componentes principales.
+
+Comenzamos por obtener un subconjunto de individuos y variables para el análisis de componentes principales.
 
 ```R
+#Subconjunto que consiste en las primeras 23 filas y las primeras 10 columnas del conjunto de datos decathlon2
 decathlon2.active <- decathlon2[1:23, 1:10]
+#Para ver las primeras 4 filas y las primeras 6 columnas 
 head(decathlon2.active[, 1:6], 4)
 ```
 
-Se puede utilizar la función PCA() [paquete FactoMineR]
+Vamos a utilizar la función `PCA()`.
 
 ```R
 # PCA con FactoMineR
 res.pca <- PCA(decathlon2.active, graph = FALSE)
+#¿Qué pasa si cambias el parámetro graph de False a True?
+
 ```
-Los valores propios (_eigenvalores_) miden la cantidad de variación de cada componente principal. Los valores propios son grandes para los primeros componentes principales (PC) y pequeños para los siguientes PC. 
+
+![alt text](image-22.png)
+
+> En esta gráfica se muestra la representación de las variables en el espacio definido por los componentes principales obtenidos mediante el PCA. 
+Cada variable del conjunto de datos se representa como un vector, su dirección y longitud representan la contribución de la variable y su importancia relativa en la estructura de los datos.
+
+> Este tipo de gráfico es útil para visualizar cómo las variables están relacionadas entre sí y cómo contribuyen a la variabilidad observada en el conjunto de datos. 
+También puede ayudar a identificar patrones y estructuras en los datos, así como a identificar posibles correlaciones o agrupaciones entre las variables.
+
+
 
 Vamos a examinar los valores propios para determinar el número de componentes principales que hay que considerar. Los valores propios y la proporción de varianza (es decir, la información) retenida por los componentes principales PC pueden extraerse utilizando la función `get_eigenvalue()`
+Los valores propios (_eigenvalores_) miden la cantidad de variación de cada componente principal. Los valores propios son grandes para los primeros componentes principales (PC) y pequeños para los siguientes PC. 
 
 ```R
 eig.val <- get_eigenvalue(res.pca)
 eig.val
 ```
+
 La suma de todos los valores propios da una varianza total de 10. La proporción de la variación explicada por cada valor propio se indica en la segunda columna. Por ejemplo, 4.124 dividido por 10 es igual a 0.4124, es decir, alrededor del 41.24% de la variación se explica por este primer valor propio.
 
 En nuestro análisis, los tres primeros componentes principales explican el 72% de la variación. Este es un porcentaje aceptablemente grande. Un método alternativo para determinar el número de componentes principales es observar un Scree Plot usando `fviz_eig()`, que es el gráfico de los valores propios ordenados de mayor a menor.
@@ -234,6 +241,14 @@ fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
 ![alt text](image-18.png)
 Puedes notar que los individuos que son similares son agrupados juntos
 
+
+
+
+
+
+
+
+
 A continuación vamos a hacer un PCA con los datos de la sesión 3 (U3_2.csv), recuerda que los datos se encuentran en la carpeta _data_.
 
 ```R
@@ -261,8 +276,10 @@ fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "tex
              addEllipses = TRUE, # Concentration ellipses
              legend.title = "Groups")
 head(data_expresion)
+```
+![alt text](image-24.png)
 
-
+```R
 # Añadir elipses de confianza
 fviz_pca_ind(expresion.pca, geom.ind = "point", 
              col.ind = data_expresion$Etapas,

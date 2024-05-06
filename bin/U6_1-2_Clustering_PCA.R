@@ -207,41 +207,44 @@ ggplot(coordenadas_pca, aes(x = PC1, y = PC2, color = especie)) +
 
 
 
+#### Exploración de un PCA con FactoMineR
+# Vamos a utilizar los conjuntos de datos de demostración `decathlon2` del paquete `factoextra`. 
 
+#Carga las bibliotecas:
+library(FactoMineR) # Análisis de PCA
+library(factoextra) # Base de datos
+library(ggplot2) # Para graficar resultados
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### Exploración de un PCA con 
-
-# Cargar bibliotecas
-
-library(FactoMineR) #PCA
-library(factoextra)
-library(ggplot2)
-
+# Carga la base de datos decathlon2
 data(decathlon2)
+
+#Explora la base de datos; recuerda otras funciones además de head()?
 head(decathlon2)
 
+#Subconjunto que consiste en las primeras 23 filas y las primeras 10 columnas del conjunto de datos decathlon2
 decathlon2.active <- decathlon2[1:23, 1:10]
+#Para ver las primeras 4 filas y las primeras 6 columnas 
 head(decathlon2.active[, 1:6], 4)
 
 # PCA con FactoMineR
-res.pca <- PCA(decathlon2.active, graph = FALSE)
+res.pca <- PCA(decathlon2.active, graph = FALSE) 
+#¿Qué pasa si cambias el parámetro graph de False a True?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Los valores propios y la proporción de varianza (es decir, la información) retenida por los componentes principales PC pueden extraerse utilizando la función get_eigenvalue()
 
@@ -319,7 +322,7 @@ expresion.pca <- PCA(data_expresion[,-5], graph=T)
 fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "text")
              col.ind = data_expresion$Etapas, # color by groups
              palette = c("#FF6666", "#3399FF", "#99FF99"),
-             addEllipses = TRUE, # Concentration ellipses
+             addEllipses = F, # Concentration ellipses
              legend.title = "Groups")
 head(data_expresion)
 
