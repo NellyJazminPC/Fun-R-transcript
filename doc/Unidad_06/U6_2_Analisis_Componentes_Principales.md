@@ -134,7 +134,7 @@ Los _eigenvalores_ miden la cantidad de variación de cada componente principal.
 ```R
 #Obten los eigenvalores que resultaron del análisis PCA
 eig.val <- get_eigenvalue(res.pca)
-#Visualizalos
+
 eig.val
 ```
 
