@@ -230,30 +230,27 @@ head(decathlon2.active[, 1:6], 4)
 res.pca <- PCA(decathlon2.active, graph = FALSE) 
 #¿Qué pasa si cambias el parámetro graph de False a True?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Los valores propios y la proporción de varianza (es decir, la información) retenida por los componentes principales PC pueden extraerse utilizando la función get_eigenvalue()
-
+#Obten los eigenvalores que resultaron del análisis PCA
 eig.val <- get_eigenvalue(res.pca)
-eig.val
 
-# Visualización con factoextra de los eigenvalues
+eig.val 
+
+# Visualización de los eigenvalues - Scree plot
 
 fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Graficar las variables
 

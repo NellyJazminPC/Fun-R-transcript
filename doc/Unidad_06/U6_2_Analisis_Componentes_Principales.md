@@ -127,11 +127,14 @@ También puede ayudar a identificar patrones y estructuras en los datos, así co
 
 
 
-Vamos a examinar los valores propios para determinar el número de componentes principales que hay que considerar. Los valores propios y la proporción de varianza (es decir, la información) retenida por los componentes principales PC pueden extraerse utilizando la función `get_eigenvalue()`
-Los valores propios (_eigenvalores_) miden la cantidad de variación de cada componente principal. Los valores propios son grandes para los primeros componentes principales (PC) y pequeños para los siguientes PC. 
+Vamos a examinar _eigenvalores_ o también llamados _valores propios_ para determinar el número de componentes principales que hay que considerar. Los valores propios y la proporción de varianza retenida por los componentes principales PC pueden extraerse utilizando la función `get_eigenvalue()`
+
+Los _eigenvalores_ miden la cantidad de variación de cada componente principal. Los valores propios son grandes para los primeros componentes principales (PC) y pequeños para los siguientes PC. 
 
 ```R
+#Obten los eigenvalores que resultaron del análisis PCA
 eig.val <- get_eigenvalue(res.pca)
+#Visualizalos
 eig.val
 ```
 
@@ -141,11 +144,14 @@ En nuestro análisis, los tres primeros componentes principales explican el 72% 
 
 
 ```R
-# Visualización con factoextra de los eigenvalues
+# Visualización con factoextra de los eigenvalores
 
 fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
 ``` 
+
 ![alt text](image-13.png)
+
+Este gráfico muestra la magnitud de los eigenvalores en orden descendente y ayuda a identificar los componentes principales más importantes al observar la curva de los eigenvalores, buscando un punto donde la pendiente de la curva se aplane, lo que indica el número potencial de componentes a retener en el análisis.
 
 Un método sencillo para extraer los resultados, para las variables, de la salida de un PCA es utilizar la función `get_pca_var()`. Esta función proporciona una lista de matrices que contiene todos los resultados de las variables activas (coordenadas, correlación entre variables y ejes, coseno cuadrado y contribuciones)
 
