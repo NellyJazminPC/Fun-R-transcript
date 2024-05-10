@@ -156,9 +156,11 @@ Este gráfico muestra la magnitud de los eigenvalores en orden descendente y ayu
 Un método sencillo para extraer los resultados, para las variables, de la salida de un PCA es utilizar la función `get_pca_var()`. Esta función proporciona una lista de matrices que contiene todos los resultados de las variables activas (coordenadas, correlación entre variables y ejes, coseno cuadrado y contribuciones)
 
 ```R
-# Graficar las variables
+# Para extraer información sobre las variables
 
 var <- get_pca_var(res.pca)
+
+#Explora el objeto recien creado
 var
 ```
 
@@ -181,29 +183,53 @@ head(var$cos2)
 head(var$contrib)
 ```
 
-
-**Circulo de correlacion** 
+**Circulo de correlacion**
 
 La correlación entre una variable y una componente principal (PC) se utiliza como las coordenadas de la variable en el PC. La representación de las variables difiere del trazado de las observaciones: Las observaciones se representan por sus proyecciones, pero las variables están representadas por sus correlaciones.
 
 
 ```R
 # Círculo de correlación
-head(var$coord, 4)
-fviz_pca_var(res.pca, col.var = "pink")
+head(var$coord, 4) # volvemos a ver las coordenadas de las variables
+fviz_pca_var(res.pca, col.var = "pink") #generamos el gráfico 
+
+# Puedes cambiar el color de las variables a azul o verde?
+
 ```
+
 ![alt text](image-14.png)
 
-Es posible colorear las variables por sus valores de cos2 usando el argumento col.var = “cos2”. Esto produce un degradado de colores. En este caso, el argumento gradient.cols se puede utilizar para proporcione un color personalizado. Por ejemplo, gradient.cols = c (“blanco”, “azul”, “rojo”).
+El círculo de correlación proporciona información sobre cómo las variables originales están correlacionadas con los componentes principales en el análisis de PCA. Cada variable se representa como un vector desde el origen (0,0) hasta sus coordenadas en el plano factorial. La longitud del vector indica la correlación entre la variable y los ejes de los componentes principales, y la dirección del vector indica la dirección de la asociación entre la variable y los componentes principales.
+
+**¿Las variables pueden tener colores diferentes?**
+
+Es posible colorear las variables por sus valores de **cos2** usando el argumento `col.var = “cos2”`. 
+
+En este caso, el argumento `gradient.cols` se puede utilizar para proporcionar un gradiente de color de acuerdo con los valores que tiene **cos2** para cada variable. Podemos establecer el gradiente de colores con `gradient.cols = c (“blanco”, “azul”, “rojo”)`.
 
 ```R
 # Colores para valores de cos2
 fviz_pca_var(res.pca, col.var = "cos2",
-             
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE )
+             repel = TRUE ) +
+  ggtitle("Variables en el primer plano factorial")
+
+#¿Puedes cambiar el gradiente de colores?
 ```
+
+> "#00AFBB" es un código hexadecimal que representa un color en el sistema RGB. Este código se utiliza para especificar colores de manera precisa en diseño gráfico y programación. Cada par de caracteres en el código representa los componentes rojo, verde y azul, lo que permite elegir un color específico. Hay páginas donde puedes obtener estos códigos, por ejemplo [Color Hex Color Codes](https://www.color-hex.com/)
+
+
 ![alt text](image-15.png)
+
+
+
+
+
+
+
+
+
 
 **Contribuciones de variables a PCs**
 

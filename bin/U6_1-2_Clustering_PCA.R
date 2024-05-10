@@ -239,44 +239,43 @@ eig.val
 
 fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Graficar las variables
-
+# Para extraer información sobre las variables
 var <- get_pca_var(res.pca)
+
+#Explora el objeto recien creado
 var
 
-head(var$coord)
+# Coordenadas de las variables
+var$coord
 
 # Cos2: calidad en el mapa de factores
-head(var$cos2)
+var$cos2
 
 # Contribuciones a los componentes principales
-head(var$contrib)
+var$contrib
 
 # Círculo de correlación
-head(var$coord, 4)
-fviz_pca_var(res.pca, col.var = "pink")
+head(var$coord, 4) # volvemos a ver las coordenadas de las variables
+fviz_pca_var(res.pca, col.var = "blue") #generamos el gráfico 
 
 # Colores para valores de cos2
 fviz_pca_var(res.pca, col.var = "cos2",
-             
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE )
+             repel = TRUE ) +
+  ggtitle("Variables en el primer plano factorial")
+
+# Puedes graficar ahora las coordenadas? - Cambia el código de la gráfica anterior
+
+res.pca$var$contrib
+
+
+
+
+
+
+
 
 # Contribuciones de variables a PCs
-
 
 # Las variables mas importantes son subrayadas en correlacion con la siguiente funcion.
 fviz_pca_var(res.pca, col.var = "contrib",
