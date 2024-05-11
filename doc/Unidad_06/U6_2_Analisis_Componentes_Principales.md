@@ -203,9 +203,9 @@ El círculo de correlación proporciona información sobre cómo las variables o
 
 **¿Las variables pueden tener colores diferentes?**
 
-Es posible colorear las variables por sus valores de **cos2** usando el argumento `col.var = “cos2”`. 
+Es posible colorear las variables por sus valores de **cos2** usando el argumento `col.var = “cos2”`. Recuerda que **cos2** representa el cuadrado del coseno del ángulo entre cada variable y los ejes de los componentes principales, e indica la calidad de representación de cada variable en el espacio definido por los componentes principales. Es decir, valores cercanos a 1 indican que la variable está bien representada en el espacio de los componentes principales y contribuye significativamente a la variabilidad observada en los datos, por otro lado, valores cercano a 0 indican una baja representación y contribución.
 
-En este caso, el argumento `gradient.cols` se puede utilizar para proporcionar un gradiente de color de acuerdo con los valores que tiene **cos2** para cada variable. Podemos establecer el gradiente de colores con `gradient.cols = c (“blanco”, “azul”, “rojo”)`.
+En este caso, el argumento `gradient.cols` se puede utilizar para proporcionar un gradiente de color considerando que hay un intervalo de valores de  **cos2** para cada variable. Podemos establecer el gradiente de colores con `gradient.cols = c (“blanco”, “azul”, “rojo”)`.
 
 ```R
 # Colores para valores de cos2
@@ -219,22 +219,11 @@ fviz_pca_var(res.pca, col.var = "cos2",
 
 > "#00AFBB" es un código hexadecimal que representa un color en el sistema RGB. Este código se utiliza para especificar colores de manera precisa en diseño gráfico y programación. Cada par de caracteres en el código representa los componentes rojo, verde y azul, lo que permite elegir un color específico. Hay páginas donde puedes obtener estos códigos, por ejemplo [Color Hex Color Codes](https://www.color-hex.com/)
 
-
 ![alt text](image-15.png)
-
-
-
-
-
-
-
-
-
 
 **Contribuciones de variables a PCs**
 
-Se analizara Las contribuciones de las variables en la contabilización de la variabilidad en una composición principal dada. Las variables que están correlacionadas con PC1 (es decir, Dim.1) y PC2 (es decir, Dim.2) son las más importante para explicar la variabilidad en el conjunto de datos. 
-Las variables que no se correlacionan con ningún PC o correlacionan con las últimas dimensiones son variables con baja contribución
+Al graficar las contribuciones de las variables podemos **identificar las variables más importantes**, es decir, aquellas que contribuyen más a la variabilidad total de los datos. Además, nos permite **evaluar la calidad del PCA** y hacer una **selección de variables** para análisis posteriores. 
 
 ```R
 # Contribuciones de variables a PCs
@@ -250,18 +239,22 @@ fviz_pca_var(res.pca, col.var = "contrib",
 
 **Gráfico de individuos**
 
-Los resultados para individuos, se pueden extraer usando la función `get_pca_ind ()` [paquete factoextra]. De manera similar a `get_pca_var ()`, la función `get_pca_ind ()` proporciona una lista de matrices que contiene todos los resultados de los individuos (coordenadas, correlación entre variables y ejes, coseno cuadrado y contribuciones)
+Los resultados para individuos se pueden extraer usando la función `get_pca_ind ()`. De manera similar a `get_pca_var ()`, la función `get_pca_ind ()` proporciona una lista de matrices que contiene todos los resultados de los individuos (coordenadas, correlación entre variables y ejes, coseno cuadrado y contribuciones)
 
 ```R
+# PCA con individuos (muestras/observaciones/filas)
 ind <- get_pca_ind(res.pca)
 ind
 
-# Gráfico de individuos
 # Graficos: Calidad y contribucion
 fviz_pca_ind(res.pca)
+
+# ¿Recuerdas como era la base de datos con la que se hizo el PCA?
+
 ```
 
 ![alt text](image-17.png)
+
 
 ```R
 # Agregamos colores y puntos

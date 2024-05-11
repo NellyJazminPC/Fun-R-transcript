@@ -264,32 +264,25 @@ fviz_pca_var(res.pca, col.var = "cos2",
              repel = TRUE ) +
   ggtitle("Variables en el primer plano factorial")
 
-# Puedes graficar ahora las coordenadas? - Cambia el código de la gráfica anterior
+#¿Puedes cambiar el gradiente de colores?
 
-res.pca$var$contrib
-
-
-
-
-
-
-
-
-# Contribuciones de variables a PCs
+# Contribuciones de variables a los PCs
 
 # Las variables mas importantes son subrayadas en correlacion con la siguiente funcion.
 fviz_pca_var(res.pca, col.var = "contrib",
-             
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
 
 
-# Gráfico de individuos
+# PCA con individuos (muestras/filas)
 ind <- get_pca_ind(res.pca)
 ind
 
 # Graficos: Calidad y contribucion
 fviz_pca_ind(res.pca)
 
+# ¿Recuerdas como era la base de datos con la que se hizo el PCA?
+head(decathlon2.active)
+dim(decathlon2)
 
 # Agregamos colores y puntos
 fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
