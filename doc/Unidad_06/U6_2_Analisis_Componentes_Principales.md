@@ -255,6 +255,16 @@ fviz_pca_ind(res.pca)
 
 ![alt text](image-17.png)
 
+**¿Qué puedes observar en este gráfico?**
+
+- **Distribución de las observaciones:** Cada punto en el gráfico representa una observación, muestra o individuo, en el conjunto de datos. La posición de cada punto en el espacio bidimensional se determina por sus valores en los componentes principales.
+
+- **Dispersión y proximidad:** La dispersión de los puntos en refleja la variabilidad de las observaciones. Los puntos que están cerca entre sí son de aquellos individuos que tienen perfiles de variables similares, mientras que los puntos que están más separados tienen perfiles de variables más diferentes.
+
+- **Patrones y agrupaciones:** Al observar la distribución de los puntos, se pueden identificar patrones y agrupaciones. Por ejemplo, si hay un grupo de puntos que están cerca entre sí, esto puede indicar la presencia de un grupo o cluster de observaciones similares.
+
+**¿Podemos agregar al gráfico otros estadísticos que generó el PCA?** Por ejemplo, su calidad de representación (cos2) como su contribución (contrib)
+
 
 ```R
 # Agregamos colores y puntos
@@ -263,8 +273,10 @@ fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
              repel = TRUE )
 ```
 
-![alt text](image-18.png)
-Puedes notar que los individuos que son similares son agrupados juntos
+![alt text](image-23.png)
+
+Este gráfico nos ayuda a visualizar la distribución de las observaciones/individuos/muestras en el espacio de los dos primeros componentes principales, considerando tanto su calidad de representación (cos2) como su contribución a la estructura de los datos (tamaño del punto).
+
 
 
 

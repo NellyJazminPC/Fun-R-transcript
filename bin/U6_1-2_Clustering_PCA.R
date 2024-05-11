@@ -285,9 +285,15 @@ head(decathlon2.active)
 dim(decathlon2)
 
 # Agregamos colores y puntos
-fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
+fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "contrib",
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
              repel = TRUE )
+
+#res.pca$ind$contrib
+
+
+
+str(res.pca)
 
 
 ####################
