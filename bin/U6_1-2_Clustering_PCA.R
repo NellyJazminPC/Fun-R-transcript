@@ -289,18 +289,12 @@ fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "contrib",
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
              repel = TRUE )
 
-#res.pca$ind$contrib
-
-
-
-str(res.pca)
-
-
 ####################
 ### Vamos a hacer un PCA con los datos del curso U3_2.csv
 
 # Primero hay que cargar los datos csv en R
-data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",")
+data_expresion <- read.csv("../data/U3_2.csv", 
+                           header = T, sep = ",")
 
 #Verifica que los datos esten bien
 data_expresion
@@ -309,7 +303,7 @@ head(data_expresion)
 
 # Realiza un PCA con el paquete FactoMineR
 
-expresion.pca <- PCA(data_expresion[,-5], graph=T)
+expresion.pca <- PCA(data_expresion[,-5], graph = T)
 
 # se utilizara el argumento ’col.ind´ para especificar el factor variable para colorear los datos individuales por grupos. 
 # Para añadir una elipse de concentración alrededor de cada grupo, especifique el argumento ’addEllipses=TRUE´
@@ -317,10 +311,8 @@ expresion.pca <- PCA(data_expresion[,-5], graph=T)
 fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "text")
              col.ind = data_expresion$Etapas, # color by groups
              palette = c("#FF6666", "#3399FF", "#99FF99"),
-             addEllipses = F, # Concentration ellipses
+             addEllipses = T, # Concentration ellipses
              legend.title = "Groups")
-head(data_expresion)
-
 
 # Añadir elipses de confianza
 fviz_pca_ind(expresion.pca, geom.ind = "point", 
@@ -328,6 +320,33 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
              palette = c("#6666FF", "#CC0099", "#00CCCC"),
              addEllipses = TRUE, ellipse.type = "confidence",
              legend.title = "Groups")
+# ¿Qué pasa si cambias el argumento para el tipo de elipse?
+# ellipse.type = "t"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fviz_pca_biplot(expresion.pca, geom.ind = "point", 
+                col.ind = data_expresion$Etapas,
+                palette = c("#6666FF", "#CC0099", "#00CCCC"),
+                legend.title = "Groups")
+
+fviz_pca_biplot(expresion.pca, geom.ind = "point", geom.var = "arrow", 
+                col.ind = data_expresion$Etapas,
+                col.var = "contrib", 
+                gradient.cols = c("#FF0000", "#00FF00"), # Definir una paleta de colores
+                palette = list("#6666FF", "#CC0099", "#00CCCC"),
+                legend.title = c("Groups", "Variable Contribution"))
 
 
 fviz_pca_ind(expresion.pca,label = "all", # hide individual labels

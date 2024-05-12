@@ -263,12 +263,11 @@ fviz_pca_ind(res.pca)
 
 - **Patrones y agrupaciones:** Al observar la distribución de los puntos, se pueden identificar patrones y agrupaciones. Por ejemplo, si hay un grupo de puntos que están cerca entre sí, esto puede indicar la presencia de un grupo o cluster de observaciones similares.
 
-**¿Podemos agregar al gráfico otros estadísticos que generó el PCA?** Por ejemplo, su calidad de representación (cos2) como su contribución (contrib)
-
+**¿Podemos agregar otros estadísticos que generó el PCA al mismo gráfico?** Por ejemplo, su calidad de representación (cos2) y su contribución (contrib).
 
 ```R
 # Agregamos colores y puntos
-fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
+fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "contrib",
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
              repel = TRUE )
 ```
@@ -277,14 +276,9 @@ fviz_pca_ind(res.pca, col.ind = "cos2", pointsize = "cos2",
 
 Este gráfico nos ayuda a visualizar la distribución de las observaciones/individuos/muestras en el espacio de los dos primeros componentes principales, considerando tanto su calidad de representación (cos2) como su contribución a la estructura de los datos (tamaño del punto).
 
+---
 
-
-
-
-
-
-
-
+### Ejercicio:
 
 A continuación vamos a hacer un PCA con los datos de la sesión 3 (U3_2.csv), recuerda que los datos se encuentran en la carpeta _data_.
 
@@ -295,17 +289,38 @@ A continuación vamos a hacer un PCA con los datos de la sesión 3 (U3_2.csv), r
 # Primero hay que cargar los datos csv en R
 data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",")
 
-#Verifica que los datos esten bien
+#Verifica que los datos se hayan cargado correctamente
 data_expresion
+
 # Para ver las primeras filas
 head(data_expresion)
 
+```
+¿Qué comandos utilizarías para ver la **dimensión** del objeto `data_expresion`? 
+¿Y para saber la **clase** del objeto?
+
+----
+
+Hemos visto dos paquetes para hacer un PCA, por ahora prueba con la función `PCA`, del paquete `FactoMineR`.
+
+```R
 # Realiza un PCA con el paquete FactoMineR
+# Guarda los resultados del PCA en un objeto (expresion.pca)
 
-expresion.pca <- PCA(data_expresion[,-5], graph=T)
+expresion.pca <- PCA(data_expresion[,-5], graph = F)
 
-# se utilizara el argumento ’col.ind´ para especificar el factor variable para colorear los datos individuales por grupos. 
-# Para añadir una elipse de concentración alrededor de cada grupo, especifique el argumento ’addEllipses=TRUE´
+#¿Qué pasa si cambias el argumento graph a True?
+```
+
+![alt text](image-25.png)
+
+Ahora vamos a graficar el PCA pero a nivel de los individuos/muestras/observaciones, con la función `fviz_pca_ind`.
+
+Además, utiliza el argumento `col.ind` para especificar el factor variable para colorear los datos individuales por grupos, en este caso, el factor variable serán las **Etapas**. 
+
+También, agrega una elipse de concentración alrededor de cada grupo con el argumento `addEllipses=TRUE`.
+
+```R
 
 fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "text")
              col.ind = data_expresion$Etapas, # color by groups
@@ -314,7 +329,10 @@ fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "tex
              legend.title = "Groups")
 head(data_expresion)
 ```
-![alt text](image-24.png)
+
+![alt text](image-26.png)
+
+Vamos a seguir explorando las opciones para agregar elipses, ahora con el argumento `ellipse.type`.
 
 ```R
 # Añadir elipses de confianza
@@ -323,8 +341,32 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
              palette = c("#6666FF", "#CC0099", "#00CCCC"),
              addEllipses = TRUE, ellipse.type = "confidence",
              legend.title = "Groups")
+```
+
+![alt text](image-27.png)
+
+El argumento `ellipse.type = "confidence"` indica que se deben dibujar elipses de confianza alrededor de los grupos definidos, en este caso por las Etapas. Estas elipses de confianza se calculan utilizando intervalos de confianza para los componentes principales.
+
+- Elipses pequeñas: Indican que los datos asociados tienen poca variabilidad en el espacio de los componentes principales. Esto puede interpretarse como una alta confianza en la precisión de las estimaciones de los componentes principales y una alta coherencia entre los individuos o variables representadas por esos puntos.
+
+- Elipses grandes: Indican mayor variabilidad en el espacio de los componentes principales, lo que sugiere una menor confianza en las estimaciones de los componentes principales y una mayor dispersión de los individuos o variables representadas por esos puntos.
+
+---
+
+¿Qué ocurre si cambias **"confidence"** por **"t"**?
+
+![alt text](image-28.png)
+
+Cuando `ellipse.type = "t"`, las elipses representadas son **elipses t** (t-distribution). Estas elipses están basadas en la distribución t-Student y se calculan utilizando intervalos de confianza t para la posición estimada de las observaciones en el espacio de los componentes principales. Estas elipses pueden ser útiles en situaciones donde las distribuciones de las variables originales no son normales.
+
+------ Falta ver porque los tamaños de las elipses difieren y también si estos datos tienen una distribución normal o no.
 
 
+
+
+
+
+```R
 fviz_pca_ind(expresion.pca,label = "all", # hide individual labels
              col.ind = data_expresion$Etapas, # color by groups
              addEllipses = TRUE, # Concentration ellipses
