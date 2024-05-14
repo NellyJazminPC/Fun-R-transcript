@@ -359,11 +359,17 @@ El argumento `ellipse.type = "confidence"` indica que se deben dibujar elipses d
 
 Cuando `ellipse.type = "t"`, las elipses representadas son **elipses t** (t-distribution). Estas elipses están basadas en la distribución t-Student y se calculan utilizando intervalos de confianza t para la posición estimada de las observaciones en el espacio de los componentes principales. Estas elipses pueden ser útiles en situaciones donde las distribuciones de las variables originales no son normales.
 
------- Falta ver porque los tamaños de las elipses difieren y también si estos datos tienen una distribución normal o no.
+---
 
+¿A qué se debe el cambio en el tamaño de las elipses?
 
+Cuando se utiliza ellipse.type = "confidence", las elipses muestran el nivel de confianza en la distribución de los datos alrededor de los centroides de los grupos, indicando la dispersión de los datos con cierto nivel de confianza.
 
+Por otro lado, ellipse.type = "t" utiliza intervalos de confianza basados en la distribución t de Student. Estos intervalos pueden ser más amplios, especialmente en conjuntos de datos pequeños, lo que puede hacer que las elipses sean más grandes debido a la mayor incertidumbre en la estimación de los parámetros.
 
+En resumen, la diferencia en el tamaño de las elipses entre ellipse.type = "confidence" y ellipse.type = "t" se debe a las diferentes formas de calcular e interpretar los intervalos de confianza.
+
+---- Cómo podemos saber si estos datos tienen una distribución es normal?
 
 
 ```R
