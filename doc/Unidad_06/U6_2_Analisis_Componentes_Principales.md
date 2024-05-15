@@ -377,7 +377,10 @@ fviz_pca_ind(expresion.pca,label = "all", # hide individual labels
              col.ind = data_expresion$Etapas, # color by groups
              addEllipses = TRUE, # Concentration ellipses
              palette = "jco")
+```
 
+
+```R
 fviz_pca_ind(expresion.pca, geom.ind = "point",
              
              col.ind = data_expresion$Etapas, # color by groups
@@ -385,8 +388,9 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
              addEllipses = TRUE, ellipse.type = "confidence",
              legend.title = "Groups"
 )
+```
 
-
+```R
 fviz_pca_ind(expresion.pca, geom.ind = "point",
              
              col.ind = data_expresion$Etapas, # color by groups
