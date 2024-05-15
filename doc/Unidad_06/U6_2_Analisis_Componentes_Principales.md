@@ -16,9 +16,7 @@ En términos simples, PCA encuentra una nueva representación de los datos donde
 
 Un ejemplo de PCA sería considerar un conjunto de datos con múltiples características, como la altura, el peso, la edad y la presión arterial de diferentes individuos. El PCA podría ayudarnos a identificar patrones y relaciones entre estas variables, y reducir la dimensionalidad de los datos para resumir la información en un conjunto más pequeño de componentes principales que capturan la mayor parte de la variabilidad en los datos. Esto facilitaría la visualización y comprensión de la estructura subyacente de los datos.
 
-![alt text](image-20.png)
-
-
+![alt text](PCA_animation.gif)
 
 Para mayor información, te recomiendo el video de [StatQuest: Análisis de componentes principales (PCA), paso a paso](https://www.youtube.com/watch?v=FgakZw6K1QQ).
 
@@ -321,12 +319,13 @@ Además, utiliza el argumento `col.ind` para especificar el factor variable para
 También, agrega una elipse de concentración alrededor de cada grupo con el argumento `addEllipses=TRUE`.
 
 ```R
-
-fviz_pca_ind(expresion.pca, geom.ind = "point", # show points only (but not "text")
-             col.ind = data_expresion$Etapas, # color by groups
+ 
+fviz_pca_ind(expresion.pca, geom.ind = "point", # muestra solo los puntos (pero sin "texto")
+             col.ind = data_expresion$Etapas, # colorea por grupos
              palette = c("#FF6666", "#3399FF", "#99FF99"),
-             addEllipses = TRUE, # Concentration ellipses
+             addEllipses = T, # Elipses de concentración
              legend.title = "Groups")
+
 head(data_expresion)
 ```
 
@@ -373,22 +372,14 @@ En resumen, la diferencia en el tamaño de las elipses entre ellipse.type = "con
 
 
 ```R
-fviz_pca_ind(expresion.pca,label = "all", # hide individual labels
-             col.ind = data_expresion$Etapas, # color by groups
-             addEllipses = TRUE, # Concentration ellipses
+# Cambiar la paleta de colores y agrega las etiquetas de los individuos
+fviz_pca_ind(expresion.pca,label = "all", # muestra todas las etiquetas individuales
+             col.ind = data_expresion$Etapas, # colorea por grupo
+             addEllipses = TRUE, 
              palette = "jco")
 ```
 
-
-```R
-fviz_pca_ind(expresion.pca, geom.ind = "point",
-             
-             col.ind = data_expresion$Etapas, # color by groups
-             palette = c("#00AFBB", "#E7B800", "#FC4E07"),
-             addEllipses = TRUE, ellipse.type = "confidence",
-             legend.title = "Groups"
-)
-```
+![alt text](image-29.png)
 
 ```R
 fviz_pca_ind(expresion.pca, geom.ind = "point",
@@ -396,10 +387,18 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
              col.ind = data_expresion$Etapas, # color by groups
              palette = c("#00AFBB", "#E7B800", "#FC4E07"),
              addEllipses = TRUE, ellipse.type = "convex",
-             legend.title = "Groups"
-)
+             legend.title = "Groups")
+```
+
+![alt text](image-31.png)
 
 
+
+
+
+
+
+```R
 fviz_pca_var(expresion.pca, axes.linetype = "blank")
 
 #Revisar:
