@@ -421,7 +421,7 @@ fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#6969
 
 ```
 
-![alt text](image-32.png)
+![alt text](image-32.png){width=40%}
 
 ![alt text](image-33.png)
 
