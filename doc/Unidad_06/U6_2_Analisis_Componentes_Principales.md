@@ -422,6 +422,7 @@ fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#6969
 ```
 
 ![alt text](image-32.png)
+
 ![alt text](image-33.png)
 
 - Variables (Flechas Rojas): Las flechas representan las variables originales en el espacio de los componentes principales. Flechas más largas sugieren que la variable tiene una mayor contribución a la variabilidad en esos componentes.
