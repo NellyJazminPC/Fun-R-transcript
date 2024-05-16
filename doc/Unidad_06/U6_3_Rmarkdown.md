@@ -257,10 +257,9 @@ summary(mtcars)
 
 ### Ejercicio:
 
-Genera un reporte Rmarkdown copiando algunas líneas de código que hemos visto en esta sesión y de preferencia aquellas que generan algún gráfico, agrega tus notas y guarda tu reporte en formato html.
+Genera un reporte Rmarkdown copiando algunas líneas de código que hemos visto en sesiones pasadas, de preferencia aquellas que generan algún gráfico. Agrega tus notas, dentro y fuera de los bloques de código y guarda tu reporte en formato html.
 
-> Puedes cambiar de `Source`a `Visual` para ver como se vería tu reporte final y si quieres cambiar otras cosas.
-
+> Puedes cambiar de `Source`a `Visual` para ver como se luce tu reporte final.
 
 ### Fuentes de información recomendadas:
 
