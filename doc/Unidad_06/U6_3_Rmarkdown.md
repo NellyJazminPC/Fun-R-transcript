@@ -71,6 +71,8 @@ Sin embargo, existen una gran variedad de outputs para generar diferentes tipos 
 
 Entre otros.
 
+---
+
 ### Notebooks o cuadernos
 
 Un **notebook** o **html_notebook** (“cuaderno” en español), es una variación de un **html_document**. Las salidas de los dos documentos son muy similares, pero tienen propósitos distintos. 
