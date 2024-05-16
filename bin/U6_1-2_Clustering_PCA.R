@@ -329,7 +329,8 @@ fviz_pca_ind(expresion.pca,label = "all", # muestra todas las etiquetas individu
              addEllipses = TRUE, 
              palette = "jco")
 
-# 
+
+# Agregar una elipse convexa
 fviz_pca_ind(expresion.pca, geom.ind = "point",
              
              col.ind = data_expresion$Etapas, # color by groups
@@ -338,25 +339,27 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
              legend.title = "Groups")
 
 
-fviz_pca_var(expresion.pca, axes.linetype = "blank")
+##### Vamos a incorporar las variables y los individuos/muestras/observaciones
+# Variables
+ fviz_pca_var(expresion.pca, axes.linetype = "blank")
 
-#Revisar:
-#fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#696969" )
+# Biplot de las variables y las muestras/observaciones/individuos
+fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#696969" )
 
-
-#hacer una biplot de individuos y variables
-#cambiar el color de los individuos por grupos: col.ind = iris $ Species
+#Cambia el color de los individuos por grupos: col.ind = iris $ Species
 #mostrar solo las etiquetas de las variables: label = “var” o usar geom.ind = “point”
 
 fviz_pca_biplot(expresion.pca,col.ind = data_expresion$Etapas, palette = "jco",
                 addEllipses = TRUE, label = "var",
                 col.var = "black", repel = TRUE,
-                legend.title = "Species")
+                legend.title = "Etapas")
 
 
 head(data_expresion)
+
+# Agrega más argumentos para personalizar tu gráfico
 fviz_pca_biplot(expresion.pca, 
-                geom.ind = "point", # relleno indivual por grupos
+                geom.ind = "point", # colorea los puntos por grupos
                 pointshape = 21,
                 pointsize = 2.5,
                 fill.ind = data_expresion$Etapas,
@@ -371,15 +374,6 @@ ggpubr::color_palette("npg")
 
 
 
-fviz_pca_biplot(expresion.pca, geom.ind = "point", 
-                col.ind = data_expresion$Etapas,
-                palette = c("#6666FF", "#CC0099", "#00CCCC"),
-                legend.title = "Groups")
 
-fviz_pca_biplot(expresion.pca, geom.ind = "point", geom.var = "arrow", 
-                col.ind = data_expresion$Etapas,
-                col.var = "contrib", 
-                gradient.cols = c("#FF0000", "#00FF00"), # Definir una paleta de colores
-                palette = list("#6666FF", "#CC0099", "#00CCCC"),
-                legend.title = c("Groups", "Variable Contribution"))
+
 

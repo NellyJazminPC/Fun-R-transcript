@@ -368,8 +368,11 @@ Por otro lado, ellipse.type = "t" utiliza intervalos de confianza basados en la 
 
 En resumen, la diferencia en el tamaño de las elipses entre ellipse.type = "confidence" y ellipse.type = "t" se debe a las diferentes formas de calcular e interpretar los intervalos de confianza.
 
----- Cómo podemos saber si estos datos tienen una distribución es normal?
+---- Cómo podemos saber si estos datos tienen una distribución es normal? Revisa el siguiente [script en R]() si quieres más información.
 
+---
+
+Vamos a visualizar las etiquetas de cada individuo
 
 ```R
 # Cambiar la paleta de colores y agrega las etiquetas de los individuos
@@ -380,6 +383,14 @@ fviz_pca_ind(expresion.pca,label = "all", # muestra todas las etiquetas individu
 ```
 
 ![alt text](image-29.png)
+
+El argumento `label = "all"` indica que todas las etiquetas de los individuos se mostrarán en el gráfico. Esto permite identificar cada muestra individualmente.
+
+Esto es útil para detectar muestras específicas que puedan estar alejadas de su grupo (posibles outliers) o para analizar muestras de interés particular.
+
+---
+
+¿Que otros tipos de elipses hay?
 
 ```R
 fviz_pca_ind(expresion.pca, geom.ind = "point",
@@ -392,32 +403,75 @@ fviz_pca_ind(expresion.pca, geom.ind = "point",
 
 ![alt text](image-31.png)
 
+Con `addEllipses = TRUE, ellipse.type = "convex"`, se agregarán elipses alrededor de los puntos para cada grupo, y el tipo de elipse será convexo. La elipse convexa no necesariamente tiene que ser una elipse en el sentido geométrico tradicional. En este contexto, "elipse" se utiliza de manera genérica para referirse a una forma que encierra los puntos del grupo. La envolvente convexa será más ajustada a la forma real de la distribución de los puntos que una elipse tradicional (como una elipse basada en una distribución gaussiana). 
 
+Una elipse de tipo convexo en este gráfico de PCA ayuda a visualizar mejor la distribución y la extensión real de los puntos en cada grupo, sin asumir una forma específica para la agrupación de datos.
 
+---
+¿Podemos incorporar las variables y los individuos/muestras/observaciones en un solo gráfico?
 
+Si, con la función `fviz_pca_biplot`.
 
+```R
+# Primero recurda como era el gráfico de PCA de las Variables
+ fviz_pca_var(expresion.pca, axes.linetype = "blank")
+
+# Biplot de las variables y las muestras/observaciones/individuos
+fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#696969" )
+
+```
+
+![alt text](image-32.png)
+![alt text](image-33.png)
+
+- Variables (Flechas Rojas): Las flechas representan las variables originales en el espacio de los componentes principales. Flechas más largas sugieren que la variable tiene una mayor contribución a la variabilidad en esos componentes.
+
+- Observaciones (Puntos Grises): Cada punto representa una **muestra o individuo**. La posición de cada punto muestra cómo se proyecta la observación en los componentes principales.
+
+- Relación entre Variables y Observaciones: La proximidad de un punto (observación) a una flecha (variable) sugiere que la observación tiene un valor alto para esa variable.
+Las **observaciones que se agrupan cerca** de la misma región del gráfico tienen **perfiles similares** en términos de las variables originales.
+
+- Ángulos entre Flechas: Los ángulos entre las flechas de las variables indican la correlación entre las variables.
+  - Flechas que están próximas entre sí sugieren que las variables están positivamente correlacionadas.
+  - Flechas que están aproximadamente a 180 grados entre sí sugieren que las variables están negativamente correlacionadas.
+  - Flechas que están aproximadamente a 90 grados entre sí sugieren que las variables no están correlacionadas
+
+Observaciones del gráfico:
+
+Una flecha roja que apunta hacia la derecha en el gráfico podría representar una variable que tiene una alta carga en el primer componente principal.
+
+Otra flecha roja que apunta hacia arriba podría representar una variable que tiene una alta carga en el segundo componente principal.
+Observaciones:
+
+Puntos grises que se encuentran cerca de la flecha que apunta hacia la derecha tienen altos valores en la variable representada por esa flecha.
+
+Puntos grises que se encuentran cerca de la flecha que apunta hacia arriba tienen altos valores en la variable representada por esa flecha.
 
 
 ```R
-fviz_pca_var(expresion.pca, axes.linetype = "blank")
-
-#Revisar:
-#fviz_pca_biplot(expresion.pca, repel = TRUE,col.var = "#FF0000",col.ind = "#696969" )
-
-
-#hacer una biplot de individuos y variables
-#cambiar el color de los individuos por grupos: col.ind = iris $ Species
+#Cambia el color de los individuos por grupos: col.ind = iris $ Species
 #mostrar solo las etiquetas de las variables: label = “var” o usar geom.ind = “point”
 
 fviz_pca_biplot(expresion.pca,col.ind = data_expresion$Etapas, palette = "jco",
                 addEllipses = TRUE, label = "var",
                 col.var = "black", repel = TRUE,
-                legend.title = "Species")
+                legend.title = "Etapas")
+```
 
+![alt text](image-34.png)
 
-head(data_expresion)
+La coloración por grupos, la adición de elipses, y la representación de las variables y observaciones facilitan la identificación de patrones, diferencias entre grupos y la comprensión de las contribuciones de las variables a la variabilidad total de los datos.
+
+- Flechas negras que indican las direcciones de las variables originales.
+- Los puntos están coloreados según los grupos definidos en `data_expresion$Etapas`.
+- Los puntos de cada grupo están rodeados por elipses de colores diferentes.
+- Si los puntos de diferentes grupos están claramente separados en el espacio de los componentes principales, indica que los grupos son distintos en términos de las variables originales.
+- Si las elipses de los grupos se superponen, puede haber similitudes entre los grupos en las dimensiones representadas por los componentes principales.
+
+```R
+# Agrega más argumentos para personalizar tu gráfico
 fviz_pca_biplot(expresion.pca, 
-                geom.ind = "point", # relleno indivual por grupos
+                geom.ind = "point", # colorea los puntos por grupos
                 pointshape = 21,
                 pointsize = 2.5,
                 fill.ind = data_expresion$Etapas,
@@ -428,11 +482,15 @@ fviz_pca_biplot(expresion.pca,
                 repel = TRUE) + # Evite el trazado excesivo de etiquetas
 ggpubr::fill_palette("jco") + # Color individual de relleno
 ggpubr::color_palette("npg")
-
 ```
 
-¿Qué observaste en estos análisis?
+![alt text](image-35.png)
 
+Las personalizaciones añadidas (como el color de los puntos y flechas, la forma y tamaño de los puntos, y la disposición de las etiquetas) facilitan la interpretación y mejoran la legibilidad del gráfico
+
+**¿Qué más puedes interpretar de estos análisis?**
+
+---
 
 ### Extra: otros métodos inspirados o relacionados con los PCA 
 
