@@ -73,6 +73,8 @@ Entre otros.
 
 ---
 
+![alt text](image-20.png)
+
 ### Notebooks o cuadernos
 
 Un **notebook** o **html_notebook** (“cuaderno” en español), es una variación de un **html_document**. Las salidas de los dos documentos son muy similares, pero tienen propósitos distintos. 
