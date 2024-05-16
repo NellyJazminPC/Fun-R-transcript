@@ -366,9 +366,6 @@ fviz_cluster(irisK, data = datos)
 fviz_cluster(irisK, data = datos, repel = TRUE)
 ```
 
-
-
-
 ### Fuentes de información
 
 - [Introduction to Clustering](https://remiller1450.github.io/s230f19/clustering.html)
