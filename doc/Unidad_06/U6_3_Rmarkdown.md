@@ -33,9 +33,7 @@ Hay que crear un nuevo archivo con el formato de Rmarkdown.
 
 ---
 
-### Markdown básico
-
-El archivo creado tendrá una extensión `.Rmd` Contiene tres tipos importantes de contenido en su estructura (ve la imagen anterior en el número 3):
+El archivo creado tendrá una extensión `.Rmd`. Hay tres tipos importantes de contenido en su estructura (ve la imagen anterior en el número 3):
 
 1. Un encabezado rodeado de - - - .
 
@@ -43,7 +41,7 @@ El archivo creado tendrá una extensión `.Rmd` Contiene tres tipos importantes 
 
 3. Texto, al que se le puede dar distintos formatos
 
-Cuando abrimos un archivo `.Rmd`, obtenemos una interfaz de _notebook_ (cuaderno) donde el código y los resultados se encuentran intercalados. Por ejemplo, en lugar de que los gráficos generados sólo aparezcan en el panel de Plots los podemos tener en un mismo documento junto con el código que lo generó y otras anotaciones como posibles discusiones o consideraciones.
+Cuando abrimos un archivo `.Rmd`, obtenemos una interfaz de **notebook** (cuaderno), donde el código y los resultados se encuentran intercalados. Por ejemplo, en lugar de que los gráficos generados sólo aparezcan en el panel de Plots los podemos tener en un mismo documento junto con el código que lo generó y otras anotaciones como posibles discusiones u observaciones.
 
 Para producir un reporte completo que contenga todo el texto, código y resultados, podemos dar click en `Knit` o presionar Ctrl + Shift + K. Esto mostrará el reporte en el panel Viewer y creará un archivo HTML independiente que podremos compartir con otros.
 
@@ -55,7 +53,7 @@ RStudio ejecuta el código y muestra los resultados incustrados en el código.
 
 > Con las actualizaciones de Posit, ahora podemos incorporar bloques de código también de otros lenguajes de programación (por ejemplo, Python, SQL, Bash, etc) en un mismo reporte.
 
-### Tipos de documentos de salida
+#### Tipos de documentos de salida
 
 Para este ejemplo, nos vamos a concentrar en R Markdown para producir documentos HTML:
 
@@ -77,9 +75,9 @@ Entre otros.
 
 ### Notebooks o cuadernos
 
-Un _notebook_, html_notebook (“cuaderno” en español), es una variación de un html_document. Las salidas de los dos documentos son muy similares, pero tienen propósitos distintos. 
+Un **notebook** o **html_notebook** (“cuaderno” en español), es una variación de un **html_document**. Las salidas de los dos documentos son muy similares, pero tienen propósitos distintos. 
 
-Un html_document está enfocado en la comunicación con los encargados de la toma de decisiones, mientras que un _notebook_ está enfocado en colaborar con otros científicos de datos. Estos propósitos diferentes llevan a usar la salida HTML de diferentes maneras. Ambas salidas HTML contendrán la salida renderizada, pero el notebook también contendrá el código fuente completo. Esto significa que podemos usar el archivo .nb.html generado por el notebook de dos maneras:
+Un **html_document** está enfocado en la comunicación con los encargados de la toma de decisiones, mientras que un **notebook** está enfocado en colaborar con otros científicos de datos. Estos propósitos diferentes llevan a usar la salida HTML de diferentes maneras. Ambas salidas HTML contendrán la salida renderizada, pero el notebook también contendrá el código fuente completo. Esto significa que podemos usar el archivo .nb.html generado por el notebook de dos maneras:
 
 1. Podemos verlo en un navegador web, y ver la salida generada. A diferencia del html_document, esta renderización siempre incluye una copia incrustada del código fuente que lo generó.
 

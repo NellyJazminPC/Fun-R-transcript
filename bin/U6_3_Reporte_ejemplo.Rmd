@@ -1,16 +1,8 @@
 ---
-title: "Reporte de Análisis de Datos"
-author: "Juan Pérez"
-date: "`r Sys.Date()`"
-output: 
-  html_document:
-    theme: cerulean
-    toc: true
-    toc_depth: 3
-  pdf_document:
-    fig_caption: true
-    number_sections: true
-    latex_engine: xelatex
+title: "Reporte. Ejemplo con Rmarkdown"
+author: "Nelly Pacheco"
+date: "2024-04-22"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
