@@ -368,7 +368,7 @@ Por otro lado, ellipse.type = "t" utiliza intervalos de confianza basados en la 
 
 En resumen, la diferencia en el tamaño de las elipses entre ellipse.type = "confidence" y ellipse.type = "t" se debe a las diferentes formas de calcular e interpretar los intervalos de confianza.
 
----- Cómo podemos saber si estos datos tienen una distribución es normal? Revisa el siguiente [script en R]() si quieres más información.
+---- Cómo podemos saber si estos datos tienen una distribución es normal? Revisa el siguiente [script en R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/bin/U6_Extra_Pruebas_Normalidad.R) si quieres más información.
 
 ---
 
