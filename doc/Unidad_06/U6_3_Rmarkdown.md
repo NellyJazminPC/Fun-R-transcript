@@ -33,19 +33,17 @@ Hay que crear un nuevo archivo con el formato de Rmarkdown.
 
 ---
 
-El archivo creado tendrá una extensión `.Rmd`. Hay tres tipos importantes de contenido en su estructura (ve la imagen anterior en el número 3):
-
-1. Un encabezado rodeado de - - - .
-
-2. Bloques de código de R rodeado de ``` 
-
-3. Texto, al que se le puede dar distintos formatos
+#### Extensión .Rmd
 
 Cuando abrimos un archivo `.Rmd`, obtenemos una interfaz de **notebook** (cuaderno), donde el código y los resultados se encuentran intercalados. Por ejemplo, en lugar de que los gráficos generados sólo aparezcan en el panel de Plots los podemos tener en un mismo documento junto con el código que lo generó y otras anotaciones como posibles discusiones u observaciones.
+
+#### Knit - generar el reporte
 
 Para producir un reporte completo que contenga todo el texto, código y resultados, podemos dar click en `Knit` o presionar Ctrl + Shift + K. Esto mostrará el reporte en el panel Viewer y creará un archivo HTML independiente que podremos compartir con otros.
 
 > Si el reporte no aparece en el panel de Viewer, pudes configurarlo haciendo click en el símbolo de una turca que esta del lado izquiero de `Knit`.
+
+#### Ejecutar el código por bloques
 
 Los bloques de código se pueden ejecutar haciendo click en el ícono ejecutar (el botón de Play en la parte superior/derecha del bloque), o presionando Ctrl + Shift + Enter. 
 
@@ -82,6 +80,14 @@ Un **html_document** está enfocado en la comunicación con los encargados de la
 1. Podemos verlo en un navegador web, y ver la salida generada. A diferencia del html_document, esta renderización siempre incluye una copia incrustada del código fuente que lo generó.
 
 2. Podemos editarlo en RStudio. Cuando abramos un archivo .nb.html, RStudio automáticamente recreará el archivo `.Rmd` que lo creó.
+
+El archivo creado tendrá una extensión `.Rmd`. Hay tres tipos importantes de contenido en su estructura (ve la imagen anterior en el número 3):
+
+1. Un encabezado rodeado de - - - .
+
+2. Bloques de código de R rodeado de ``` 
+
+3. Texto, al que se le puede dar distintos formatos
 
 ### 1. Encabezados - YAML Header
 
