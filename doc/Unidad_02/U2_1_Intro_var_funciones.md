@@ -1,10 +1,10 @@
 # Fundamentos de programación en R
 
-## Unidad 1
+## Unidad 2
 
 ---
 
-## 1.4 Introducción a las variables y funciones
+## 2.1 Introducción a las variables y funciones
 
 ---
 

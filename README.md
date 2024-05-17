@@ -12,19 +12,20 @@
 - M. en C. Nelly Jazmín Pacheco Cruz
     - nelly.pacheco.cruz@iztacala.unam.mx
   
------ 
+---
+
 ### OBJETIVO GENERAL 
 
 El participante conocerá los fundamentos de programación en R para su aplicación en análisis transcriptómicos. 
 
----- 
+---
 
 ### OBJETIVOS ESPECÍFICOS
 
 Comprender los fundamentos de programación en R para el análisis de datos biológicos.
 Conocer los fundamentos teóricos del campo de estudio de la transcriptómica y sus principales análisis desde el lenguaje de programación R.  
 
-----
+---
 
 **ENCUADRE**    
 
@@ -90,8 +91,8 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
   - **Unidad 10** *(Viernes 28 de Junio)*
     - Exposiciones de sus proyectos finales
     - Aplicaciones reales y dudas 2 horas
-   
------
+
+---
 
 ### DINÁMICA DEL CURSO:
 
@@ -102,6 +103,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 - Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
 
 ---
+
 ## Antes de empezar...
 
 - **¿Qué es [Github](https://github.com/)?**  
@@ -136,28 +138,38 @@ Puedes descargar este repositorio entero y tenerlo  en tu computadora como otra 
 Haz click en **< > Code** y en la opción de **Download Zip**
 ![alt text](image-3.png)
 
-**¡LISTO! ahora solo tienes que descomprimirla**
+### ¡LISTO! ahora solo tienes que descomprimirla
 
 ---
-- **¿Qué necesitamos?**
-  - Computadora personal
-  - Windows 10. 4GB RAM
-  - MacOS  > x10.11
-  - Linux - Ubuntu
-  - Espacio libre en disco duro, mínimo 30 GB.
-  - Tener instalado R y Rstudio. Puedes descargarlo desde https://posit.co/download/rstudio-desktop/
+
+## ¿Qué necesitamos?
+
+- Computadora personal
+- Windows 10. 4GB RAM
+- MacOS  > x10.11
+- Linux - Ubuntu
+- Espacio libre en disco duro, mínimo 30 GB.
+- Tener instalado R y Rstudio. Puedes descargarlo desde https://posit.co/download/rstudio-desktop/
 
 [Aquí](https://drive.google.com/file/d/12I0TpB_Ivr1XJhWm-h4ca5s_4Ecx1pQ6/view?usp=sharing) esta un video tutorial para guiarte en la instalación de R y RStudio en Windows 10/11. También, puedes buscar más información en Youtube.
 
+### Instalación de paquetes:
+
 Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a lo largo del curso: (en progreso)
+
 - ggplot2
 - tidyr
 - dplyr
 - reshape2
-
+- cluster
+- factoextra
+- FactoMineR
+- rmarkdown
 
 ---
-### Fuentes de información recomendadas:
+
+## Fuentes de información recomendadas:
+
 - [Para instalación de R y Rstudio](https://swcarpentry.github.io/r-novice-gapminder-es/index.html) 
 - [Documentación en la página oficial de GitHub](https://docs.github.com/es)
 
