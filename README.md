@@ -147,6 +147,7 @@ Haz click en **< > Code** y en la opción de **Download Zip**
   - Espacio libre en disco duro, mínimo 30 GB.
   - Tener instalado R y Rstudio. Puedes descargarlo desde https://posit.co/download/rstudio-desktop/
 
+[Aquí](https://drive.google.com/file/d/12I0TpB_Ivr1XJhWm-h4ca5s_4Ecx1pQ6/view?usp=sharing) esta un video tutorial para guiarte en la instalación de R y RStudio en Windows 10/11. También, puedes buscar más información en Youtube.
 
 Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a lo largo del curso: (en progreso)
 - ggplot2
