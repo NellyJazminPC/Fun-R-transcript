@@ -44,7 +44,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
   - **Unidad 2** *(Martes 18 de Junio)*
       - [2.1 Introducción a las variables y funciones](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_02/U2_1_Intro_var_funciones.md)
-      - 2.2 Estructuras de datos: aspectos básicos
+      - [2.2 Estructuras de datos](doc/Unidad_02/U2_2_Estructuras_datos.md): aspectos básicos
         - 2.2.1 Vectores y Factores
         - 2.2.2 Matrices y _Arrys_ (arreglos)
         - 2.2.3 _Data.frames_ (marcos de datos)
