@@ -139,7 +139,7 @@ filtered_data <- subset(data, columna > valor)
 write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
 ```
 
-Siguiendo este ejemplo, ahora has una prueba importando los datos del archivo 
+Siguiendo este ejemplo, ahora has una prueba importando los datos del archivo U3_2.csv que se encuentran en la carpeta data. Recuerda asignar esa base de datos a un nuevo objeto o variable en R.
 
 ```R
 # Ejercicio. Con los datos U3_2.csv dentro de la carpeta data.
@@ -153,15 +153,23 @@ data_expresion
 
 ```
 
-Este flujo básico te permitirá manejar archivos en RStudio de manera efectiva.
+Este flujo básico te permitirá manejar archivos en RStudio desde el panel de Editor de manera efectiva, además de llevar un registro de la ruta del archivo original. 
+
+Por otro lado, si aún no te sientes muy cómodo puedes ir practicando a través de la interfaz gráfica de RStudio.
 
 ## Desde la interfaz de RStudio
 
+1. Puedes leer/cargar archivos desde el panel de "Environment", haciendo click en "Import Data set". Desde ahí selecciona el tipo de archivo que desees importar, csv, excel, txt, etc.
+2. Busca el archivo en el Explorador de Archivos/Finder.
+3. Aparecerá un panel donde veras el formato del archivo de entrada y el formato del archivo de salida que en este caso será un **data.frame**. Revisa que el tipo de *Separador* coincida con el archivo original, en el ejemplo se trata de un archivo **csv**, por lo que el separador es por "comma" (,). Da click en **Import** al final.
+4. Inmediatamente después la interfaz ejecutara una líneas de código para importar el archivo, si lo observas detalladamente notarás que son las mismas que vimos en la sección anterior. El nombre del objeto en R que ahora guarda la base de datos recibe el mismo nombre del archivo original por default.
+
 ![alt text](image_4_02.png)
 
-
-
-
+Esta forma de importar archivos puede ser la más facil al principio, pero conforme avances y necesites llevar un registro de los archivos originales que ocupes y sus rutas para poder encontrarlos después, notarás que será mejor usar las líneas de código desde el Editor. Además, la forma de exportar los archivos es a través de líneas de código.
 
 
 ### Fuentes de información
+
+- [Lectura de bases de datos](https://fhernanb.github.io/Manual-de-R/read.html)
+- [Exportar datos](https://bookdown.org/jboscomendoza/r-principiantes4/exportar-datos.html)
