@@ -12,3 +12,14 @@ getwd()
 
 data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",") 
 
+# Realizar una operación simple (por ejemplo, filtrar filas)
+filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
+
+
+#Guardar el archivo en formato .txt
+#Usando la función base de R
+write.table(filtered_data_etapa1, "../data/filtered_data_Etapa1.txt", sep = "\t", row.names = T)
+
+# Guardar el archivo CSV resultante
+#write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
+

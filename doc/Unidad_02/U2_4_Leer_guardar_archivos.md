@@ -124,7 +124,9 @@ library(readr)
 write_tsv(data, "ruta/al/archivo.txt")
 ```
 
-### Ejemplo Completo
+---
+
+### Ejemplo
 
 Este es un ejemplo desde como importar un archivo CSV. Esta base de datos se puede cambiar en R sin que altere el archivo original. A continuación, modifica el archivo importando en R con una operación simple y ahora hay que guarda/exportar el resultado en un nuevo archivo CSV:
 
@@ -139,7 +141,11 @@ filtered_data <- subset(data, columna > valor)
 write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
 ```
 
-Siguiendo este ejemplo, ahora has una prueba importando los datos del archivo U3_2.csv que se encuentran en la carpeta data. Recuerda asignar esa base de datos a un nuevo objeto o variable en R.
+### Ejercicio
+
+Siguiendo el ejemplo, ahora has una prueba importando los datos del archivo U3_2.csv que se encuentran en la carpeta data. Recuerda asignar esa base de datos a un nuevo objeto o variable en R.
+
+Después, exportar el archivo a un formato .txt con otro nombre.
 
 ```R
 # Ejercicio. Con los datos U3_2.csv dentro de la carpeta data.
@@ -150,6 +156,16 @@ data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",")
 
 #Explora el objeto
 data_expresion
+
+# Realizar una operación simple (por ejemplo, filtrar filas)
+filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
+
+#Guardar el archivo en formato .txt
+#Usando la función base de R
+write.table(filtered_data_etapa1, "../data/filtered_data_Etapa1.txt", sep = "\t", row.names = T)
+
+# Guardar el archivo CSV resultante
+#write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
 
 ```
 
@@ -166,7 +182,7 @@ Por otro lado, si aún no te sientes muy cómodo puedes ir practicando a través
 
 ![alt text](image_4_02.png)
 
-Esta forma de importar archivos puede ser la más facil al principio, pero conforme avances y necesites llevar un registro de los archivos originales que ocupes y sus rutas para poder encontrarlos después, notarás que será mejor usar las líneas de código desde el Editor. Además, la forma de exportar los archivos es a través de líneas de código.
+Esta forma de importar archivos puede ser la más facil al principio, pero conforme avances y necesites llevar un registro de los archivos originales que ocupas y sus rutas para poder encontrarlos nuevamente, notarás que será mejor usar las líneas de código desde el Editor y añadir tus anotaciones/comentarios. Además, la forma de exportar los archivos es a través de líneas de código.
 
 
 ### Fuentes de información
