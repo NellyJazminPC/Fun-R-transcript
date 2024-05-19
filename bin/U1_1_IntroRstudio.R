@@ -1,5 +1,5 @@
 ### Script para la Sesión 1 - Introducción a R y RStudio
-### Lunes de junio de 2024
+### Lunes 17 de junio de 2024
 #
 #####  Operaciones básicas
 #¿Qué obtienes al ejecutar cada línea de código?

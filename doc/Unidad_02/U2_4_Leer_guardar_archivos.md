@@ -36,13 +36,26 @@ A continuación, observa el siguiente **Cuadro comparativo** que resume las func
 | Guardar archivos             | base      | `write.table()`   | .txt, .tsv, .dat                        |
 | Guardar archivos             | **readr**     | `write_tsv()`     | .tsv, .txt                              |
 
+---
+
+### Primero, ¿en donde estás?
+
+Recordemos algunas funciones básicas para saber en que ruta/directorio estas, prueba con `getwd()`. 
+
+Al obtener la ruta, notaras que tiene una estructura especial, la podemos resumir como "ruta/al/archivo.csv" donde cada nivel del directorio general esta separado por diagonales **/**. Aquí una imagen para ilustrar los niveles de los directorios.
+
+![alt text](image_4_01.png)
+
+
+Si quieres saber más información de las [rutas](https://www.educatica.es/sistemas-operativos/principios-basicos/sistemas-de-ficheros/rutas-de-ficheros-y-directorios/), puedes buscar información sobre las [rutas absolutas](https://docs.oracle.com/cd/E19253-01/816-3938/filemanager-8/index.html) y las [rutas relativas](https://docs.oracle.com/cd/E19253-01/816-3938/filemanager-9/index.html).
+
+## Con línea de código
+
 ### Leer archivos en R
 
 #### Leer archivos CSV
 
-Para leer archivos CSV, puedes usar la función `read.csv()`  del paquete `readr`:
-
-
+Para leer archivos CSV, puedes usar la función `read.csv()` del paquete base de R o la función `read_csv()` del paquete `readr`:
 
 ```r
 # Usando la función base de R
@@ -64,7 +77,7 @@ data <- read_excel("ruta/al/archivo.xlsx", sheet = "nombre_hoja")
 
 #### Leer archivos de texto
 
-Para leer archivos de texto, puedes usar la función `read.table()` o `readr::read_tsv()` para archivos delimitados por tabulaciones:
+Para leer archivos de texto, puedes usar la función `read.table()` del paquete base o `read_tsv()` del paquete `readr` para archivos delimitados por tabulaciones:
 
 ```r
 # Usando la función base de R
@@ -78,7 +91,7 @@ data <- read_tsv("ruta/al/archivo.txt")
 ### Guardar archivos en R
 
 #### Guardar archivos CSV
-Para guardar archivos en formato CSV, puedes usar la función `write.csv()` del paquete `readr`:
+Para guardar archivos en formato CSV, puedes usar la función `write.csv()` del paquete base o la función `write_csv()` del paquete `readr`:
 
 ```r
 # Usando la función base de R
@@ -100,7 +113,7 @@ write_xlsx(data, "ruta/al/archivo.xlsx")
 
 #### Guardar archivos de texto
 
-Para guardar archivos de texto, puedes usar la función `write.table()` del paquete `readr`:
+Para guardar archivos de texto, puedes usar la función `write.table()` del paquete base o la función `write_tsv()` del paquete `readr`:
 
 ```r
 # Usando la función base de R
@@ -113,7 +126,7 @@ write_tsv(data, "ruta/al/archivo.txt")
 
 ### Ejemplo Completo
 
-Aquí tienes un ejemplo completo que lee un archivo CSV, realiza una operación simple y guarda el resultado en un nuevo archivo CSV:
+Este es un ejemplo desde como importar un archivo CSV. Esta base de datos se puede cambiar en R sin que altere el archivo original. A continuación, modifica el archivo importando en R con una operación simple y ahora hay que guarda/exportar el resultado en un nuevo archivo CSV:
 
 ```r
 # Leer el archivo CSV
@@ -126,7 +139,28 @@ filtered_data <- subset(data, columna > valor)
 write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
 ```
 
+Siguiendo este ejemplo, ahora has una prueba importando los datos del archivo 
+
+```R
+# Ejercicio. Con los datos U3_2.csv dentro de la carpeta data.
+# Conserva los encabezados de las columnas 
+# Este archivo esta delimitado por ","
+
+data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",") 
+
+#Explora el objeto
+data_expresion
+
+```
+
 Este flujo básico te permitirá manejar archivos en RStudio de manera efectiva.
+
+## Desde la interfaz de RStudio
+
+![alt text](image_4_02.png)
+
+
+
 
 
 
