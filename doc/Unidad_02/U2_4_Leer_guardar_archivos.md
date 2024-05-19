@@ -15,27 +15,26 @@ Saber cómo leer y guardar archivos en RStudio es una habilidad esencial que te 
 - Acceder y preparar datos para análisis.
 - Asegurar la reproducibilidad y documentación de tus proyectos.
 - Facilitar la colaboración y el intercambio de datos.
-- Automatizar procesos analíticos y mejorar la eficiencia.
-- Integrar datos de múltiples fuentes y trabajar con diferentes formatos.
+- Integrar datos de múltiples fuentes y trabajar con diferentes formatos (.txt, .csv, .xls, etc).
 
 ---
 
-En RStudio, puedes leer y guardar archivos utilizando varias funciones de R. Aquí hay algunos ejemplos comunes para leer y guardar archivos en formatos CSV, Excel, y archivos de texto .txt.
+En RStudio, puedes leer y guardar archivos utilizando varias funciones. Aquí hay algunos ejemplos comunes para leer/importar y guardar/exportar archivos en diversos formatos como **CSV**, **Excel**, y **archivos de texto** (.txt).
 
-- Cuadro comparativo que resume las funciones, sus paquetes, el tipo de archivo que manejan y si es para leer o guardar archivos en RStudio.
+A continuación, observa el siguiente **Cuadro comparativo** que resume las funciones, sus paquetes, el tipo de archivo que manejan y si es para importar/leer o exportar/guardar archivos en RStudio.
 
-| Para guardar o leer archivos | Paquete   | Función           | Tipo de archivos que maneja (extensión) |
+| Para ... | Paquete   | Función           | Tipo de archivos que maneja (extensión) |
 |------------------------------|-----------|-------------------|-----------------------------------------|
 | Leer archivos                | base      | `read.csv()`      | .csv                                    |
-| Leer archivos                | readr     | `read_csv()`      | .csv                                    |
-| Leer archivos                | readxl    | `read_excel()`    | .xls, .xlsx                             |
+| Leer archivos                | **readr**     | `read_csv()`      | .csv                                    |
+| Leer archivos                | `readxl`    | `read_excel()`    | .xls, .xlsx                             |
 | Leer archivos                | base      | `read.table()`    | .txt, .tsv, .dat                        |
-| Leer archivos                | readr     | `read_tsv()`      | .tsv, .txt                              |
+| Leer archivos                | **readr**     | `read_tsv()`      | .tsv, .txt                              |
 | Guardar archivos             | base      | `write.csv()`     | .csv                                    |
-| Guardar archivos             | readr     | `write_csv()`     | .csv                                    |
-| Guardar archivos             | writexl   | `write_xlsx()`    | .xlsx                                   |
+| Guardar archivos             | **readr**     | `write_csv()`     | .csv                                    |
+| Guardar archivos             | _writexl_   | `write_xlsx()`    | .xlsx                                   |
 | Guardar archivos             | base      | `write.table()`   | .txt, .tsv, .dat                        |
-| Guardar archivos             | readr     | `write_tsv()`     | .tsv, .txt                              |
+| Guardar archivos             | **readr**     | `write_tsv()`     | .tsv, .txt                              |
 
 ### Leer archivos en R
 
