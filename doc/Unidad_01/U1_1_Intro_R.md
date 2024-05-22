@@ -109,3 +109,7 @@ Estas capacidades hacen de R una herramienta versátil y poderosa para el análi
 ### R en español
 
 - Traducción del libro [**“R for Data Science”**](https://es.r4ds.hadley.nz/), de Hadley Wickham y Garrett Grolemund.
+
+### R en los negocios
+
+- [R for Marketing Research and Analytics](https://r-marketing.r-forge.r-project.org/)

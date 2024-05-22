@@ -173,4 +173,8 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 - [Instalación de R y RStudio](https://bookdown.org/daniel_dauber_io/r4np_book/setting-up-r-and-rstudio.html)
 
 
+# Siguiente tema:
+[1.2 RStudio](../Unidad_01/U1_2_Rstudio.md)
+
+
 ## Introducción a Variables y Funciones

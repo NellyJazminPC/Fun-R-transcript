@@ -12,7 +12,7 @@ getwd()
 
 data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",") 
 
-# Realizar una operación simple (por ejemplo, filtrar filas)
+# Realizar una operación simple (por ejemplo, filtrar solo los datos de Etapa1)
 filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
 
 

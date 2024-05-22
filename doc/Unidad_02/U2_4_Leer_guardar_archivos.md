@@ -157,7 +157,7 @@ data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",")
 #Explora el objeto
 data_expresion
 
-# Realizar una operación simple (por ejemplo, filtrar filas)
+# Realizar una operación simple (por ejemplo, filtrar solo los datos de Etapa1)
 filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
 
 #Guardar el archivo en formato .txt
@@ -183,7 +183,6 @@ Por otro lado, si aún no te sientes muy cómodo puedes ir practicando a través
 ![alt text](image_4_02.png)
 
 Esta forma de importar archivos puede ser la más facil al principio, pero conforme avances y necesites llevar un registro de los archivos originales que ocupas y sus rutas para poder encontrarlos nuevamente, notarás que será mejor usar las líneas de código desde el Editor y añadir tus anotaciones/comentarios. Además, la forma de exportar los archivos es a través de líneas de código.
-
 
 ### Fuentes de información
 
