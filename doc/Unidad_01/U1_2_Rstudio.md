@@ -163,7 +163,7 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 ```R
 5 + 5
 10*8 + 3*(6 - 2/4)^10
-````
+```
 
 ### Fuentes de información:
 
@@ -172,5 +172,6 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 - [RStudio Cloud](https://posit.cloud/plans)
 - [Instalación de R y RStudio](https://bookdown.org/daniel_dauber_io/r4np_book/setting-up-r-and-rstudio.html)
 
+# Siguiente tema: [1.3 Gestión de Proyectos](../Unidad_01/U1_3_Gestion_proyectos.md)
 
 ## Introducción a Variables y Funciones
