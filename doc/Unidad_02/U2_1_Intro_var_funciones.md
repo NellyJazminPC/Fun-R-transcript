@@ -40,6 +40,7 @@ En el contexto de programación en R, los términos "variable" y "objeto" tienen
    - Un objeto es una instancia de una clase que puede almacenar datos y métodos para manipular esos datos. En R, casi todo es un objeto, incluyendo vectores, matrices, data.frames, listas, funciones, etc.
    - Los objetos en R tienen atributos y pueden ser manipulados mediante funciones.
    - Ejemplo:
+   
      ```R
      vector <- c(1, 2, 3)          # vector es un objeto de clase "numeric"
      matriz <- matrix(1:9, nrow=3) # matriz es un objeto de clase "matrix"
