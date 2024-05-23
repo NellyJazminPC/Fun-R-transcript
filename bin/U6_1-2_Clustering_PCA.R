@@ -1,4 +1,5 @@
-###### Sesión de la Unidad 6 ######
+###### Unidad 6 ######
+#### Sesión 6.1 y 6.2 
 ## Lunes 24 de junio de 2024
 ## Nelly Jazmín Pacheco Cruz
 ## Análisis de agrupamiento (Clustering)

@@ -67,3 +67,75 @@ mi_vector <- mi_vector * 2
 ```
 
 En resumen, una variable es una referencia o un nombre simbólico que apunta a un objeto, mientras que un objeto es una entidad en la memoria que puede contener datos y métodos para manipular esos datos. En R, casi todo es considerado un objeto, y las variables se utilizan para acceder y manipular estos objetos.
+
+---
+
+#### Repasemos
+
+- Una variable es un caracter o palabra que guarda un valor/objeto
+
+- Operador flecha (**<-**), **debe apuntar hacia la variable**:
+
+#### Ejercicio
+
+Escribe los siguiente en tu editor en RStudio 
+
+> Recuerda que para ejecutar cada operación hay que dar click en **Run** o **Ctrl + Enter** (Windows) o **Command + Enter** (MacOs).
+
+```R
+# Recordando el ejemplo de la caja, la caja en donde guardaras el valor 5 se llamará x
+ x <- 5
+# Ahora revisa lo que tiene tu variable x
+x
+```
+
+La dirección de la flecha, ¿funciona en ambas direcciones? Haz la prueba y dinos que pasa.
+
+```R
+# La caja, es decir la variable se llama x y el valor u objeto que estamos asignado es 10
+10 -> x
+#Imprime x
+x
+# ¿Qué pasa en este caso?
+10 <- x
+```
+
+---
+
+### Tips para escoger los nombres de las variables
+
+
+### Reescribir el valor de una variable o asignarlo a una nueva
+
+```R
+# Agregar un valor a la variable (objeto)
+x <- 5
+x #Imprime lo que contiene el variable X
+x + 1 #Suma 1 a x
+#Se guardo el valor de 6?
+x
+```
+
+Si no se guarda el valor, el resultado de la operación solo se imprime. En este caso estamos manipulando los objetos pero no estamos modificando la variable.
+
+```R
+#Para guardar este valor podemos reescribir la variable
+x <- x + 1
+x
+# O podemos asignar este nuevo valor a otra variabe
+y <- x * 2 # estamos guardando el resultado de x por 2 en la variable y
+# Verifica que valores tiene "x" y "y"
+x
+y
+```
+
+---
+
+## Conceptos básicos: funciones
+
+Con las funciones, damos instrucciones a R para llevar a cabo una operación.
+
+Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
+
+![alt text](image_2.1_02.png)
+
