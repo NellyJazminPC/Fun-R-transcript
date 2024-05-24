@@ -105,7 +105,7 @@ x
 ### Tips para escoger los nombres de las variables
 
 
-### Reescribir el valor de una variable o asignarlo a una nueva
+#### Reescribir el valor de una variable o asignarlo a una nueva
 
 ```R
 # Agregar un valor a la variable (objeto)
@@ -138,4 +138,12 @@ Con las funciones, damos instrucciones a R para llevar a cabo una operación.
 Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
 
 ![alt text](image_2.1_02.png)
+
+---
+
+### Tips en el editor
+
+Provee y auto-completa los comandos: doble Tab
+
+![alt text](image_2.1_03.png)
 
