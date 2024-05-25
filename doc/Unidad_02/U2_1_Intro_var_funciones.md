@@ -141,9 +141,19 @@ Empiezan por el nombre, seguido por paréntesis y después especificamos paráme
 
 ---
 
-### Tips en el editor
+### Tips en el editor y en la línea de comandos de la consola
 
-Provee y auto-completa los comandos: doble Tab
+- Presionar 1 vez Tab (tabulador), muestra sugerencias
+
+- Presionar 2 veces Tab, auto-completa 
 
 ![alt text](image_2.1_03.png)
+
+### Ejercicio
+
+Instala el paquete de ggplot2 desde la ventana del Editor de Scripts 
+
+install.packages("ggplot2")
+
+
 
