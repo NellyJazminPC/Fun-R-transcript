@@ -149,11 +149,27 @@ Empiezan por el nombre, seguido por paréntesis y después especificamos paráme
 
 ![alt text](image_2.1_03.png)
 
-### Ejercicio
+### REPASO: Ejemplos de funciones básicas
 
-Instala el paquete de ggplot2 desde la ventana del Editor de Scripts 
+- Como vimos previamente, para instalar un paquete necesitamos de la función `install.packages()`. En este ejemplo se muestra la línea de comando para instalar el paquete `ggplot2` desde el Editor.
+
+```R
+#Para instalar un nuevo paquete necesitas la función install.packages
+#Generalmente el nombre del paquete va entre comillas. 
+#Versiones más recientes pueden aceptar el nombre sin comillas
 
 install.packages("ggplot2")
+```
 
+- Para pedir ayuda sobre otra función necesitamos de la función `help()`
 
+```R
+# La función Help
+help()
+# Para buscar un paquete o función en específico. 
+# Por ejemplo, para la función "plot"
+help(plot)
+# ¿Qué pasa si usas la función help() para saber más de "help"?
+help("help")
+```
 

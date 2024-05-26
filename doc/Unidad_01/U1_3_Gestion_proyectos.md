@@ -62,11 +62,29 @@ Podemos movernos entre carpetas y archivos por medio de comandos.
 getwd()
 
 # ¿Para que funciona setwd()?
-?setwd() #Este comando cumple la misma función que Session > Set working directory 
+setwd() 
+#Este comando cumple la misma función que Session > Set working directory 
+
 # ¿Qué nos muestra el comando dir() ?
 dir() # muestra los archivos que están en la carpeta donde te encuentras
 
 ```
+
+Antes de continuar, es importante ir familiarizandonos con unos terminos que veremos más a detalle posteriormente. 
+En R, los comandos `setwd(), dir(), y otros más que contenga paréntesis son llamados **funciones**. 
+
+#### ¿Qué es una función?
+
+De manera muy general, con una función damos instrucciones a R para llevar a cabo alguna operación.
+
+Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
+
+![alt text](image_2.1_02.png)
+
+En la siguiente unidad, profundizaremos en las funciones y las variables en R.
+
+
+---
 
 ### Conceptos básicos: packages
 
@@ -113,6 +131,36 @@ install.packages(ggplot2)
 # Cuidado: si te aparece un error puede ser por la versión de R, en algunas versiones previas necesitas poner entre comillas el nombre del paquete: install.packages("ggplot2") 
 ```
 
+---
+
+### Conceptos básicos: help
+
+La función help() es una herramienta crucial para:
+
+- Obtener información detallada sobre **funciones**, incluyendo su uso y ejemplos.
+- Acceder a la documentación general de paquetes.
+- Mejorar tu comprensión y eficiencia al trabajar con R.
+
+Utilizar help() y los comandos relacionados te ayudará a aprender y resolver problemas de manera más efectiva mientras programas en R.
+
+#### Ejemplo
+
+Supongamos que tienes un script que quieres ejecutar y adecuar a tus datos pero hay funciones que desconoces, por ejemplo `lm()`. ¿Qué harías para saber que hace esta función?
+
+```R
+# Obtener ayuda sobre la función lm
+help("lm")
+# O usar el atajo
+?lm
+```
+
+En el panel de Ayuda se mostrará la documentación de la función. En este caso, `lm()` es una función para modelos lineales.
+
+
+
+
+---
+
 ### Conceptos básicos: salir
 
 Para salir de R desde la interfaz de Rstudio:
@@ -124,13 +172,15 @@ Los archivos de R se guardan con la extensión **.r** o **.R**
 
 - Para guardar tu script ve al Menú de RStudio, _File_ > _Save_
 
+---
+
 ### Conceptos básicos: archivos generados por default
 
 Cada sesión guarda o carga dos archivos ocultos:
 
 **.RData** y **.RHistory**
 
-Ejemplo: 
+#### Ejemplo: 
 
 En la imagen se muestra que al acceder a la carpeta no puedes ver los archivos ocultos, pero al entrar desde la terminal y con el comando `ls -la`puedes ver estos archivos ocultos.
 
