@@ -71,7 +71,7 @@ En resumen, una variable es una referencia o un nombre simbólico que apunta a u
 
 ---
 
-### Repasemos qué es una variable
+### Repaso: ¿qué es una variable?
 
 - Una variable es un caracter o palabra que guarda un valor/objeto
 
@@ -119,7 +119,7 @@ Por otro lado, aquí está lo que debes evitar al nombrar una nueva variable:
 - Evita palabras reservadas.
 - Evita nombres confusos, ambiguos o crípticos.
 - Evita nombres de variables similares.
-- Evita nombres de una sola letra, excepto en contextos específicos.
+- Evita nombres de una sola letra, excepto en contextos específicos (como en una prueba rápida).
 - No uses nombres que coincidan con funciones integradas.
 - No empieces los nombres de variables con un número.
 - Evita caracteres especiales en los nombres de variables.
@@ -140,30 +140,59 @@ De la siguiente lista, ¿cuáles son los nombres de variables que debemos evitar
 | 2widths        | ✗      |
 | celsius2kelvin | ✓      |
 
+---
 
-#### Reescribir el valor de una variable o asignarlo a una nueva
+#### Ejercicio: reescribir el valor de una variable o asignarlo a una nueva
+
+Vamos a practicar en R cómo asignar valores a una variable.
 
 ```R
-# Agregar un valor a la variable (objeto)
+# Agregar un valor a la variable
 x <- 5
-x #Imprime lo que contiene el variable X
-x + 1 #Suma 1 a x
-#Se guardo el valor de 6?
+
+# Imprime lo que contiene la variable X
+x 
+
+# Suma 1 a "x"
+x + 1 
+
+# Revisa si se guardo el valor de 6 en "x"
 x
+
+#¿Qué sucedió? 
 ```
 
-Si no se guarda el valor, el resultado de la operación solo se imprime. En este caso estamos manipulando los objetos pero no estamos modificando la variable.
+**Si no se guarda el valor**, es decir, sino se vuelve a asignar con el operador flecha **<-**, el resultado de la operación solo se imprime. En este caso estamos manipulando los objetos (sumando el objeto de la variable **x**, que es **5**, más **1**, que es otro objeto) pero no estamos modificando la variable.
 
 ```R
 #Para guardar este valor podemos reescribir la variable
+# Incrementamos x en 1:
 x <- x + 1
 x
-# O podemos asignar este nuevo valor a otra variabe
-y <- x * 2 # estamos guardando el resultado de x por 2 en la variable y
+
+# O podemos asignar este nuevo valor a otra variable
+# y es el valor de x multiplicado por dos
+y <- x * 2 
+
 # Verifica que valores tiene "x" y "y"
 x
 y
 ```
+
+> PRECAUCIÓN:
+
+Sobrescribir variables es una práctica común en R y puede ser útil en contextos específicos, por ejemplo, ayuda a reducir el uso de memoria de la computadora. Sin embargo, hay que tener cuidado con la potencial pérdida de información al sobrescribir una variable por error, además de que puede ser difícil rastrear los cambios.
+
+Por otro lado, el crear muchas variables nuevas en tus scripts también tiene sus propias ventajas y desventajas a considerar:
+
+| Ventajas                         | Desventajas                            |
+|----------------------------------|----------------------------------------|
+| Claridad y legibilidad           | Consumo de memoria                     |
+| Trazabilidad y depuración        | Complejidad y mantenimiento            |
+| Evitar sobrescritura accidental  | Posibilidad de confusión               |
+| Facilitar el reuso de datos      | Dificultad para seguir el flujo de datos|
+
+En resumen, se recomienda buscar un equilibrio entre tus decisiones de crear nuevas variables o sobreescribir las que tienes, esto puede depender de la cantidad de datos que manejes, la memoria de tu computadora y que tan complejo puede ser el rastreo de los cambios en tu script.
 
 ---
 
@@ -171,11 +200,24 @@ y
 
 Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo una operación.
 
-Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
+### ¿Qué es una función? 
+
+En R, una función es como una receta que le dice al ordenador cómo realizar una tarea específica. 
+
+Imagina que quieres hacer una operación matemática, como sumar dos números, muchas veces en tu código. En lugar de escribir el cálculo cada vez, puedes usar una función que haga esa suma por ti.
+
+
+
+> REPASO: Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
 
 ![alt text](image_2.1_02.png)
 
-**¿Pero qué es una función?** 
+Partes de una Función
+Una función en R tiene tres partes principales:
+
+Nombre de la Función: El nombre que usas para llamar a la función.
+Paréntesis: Los paréntesis pueden contener valores llamados argumentos, que la función necesita para realizar su tarea.
+Cuerpo de la Función: El código que le dice a R qué hacer con los argumentos.
 
 
 
@@ -183,9 +225,11 @@ Empiezan por el nombre, seguido por paréntesis y después especificamos paráme
 
 ### Tips en el editor y en la línea de comandos de la consola
 
-- Presionar 1 vez Tab (tabulador), muestra sugerencias
+En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente la utilidad de **Tab**. Recordemoslo ahora:
 
-- Presionar 2 veces Tab, auto-completa 
+- Al presionar 1 vez Tab (tabulador), se muestran sugerencias
+
+- Al presionar 2 veces Tab, se auto-completa en nombre de la función con la primera sugerencia.
 
 ![alt text](image_2.1_03.png)
 
