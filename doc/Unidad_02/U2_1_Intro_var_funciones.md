@@ -141,6 +141,8 @@ Empiezan por el nombre, seguido por paréntesis y después especificamos paráme
 
 **¿Pero qué es una función?** 
 
+
+
 ---
 
 ### Tips en el editor y en la línea de comandos de la consola

@@ -90,7 +90,6 @@ Hay varias pestañas pero vamos a centrarnos en las dos más utilizadas, el **am
 
 - En el historial podemos ver el registro de todos los comandos que hemos ejecutado para esa sesión en R. Otra forma para navegar por el historial es desde la **consola** usando las **teclas arriba y abajo**.
 
-
 ![alt text](Imagen_1_10.png)
 
 4. **Editor de los scripts**
@@ -103,14 +102,11 @@ Podemos enviar ejecutar todo el código (_el script_) seleccionando todas las li
 
 > Tip importante: Para documentar tus scripts usa # para escribir tus comentarios.
 
-
 ![alt text](Imagen_1_12.png)
-
 
 El texto después de cada línea de código se llama **“comentario”**. Todo lo que sigue después del símbolo **hash** (o numeral) **#** es ignorado por R cuando se ejecuta el código.
 
 La documentación es muy importante para la **reproducibilidad** de los análisis y de hecho en varias revistas, para publicar tu trabajo pediran que compartas tus scripts, sin embargo, antes de publicar tu script recuerda revisarlo nuevamente.
-
 
 Otra ventaja de usar el editor es que puede ayudarnos a **auto-completar** los comandos.
 
@@ -140,11 +136,11 @@ El orden de las operaciones es el mismo que has aprendido en la escuela.
 # %*%	Multiplicación matricial
 # %o%	Producto exterior
 # %x%	Producto Kronecker
-````
+```
+
 ¿Qué obtienes al ejecutar cada línea de código?
 
 >Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
-
 
 Los números pequeños o grandes tienen una notación científica:
 
@@ -156,7 +152,7 @@ Los números pequeños o grandes tienen una notación científica:
 # También puedes escribir números en notación científica:
 5e3  # nota la falta del signo menos aquí, ¿cuál fue el resultado?
 5e-3 # ¿Qué obuviste al agregar el signo - ?
-````
+```
 
 Podemos ir aumentando los términos en las operaciones matemáticas:
 
@@ -165,12 +161,11 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 10*8 + 3*(6 - 2/4)^10
 ```
 
-### Fuentes de información:
+#### Fuentes de información:
 
 - [Descargar RStudio](https://posit.co/downloads/)
 - [RStudio is now Posit!](https://www.youtube.com/watch?v=0_UNtwEh7kY)
 - [RStudio Cloud](https://posit.cloud/plans)
 - [Instalación de R y RStudio](https://bookdown.org/daniel_dauber_io/r4np_book/setting-up-r-and-rstudio.html)
 
-# Siguiente tema: [1.3 Gestión de Proyectos](../Unidad_01/U1_3_Gestion_proyectos.md)
-
+### Siguiente tema: [1.3 Gestión de Proyectos](../Unidad_01/U1_3_Gestion_proyectos.md)

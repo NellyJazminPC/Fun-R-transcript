@@ -46,11 +46,13 @@ A continuación veremos  dos formas para crear un proyecto en RStudio, la primer
 
 ![alt text](Imagen_1_16.png)
 
-**Ejercicio**
+#### Ejercicio
 
 - Crea tu proyecto de R enlazándolo a la carpeta del curso que descargaste desde Github.
 
 Tip: [Descarga la carpeta desde Github como un archivo Zip](../../README.md)
+
+---
 
 ### Conceptos básicos: carpetas
 
@@ -70,19 +72,13 @@ dir() # muestra los archivos que están en la carpeta donde te encuentras
 
 ```
 
-Antes de continuar, es importante ir familiarizandonos con unos terminos que veremos más a detalle posteriormente. 
-En R, los comandos `setwd(), dir(), y otros más que contenga paréntesis son llamados **funciones**. 
+Antes de continuar, es importante familiarizarnos con algunos términos que veremos más a detalle en la [siguiente unidad](../Unidad_02/U2_1_Intro_var_funciones.md). En R, los comandos como `setwd()`, `dir()`, y otros que van seguidos por paréntesis son llamados **funciones**.
 
 #### ¿Qué es una función?
 
-De manera muy general, con una función damos instrucciones a R para llevar a cabo alguna operación.
-
-Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
+De manera muy general, con una función damos instrucciones a R para llevar a cabo alguna operación. Las funciones empiezan con un nombre, seguido de paréntesis, y dentro de estos especificamos los parámetros.
 
 ![alt text](image_2.1_02.png)
-
-En la siguiente unidad, profundizaremos en las funciones y las variables en R.
-
 
 ---
 
@@ -114,11 +110,9 @@ Hay tres formas para instalar paquetes:
 2. Desde la venta de Directorio de Trabajo/Gráficos/Paquetes: como vimos previamente en la ventana de _Paquetes_ y dando click en _Instalar_. 
 3. Desde el Editor/Consola: con el comando `install.packages()`
 
-**Ejercicio**
+#### Ejercicio
 
 Instala el paquete de `ggplot2` desde cualquier de las tres opciones anteriores.
-
-Tip:
 
 ```R
 #Desde el editor en RStudio puedes averiguar más acerca de la función install.packages
@@ -156,8 +150,58 @@ help("lm")
 
 En el panel de Ayuda se mostrará la documentación de la función. En este caso, `lm()` es una función para modelos lineales.
 
+#### Ejercicio
 
+Busca más información acerca de la función `boxplot()`. **¿Puedes identificar los siguientes apartados en la sección de ayuda?**
 
+- Paquete que lo contiene
+- Descripción
+- Uso
+- Argumentos (valores que recibe la función) 
+- Detalles
+- Notas
+- Referencias bibliográficas 
+- Ver también
+- Ejemplos
+
+```R
+#Atajo para buscar información de la función boxplot()
+?boxplot
+
+```
+
+#### ¿En qué otros lugares puedo buscar ayuda?
+
+Hay una serie de sitios donde puedes buscar ayuda sobre un temá en específico, si tu código no funciona o incluso si tienes problemas con otros lenguajes de programación:
+
+1. **Stack Overflow**
+   - Un foro muy popular para programadores de todas las disciplinas.
+   - [Stack Overflow](https://stackoverflow.com/)
+
+2. **Google**
+   - Puedes encontrar una gran cantidad de tutoriales, blogs y documentación oficial buscando términos relacionados con tu problema.
+
+3. **ChatGPT**
+   - Puedes hacer preguntas específicas y obtener respuestas detalladas de modelos de lenguaje como ChatGPT.
+
+4. **Biostars**
+   - Un foro específico para bioinformática, donde puedes encontrar ayuda y discusiones sobre temas relacionados con la bioinformática y el uso de R en ese campo.
+   - [Biostars](https://www.biostars.org/p/2748/#2751)
+
+5. **RStudio Community**
+   - Una comunidad en línea para usuarios de R y RStudio, donde puedes encontrar ayuda, compartir ideas y discutir sobre R.
+   - [RStudio Community](https://community.rstudio.com/)
+
+6. **GitHub**
+   - Muchos proyectos de R están alojados en GitHub, donde puedes encontrar documentación, ejemplos de código y abrir _issues_ para obtener ayuda.
+   - [GitHub](https://github.com/)
+
+7. **Books and Online Tutorials**
+    - Existen numerosos libros y tutoriales en línea que cubren desde lo básico hasta temas avanzados en R. Libros como "R for Data Science" de Hadley Wickham y Garrett Grolemund son altamente recomendados.
+
+Estos recursos te proporcionarán una amplia gama de información y ayuda para resolver problemas y aprender más sobre R y programación en general.
+
+![alt text](image-1.png)
 
 ---
 
@@ -186,9 +230,9 @@ En la imagen se muestra que al acceder a la carpeta no puedes ver los archivos o
 
 ![alt text](Imagen_1_18.png)
 
+---
+
 ### Extra: administrar tu entorno
-
-
 
 ```R
 #ls() mostrara una lista de todas las variables y funciones almacenadas en el entorno global, es decir, en tu sesión de trabajo en R:
@@ -208,7 +252,7 @@ rm(list = ls())
 
 ```
 
-### Fuentes de información
+#### Fuentes de información
 
 - [Controversia con rm(list = ls())](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
 )
@@ -216,9 +260,7 @@ rm(list = ls())
 
 - [swcarpentry - project-intro](https://swcarpentry.github.io/r-novice-gapminder-es/02-project-intro.html)
 
-
-
-
+---
 
 ### Extra: source
 
@@ -255,7 +297,7 @@ source("U1_1_IntroRstudio.R")
 # ¿Qué paso?
 ```
 
-### Fuentes de información:
+#### Fuentes de información:
 
 - [The Comprehensive R Archive Network](https://cran.r-project.org/)
 - [8. Introduction to R Packages by Ken Rice
@@ -266,13 +308,10 @@ Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
 - [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/
 )
 
-### Fuentes de información:
-
 - [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
 
 - [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
+---
 
-### Siguiente tema:
-
-[2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)
+### Siguiente tema: [2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)
