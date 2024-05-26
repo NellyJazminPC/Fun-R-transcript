@@ -174,4 +174,3 @@ Podemos ir aumentando los términos en las operaciones matemáticas:
 
 # Siguiente tema: [1.3 Gestión de Proyectos](../Unidad_01/U1_3_Gestion_proyectos.md)
 
-## Introducción a Variables y Funciones

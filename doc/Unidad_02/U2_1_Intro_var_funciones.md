@@ -133,11 +133,13 @@ y
 
 ## Conceptos básicos: funciones
 
-Con las funciones, damos instrucciones a R para llevar a cabo una operación.
+Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo una operación.
 
 Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
 
 ![alt text](image_2.1_02.png)
+
+**¿Pero qué es una función?** 
 
 ---
 

@@ -273,6 +273,6 @@ Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
 - [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
 
-## Siguiente tema:
+### Siguiente tema:
 
 [2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)
