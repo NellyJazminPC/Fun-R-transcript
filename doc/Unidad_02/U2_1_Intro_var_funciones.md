@@ -10,20 +10,21 @@
 
 ### ¿Qué es una variable?
 
-En R, una variables es un contenedor donde podemos almacenar datos.
+En R, **una variable es un contenedor donde se pueden almacenar y manipular datos**. Para reconocer "algo" como una variable hay que **asignarle un nombre único**. Puede almacenar **diferentes tipos de datos** (i.e., números, caractéres, matrices, vectores, data frames, listas).
 
-En R, una variable es un contenedor donde se pueden almacenar y manipular datos. Para reconocer "algo" como una variable hay que asignarle un nombre único. Puede almacenar diferentes tipos de datos (i.e., números, caractéres, matrices, vectores, data frames, listas)
 Al definir una variable en R, estás creando un espacio en la memoria donde puedes almacenar valores y referenciarlos mediante el nombre asignado a esa variable.
 
-Una analogía para entender una variable en R podría ser pensar en un contenedor físico, como una caja o un recipiente, donde puedes colocar diferentes objetos. Cada contenedor tiene un nombre único que te permite identificarlo y acceder a su contenido cuando lo necesites. 
+Una analogía para entender qué es una variable en R es pensar en ella como un contenedor físico, por ejemplo, una caja o un recipiente, donde puedes colocar diferentes objetos. Cada contenedor tiene un nombre único que te permite identificarlo y acceder a su contenido cuando lo necesites.
 
 ![alt text](image_2.1_01.png)
 
-Del mismo modo, una variable en R es como un contenedor virtual donde puedes guardar datos y referenciarlos mediante un nombre único, como **caja1** en el ejemplo.
+Una variable en R es como un contenedor virtual donde puedes **guardar datos** y **referenciarlos** mediante un nombre único, como **caja1** en el ejemplo.
 
 Así como puedes guardar **diferentes tipos de objetos en diferentes contenedores físicos**, en R puedes almacenar **diferentes tipos de datos en diferentes variables**.
 
-## ¿Variable es igual a objeto?
+---
+
+#### EXTRA: ¿Variable es igual a objeto?
 
 En el contexto de programación en R, los términos "variable" y "objeto" tienen significados específicos y relacionados, pero **no son completamente intercambiables**. 
 
@@ -47,12 +48,12 @@ En el contexto de programación en R, los términos "variable" y "objeto" tienen
      df <- data.frame(a = 1:3, b = c("x", "y", "z")) # df es un objeto de clase "data.frame"
      ```
 
-### Relación entre Variables y Objetos
+##### Relación entre Variables y Objetos
 
 - En R, las variables actúan como etiquetas o nombres que apuntan a objetos almacenados en la memoria. Cuando asignas un valor a una variable, estás creando un objeto y asignándolo a esa variable.
 - Una variable puede cambiar el objeto al que apunta, pero el objeto en sí puede mantenerse igual si no se modifica explícitamente.
 
-### Ejemplo para ilustrar la diferencia:
+##### Ejemplo para ilustrar la diferencia:
 
 ```R
 # Crear un objeto (vector) y asignarlo a una variable
@@ -70,7 +71,7 @@ En resumen, una variable es una referencia o un nombre simbólico que apunta a u
 
 ---
 
-#### Repasemos
+### Repasemos qué es una variable
 
 - Una variable es un caracter o palabra que guarda un valor/objeto
 
@@ -103,6 +104,41 @@ x
 ---
 
 ### Tips para escoger los nombres de las variables
+
+Aquí estan algunas recomendaciones al elegir como nombrarás a una nueva variable:
+
+- Usa nombres descriptivos.
+- Sigue una convención de nombres consistente.
+- Usa nombres en inglés.
+- Sé conciso pero claro.
+- Usa prefijos y sufijos cuando sea necesario.
+- Utiliza comentarios cuando sea necesario.
+
+Por otro lado, aquí está lo que debes evitar al nombrar una nueva variable:
+
+- Evita palabras reservadas.
+- Evita nombres confusos, ambiguos o crípticos.
+- Evita nombres de variables similares.
+- Evita nombres de una sola letra, excepto en contextos específicos.
+- No uses nombres que coincidan con funciones integradas.
+- No empieces los nombres de variables con un número.
+- Evita caracteres especiales en los nombres de variables.
+- Usa nombres descriptivos pero concisos.
+
+#### Ejemplo
+
+De la siguiente lista, ¿cuáles son los nombres de variables que debemos evitar?
+
+| Nombres        | Válido |
+|----------------|--------|
+| min_height     | ✓      |
+| max.height     | ✓      |
+| _age           | ✗      |
+| .mass          | ✗      |
+| MaxLength      | ✓      |
+| min-length     | ✗      |
+| 2widths        | ✗      |
+| celsius2kelvin | ✓      |
 
 
 #### Reescribir el valor de una variable o asignarlo a una nueva
