@@ -330,7 +330,11 @@ help(plot)
 help("help")
 ```
 
-#### Fuentes de información
+### Fuentes de información
 
 - [Funciones básicas de R](https://fhernanb.github.io/Manual-de-R/funbas.html
 )
+
+---
+
+### Siguiente tema: [2.2 Estructuras de datos](../Unidad_02/U2_2_Estructuras_datos.md)
