@@ -198,28 +198,101 @@ En resumen, se recomienda buscar un equilibrio entre tus decisiones de crear nue
 
 ## Conceptos básicos: funciones
 
-Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo una operación.
+Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo alguna operación. La siguiente imagen muestra cómo usamos la función `plot`para realizar una operación, que en este caso es generar un gráfico. 
 
-### ¿Qué es una función? 
-
-En R, una función es como una receta que le dice al ordenador cómo realizar una tarea específica. 
-
-Imagina que quieres hacer una operación matemática, como sumar dos números, muchas veces en tu código. En lugar de escribir el cálculo cada vez, puedes usar una función que haga esa suma por ti.
-
-
-
-> REPASO: Empiezan por el nombre, seguido por paréntesis y después especificamos parámetros:
+> REPASO: Recordemos cómo se "llama" una función. Empiezan por el nombre de la función (plot), seguido por paréntesis, en donde estan los argumentos y parámetros:
 
 ![alt text](image_2.1_02.png)
 
-Partes de una Función
-Una función en R tiene tres partes principales:
+Hemos vistó como podemos **usar una función**, pero **¿qué es una función?**
 
-Nombre de la Función: El nombre que usas para llamar a la función.
-Paréntesis: Los paréntesis pueden contener valores llamados argumentos, que la función necesita para realizar su tarea.
-Cuerpo de la Función: El código que le dice a R qué hacer con los argumentos.
+En R, las funciones pueden compararse con una caja que recibe **entradas** (inputs), las procesa y luego genera **salidas** (outputs).
 
+Imagina que una función es como una maquina a la que agregas diferentes ingredientes y aunque no vez a simple vista lo que pasa dentro de la maquina, el resultado final es una increible barra de chocolate.
 
+![alt text](image_2.1_05.png)
+
+En "Charlie y la fábrica de chocolate" de Roald Dahl, Willy Wonka tiene varias máquinas y dispositivos que transforman ingredientes en deliciosos y mágicos dulces y chocolates.
+
+Esos ejemplos ilustran bien la idea de una caja o dispositivo mágico donde se introducen materiales y se obtiene un resultado final de manera sorprendente, similar a cómo funcionan las funciones en R: introduciendo **argumentos (inputs)**, procesándolos y obteniendo un **resultado (output)**.
+
+![alt text](image_2.1_04.png)
+
+El cuerpo de la función, donde se procesan estos **inputs** para convertirlos en **outputs**, se encuentra **dentro de llaves**.
+
+### Ejemplo - función
+
+En tu editor vamos a ver cómo luce por dentro la función `plot`.
+
+```R
+#Ejecuta la siguiente línea así como está
+plot.default
+
+```
+
+¿Qué obtuviste?
+
+```R
+> plot.default
+function (x, y = NULL, type = "p", xlim = NULL, ylim = NULL, 
+    log = "", main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
+    ann = par("ann"), axes = TRUE, frame.plot = axes, panel.first = NULL, 
+    panel.last = NULL, asp = NA, xgap.axis = NA, ygap.axis = NA, 
+    ...) 
+{
+    localAxis <- function(..., col, bg, pch, cex, lty, lwd) Axis(...)
+    localBox <- function(..., col, bg, pch, cex, lty, lwd) box(...)
+    localWindow <- function(..., col, bg, pch, cex, lty, lwd) plot.window(...)
+    localTitle <- function(..., col, bg, pch, cex, lty, lwd) title(...)
+    xlabel <- if (!missing(x)) 
+        deparse1(substitute(x))
+    ylabel <- if (!missing(y)) 
+        deparse1(substitute(y))
+    xy <- xy.coords(x, y, xlabel, ylabel, log)
+    xlab <- if (is.null(xlab)) 
+        xy$xlab
+    else xlab
+    ylab <- if (is.null(ylab)) 
+        xy$ylab
+    else ylab
+    xlim <- if (is.null(xlim)) 
+        range(xy$x[is.finite(xy$x)])
+    else xlim
+    ylim <- if (is.null(ylim)) 
+        range(xy$y[is.finite(xy$y)])
+    else ylim
+    dev.hold()
+    on.exit(dev.flush())
+    plot.new()
+    localWindow(xlim, ylim, log, asp, ...)
+    panel.first
+    plot.xy(xy, type, ...)
+    panel.last
+    if (axes) {
+        localAxis(if (is.null(y)) 
+            xy$x
+        else x, side = 1, gap.axis = xgap.axis, ...)
+        localAxis(if (is.null(y)) 
+            x
+        else y, side = 2, gap.axis = ygap.axis, ...)
+    }
+    if (frame.plot) 
+        localBox(...)
+    if (ann) 
+        localTitle(main = main, sub = sub, xlab = xlab, ylab = ylab, 
+            ...)
+    invisible()
+}
+<bytecode: 0x7fa9fadefc68>
+<environment: namespace:graphics>
+```
+
+Si quieres saber como esta construida otra función, escribe el nombre de la función sin los paréntesis.
+
+```R
+# por ejemplo la función lm - modelos lineales
+lm
+```
 
 ---
 
@@ -245,7 +318,7 @@ En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente 
 install.packages("ggplot2")
 ```
 
-- Para pedir ayuda sobre otra función necesitamos de la función `help()`
+- Para saber como utilizar una función, que hay que ingresar como los argumentos y parámetros, necesitamos de la función `help()`
 
 ```R
 # La función Help
@@ -257,3 +330,7 @@ help(plot)
 help("help")
 ```
 
+#### Fuentes de información
+
+- [Funciones básicas de R](https://fhernanb.github.io/Manual-de-R/funbas.html
+)
