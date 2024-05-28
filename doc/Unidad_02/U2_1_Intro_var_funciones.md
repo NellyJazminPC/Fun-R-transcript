@@ -318,7 +318,7 @@ En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente 
 install.packages("ggplot2")
 ```
 
-- Para saber como utilizar una función, que hay que ingresar como los argumentos y parámetros, necesitamos de la función `help()`
+- Para saber más acerca de como utilizar una función, qué es lo que necesitas ingresar como argumentos y parámetros, podemos usar la función `help()`
 
 ```R
 # La función Help
