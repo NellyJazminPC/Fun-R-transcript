@@ -31,4 +31,3 @@ y <- x * 2 # estamos guardando el resultado de x por 2 en la variable y
 # Verifica que valores tiene "x" y "y"
 x
 y
-
