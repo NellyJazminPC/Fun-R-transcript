@@ -291,40 +291,121 @@ Una matriz es una estructura de datos **bidimensional** que contiene elementos d
 
 Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada **fila** representa una **observación** y cada **columna** representa una **variable**.
 
-En biología:
+ Se construyen con la función `matrix ( )`
 
-En análisis de expresión génica: Una matriz podría representar los niveles de expresión génica de varios genes en diferentes muestras biológicas (por ejemplo, tejidos, células) donde cada fila es un gen y cada columna es una muestra.
-
-En análisis de secuencias: Una matriz podría representar la presencia o ausencia de diferentes secuencias de ADN o aminoácidos en diferentes especies o muestras.
-
- Se construyen con: `matrix ( )`
-
+Puedes acceder a la documentación de la función:
 ```R
 ?matrix
 ```
 
 Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
 
+
+
+Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
+
 **Ejemplo**
 
-```{r}
-m <- matrix (1:12 , ncol =3)
-m <- matrix(1:12,ncol=3,byrow=TRUE)
-# m[3,4] # qué pasa? intentar ejecutar sin el # 
-m #para ver la matriz completa
-dim(m) # para saber sus dimensiones, concuerda?
-m[4,3] #elemento de la fila 4, columna 3
-m[,3] #todos los elementos de la columna 3
-m[4,] #todos los elementos de la fila 4
-m
-m+1 
-m+m
-m
+Para crear una matriz podemos indicar la forma en que se asignaran los valores
+
+```R
+# Creación de una matriz donde los valores se llenan por columnas
+# 1:12 indica que habrá valores desde el número 1 hasta el 12
+# ncol indica que la matriz tendrá 3 columnas
+matriz_columnas <- matrix(1:12, ncol = 3)
+matriz_columnas
+
+# Creación de una matriz donde los valores se llenan por filas
+# byrow indica que los valores del 1:12 se distribuirán por filas 
+matriz_filas <- matrix(1:12, ncol = 3, byrow = TRUE)
+matriz_filas
 ```
 
-Arreglos (*Arrays*): matrices de n dimensiones `[i,j,k]`
+Para acceder a un elemento especiífico de la matriz usamos **[ , ]**.
+En **[f,c]** el primer elemento (**f**) indica la **fila**, y el segundo (**c**) la **columna**.
 
-[![](dataStructuresNew.png)](http://venus.ifca.unican.es/Rintro/dataStruct.html)
+```R
+# [1,3] representa el elemento de la fila 1 y columna 3
+matriz_filas[1, 3]
+
+# Intenta la siguiente línea:
+matriz_filas[3, 4] 
+# ¿Qué pasó? 
+```
+
+`matriz_filas[3, 4]` intenta acceder al valor en la tercera fila y cuarta columna. Sin embargo, esta línea de código generaría un error porque `matriz_filas` solo tiene 3 columnas (ya que se creó con `ncol = 3`), por lo que **no hay una cuarta columna**.
+
+Para ver **todos los elementos de una columna** se deja **vacío el primer elemento** **[,c]** que indica las **filas** (**f**).
+Caso contrario si queremos todos los elementos de una fila **[f,]**
+
+```R
+# Todos los elementos de la columna 3
+matriz_filas[, 3] 
+# Todos los elementos de la fila 4
+matriz_filas[4, ] 
+```
+
+Podemos hacer operaciones aritméticas sencillas con los valores de la matriz.
+
+```R
+# Suma 1 a cada elemento:
+matriz_filas + 1 
+# Suma a cada elemento su valor correspondiente
+matriz_filas + matriz_filas
+
+# Revisa la matriz original:
+matriz_filas
+```
+
+Y también operaciones estadísticas
+
+```R
+# Suma de todos los elementos en la matriz
+sum(matriz_filas)  
+# Media de todos los elementos en la matriz
+mean(matriz_filas)  
+# Desviación estándar de todos los elementos en la matriz
+sd(matriz_filas)  
+```
+
+
+#### Otras funciones para manejar matrices:
+
+Para revisar las dimensiones de la matriz recuerda utilizar la función `dim()`
+
+```R
+# Revisa las dimensiones de las matrices:
+dim(matriz_filas)
+matriz_filas
+``` 
+
+La función `length()` se puede utilizar para obtener el número total de elementos en una matriz. 
+
+```R
+# Obtén el número total de elementos en la matriz
+length(matriz_filas)  
+```
+
+Puedes seleccionar elementos que cumplen cierta condición.
+
+```R
+# Selecciona elementos mayores que 5 en la matriz
+matriz_filas[matriz_filas > 5]  
+```
+
+Para obtener los nombres de las columnas y de las filas puedes usar las funciones `colnames()`y `rownames()`respectivamente. Además, puedes cambiar esos nombres:
+
+```R
+# Asigna nombres a las columnas
+colnames(matriz_filas) <- c("col1", "col2", "col3")  
+#Visualiza la matriz
+matriz_filas
+# Asigna nombres a las filas
+rownames(matriz_filas) <- c("fila1", "fila2", "fila3", "fila4") 
+#Visualiza la matriz
+matriz_filas
+```
+
 
 **Usos**
 
@@ -339,6 +420,10 @@ colMeans(m)
 
 ### Arrys
 
+
+Arreglos (*Arrays*): matrices de n dimensiones `[i,j,k]`
+
+[![](dataStructuresNew.png)](http://venus.ifca.unican.es/Rintro/dataStruct.html)
 
 ### 2.2.2 Fuentes de información
 

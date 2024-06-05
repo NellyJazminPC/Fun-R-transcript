@@ -153,4 +153,74 @@ table(niveles_factor)
 ############### MATRICES Y ARRAYS #########################################
 
 ### Matrices:
+#Documentación de la función para crear matrices
+?matrix
+
+#Ejemplo:
+
+# Creación de una matriz donde los valores se llenan por columnas
+# 1:12 indica que habrá valores desde el número 1 hasta el 12
+# ncol indica que la matriz tendrá 3 columnas
+matriz_columnas <- matrix(1:12, ncol = 3)
+matriz_columnas
+
+# Creación de una matriz donde los valores se llenan por filas
+# byrow indica que los valores del 1:12 se distribuirán por filas 
+matriz_filas <- matrix(1:12, ncol = 3, byrow = TRUE)
+matriz_filas
+
+# Para ver un elemento específico de la matriz, accedemos con [,]
+# [f,c] el primer elemento indica la fila, y el segundo la columna
+# [1,3] representa el elemento de la fila 1 y columna 3
+matriz_filas[1, 3]
+
+# Intenta la siguiente línea:
+matriz_filas[3, 4] 
+# ¿Qué pasó? 
+# La matriz_fila solo tiene 3 columnas (ncol = 3),
+# por lo que no hay una cuarta columna.
+
+# Para ver todos los elementos de una columna 
+# se deja vacío el primer elemento que indica las filas
+# Todos los elementos de la columna 3
+matriz_filas[, 3] 
+# Todos los elementos de la fila 4
+matriz_filas[4, ] 
+
+# Podemos hacer operaciones aritméticas sencillas 
+# Suma 1 a cada elemento:
+matriz_filas + 1 
+# Suma a cada elemento su valor correspondiente
+matriz_filas + matriz_filas
+
+# Operaciones estadísticas
+# Suma de todos los elementos en la matriz
+sum(matriz_filas)  
+# Media de todos los elementos en la matriz
+mean(matriz_filas)  
+# Desviación estándar de todos los elementos en la matriz
+sd(matriz_filas)  
+
+# Revisa la matriz original:
+matriz_filas
+
+
+# Extra:
+
+# Revisa las dimensiones de las matrices:
+dim(matriz_filas)
+matriz_filas
+
+# Obtén el número total de elementos en la matriz
+length(matriz_filas)  
+
+# Selecciona elementos mayores que 5 en la matriz
+matriz_filas[matriz_filas > 5]  
+
+# Asigna nombres a las filas
+rownames(matriz_filas) <- c("fila1", "fila2", "fila3", "fila4") 
+matriz_filas
+# Asigna nombres a las columnas
+colnames(matriz_filas) <- c("col1", "col2", "col3")  
+matriz_filas
 
