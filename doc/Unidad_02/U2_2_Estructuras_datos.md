@@ -184,70 +184,161 @@ fmeses_mix <- factor(meses_mix)
 fmeses_mix
 # Puedes notar que la parte inferior indica el número de niveles y cuáles son.
 
-#Otra forma de visualizar este factor y ver cuantos elementos hay en cada nivel
-#es con una tabla de frecuencias, con la función table()
+```
+
+Otra forma de visualizar este factor y ver cuantos elementos hay en cada nivel es con una **tabla de frecuencias**, con la función `table()`
+
+```R
 table(fmeses_mix)
 ```
 
 #### Usos
 
+Vamos a ver un ejemplo usando la función `rnomr()`y `cut()`.
+
 ```R
-pesos <- rnorm(n=100,mean=50,sd=10) 
-fpesos <- cut(pesos,breaks=3)
-table(fpesos)
-fpesos <- cut(round(pesos), breaks=quantile(pesos, probs = seq(0, 1, 0.25)), labels=c("1stQ","2ndQ","3rdQ","4thQ"))
-# advertencia: produce valores NA para los outliers 
+# Generar 100 valores de peso simulados con media 50 y desviación estándar 10
+pesos <- rnorm(n = 100, mean = 50, sd = 10) 
+
+# Dividir los datos en grupos (categorías) utilizando la función cut()
+# En este caso, los datos se dividen en 4 grupos basados en los cuartiles
+# También se asignan etiquetas personalizadas a cada grupo ("1stQ", "2ndQ", "3rdQ", "4thQ")
+fpesos <- cut(pesos, breaks = quantile(pesos, probs = seq(0, 1, 0.25)), 
+              labels = c("1stQ", "2ndQ", "3rdQ", "4thQ"))
+
+# Mostrar la frecuencia de observaciones en cada grupo utilizando la función table()
+# Esto mostrará cuántas observaciones caen en cada uno de los grupos definidos por los cuartiles
 table(fpesos)
 
+```
+
+#### Diferencias entre factor() y cut()
+
+- **factor()** se utiliza principalmente para convertir **datos categóricos** (como cadenas de texto) **en factores**. Por ejemplo, si tienes un vector de nombres de colores ("rojo", "azul", "verde") y quieres convertirlo en un factor, puedes usar `factor()`.
+
+- **cut()** en cambio, se utiliza para dividir **datos numéricos** en grupos basados en **intervalos**. Por ejemplo, puedes tener un vector de edades y quieres dividirlo en grupos de edad (niños, adolescentes, adultos) o en rangos de edad (0-10, 11-20, 21-30, etc.). `cut()` divide los datos en intervalos y los representa como **factores**.
+
+```R
+## Diferencias entre factor() y cut()
+#factor() - datos categóricos como cadenas de texto
+colores <- c("rojo", "azul", "verde", "rojo")
+colores_factor <- factor(colores)
+colores_factor
+#cut() - datos numéricos
+edades <- c(5, 15, 25, 35, 45)
+grupos_edad <- cut(edades, breaks = c(0, 18, 30, 50), labels = c("Niños", "Adolescentes", "Adultos"))
+grupos_edad
 ```
 
 #### Ejercicio
 
-Considera el factor:
+Crea el siguiente vector:
 
 ```R
-x <- factor(c("bajo", "alto", "medio", "alto", "alto" , "bajo", "medio"))
+# Vector inicial
+niveles <- c("bajo", "alto", "medio", "alto", "alto", "bajo", "medio")
 
 ```
 
-**Ejercicio**
+- Convierte ese vector a factor.
+- Obten la frecuencia de cada valor.
+- Cambia el nivel "bajo" del factor por "no satisfactorio"
+- Vuelve a obtener la frecuencia de cada valor.
 
-Obtén la frecuencia de cada valor
+#### Respuestas:
 
-Agrega un valor "muy alto" y haz que aparezca como nivel (tip: append(); de que tipo es levels()?)
+```R
+# Convertir a factor
+niveles_factor <- factor(niveles)
+niveles_factor
+# Obtener la frecuencia de cada valor antes del cambio
+table(niveles_factor)
 
-Cambia los valores de "bajo" por "no satisfactorio" (tip: levels())
+# Cambiar los niveles del factor
+levels(niveles_factor) <- c("no satisfactorio", "alto", "medio")
 
-Nota extra: Evitemos los espacios en blanco en los nombres de las variables. Podemos usar guiones bajos "muy_alto" o separar usando mayúsculas "muyAlto". Evitemos usar acentos y caracteres especiales y la ñ.
-
-<https://platzi.com/blog/buena-practica-codigo-nombrar-elementos/>
-
-**Soluciones**
-
-Agrega un valor "muy alto":
-
-```{r}
-#levels(x)
-append(x=levels(x),values="muy_alto",after=length(x))
-#x
+# Obtener la frecuencia de cada valor después del cambio
+table(niveles_factor)
 ```
 
-Cambia los valores de "bajo" por "no satisfactorio":
+**EXTRA:** Si quieres explorar otra forma de cambiar el nombre de los niveles, revisa el siguiente ejercicio.
 
-```{r}
-levels(x)[2] <- "no_satisfactorio"
-levels(x)
-#x
+```R
+# Extra: hay otra forma. Por ejemplo, cambia alto por "muy alto"
+levels(niveles_factor) # Revisa que elemento es el que quieres cambiar
+levels(niveles_factor)[2] # corroboralo
+# Asigna el nuevo nombre
+levels(niveles_factor)[2] <- "muy alto"
+#Comprueba el cambio
+levels(niveles_factor)
+
 ```
-
-
 
 ### 2.2.1 Fuentes de información
 
+- [6.1 Vectores](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)
+- [Estructuras de datos en R: Factores](https://reptantia.com/blogs/r/estructuras-de-datos-en-r-factores)
+
 ---
 
-
 ## 2.2.2 Matrices y Arrys (arreglos)
+
+Son estructuras que pueden contener información del mismo tipo (numérica o cadenas de texto) en dos (**matrices**) o más dimensiones (***arrays*** o **arreglos**).
+
+### Matrices
+
+Una matriz es una estructura de datos **bidimensional** que contiene elementos del mismo tipo (por ejemplo, números). 
+
+Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada **fila** representa una **observación** y cada **columna** representa una **variable**.
+
+En biología:
+
+En análisis de expresión génica: Una matriz podría representar los niveles de expresión génica de varios genes en diferentes muestras biológicas (por ejemplo, tejidos, células) donde cada fila es un gen y cada columna es una muestra.
+
+En análisis de secuencias: Una matriz podría representar la presencia o ausencia de diferentes secuencias de ADN o aminoácidos en diferentes especies o muestras.
+
+ Se construyen con: `matrix ( )`
+
+```R
+?matrix
+```
+
+Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
+
+**Ejemplo**
+
+```{r}
+m <- matrix (1:12 , ncol =3)
+m <- matrix(1:12,ncol=3,byrow=TRUE)
+# m[3,4] # qué pasa? intentar ejecutar sin el # 
+m #para ver la matriz completa
+dim(m) # para saber sus dimensiones, concuerda?
+m[4,3] #elemento de la fila 4, columna 3
+m[,3] #todos los elementos de la columna 3
+m[4,] #todos los elementos de la fila 4
+m
+m+1 
+m+m
+m
+```
+
+Arreglos (*Arrays*): matrices de n dimensiones `[i,j,k]`
+
+[![](dataStructuresNew.png)](http://venus.ifca.unican.es/Rintro/dataStruct.html)
+
+**Usos**
+
+```{r}
+m * m #multiplicacion por elemento
+m %*% t(m) #multiplicacion de matrices > diag(m) #crea vector de una matriz
+diag(m[3,]) #crea matriz de un vector > rowSums(m)
+colMeans(m)
+
+```
+
+
+### Arrys
+
 
 ### 2.2.2 Fuentes de información
 

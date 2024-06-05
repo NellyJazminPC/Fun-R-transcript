@@ -3,6 +3,7 @@
 ## Nelly Jazmín Pacheco Cruz
 ## Estructuras de datos en R
 
+############# VECTORES Y FACTORES ############################################
 ### Vectores:
 
 # Se construye con la función c(), combinar valores en un vector o lista
@@ -98,3 +99,58 @@ fmeses_mix
 #Otra forma de visualizar este factor y ver cuantos elementos hay en cada nivel
 #es con una tabla de frecuencias, con la función table()
 table(fmeses_mix)
+
+## Usos:
+
+# Generar 100 valores de peso simulados con media 50 y desviación estándar 10
+pesos <- rnorm(n = 100, mean = 50, sd = 10) 
+
+# Dividir los datos en grupos (categorías) utilizando la función cut()
+# En este caso, los datos se dividen en 4 grupos basados en los cuartiles
+# También se asignan etiquetas personalizadas a cada grupo ("1stQ", "2ndQ", "3rdQ", "4thQ")
+fpesos <- cut(round(pesos), breaks = quantile(pesos, probs = seq(0, 1, 0.25)), 
+              labels = c("1stQ", "2ndQ", "3rdQ", "4thQ"))
+
+# Mostrar la frecuencia de observaciones en cada grupo utilizando la función table()
+# Esto mostrará cuántas observaciones caen en cada uno de los grupos definidos por los cuartiles
+table(fpesos)
+
+## Diferencias entre factor() y cut()
+#factor() - datos categóricos como cadenas de texto
+colores <- c("rojo", "azul", "verde", "rojo")
+colores_factor <- factor(colores)
+colores_factor
+#cut() - datos numéricos
+edades <- c(5, 15, 25, 35, 45)
+grupos_edad <- cut(edades, breaks = c(0, 18, 30, 50), labels = c("Niños", "Adolescentes", "Adultos"))
+grupos_edad
+
+
+# Ejercicio:
+# Vector inicial
+niveles <- c("bajo", "alto", "medio", "alto", "alto", "bajo", "medio")
+# Respuestas:
+# Convertir a factor
+niveles_factor <- factor(niveles)
+niveles_factor
+# Obtener la frecuencia de cada valor antes del cambio
+table(niveles_factor)
+
+# Cambiar los niveles del factor
+levels(niveles_factor) <- c("no satisfactorio", "alto", "medio")
+
+# Extra: hay otra forma. Por ejemplo, cambia alto por "muy alto"
+levels(niveles_factor) # Revisa que elemento es el que quieres cambiar
+levels(niveles_factor)[2] # corroboralo
+# Asigna el nuevo nombre
+levels(niveles_factor)[2] <- "muy alto"
+#Comprueba el cambio
+levels(niveles_factor)
+
+# Obtener la frecuencia de cada valor después del cambio
+table(niveles_factor)
+
+############### MATRICES Y ARRAYS #########################################
+
+### Matrices:
+
