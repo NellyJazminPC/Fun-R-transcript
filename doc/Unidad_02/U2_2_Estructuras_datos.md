@@ -406,31 +406,86 @@ rownames(matriz_filas) <- c("fila1", "fila2", "fila3", "fila4")
 matriz_filas
 ```
 
+También puedes obtener la suma y el promedio por filas o por columnas
 
-**Usos**
+```R
+# Calcula la suma y promedio de las filas de la matriz
+rowSums(matriz_filas) 
+rowMeans(matriz_filas)
+# Calcula la suma y promedio de las columnas de la matriz
+colSums(matriz_filas)
+colMeans(matriz_filas) 
+```
 
-```{r}
-m * m #multiplicacion por elemento
-m %*% t(m) #multiplicacion de matrices > diag(m) #crea vector de una matriz
-diag(m[3,]) #crea matriz de un vector > rowSums(m)
-colMeans(m)
+#### Ejercicio 
+
+- ¿Cómo puedes crear un vector con 12 enteros del 1 al 12 y qué función puedes utilizar para convertir este vector en una matriz de 4 filas y 3 columnas?
+
+- ¿Cuál es la función para cambiar los nombres de las columnas y filas de una matriz en R?
+
+- ¿Cómo puedes obtener una submatriz de 3x3 de una matriz existente?
+
+- ¿Qué función te permite obtener las dimensiones (número de filas y columnas) de una matriz en R?
+
+#### Solución
+
+```R
+# Crea un vector con 12 enteros y conviértelo en una matriz de 4*3
+m <- matrix(1:12, nrow = 4)
+m
+
+# Cambia los nombres de las columnas y filas
+colnames(m) <- c("x", "y", "z")
+rownames(m) <- c("a", "b", "c", "d")
+m
+
+# Obtiene una matriz de 3*3
+m_submatriz <- m[1:3, 1:3]
+m_submatriz
+
+# Dimensiones de m
+dim(m)
 
 ```
 
+Extra : Podrías generar una matriz de 4x4 a partir de la matriz de 4x3?
+
+```R
+# Agrega una nueva columna adicional a la matriz m para obtener una matriz de 4x4
+m_4x4 <- cbind(m, c(13, 14, 15, 16))
+m_4x4
+```
 
 ### Arrys
 
+En su forma más común, un array es una generalización de una matriz, donde una **matriz** es un **array bidimensional**. Sin embargo, los **arrays en R** pueden tener **más de dos dimensiones**.
 
-Arreglos (*Arrays*): matrices de n dimensiones `[i,j,k]`
+Los **arrays multidimensionales** tienen más de dos dimensiones. Por ejemplo, un array tridimensional tiene tres dimensiones: filas, columnas y profundidad.
 
-[![](dataStructuresNew.png)](http://venus.ifca.unican.es/Rintro/dataStruct.html)
+En biología, los arrays multidimensionales se utilizan para almacenar y manipular datos que tienen múltiples dimensiones, como datos de imágenes médicas tridimensionales, datos de secuenciación genética con múltiples muestras y múltiples marcadores, o datos de expresión génica en diferentes condiciones y a través de diferentes experimentos.
+
+#### Ejemplo
+
+```R
+# Creamos un array tridimensional de 3x3x3
+array_3d <- array(1:27, dim = c(3, 3, 3))
+
+# Mostramos el array
+array_3d
+```
+
+![alt text](image-1.png)
 
 ### 2.2.2 Fuentes de información
 
+-[Matrices y arrays](https://bookdown.org/jboscomendoza/r-principiantes4/matrices-y-arrays.html)
+- [Data structure types](http://venus.ifca.unican.es/Rintro/dataStruct.html)
+
 ---
 
-
 ## 2.2.3 Data.frames (marcos de datos)
+
+
 
 ### 2.2.3 Fuentes de información
 

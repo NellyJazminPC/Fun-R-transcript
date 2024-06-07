@@ -224,3 +224,40 @@ matriz_filas
 colnames(matriz_filas) <- c("col1", "col2", "col3")  
 matriz_filas
 
+# Calcula la suma y promedio de las filas de la matriz
+rowSums(matriz_filas) 
+rowMeans(matriz_filas)
+# Calcula la suma y promedio de las columnas de la matriz
+colSums(matriz_filas)
+colMeans(matriz_filas) 
+
+## Ejercicio:
+# Crea un vector con 12 enteros y conviértelo en una matriz de 4*3
+m <- matrix(1:12, nrow = 4)
+m
+
+# Cambia los nombres de las columnas y filas
+colnames(m) <- c("x", "y", "z")
+rownames(m) <- c("a", "b", "c", "d")
+m
+
+# Obtiene una matriz de 3*3
+m_submatriz <- m[1:3, 1:3]
+m_submatriz
+
+# Dimensiones de m
+dim(m)
+
+#Extra : Podrías generar una matriz de 4x4 a partir de la matriz de 4x3?
+# Agrega una nueva columna adicional a la matriz m para obtener una matriz de 4x4
+m_4x4 <- cbind(m, c(13, 14, 15, 16))
+m_4x4
+
+## Arrays
+# Creamos un array tridimensional de 3x3x3
+array_3d <- array(1:27, dim = c(3, 3, 3))
+
+# Mostramos el array
+array_3d
+
+
