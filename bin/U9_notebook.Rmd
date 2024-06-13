@@ -1,0 +1,330 @@
+---
+title: 'Unidad 9: Visualización de resultados'
+author: "Olga Andrea Hernández Miranda"
+date: "2024-06-13"
+output: html_document
+---
+Existen diferentes tipos de gráficos para reprecentar datos de RNAseq:
+Expresión diferencial:
+-Volcano plot
+Diagrama de Venn
+Gráficas de barras
+-Perfil de expresión:
+Heatmap
+-Enriquecimiento funcional:
+Análisis de enriquecimiento funcional
+Bubble plot
+
+Directorio de trabajo
+```{r}
+directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
+setwd(directorio)
+```
+
+Volcano plot
+Los datos de expresión diferencial se pueden visualizar a traves de una grafica de volcan en la cual el eje x representa el fold change, mientras que el eje y representa al p-value.
+
+```{r}
+BiocManager::install('EnhancedVolcano')
+install.packages('BiocManager')
+library(BiocManager)
+library(EnhancedVolcano)
+library("RColorBrewer")
+```
+
+Abrimos el archivo con datos de expresión diferencial para graficarlos
+```{r}
+resED <- read.table("U9_tabla_ed_crudos_v2.csv", sep = ",", header = T)
+head(resED)
+
+EnhancedVolcano(resED,
+                lab = rownames(resED),
+                x = 'log2FoldChange',
+                y = 'pvalue',
+                title = 'SAM vs MI',
+                xlab = bquote(~Log[2]~ 'fold change'),
+                pCutoff = 0.05,
+                FCcutoff = 2.0,
+                pointSize = 2.0,
+                labSize = 3.0,
+                col = c('black', '#009c8c', '#FDE725', '#440154'),
+                colAlpha = 1,
+                legendPosition = 'right',
+                legendLabSize = 8,
+                legendIconSize = 4.0,
+                drawConnectors = T,
+                widthConnectors = 0.5)
+```
+
+V2
+```{r}
+EnhancedVolcano(resED,
+                lab = rownames(resED),
+                x = 'log2FoldChange',
+                y = 'pvalue',
+                title = 'SAM vs MI',
+                xlab = bquote(~Log[2]~ 'fold change'),
+                pCutoff = 10e-5,
+                FCcutoff = 2.0,
+                pointSize = 2.0,
+                labSize = 3.0,
+                col = c('black', 'pink', 'purple', 'red3'),
+                colAlpha = 1,
+                legendPosition = 'right',
+                legendLabSize = 8,
+                legendIconSize = 4.0,
+                drawConnectors = T,
+                widthConnectors = 0.5)
+```
+
+V3
+```{r}
+EnhancedVolcano(resED,
+                lab = rownames(resED),
+                x = 'log2FoldChange',
+                y = 'pvalue',
+                title = 'SAM vs MI',
+                xlab = bquote(~Log[2]~ 'fold change'),
+                pCutoff = 10e-5,
+                FCcutoff = 2.0,
+                pointSize = 2.0,
+                labSize = 3.0,
+                colAlpha = 1,
+                colGradient = c('#009c8c','#440154'),
+                legendPosition = 'right',
+                legendLabSize = 8,
+                legendIconSize = 4.0,
+                drawConnectors = T,
+                widthConnectors = 0.5)
+```
+
+Diagrama de Venn
+
+Listas de genes con expresión diferencial para ver las coincidencias y diferencias.
+
+Librerias
+```{r}
+install.packages("VennDiagram")
+
+library(VennDiagram)
+
+```
+
+Genes inducidos
+```{r}
+SAM_vs_MI <- read.csv("U9_SAM_vs_MI_up.csv", sep = ",", header = TRUE)
+head(SAM_vs_MI)
+
+MI_vs_MF <- read.csv("U9_MI_vs_MF_up.csv", sep = ",", header = TRUE)
+head(MI_vs_MF)
+
+# Obtener los conjuntos de genes
+genes_SAM_vs_MI <- SAM_vs_MI$gene_id
+genes_MI_vs_MF <- MI_vs_MF$gene_id
+
+# Graficar diagrama de Venn
+
+venn.plot <- venn.diagram(
+  x = list(SAM_vs_MI = genes_SAM_vs_MI, MI_vs_MF = genes_MI_vs_MF),
+  category.names = c("SAM vs MI", "MI vs MF"),
+  filename = NULL,
+  output = T,
+  col = "transparent",  # Color transparente
+  fill = c("red", "blue"),  # Colores de de los círculos
+  alpha = 0.5,  # Transparencia
+  lwd = 2,  # Ancho de los contornos
+  cex = 2  # Tamaño del texto
+)
+
+# Mostrar diagrama de Venn 
+grid.draw(venn.plot)
+```
+
+Genes reprimidos
+```{r}
+# Leer los archivos CSV
+SAM_vs_MI <- read.csv("U9_SAM_vs_MI_down.csv", sep = ",", header = TRUE)
+head(SAM_vs_MI)
+
+MI_vs_MF <- read.csv("U9_MI_vs_MF_down.csv", sep = ",", header = TRUE)
+head(MI_vs_MF)
+
+# Obtener los conjuntos de genes
+genes_SAM_vs_MI <- SAM_vs_MI$gene_id
+genes_MI_vs_MF <- MI_vs_MF$gene_id
+
+# Graficar diagrama de Venn
+
+venn.plot <- venn.diagram(
+  x = list(SAM_vs_MI = genes_SAM_vs_MI, MI_vs_MF = genes_MI_vs_MF),
+  category.names = c("SAM vs MI", "MI vs MF"),
+  filename = NULL,
+  output = TRUE,
+  col = "transparent",  # Establecer el color transparente
+  fill = c("red", "blue"),  # Colores de los círculos
+  alpha = 0.5,  # Transparencia
+  lwd = 2,  # Ancho de los contornos
+  cex = 2  # Tamaño del texto
+)
+
+# Mostrar diagrama de Venn 
+grid.draw(venn.plot)
+```
+
+Gráfica de barras
+
+Datos de genes inducidos o reprimidos
+```{r}
+library(ggplot2)
+
+Datos <- read.table("U9_Genes_up_down.csv", sep = ",", header = T)
+
+Datos
+
+colores2 <- c("#00FFC3", "#7A00FF") 
+
+ggplot(Datos, aes(x = Condicion, y = No_de_genes, fill = Condicion)) +
+  geom_bar(stat = 'identity', alpha = 0.7, width = 0.4) +
+  theme_classic() +
+  scale_fill_manual(values = colores2) +
+  labs(x = "Condición", y = "Número de genes")
+```
+
+Heatmap
+
+En el heatmap se reperesentan datos de expresion en TPM
+Se genera un análisis de conglomerados para identificar perfiles de expresion
+
+Librerias
+```{r}
+library("gplots")
+library("RColorBrewer")
+library("viridis")
+library(lattice)
+library(dendextend)
+```
+
+Crear matriz y normalizar datos
+```{r}
+alpha <- 0.01
+directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
+setwd(directorio)
+data <- read.table("U9_HM.csv", sep = ",", header = T)
+row.names(data) <- data[,1]
+mat_data <- data.matrix(data[,1:ncol(data)]) 
+mat_data2 <- mat_data[,-1]
+mat_data2 
+
+
+countTable.kept <- log2(mat_data2) #Se obtiene el log2 para reducir diferencias
+dim(countTable.kept)
+
+datos <- countTable.kept
+
+datos <- scale(datos)
+
+colores <- viridis(256)
+
+colores2 <- magma(256)
+```
+
+V1
+```{r}
+heatmap.2(as.matrix (datos),
+          cexCol = 0.3,
+          cexRow = 1,
+          labCol=as.expression(lapply(colnames(datos),function(a) bquote(italic(.(a))))),
+          trace="none", hline = NA,         
+          margins =c(7,7),
+          denscol = "grey",
+          key.title=NA,
+          col = colores
+)
+```
+
+V2
+```{r}
+heatmap.2(as.matrix (datos),
+          cexCol = 0.5,
+          cexRow= 1,
+          trace="none", hline = NA,         
+          margins =c(7,11),
+          denscol = "grey",
+          key.title=NA,
+          col = colores2
+)
+```
+
+Versión con clusters
+```{r}
+dend_r <- datos %>% dist(method = "euclidean") %>%
+  hclust(method = "average") %>% 
+  as.dendrogram %>% ladderize %>%
+  color_branches(k=2)
+
+
+dend_c <- t(datos) %>% dist(method = "euclidean") %>%
+  hclust(method = "average") %>% 
+  as.dendrogram %>% ladderize %>%
+  color_branches(k=2)
+
+#Version 2 con clusters
+
+heatmap.2(as.matrix (datos),
+          cexCol = 0.1,
+          cexRow= 1,
+          Rowv = dend_r,
+          Colv = dend_c,
+          trace="none", hline = NA,         
+          margins =c(7,11),
+          denscol = "grey",
+          key.title=NA,
+          col = colores
+)
+```
+
+Enriquecimiento funcional
+
+Identificar grupos de genes o rutas metabolicas significativamente enriquecidas, se compara estadisticamente entre el experimento y una base de datos.
+
+En este ejercicio solo se van a graficar los datos obtenidos de las bases de datos.
+
+```{r}
+Librerias
+library(ggplot2)
+library(forcats)
+library(tidyverse) 
+library(dplyr)
+library(viridis)
+library(ggthemes)
+```
+
+Bubble plot
+```{r}
+directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
+setwd(directorio)
+
+mydat <- read.table("U9_BP_bubble.csv", sep = ",", header = T)
+
+head(mydat)
+
+mydat <- mydat[order(mydat$Value, decreasing = TRUE), ]
+
+top10 <- head(mydat, 10)
+
+head(top10)
+
+# Reordenar el eje y basado en Log10Pvalue
+top10$GO_term <- reorder(top10$GO_term, -top10$Value)
+
+# Poner el orden al reves
+top10$GO_term <- factor(top10$GO_term, levels = rev(levels(top10$GO_term)))
+
+# Grafica de burbija con paleta de colores viridis
+ggplot(top10, aes(x = LogSize, y = GO_term)) +
+  geom_point(aes(color = Value, size = LogSize)) +
+  scale_color_viridis(option = "viridis") +
+  theme_bw() +
+  theme(axis.text.y = element_text(size = 10))
+```
+
