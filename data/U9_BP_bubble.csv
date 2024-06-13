@@ -1,0 +1,286 @@
+GO_term,Value,LogSize
+"alternative mRNA splicing, via spliceosome",-18.05158703,1.204119983
+response to acid chemical,-1.440093375,2.625312451
+cell fate specification,-7.649751982,1.51851394
+immune system process,-1.306273051,2.408239965
+regulation of immune system process,-2.71219827,2.049218023
+regulation of response to biotic stimulus,-5.1123827,2.324282455
+starch metabolic process,-4.823908741,1.77815125
+chromatin organization,-2.847711656,2.589949601
+protein-DNA complex organization,-2.511449283,2.636487896
+regulation of transcription by RNA polymerase II,-2.772113295,2.778874472
+isoprenoid metabolic process,-5.055517328,2.33243846
+extracellular transport,-74.06701918,0.698970004
+response to stress,-1.394694954,3.587486465
+cell communication,-2.928117993,3.332034277
+circadian rhythm,-33.59516628,2.045322979
+metabolic process,-1.790484985,3.987263954
+biosynthetic process,-1.787812396,3.637989781
+response to temperature stimulus,-4.354577731,2.82672252
+response to radiation,-11.37986395,2.860936621
+response to cold,-3.718966633,2.625312451
+response to heat,-2.73754891,2.442479769
+response to UV,-2.548213564,2.071882007
+response to water deprivation,-1.694648631,2.5774918
+response to water,-1.48945499,2.591064607
+response to metal ion,-1.420216403,2.338456494
+detection of light stimulus,-73.22475374,1.748188027
+phototransduction,-35.9625735,1.740362689
+detection of external stimulus,-58.60906489,1.806179974
+detection of abiotic stimulus,-58.60906489,1.806179974
+detection of visible light,-73.64206515,0.77815125
+"red, far-red light phototransduction",-35.9625735,1.740362689
+response to external stimulus,-2.557520231,3.278067331
+tropism,-5.931814138,2.117271296
+systemic acquired resistance,-3.139661993,1.851258349
+immune response,-1.627087997,2.328379603
+innate immune response,-1.742321425,2.307496038
+response to abiotic stimulus,-8.946921557,3.319522449
+response to gravity,-10.69250396,2.025305865
+response to blue light,-37.77728353,1.977723605
+phototropism,-40.86327943,1.414973348
+gravitropism,-11.71444269,1.995635195
+response to red or far red light,-24.30715308,2.334453751
+response to light stimulus,-12.14569396,2.848189117
+response to light intensity,-3.003926346,2.184691431
+photosynthetic acclimation,-27.49485002,1.041392685
+response to low light intensity stimulus,-8.841637508,1.278753601
+photoperiodism,-21.71669877,1.908485019
+entrainment of circadian clock,-14.73992861,1.322219295
+plastid organization,-3.995678626,2.456366033
+chloroplast organization,-4.659555885,2.318063335
+cytokinin-activated signaling pathway,-3.978810701,1.929418926
+response to abscisic acid,-2.037630664,2.748188027
+negative regulation of abscisic acid-activated signaling pathway,-17.88605665,1.770852012
+negative regulation of response to biotic stimulus,-6.381951903,1.69019608
+regulation of abscisic acid-activated signaling pathway,-8.477555766,2.113943352
+regulation of signal transduction,-2.346787486,2.547774705
+negative regulation of signal transduction,-9.313363731,2.071882007
+negative regulation of cell communication,-9.039529222,2.086359831
+negative regulation of signaling,-9.039529222,2.086359831
+regulation of defense response,-2.59345982,2.457881897
+negative regulation of defense response,-4.067526235,1.857332496
+negative regulation of response to external stimulus,-6.381951903,1.69019608
+negative regulation of response to alcohol,-17.88605665,1.770852012
+regulation of cellular response to alcohol,-8.477555766,2.113943352
+negative regulation of cellular response to alcohol,-17.88605665,1.770852012
+post-embryonic development,-16.89962945,3.149219113
+system development,-1.478861916,3.283301229
+jasmonic acid mediated signaling pathway,-2.247183569,1.959041392
+regulation of flower development,-70.16749109,2.190331698
+negative regulation of flower development,-20.61798296,1.633468456
+positive regulation of flower development,-61.32975415,1.568201724
+regulation of seed germination,-3.36552273,1.954242509
+regulation of post-embryonic development,-53.86646109,2.557507202
+negative regulation of post-embryonic development,-17.80134291,2.033423755
+positive regulation of post-embryonic development,-28.37882372,1.934498451
+positive regulation of multicellular organismal process,-23.98716278,2.033423755
+negative regulation of multicellular organismal process,-15.95467702,2.120573931
+regulation of seedling development,-3.166215625,1.991226076
+regulation of multicellular organismal development,-45.51286162,2.57863921
+"regulation of photoperiodism, flowering",-25.61978876,1.991226076
+negative regulation of reproductive process,-13.23358715,1.857332496
+positive regulation of reproductive process,-38.81247928,1.799340549
+meristem structural organization,-8.402304814,1.72427587
+cellular process,-1.396855627,4.113976758
+response to extracellular stimulus,-2.832682665,2.474216264
+red or far-red light signaling pathway,-111.0579919,1.880813592
+photomorphogenesis,-87.36957212,1.838849091
+response to red light,-23.76955108,1.832508913
+red light signaling pathway,-117.4473318,1
+response to far red light,-47.11690664,1.672097858
+cellular response to abiotic stimulus,-26.44977165,2.348304863
+cellular response to radiation,-38.60730305,2.139879086
+cellular response to light stimulus,-40.3757179,2.127104798
+cellular response to red or far red light,-99.22621356,1.892094603
+cellular response to red light,-90.49620932,1.079181246
+meristem determinacy,-40.86327943,1.322219295
+response to zinc ion,-7.025949097,1.643452676
+vernalization response,-17.0867161,1.255272505
+vegetative phase change,-30.1649439,0.903089987
+maintenance of floral meristem identity,-33.42481216,0.84509804
+maintenance of meristem identity,-3.627087997,1.892094603
+stem cell population maintenance,-3.139661993,1.944482672
+specification of floral organ identity,-23.38404995,1.113943352
+regionalization,-1.43062609,2.184691431
+specification of plant organ identity,-21.76700389,1.146128036
+negative regulation of photomorphogenesis,-19.13608262,1.146128036
+regulation of photomorphogenesis,-7.823908741,1.556302501
+regulation of stomatal movement,-10.51004152,2.029383778
+transpiration,-49.69897,0.84509804
+water transport,-7.649751982,1.591064607
+response to continuous far red light stimulus by the high-irradiance response system,-147.0550241,0.477121255
+response to low fluence red light stimulus,-147.0550241,0.477121255
+response to low fluence blue light stimulus by blue low-fluence system,-33.42481216,0.954242509
+response to very low fluence red light stimulus,-98.40893539,0.301029996
+seed coat development,-8.402304814,1.707570176
+response to UV-B,-4.159893906,1.86923172
+vegetative to reproductive phase transition of meristem,-15.51712642,2.220108088
+regulation of vegetative phase change,-42.72815839,0.84509804
+stomatal complex development,-7.482804102,1.763427994
+regulation of gene expression,-8.89279003,3.486005186
+regulation of DNA-templated transcription,-7.281498311,3.37401474
+regulation of biosynthetic process,-5.982966661,3.50609896
+regulation of macromolecule biosynthetic process,-6.774690718,3.490941205
+regulation of nucleobase-containing compound metabolic process,-5.920818754,3.417969642
+regulation of cellular metabolic process,-4.821023053,3.537063143
+regulation of cellular biosynthetic process,-6.316052869,3.502290528
+regulation of nitrogen compound metabolic process,-4.832682665,3.489255168
+regulation of RNA metabolic process,-6.659555885,3.400537989
+regulation of macromolecule metabolic process,-7.756961951,3.523095838
+regulation of primary metabolic process,-4.638272164,3.500373714
+regulation of RNA biosynthetic process,-7.26520017,3.37401474
+RNA secondary structure unwinding,-147.0550241,0.477121255
+floral meristem determinacy,-12.9788107,1.230448921
+negative regulation of macromolecule metabolic process,-23.23433145,2.812244697
+negative regulation of biosynthetic process,-11.28483264,2.784617293
+negative regulation of metabolic process,-16.34486157,2.844477176
+negative regulation of macromolecule biosynthetic process,-13.89619628,2.768638101
+negative regulation of gene expression,-21.90657831,2.545307116
+regulatory ncRNA-mediated gene silencing,-23.89962945,2.181843588
+negative regulation of cellular metabolic process,-9.115204636,2.833784375
+negative regulation of cellular biosynthetic process,-11.9788107,2.780317312
+negative regulation of DNA-templated transcription,-10.2541448,2.409933123
+negative regulation of nucleobase-containing compound metabolic process,-8.171340103,2.477121255
+negative regulation of cellular process,-11.58502665,2.98811284
+negative regulation of nitrogen compound metabolic process,-10.22621356,2.564666064
+negative regulation of protein metabolic process,-3.395773947,1.799340549
+negative regulation of RNA metabolic process,-9.598599459,2.436162647
+negative regulation of RNA biosynthetic process,-10.2541448,2.409933123
+post-transcriptional regulation of gene expression,-27.17848647,2.609594409
+regulation of cell communication,-2.254144805,2.562292864
+nucleobase-containing compound transport,-2.195179321,2.264817823
+photosynthesis,-2.170053304,2.399673721
+cellular response to phosphate starvation,-9.605548319,1.913813852
+cellular response to starvation,-5.384049948,2.235528447
+response to nutrient levels,-3.321481621,2.404833717
+cellular response to extracellular stimulus,-3.966576245,2.36361198
+cellular response to nutrient levels,-4.826813732,2.274157849
+response to starvation,-4.437707136,2.324282455
+lipid catabolic process,-6.752026734,2.444044796
+post-transcriptional gene silencing,-41.1106983,1.707570176
+protein-tetrapyrrole linkage,-62.10457745,0.301029996
+protein-phytochromobilin linkage,-292.8794261,0.301029996
+protein-bilin linkage,-98.40893539,0.301029996
+negative regulation of translation,-5.573488739,1.556302501
+regulation of metabolic process,-6.494850022,3.555457217
+reproductive process,-7.083019953,3.216957207
+developmental process involved in reproduction,-3.107905397,3.143639235
+reproductive structure development,-1.540607512,3.064457989
+regulation of signaling,-2.283162277,2.557507202
+regulation of response to external stimulus,-4.790484985,2.354108439
+multicellular organismal process,-6.069560405,3.428134794
+DNA duplex unwinding,-9.879426069,1.748188027
+DNA geometric change,-9.879426069,1.748188027
+regulation of amide metabolic process,-2.943095149,2.482873584
+negative regulation of amide metabolic process,-5.573488739,1.556302501
+regulation of translation,-2.991399828,2.480006943
+cellular nitrogen compound metabolic process,-1.440093375,3.519565501
+miRNA-mediated post-transcriptional gene silencing,-68.51712642,1.079181246
+regulatory ncRNA-mediated post-transcriptional gene silencing,-45.58169871,1.612783857
+"regulation of development, heterochronic",-5.950781977,1.73239376
+fluid transport,-7.649751982,1.591064607
+regulation of circadian rhythm,-33.838632,1.763427994
+apocarotenoid metabolic process,-12.02548831,1.447158031
+small molecule catabolic process,-3.378823718,2.426511261
+gibberellin catabolic process,-78.51286162,1
+sesquiterpenoid metabolic process,-7.823908741,1.62324929
+terpenoid metabolic process,-7.246416941,2.240549248
+isoprenoid catabolic process,-32.12033079,1.462397998
+gibberellin metabolic process,-24.34582346,1.491361694
+gibberellin biosynthetic process,-8.402304814,1.431363764
+abscisic acid metabolic process,-12.02548831,1.447158031
+organic acid catabolic process,-4.847711656,2.274157849
+diterpenoid metabolic process,-14.31785492,1.812913357
+diterpenoid biosynthetic process,-4.823908741,1.755874856
+diterpenoid catabolic process,-78.51286162,1
+terpenoid biosynthetic process,-1.366531544,2.1430148
+terpenoid catabolic process,-45.52287875,1.301029996
+cellular lipid catabolic process,-7.681936665,2.071882007
+carboxylic acid catabolic process,-4.847711656,2.274157849
+negative regulation of innate immune response,-13.51427857,1.322219295
+negative regulation of immune system process,-11.60205999,1.380211242
+regulation of innate immune response,-3.113509275,1.982271233
+regulation of immune response,-2.71219827,2.025305865
+negative regulation of immune response,-11.60205999,1.380211242
+positive regulation of DNA-templated transcription,-3.312471039,2.720159303
+positive regulation of biosynthetic process,-2.749579998,2.822168079
+positive regulation of metabolic process,-1.534617149,2.939019776
+positive regulation of macromolecule biosynthetic process,-3.156144577,2.786751422
+positive regulation of macromolecule metabolic process,-1.835647144,2.897627091
+positive regulation of cellular metabolic process,-2.311580178,2.888740961
+positive regulation of cellular biosynthetic process,-2.903089987,2.810232518
+positive regulation of nucleobase-containing compound metabolic process,-2.742321425,2.797959644
+positive regulation of transcription by RNA polymerase II,-3.478861916,2.307496038
+positive regulation of cellular process,-1.701146924,3.009450896
+positive regulation of nitrogen compound metabolic process,-2.026410377,2.879669206
+positive regulation of RNA metabolic process,-2.913640169,2.781036939
+positive regulation of RNA biosynthetic process,-3.312471039,2.720159303
+response to arsenic-containing substance,-17.0867161,1.230448921
+shoot system development,-1.540607512,2.931457871
+plant ovule development,-6.15739076,1.716003344
+flower development,-4.4710833,2.658011397
+reproductive shoot system development,-3.91721463,2.671172843
+regulation of meristem development,-5.245651664,1.832508913
+regulation of timing of transition from vegetative to reproductive phase,-7.823908741,1.681241237
+regulation of timing of meristematic phase transition,-7.823908741,1.681241237
+rhythmic process,-33.59516628,2.130333768
+positive regulation of biological process,-4.312471039,3.125481266
+negative regulation of biological process,-19.57024772,3.073351702
+anatomical structure arrangement,-3.663540266,1.812913357
+short-day photoperiodism,-74.06701918,0.698970004
+"short-day photoperiodism, flowering",-74.06701918,0.698970004
+"photoperiodism, flowering",-34.09528445,1.819543936
+regulation of response to stimulus,-7.554395797,2.914343157
+negative regulation of response to stimulus,-16.81530857,2.378397901
+regulation of response to stress,-2.171984936,2.622214023
+regulation of shoot system development,-63.95467702,2.217483944
+specification of plant organ number,-59.45099674,0.698970004
+specification of floral organ number,-59.45099674,0.698970004
+regulation of defense response to virus,-19.13608262,1.230448921
+regulation of biological process,-8.238824187,3.764699064
+regulation of developmental process,-18.21183163,2.92788341
+regulation of cellular process,-5.020907099,3.726890141
+response to stimulus,-5.73754891,3.797544514
+negative regulation of developmental process,-12.8728952,2.209515015
+positive regulation of developmental process,-17.80134291,2.123851641
+nuclear export,-3.701146924,1.892094603
+nucleocytoplasmic transport,-1.899629455,2.10720997
+nuclear transport,-1.899629455,2.10720997
+regulation of multicellular organismal process,-32.81815641,2.686636269
+regulation of cytosolic calcium ion concentration,-98.40893539,0.698970004
+intracellular monoatomic ion homeostasis,-1.76700389,2.201397124
+intracellular calcium ion homeostasis,-5.404503778,1.612783857
+circadian regulation of calcium ion oscillation,-98.40893539,0.602059991
+intracellular monoatomic cation homeostasis,-1.835647144,2.176091259
+intracellular chemical homeostasis,-1.355561411,2.318063335
+detection of stimulus,-32.18842499,1.977723605
+cellular response to stimulus,-4.659555885,3.506369717
+calcium ion homeostasis,-5.024568191,1.633468456
+response to very low light intensity stimulus,-74.06701918,0.477121255
+biological regulation,-7.53313238,3.784260583
+cellular response to external stimulus,-3.88941029,2.376576957
+hydrogen peroxide mediated signaling pathway,-49.69897,0.77815125
+organic substance metabolic process,-1.468521083,3.905202029
+mucilage extrusion from seed coat,-23.38404995,1.146128036
+multicellular organismal reproductive process,-2.110138279,2.250420002
+response to alcohol,-1.728158393,2.755112266
+maintenance of cell number,-3.139661993,1.944482672
+cellular response to environmental stimulus,-26.44977165,2.348304863
+olefinic compound metabolic process,-5.663540266,1.812913357
+regulation of response to alcohol,-8.477555766,2.113943352
+organic substance biosynthetic process,-1.659555885,3.624797579
+cellular biosynthetic process,-1.301899454,3.60906055
+response to salt,-1.324221658,1.69019608
+tertiary alcohol metabolic process,-12.02548831,1.447158031
+alcohol metabolic process,-1.320572103,2.252853031
+response to diterpene,-98.40893539,0.602059991
+miRNA transport,-49.69897,1.146128036
+RNA export from nucleus,-5.024568191,1.72427587
+mRNA export from nucleus,-6.26760624,1.591064607
+nucleic acid transport,-4.63638802,1.986771734
+RNA transport,-4.63638802,1.986771734
+mRNA transport,-6.26760624,1.880813592
+establishment of RNA localization,-4.63638802,1.986771734
+regulation of response to red or far red light,-6.15739076,1.662757832
+regulation of reproductive process,-30.53610701,2.599883072
