@@ -165,6 +165,17 @@ Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a 
 - factoextra
 - FactoMineR
 - rmarkdown
+- BiocManager
+- DESeq2
+- gplots
+- RColorBrewer
+- EnhancedVolcano
+- VennDiagram
+- viridis
+- lattice
+- dendextend
+- forcats
+- ggthemes
 
 ---
 
