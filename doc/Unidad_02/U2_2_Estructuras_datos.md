@@ -478,21 +478,218 @@ array_3d
 
 ### 2.2.2 Fuentes de información
 
--[Matrices y arrays](https://bookdown.org/jboscomendoza/r-principiantes4/matrices-y-arrays.html)
+- [Matrices y arrays](https://bookdown.org/jboscomendoza/r-principiantes4/matrices-y-arrays.html)
 - [Data structure types](http://venus.ifca.unican.es/Rintro/dataStruct.html)
 
 ---
 
 ## 2.2.3 Data.frames (marcos de datos)
 
+Los **Data Frames** o **Marcos de Datos** son estructuras que pueden **combinar argumentos numéricos** y de **cadena de texto** dentro de la misma entidad.
 
+Para construir un **data frame** necesitas la función `data.frame()`
+
+Para obtener solo una columna específica del data frame puedes usar corchetes **[]** como en caso de las matrices, o el operador compacto `$`.
+
+
+#### Ejemplo
+
+Primero vamos a crear un data frame con dos columnas llamadas "distance" y "condition".
+
+
+```R
+data_frame_dist_cond <- data.frame(distance=c(4,4,4,7,8,5), condition=c("a","a","a","b","b","b"))
+
+#Visualiza el data frame
+data_frame_dist_cond
+```
+
+Para ver un elemento en específico dentro del data frame:
+
+```R
+#Para seleccionar la primera columna
+data_frame_dist_cond[1]
+
+#Otra forma de seleccionar una columna es por el nombre de la misma:
+
+data_frame_dist_cond["distance"]
+
+#Si queremos el primer elemento de la columna "distance" utilizamos los corchetes [,]
+data_frame_dist_cond["distance"][1,1] 
+
+# Otra forma de seleccionar una columna es con el operador compacto $
+
+data_frame_dist_cond$condition
+data_frame_dist_cond$condition[1]
+
+#Puedes explorar la primera y última parte del data frame 
+head(data_frame_dist_cond)
+tail(data_frame_dist_cond)
+
+```
+
+#### Usos:
+
+- Muy similar a una hoja de cálculo estándar
+
+- Uso de cabeceras (headers) significativos =\> componentes del dataframe `df`
+
+- Se pueden modificar los nombres de filas y columnas
+
+- Se pueden unir dfs con: `cbind ()` y `rbind ()`
+
+#### Ejercicio:
+
+Crea un data frame con los siguientes datos:
+
+```R
+#Crea los vectores: edad, nombres y genero
+
+edad <- c(22, 25, 18, 20)
+edad
+nombres <- c("Jaime", "Mateo", "Olivia", "Sandra") 
+nombres
+genero <- c("M", "M", "F", "F")
+genero
+```
+
+- Ordena los valores por edad.
+
+> tip: función `order()`
+
+
+#### Soluciones:
+
+- Crea un data frame (df)
+
+```R
+# Puedes asignarle otro nombre a las columnas que aparecerán en tu df
+# Renombra las columnas
+df_age_name_gen <- data.frame(edades=edad,names_df=nombres,genero=genero)
+
+df_age_name_gen
+```
+
+- Para ordena los valores por edad usa la función `order()`
+
+```R
+#ordernar por edades
+df_age_name_gen[order(df_age_name_gen$edades),]
+```
+
+ **Pregunta extra:** ¿Cómo los ordenarías por género?
+
+ ```R
+#ordernar por nombres
+df_age_name_gen[order(df_age_name_gen$names_df),]
+```
 
 ### 2.2.3 Fuentes de información
+
+
 
 ---
 
 
 ## 2.2.4 Listas
+
+Las **Listas** son un tipo de estructura de datos que **puede contener todos los demás tipos!**
+
+- Se construye con la función `list ()`
+
+- Cada componente se encuentra usando el operador `$` si los componentes tienen nombre. Parecido como seleccionabamos elementos en los data frames.
+
+Para acceder a un componente en particular puedes usar los corchetes **[]**
+
+- `[i]` para accesar al componente como elemento de lista
+- `[[i]]` para accesar al componente como vector
+
+
+#### Ejemplo:
+
+```R
+#Primero creamos un vector:
+vec <- 1:5
+vec
+#Creamos un data frame con valores numéricos y de texto
+df <- data.frame(y = c(1:3), x = c("m", "m", "f")) 
+df
+#Creamos un vector con caracteres de texto
+char <- "Hola!"
+char
+```
+
+Ahora tenemos dos vectores con diferentes tipos de datos y un data frame con datos tanto numéricos como de texto.
+¿Podemos poner todos estos distintos tipos de datos y de estructuras en un solo tipo de estructura?
+
+Si, en una **lista**
+
+```R
+#Para convertir distintas estructuras en una lista usamos a.list
+
+a.list <- list(vec, df, char)
+a.list
+
+#Vamos a acceder a un componente de la lista:
+# a.list[1] + 1 # no funciona! porque?
+a.list[[1]] + 1
+
+# Para ver estructura de la lista usa str()
+str(a.list) 
+```
+
+#### Usos:
+
+Guardar elementos de distinto tamaño, por ejemplo, varias hojas de cálculo en distintos formatos.
+
+Los componentes pueden ser fácilmente agregados o removidos de la lista:
+
+```R
+a.list
+a.list[[length(a.list) + 1]] <- "Adios..." 
+a.list
+
+a.list[length(a.list)] <- NULL
+a.list
+```
+
+En la siguiente lista:
+
+```R
+w <- c(2, 7, 8)
+v <- c("A", "B", "C") 
+x <- list(w, v)
+```
+
+- Reemplaza el valor de "A" con "Z"
+
+- Agrega un elemento al final de la lista:
+
+```R
+y <- c("M", "M", "F")
+```
+
+#### Soluciones:
+
+Reemplaza el valor de "A" con "Z"
+
+```R
+x
+x[[2]][1] <- "Z"
+x
+```
+
+Agrega un elemento al final de la lista:
+
+```{r}
+x
+y
+x[length(x)+1] <- y
+x
+x[length(x)] <- y
+```
+
+
 
 ### 2.2.4 Fuentes de información
 
