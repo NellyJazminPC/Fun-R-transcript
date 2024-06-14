@@ -1,0 +1,109 @@
+---
+title: 'Unidad 8: Expresión Diferencial'
+author: "Olga Andrea Hernández Miranda"
+date: "2024-06-12"
+output: html_document
+---
+Permite comparar los patrones de expresión entre muestras.
+Se identifican cambios en los perfiles de expresión entre tejidos, etapas, genotipos o tratamientos.
+Es posible localizar genes que se expresan diferente entre experimentos y conocer las diferencias entre las muestras a través de una prueba de T
+
+Se establece un directorio de trabajo
+```{r}
+directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
+setwd(directorio)
+```
+
+Calculo de expresion diferencial
+De un archivo con datos de expresion en TPM se calcula la expresion diferencial entre tratamientos.
+Se requieren las siguientes librerias:
+
+```{r}
+#install.packages("BiocManager")
+#BiocManager::install("DESeq2")
+library("DESeq2")
+```
+
+Usamos grep para buscar los archivos 
+```{r}
+samplefiles <- grep('conteo', list.files(directorio),value = T)
+samplefiles
+```
+
+Asignamos el nombre de la condicionn en simplefiles y ponemos los números al principio para forzar el orden deseado.
+```{r}
+samplecondition <- c('Etapa1','Etapa1','Etapa2','Etapa2')
+```
+
+Creamos un dataframe entre archivos y etiquetas
+```{r}
+sampletable <- data.frame(sampleName=samplefiles,
+                          fileName=samplefiles,
+                          condition=samplecondition)
+
+sampletable
+```
+
+Trabajamos con DESeq2 y los datos de conteo
+```{r}
+ddsHTSeq <- DESeqDataSetFromHTSeqCount(
+  sampleTable = sampletable,
+  directory = directorio,
+  design =~condition
+)
+ddsHTSeq
+```
+
+Creamos un factor con las etiquetas de las condiciones 
+```{r}
+colData(ddsHTSeq)$condition <- factor(colData(ddsHTSeq)$condition,
+                                      levels = c('Etapa2','Etapa1'))
+```
+
+Analizamos la expresión diferencial
+```{r}
+dds <- DESeq(ddsHTSeq)
+res <- results(dds)
+res <- res[order(res$padj),]
+head(res)
+```
+
+Resumen de los resultados
+```{r}
+summary(dds)
+#write.csv(res, file = "U8_tabla_ed_crudos.csv")
+```
+
+Librerias para volcano plot
+```{r}
+install.packages("gplots")
+install.packages("RColorBrewer")
+library("gplots")
+library("RColorBrewer")
+```
+
+Valor de corte de p value
+```{r}
+alpha <- 0.05 #filtrado de los valores alpha
+cols <- densCols(res$log2FoldChange,-log10(res$pvalue)) #trabajar con gradiente de color
+plot(res$log2FoldChange, -log10(res$padj), col=cols, panel.first=grid(),
+     main="Volcano plot", xlab="log2(fold-change)", ylab="-log10(p-value)",
+     pch=20, cex=0.6)
+```
+
+Incorporando lineas
+```{r}
+#Linea en el eje X
+abline(v=c(-2,2), col="brown") # -2 y 2 (valor significativo)
+#Linea en el eje Y
+abline(h=-log10(alpha), col="brown") # p value, valor de corte de alpha (en 0.05)
+```
+
+El p value se transforma a log10 para que se vea la forma de volcan
+Asignando texto a los puntos  significativos en la grafica
+```{r}
+gn.selected <- abs(res$log2FoldChange) > 2 & res$padj < alpha 
+text(res$log2FoldChange[gn.selected],
+     -log10(res$padj)[gn.selected],
+     lab=rownames(res)[gn.selected ], cex=0.4)
+```

@@ -57,7 +57,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
       - [2.4 Leer y guardar archivos](doc/Unidad_02/U2_4_Leer_guardar_archivos.md)
 
   - **Unidad 3** *(Miércoles 19 de Junio)*
-    - Gráficos en R
+    - [Gráficos en R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_03/U3_notebook.pdf)
     - Generación de gráficos sencillos
     - Generación de gráficos complejos
     - Modificando las características de los gráficos
@@ -83,10 +83,10 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
   - **Unidad 8** *(Miércoles 26 de Junio)*
     - Flujo de trabajo
-    - Expresión diferencial
+    - [Expresión diferencial](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_08/U8_notebook.pdf)
 
   - **Unidad 9** *(Jueves 27 de Junio)*
-    - Gráficos y visualización de resultados
+    - [Gráficos y visualización de resultados](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_09/U9_notebook.pdf)
 
   - **Unidad 10** *(Viernes 28 de Junio)*
     - Exposiciones de sus proyectos finales
@@ -165,6 +165,17 @@ Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a 
 - factoextra
 - FactoMineR
 - rmarkdown
+- BiocManager
+- DESeq2
+- gplots
+- RColorBrewer
+- EnhancedVolcano
+- VennDiagram
+- viridis
+- lattice
+- dendextend
+- forcats
+- ggthemes
 
 ---
 
