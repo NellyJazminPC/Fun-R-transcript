@@ -503,6 +503,7 @@ data_frame_dist_cond <- data.frame(distance=c(4,4,4,7,8,5), condition=c("a","a",
 #Visualiza el data frame
 data_frame_dist_cond
 ```
+> También puedes visualizar el **data frame** desde el panel de **Environment**. Solo da **click** sobre el nombre del data frame creado. Inténtalo!
 
 Para ver un elemento en específico dentro del data frame:
 
@@ -514,17 +515,19 @@ data_frame_dist_cond[1]
 
 data_frame_dist_cond["distance"]
 
-#Si queremos el primer elemento de la columna "distance" utilizamos los corchetes [,]
-data_frame_dist_cond["distance"][1,1] 
+#Si queremos el primer elemento de la columna "distance" usando los [ ]
+#Primero selecciona la columna como un vector y accesa al primer elemento
+data_frame_dist_cond[["distance"]][1]
+
 
 # Otra forma de seleccionar una columna es con el operador compacto $
 
 data_frame_dist_cond$condition
 data_frame_dist_cond$condition[1]
 
-#Puedes explorar la primera y última parte del data frame 
-head(data_frame_dist_cond)
-tail(data_frame_dist_cond)
+#Puedes explorar las primeras y últimas 3 filas del data frame 
+head(data_frame_dist_cond, 3)
+tail(data_frame_dist_cond, 3)
 
 ```
 
@@ -532,11 +535,9 @@ tail(data_frame_dist_cond)
 
 - Muy similar a una hoja de cálculo estándar
 
-- Uso de cabeceras (headers) significativos =\> componentes del dataframe `df`
-
 - Se pueden modificar los nombres de filas y columnas
 
-- Se pueden unir dfs con: `cbind ()` y `rbind ()`
+- Se pueden unir dos o más data frames con: `cbind ()` y `rbind ()`
 
 #### Ejercicio:
 
@@ -544,18 +545,18 @@ Crea un data frame con los siguientes datos:
 
 ```R
 #Crea los vectores: edad, nombres y genero
-
-edad <- c(22, 25, 18, 20)
+edad <- c(22, 25, 18, 15, 20)
 edad
-nombres <- c("Jaime", "Mateo", "Olivia", "Sandra") 
+nombres <- c("Jaime", "Mateo", "Olivia", "Javier","Sandra") 
 nombres
-genero <- c("M", "M", "F", "F")
+genero <- c("M", "M", "F", "M", "F")
 genero
+
 ```
 
 - Ordena los valores por edad.
 
-> tip: función `order()`
+> _tip_: función `order()`
 
 
 #### Soluciones:
@@ -577,19 +578,45 @@ df_age_name_gen
 df_age_name_gen[order(df_age_name_gen$edades),]
 ```
 
- **Pregunta extra:** ¿Cómo los ordenarías por género?
+**Pregunta extra:** ¿Cómo los ordenarías por nombres de forma descendente?
 
- ```R
-#ordernar por nombres
-df_age_name_gen[order(df_age_name_gen$names_df),]
+```R
+#Extra: ordernar por nombres, en forma descendente
+df_age_name_gen[order(df_age_name_gen$names_df, decreasing = T),]
+
+#Extra: ordenar múltiples columnas, NOMBRES y EDAD, de forma descendente: 
+df_age_name_gen[order(df_age_name_gen$names_df, df_age_name_gen$edades, decreasing = T), ]
+
+```
+
+### Extra:
+
+```R
+# Ver la estructura del data frame
+str(df)
+
+# Resumen estadístico del data frame
+summary(df)
+
+# Cambiar los nombres de las columnas
+names(df) <- c("Edad", "Nombre", "Género")
+
+# Cambiar el nombre de una sola columna con la función names()
+names(df)[names(df) == "Edad"] <- "age"
+
+# Añadir una nueva columna
+df$height <- c(180, 165, 170, 175)
+
+# Eliminar una columna
+df$height <- NULL
 ```
 
 ### 2.2.3 Fuentes de información
+- [Data frames](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html)
 
-
+- [Función data.frame](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame)
 
 ---
-
 
 ## 2.2.4 Listas
 
@@ -599,7 +626,7 @@ Las **Listas** son un tipo de estructura de datos que **puede contener todos los
 
 - Cada componente se encuentra usando el operador `$` si los componentes tienen nombre. Parecido como seleccionabamos elementos en los data frames.
 
-Para acceder a un componente en particular puedes usar los corchetes **[]**
+Para acceder a un componente en particular puedes usar los corchetes **[ ]**
 
 - `[i]` para accesar al componente como elemento de lista
 - `[[i]]` para accesar al componente como vector
@@ -608,35 +635,59 @@ Para acceder a un componente en particular puedes usar los corchetes **[]**
 #### Ejemplo:
 
 ```R
-#Primero creamos un vector:
-vec <- 1:5
-vec
-#Creamos un data frame con valores numéricos y de texto
-df <- data.frame(y = c(1:3), x = c("m", "m", "f")) 
-df
-#Creamos un vector con caracteres de texto
-char <- "Hola!"
-char
+# Crear un vector con datos de cantidad de ADN en diferentes muestras
+adn_quantity <- c(20.5, 30.2, 25.7)
+
+# Crear un data frame con datos de calidad de ADN, otras características de las muestras y el nombre de la especie de planta
+adn_quality_info <- data.frame(
+  sample_id = c(1, 2, 3),
+  purity = c(1.8, 2.0, 1.9),
+  concentration = c(50, 55, 48),
+  species = c("Arabidopsis", "Maize", "Rice")
+)
+
+# Crear una cadena de caracteres con notas del estudio
+study_notes <- "Experimento de calidad y cantidad de ADN en plantas realizado en 2024"
 ```
 
-Ahora tenemos dos vectores con diferentes tipos de datos y un data frame con datos tanto numéricos como de texto.
+Ahora tenemos dos vectores con diferentes tipos de datos (**adn_quantity** y **study_notes**) y un data frame con datos tanto numéricos como de texto.
 ¿Podemos poner todos estos distintos tipos de datos y de estructuras en un solo tipo de estructura?
 
 Si, en una **lista**
 
 ```R
-#Para convertir distintas estructuras en una lista usamos a.list
+# Crear la lista con un nombre descriptivo y asigna nuevos nombres para cada estructura agregada
+plant_adn_data <- list(quantity = adn_quantity, quality_info = adn_quality_info, notes = study_notes)
 
-a.list <- list(vec, df, char)
-a.list
+# Mostrar la lista
+print("Contenido de la lista 'plant_adn_data':")
+print(plant_adn_data)
 
-#Vamos a acceder a un componente de la lista:
-# a.list[1] + 1 # no funciona! porque?
-a.list[[1]] + 1
-
-# Para ver estructura de la lista usa str()
-str(a.list) 
 ```
+
+Ahora que has creado una **Lista**, accede al primer elemento.
+
+```R
+# Acceder al primer elemento (cantidad de ADN) 
+# con $
+plant_adn_data$quantity 
+# con los [ ]
+plant_adn_data[1]
+
+# Suma 1 a cada valor de este elemento
+plant_adn_data$quantity + 1
+# Otra forma con [ ]
+# Otra forma con los [ ]
+plant_adn_data[[1]] + 1
+```
+
+Revisa la estructura de la lista
+
+```R
+# Ver la estructura de la lista
+str(plant_adn_data)
+```
+
 
 #### Usos:
 
@@ -645,52 +696,86 @@ Guardar elementos de distinto tamaño, por ejemplo, varias hojas de cálculo en 
 Los componentes pueden ser fácilmente agregados o removidos de la lista:
 
 ```R
-a.list
-a.list[[length(a.list) + 1]] <- "Adios..." 
-a.list
 
-a.list[length(a.list)] <- NULL
-a.list
+# Agrega un nuevo elemento: contenido de metabolitos secundarios
+#Crea el vector
+secondary_metabolites <- c(3.2, 2.8, 3.5)
+secondary_metabolites
+#Agrega el vector a la lista de plant_adn_data
+plant_adn_data$metabolites <- secondary_metabolites
+
+# Revisa la lista después de agregar el nuevo elemento
+plant_adn_data
+
+# Ve la estructura de la lista después de agregar el nuevo elemento
+str(plant_adn_data)
+
+# Quita el elemento 'metabolites' de la lista
+plant_adn_data$metabolites <- NULL
+
+# Muestra la lista después de quitar el elemento
+plant_adn_data
+
+# Ve la estructura de la lista después de quitar el elemento
+str(plant_adn_data)
 ```
 
-En la siguiente lista:
+#### Ejercicio:
 
-```R
-w <- c(2, 7, 8)
-v <- c("A", "B", "C") 
-x <- list(w, v)
-```
+De la lista que ya hemos creado **plant_adn_data**, ¿se puede cambiar valores dentro de los elementos de la lista?
 
-- Reemplaza el valor de "A" con "Z"
+Si
 
-- Agrega un elemento al final de la lista:
+- Intenta cambiar el valor del elemento 2, dentro del vector llamado quantity en la lista plant_adn_data. Cambia el valor a 31.5 
 
-```R
-y <- c("M", "M", "F")
-```
+- Cambia los nombres de las especies en el data frame dentro de la lista. Cambia el nombre de Maize a Zea y de Rice a Oryza.
+
+- Agrega un nuevo elemento en forma de vector. Las fechas de extracción de ADN: "2024-06-01", "2024-06-02", "2024-06-03"
 
 #### Soluciones:
 
-Reemplaza el valor de "A" con "Z"
-
 ```R
-x
-x[[2]][1] <- "Z"
-x
+# Cambiar un valor dentro del vector 'adn_quantity'
+plant_adn_data$quantity[2] #Verifica cuál es el segundo valor
+plant_adn_data$quantity[2] <- 31.5  # Cambia el segundo valor a 31.5
+plant_adn_data$quantity[2] #Verifica si cambio a 31.5
+
+
+# Cambiar nombres en el data frame dentro de la lista
+plant_adn_data$quality_info$species # Verifica que nombres hay
+plant_adn_data$quality_info$species[plant_adn_data$quality_info$species == "Rice"] <- "Oryza"
+plant_adn_data$quality_info$species[plant_adn_data$quality_info$species == "Maize"] <- "Zea"
+plant_adn_data$quality_info$species # Verifica los cambios
+
+# Agregar un nuevo elemento: fecha de extracción de ADN
+#Crea el vector
+extraction_dates <- c("2024-06-01", "2024-06-02", "2024-06-03")
+extraction_dates
+#Agrega el vector a la lista
+plant_adn_data$extraction_dates <- extraction_dates
+
+# EXTRA: Otra forma de agregar un elemento es con lenght()
+#Usas lenght para crear un espacio en la lista y lo asignas al vector extraction_dates
+
+# plant_adn_data[[length(plant_adn_data) + 1]] <- extraction_dates
+
+#Tienes que poner el nombre al último elemento agregado
+# names(plant_adn_data)[length(plant_adn_data)] <- "extraction_dates"
+
+
+# Muestra la lista después de los cambios
+plant_adn_data
+
+# Ve la estructura de la lista después de los cambios
+str(plant_adn_data)
+
 ```
-
-Agrega un elemento al final de la lista:
-
-```{r}
-x
-y
-x[length(x)+1] <- y
-x
-x[length(x)] <- y
-```
-
-
-
-### 2.2.4 Fuentes de información
 
 ### Fuentes de información
+
+- [Listas](https://bookdown.org/jboscomendoza/r-principiantes4/listas.html)
+- [Listas - GitLab - Blog](https://soka.gitlab.io/blog/post/2019-03-11-r-listas/)
+
+---
+
+### Estructuras de Datos: Resumen
