@@ -724,9 +724,7 @@ str(plant_adn_data)
 
 De la lista que ya hemos creado **plant_adn_data**, ¿se puede cambiar valores dentro de los elementos de la lista?
 
-Si
-
-- Intenta cambiar el valor del elemento 2, dentro del vector llamado quantity en la lista plant_adn_data. Cambia el valor a 31.5 
+- Intenta cambiar el valor del elemento 2, dentro del vector llamado quantity en la lista plant_adn_data. Cambia el valor a 31.5
 
 - Cambia los nombres de las especies en el data frame dentro de la lista. Cambia el nombre de Maize a Zea y de Rice a Oryza.
 
@@ -779,3 +777,9 @@ str(plant_adn_data)
 ---
 
 ### Estructuras de Datos: Resumen
+
+![alt text](Resumen_estructura_datos.png)
+
+---
+
+### Siguiente tema: [2.3 Manipulación de datos](../Unidad_02/U2_3_Manipulacion_datos.md)
