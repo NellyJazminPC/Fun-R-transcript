@@ -261,3 +261,154 @@ array_3d <- array(1:27, dim = c(3, 3, 3))
 array_3d
 
 
+############# DATA FRAMES - MARCO DE DATOS ############################################
+### df - data frames:
+
+data_frame_dist_cond <- data.frame(distance=c(4,4,4,7,8,5), condition=c("a","a","a","b","b","b"))
+
+#Visualiza el data frame
+data_frame_dist_cond
+
+#Para seleccionar la primera columna
+data_frame_dist_cond[1]
+
+#Otra forma de seleccionar una columna es por el nombre de la misma:
+
+data_frame_dist_cond["distance"]
+
+#Si queremos el primer elemento de la columna "distance" usando los [ ]
+#Primero selecciona la columna como un vector y accesa al primer elemento
+data_frame_dist_cond[["distance"]][1]
+
+
+# Otra forma de seleccionar una columna es con el operador compacto $
+
+data_frame_dist_cond$condition
+data_frame_dist_cond$condition[1]
+
+#Puedes explorar la primera y última parte del data frame 
+head(data_frame_dist_cond, 3)
+tail(data_frame_dist_cond, 3)
+
+
+# Ejercicio:
+#Crea los vectores: edad, nombres y genero
+edad <- c(22, 25, 18, 15, 20)
+edad
+nombres <- c("Jaime", "Mateo", "Olivia", "Javier","Sandra") 
+nombres
+genero <- c("M", "M", "F", "M", "F")
+genero
+
+# Solución:
+# Puedes asignarle otro nombre a las columnas que aparecerán en tu df
+# Renombra las columnas
+df_age_name_gen <- data.frame(edades=edad,names_df=nombres,genero=genero)
+
+df_age_name_gen
+
+#ordernar por edades
+df_age_name_gen[order(df_age_name_gen$edades),]
+
+#Extra: ordernar por nombres, en forma descendente
+df_age_name_gen[order(df_age_name_gen$names_df, decreasing = T),]
+#Extra: ordenar múltiples columnas
+df_age_name_gen[order(df_age_name_gen$names_df, df_age_name_gen$edades, decreasing = T), ]
+
+
+
+############# L I S T A S ############################################
+
+# Crear un vector con datos de cantidad de ADN en diferentes muestras
+adn_quantity <- c(20.5, 30.2, 25.7)
+adn_quantity
+# Crear un data frame con datos de calidad de ADN, otras características de las muestras y el nombre de la especie de planta
+adn_quality_info <- data.frame(
+  sample_id = c(1, 2, 3),
+  purity = c(1.8, 2.0, 1.9),
+  concentration = c(50, 55, 48),
+  species = c("Arabidopsis", "Maize", "Rice"))
+
+adn_quality_info
+# Crear una cadena de caracteres con notas del estudio
+study_notes <- "Experimento de calidad y cantidad de ADN en plantas realizado en 2024"
+study_notes
+
+# Crear la lista con un nombre descriptivo
+plant_adn_data <- list(quantity = adn_quantity, quality_info = adn_quality_info, notes = study_notes)
+plant_adn_data
+
+# Acceder al primer elemento (cantidad de ADN) 
+# con $
+plant_adn_data$quantity
+# con [ ]
+plant_adn_data[1]
+
+# suma 1 a cada valor
+plant_adn_data$quantity + 1
+# Otra forma con los [ ]
+plant_adn_data[[1]] + 1
+
+# Ver la estructura de la lista
+str(plant_adn_data)
+
+## Usos:
+
+# Agrega un nuevo elemento: contenido de metabolitos secundarios
+#Crea el vector
+secondary_metabolites <- c(3.2, 2.8, 3.5)
+secondary_metabolites
+#Agrega el vector a la lista de plant_adn_data
+plant_adn_data$metabolites <- secondary_metabolites
+
+# Revisa la lista después de agregar el nuevo elemento
+plant_adn_data
+
+# Ve la estructura de la lista después de agregar el nuevo elemento
+str(plant_adn_data)
+
+# Quita el elemento 'metabolites' de la lista
+plant_adn_data$metabolites <- NULL
+
+# Muestra la lista después de quitar el elemento
+plant_adn_data
+
+# Ve la estructura de la lista después de quitar el elemento
+str(plant_adn_data)
+
+## Ejercicio:
+
+# Cambiar un valor dentro del vector 'adn_quantity'
+plant_adn_data$quantity[2] #Verifica cuál es el segundo valor
+plant_adn_data$quantity[2] <- 31.5  # Cambia el segundo valor a 31.5
+plant_adn_data$quantity[2] #Verifica si cambio a 31.5
+
+# Cambiar nombres en el data frame dentro de la lista
+plant_adn_data$quality_info$species # Verifica que nombres hay
+plant_adn_data$quality_info$species[plant_adn_data$quality_info$species == "Rice"] <- "Oryza"
+plant_adn_data$quality_info$species[plant_adn_data$quality_info$species == "Maize"] <- "Zea"
+plant_adn_data$quality_info$species # Verifica los cambios
+
+# Agregar un nuevo elemento: fecha de extracción de ADN
+#Crea el vector
+extraction_dates <- c("2024-06-01", "2024-06-02", "2024-06-03")
+extraction_dates
+#Agrega el vector a la lista
+plant_adn_data$extraction_dates <- extraction_dates
+
+# EXTRA: Otra forma de agregar un elemento es con lenght()
+#Usas lenght para crear un espacio en la lista y lo asignas al vector extraction_dates
+
+# plant_adn_data[[length(plant_adn_data) + 1]] <- extraction_dates
+
+#Tienes que poner el nombre al último elemento agregado
+# names(plant_adn_data)[length(plant_adn_data)] <- "extraction_dates"
+
+
+# Muestra la lista después de los cambios
+plant_adn_data
+
+# Ve la estructura de la lista después de los cambios
+str(plant_adn_data)
+
+
