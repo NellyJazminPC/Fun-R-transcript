@@ -161,9 +161,9 @@ En el formato **long**, las observaciones se registran en **filas adicionales**,
 
 ### Fuentes de información
 
-- [](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
-- [](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-- [](https://www.datacamp.com/cheat-sheet/getting-started-r)
+- [base R Cheat Sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
+- [Data wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- [Getting started R](https://www.datacamp.com/cheat-sheet/getting-started-r)
 
 ---
 
