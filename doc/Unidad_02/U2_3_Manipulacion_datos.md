@@ -167,6 +167,17 @@ En el formato **long**, las observaciones se registran en **filas adicionales**,
 
 ---
 
+Las funciones y conceptos anteriores proporcionan una base para la manipulación de datos en R. Ahora vamos a continuar con los paquetes especializados para la manipulación de datos en R:
+
+- **reshape2**: Para transformar y reorganizar data frames.
+
+- **tidyr**: Para cambiar entre formatos wide y long.
+
+- **dplyr**: Para la manipulación eficiente de data frames.
+
+- **magrittr**: Para mejorar la legibilidad del código utilizando tuberías (%>%).
+
+
 ## 2.3.1 reshape2
 
 
