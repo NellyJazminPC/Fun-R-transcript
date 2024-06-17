@@ -359,17 +359,226 @@ Ambos paquetes, **reshape2** y **tidyr**, son herramientas poderosas para la **m
 
 ## 2.3.3 dplyr y magrittr
 
-### Introducción a dplyr 
+### Introducción a dplyr
 
-El paquete dplyr es una herramienta esencial para la manipulación de datos tabulares en R, proporcionando una gramática clara y eficiente para operaciones comunes. A menudo se utiliza junto con el paquete magrittr, que introduce el operador de tubería (%>%), permitiendo encadenar múltiples operaciones de manera más legible y concisa.
+El paquete **dplyr** es una herramienta **esencial** para la **manipulación de datos tabulares** en R, proporcionando una gramática clara y eficiente para operaciones comunes. Su nombre proviene de "**d**" (de **data**) y "**plyr**" (de **pliers o alicates**, y en referencia al paquete **plyr**, un precursor de **dplyr**).
 
-Origen del Nombre dplyr
-El nombre dplyr proviene de "d" (de data) y "plyr" (de manipulación, en referencia al paquete plyr, un precursor de dplyr). dplyr se centra en la manipulación de datos tabulares, optimizando y simplificando el proceso.
+Las **principales funciones** de **dplyr** incluyen:
 
-### 2.3.3 Fuentes de información
+- `mutate()`: se utiliza para crear nuevas variables o modificar las existentes.
+- `filter()`: selecciona filas de un data frame según ciertas condiciones.
+- `group_by()`: agrupa datos por una o más variables.
+- `summarize()`: calcula estadísticas resumidas, como medias o desviaciones estándar, para cada grupo de datos.
 
+![alt text](image-5.png)
+
+### Introducción a magrittr
+
+A menudo, junto a **dplyr** se utiliza el paquete **magrittr**, que introduce el **operador de tubería** (**%>%**), permitiendo encadenar múltiples operaciones de manera más legible y concisa. Este operador **toma la salida** de una función y la pasa **como entrada** a la siguiente, permitiendo escribir código más limpio y entendible.
+
+![alt text](imagen_6.png)
+
+#### Ejemplo básico de magrittr
+
+```R
+#Carga el paquete de magrittr
+library(magrittr)
+
+#Si no lo tienes instalado:
+#install.package("magrittr")
+
+# Ejemplo simple usando %>%
+#Crea un vector que contenga valores de 1 a 10, suma todo y obtén el cuadrado de esa suma total
+
+result <- 1:10 %>% 
+  sum() %>% 
+  sqrt()
+
+result
+# Output: 7.416198
+```
 
 ---
 
+Ahora, comenzaremos a usar **dplyr** y veremos las diferencias entre usar o no el **pipe** de **magrittr**. Seguiremos usando la base de datos de Iris:
 
+
+#### Ejemplo de mutate()
+
+```R
+# Cargar la base de datos iris y el paquete dplyr
+#data("iris")
+#Carga el paquete dplyr
+#Si no lo tienes instalado usa install.package()
+library(dplyr)
+#Revisa nuevamente la base iris
+head(iris)
+
+# Crea nuevas columnas que son el doble de Sepal.Length y la relación Sepal.Length/Sepal.Width
+
+mutated_iris <- mutate(
+  iris,
+  double_sepal_length = Sepal.Length * 2,
+  sepal_ratio = Sepal.Length / Sepal.Width)
+
+#Revisa el nuevo df con las nuevas columnas
+head(mutated_iris)
+```
+
+Ahora, veamos el código si incorporamos **%>%**:
+
+```R
+# Carga la base de datos iris y los paquetes dplyr y magrittr
+#data("iris")
+#library(dplyr)
+library(magrittr)
+#Revisa nuevamente la base iris
+head(iris)
+
+# Crea nuevas columnas que son el doble de Sepal.Length y la relación Sepal.Length/Sepal.Width
+
+mutated_iris_pipe <- iris %>%
+  mutate(
+    double_sepal_length = Sepal.Length * 2,
+    sepal_ratio = Sepal.Length / Sepal.Width)
+
+#Revisa el nuevo df con las nuevas columnas
+head(mutated_iris_pipe)
+
+```
+
+#### Ejemplo de filter()
+
+```R
+# Filtra filas donde Sepal.Length es mayor a 5 y Species es "setosa"
+
+filtered_iris <- filter(iris, Sepal.Length > 5, Species == "setosa")
+#Revisa el nuevo df
+filtered_iris
+```
+
+Con **%>%**:
+
+```R
+# Filtra filas donde Sepal.Length es mayor a 5 y Species es "setosa"
+
+filtered_iris_pipe <- iris %>%
+  filter(Sepal.Length > 5, Species == "setosa")
+#Revisa el nuevo df
+filtered_iris_pipe
+
+```
+
+#### Ejemplo de group_by()
+
+```R
+# Agrupa por Species
+iris_grouped <- group_by(iris, Species)
+
+# Muestra los datos agrupados
+iris_grouped
+```
+
+Con **%>%**:
+
+```R
+# Agrupa por Species usando %>%
+iris_grouped_pipe <- iris %>% group_by(Species)
+
+# Muestra los datos agrupados
+iris_grouped_pipe
+```
+
+#### Ejemplo de summarize()
+
+```R
+# Calcula la media y desviación estándar de Sepal.Length por especie
+
+summar_iris <- summarize(
+  group_by(iris, Species),
+  mean_sepal_length = mean(Sepal.Length),
+  sd_sepal_length = sd(Sepal.Length))
+#Revisa los resultados:
+summar_iris
+
+```
+
+Ahora, con **%>%**:
+
+```R
+# Calcula la media y desviación estándar de Sepal.Length por especie
+
+summar_iris_pipe <- iris %>%
+  group_by(Species) %>%
+  summarize(
+    mean_sepal_length = mean(Sepal.Length),
+    sd_sepal_length = sd(Sepal.Length))
+#Revisa los resultados:
+summar_iris_pipe
+
+```
+
+![alt text](imagen_7.png)
+
+### ¿Es posible tener las cuatro funciones en una sola línea de código (chunk)?
+
+Vamos a ver como sería con y sin **pipe**.
+
+```R
+# Cargar la base de datos iris y el paquete dplyr
+data("iris")
+library(dplyr)
+
+# Manipulación de datos en una sola línea sin usar %>%
+summary_iris <- summarize(group_by(filter(mutate(iris, double_sepal_length = Sepal.Length * 2), Sepal.Length > 5), Species), mean_sepal_length = mean(Sepal.Length), sd_sepal_length = sd(Sepal.Length), mean_double_sepal_length = mean(double_sepal_length), sd_double_sepal_length = sd(double_sepal_length))
+
+# Imprimir el resumen
+summary_iris
+
+```
+
+```R
+# Cargar la base de datos iris y los paquetes necesarios
+data("iris")
+library(dplyr)
+
+# Manipulación de datos en un solo chunk usando %>%
+summary_iris_pipe <- iris %>%
+  # Crear una nueva columna que es el doble de Sepal.Length
+  mutate(double_sepal_length = Sepal.Length * 2) %>%
+  # Filtrar filas donde Sepal.Length es mayor a 5
+  filter(Sepal.Length > 5) %>%
+  # Agrupar por Species
+  group_by(Species) %>%
+  # Calcular la media y la desviación estándar de Sepal.Length y double_sepal_length
+  summarize(
+    mean_sepal_length = mean(Sepal.Length),
+    sd_sepal_length = sd(Sepal.Length),
+    mean_double_sepal_length = mean(double_sepal_length),
+    sd_double_sepal_length = sd(double_sepal_length)
+  )
+
+# Imprimir el resumen
+print(summary_iris)
+
+```
+
+Después de ver esta diferencias, ¿qué opinas, vale la pena intentar usar **%>%**?
+
+
+### 2.3.3 Fuentes de información
+
+- [Data transformations - Cheat Sheets](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+- [dplyr - tidyverse](https://dplyr.tidyverse.org/)
+- [Pipe](https://magrittr.tidyverse.org/reference/pipe.html)
+
+---
+
+La **manipulación de datos** es una habilidad **esencial** en el análisis de datos. Los paquetes `reshape2`, `tidyr`, `dplyr` y `magrittr` proporcionan herramientas fundamentales para **transformar, limpiar y analizar** datos de manera eficiente. 
+
+Otros paquetes como `ggplot2`, `readr`, `data.table`, `vegan`, `phyloseq` y `ape` permiten profundizar en el manejo y analisis de datos en contextos más específicos (filogenético, evolutivo, ecológico, diversidad, etc.)
+
+---
+
+### Siguiente tema: [2.4 Leer y guardar archivos](../Unidad_02/U2_4_Leer_guardar_archivos.md)
 
