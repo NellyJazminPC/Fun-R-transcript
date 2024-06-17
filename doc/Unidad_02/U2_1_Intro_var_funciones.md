@@ -287,7 +287,7 @@ function (x, y = NULL, type = "p", xlim = NULL, ylim = NULL,
 <environment: namespace:graphics>
 ```
 
-Si quieres saber como esta construida otra función, escribe el nombre de la función sin los paréntesis.
+Si quieres saber cómo está construida otra función, escribe el nombre de la función sin los paréntesis.
 
 ```R
 # por ejemplo la función lm - modelos lineales
