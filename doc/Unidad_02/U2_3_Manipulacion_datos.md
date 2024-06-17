@@ -248,9 +248,24 @@ Con `melt()` se convierte el data frame de formato wide a long.
 
 ## 2.3.2 tidyr
 
+El paquete **tidyr** es parte del ecosistema de **tidyverse** en R, fue diseñado para ayudar a limpiar y estructurar datos de una manera que facilite su análisis. Su desarrollador es [Hadley Wickham](https://twitter.com/hadleywickham), un conocido científico de datos y autor de varios paquetes populares en R (`ggplot2`, `dplyr`, `readr`, entre otros).
+
+![alt text](image-4.png)
+
+El nombre **tidyr** proviene de la combinación de las palabras "tidy" (ordenado) y "R". El objetivo del paquete es **transformar los datos en un formato ordenado**.
+
+### ¿Qué Son los Datos Ordenados?
+
+En **tidyverse**, los **datos ordenados** son aquellos en los que **cada variable se guarda en una columna**, cada **observación** se guarda en una **fila** y cada tipo de **unidad observacional** forma una **tabla**. Este formato facilita el análisis y la visualización de datos.
 
 
 ### 2.3.2 Fuentes de información
+
+- [](https://cran.rstudio.com/web/packages/tidyverse/vignettes/manifesto.html
+)
+- [](https://rpubs.com/jaortega/151936
+)
+
 
 ---
 
