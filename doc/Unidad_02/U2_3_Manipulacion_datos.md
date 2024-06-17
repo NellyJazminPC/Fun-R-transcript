@@ -306,16 +306,20 @@ library(tidyr)
 #Si no tienes instalado el paquete usa:
 #install.packages("tidyr")
 
-# Usar gather() para convertir a formato long
-iris_long <- gather(iris, key = "Measurement", value = "Value", -Species)
+# Añadir un identificador único a las filas de iris
+iris$ID <- 1:nrow(iris)
+
+# Convertir a formato long usando gather
+iris_long <- gather(iris, key = "Measurement", value = "Value", -Species, -ID)
+
+# Ver el data frame en formato long
 head(iris_long)
-dim(iris_long)
 
-
-# Usar spread() para convertir de nuevo a formato wide
+# Convertir de vuelta a formato wide usando spread
 iris_wide_again <- spread(iris_long, key = "Measurement", value = "Value")
+
+# Ver el data frame en formato wide
 head(iris_wide_again)
-dim(iris_wide_again)
 
 ```
 
