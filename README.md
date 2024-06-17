@@ -23,6 +23,7 @@ El participante conocerá los fundamentos de programación en R para su aplicaci
 ### OBJETIVOS ESPECÍFICOS
 
 Comprender los fundamentos de programación en R para el análisis de datos biológicos.
+
 Conocer los fundamentos teóricos del campo de estudio de la transcriptómica y sus principales análisis desde el lenguaje de programación R.  
 
 ---
