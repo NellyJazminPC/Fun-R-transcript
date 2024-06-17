@@ -323,6 +323,8 @@ head(iris_wide_again)
 
 ```
 
+![alt text](image_8.png)
+
 Con `unite()` vamos a crear una columna que combine la especie y la longitud del sépalo, luego con `separate()` la separaremos en dos columnas
 
 ```R
@@ -336,6 +338,8 @@ iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c(
 head(iris_separated)
 dim(iris_separated)
 ```
+
+![alt text](image-6.png)
 
 #### EXTRA: pivot_longer() y pivot_wider()
 
@@ -409,6 +413,8 @@ Ahora, comenzaremos a usar **dplyr** y veremos las diferencias entre usar o no e
 
 #### Ejemplo de mutate()
 
+![alt text](image-7.png)
+
 ```R
 # Cargar la base de datos iris y el paquete dplyr
 #data("iris")
@@ -475,6 +481,8 @@ filtered_iris_pipe
 
 #### Ejemplo de group_by()
 
+![alt text](image-8.png)
+
 ```R
 # Agrupa por Species
 iris_grouped <- group_by(iris, Species)
@@ -494,6 +502,8 @@ iris_grouped_pipe
 ```
 
 #### Ejemplo de summarize()
+
+![alt text](image-9.png)
 
 ```R
 # Calcula la media y desviación estándar de Sepal.Length por especie
