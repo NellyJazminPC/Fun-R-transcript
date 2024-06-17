@@ -50,7 +50,7 @@ dir()
 
 #Después de revisar su sintaxis encontrarás que debemos poner el nombre del paquete que quieras instalar dentro de los paréntesis:
 
-install.packages(ggplot2)
+#install.packages(ggplot2)
 
 # Cuidado: si te aparece un error puede ser por la versión de R, en algunas versiones previas necesitas poner entre comillas el nombre del paquete: install.packages("ggplot2") 
 
@@ -66,7 +66,7 @@ ls(all.names = TRUE)
 
 #Puedes usar rm para eliminar objetos que ya no necesitas:
 
-rm(x)
+#rm(x)
 
 # Si tienes muchas cosas en tu entorno y deseas borrarlas todas, puedes pasar los resultados de ls y mandarlos a la función rm:
 
