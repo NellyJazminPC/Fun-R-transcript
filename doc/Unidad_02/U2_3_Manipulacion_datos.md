@@ -518,11 +518,11 @@ summar_iris_pipe
 
 ```
 
-![alt text](imagen_7.png)
-
 ### ¿Es posible tener las cuatro funciones en una sola línea de código (chunk)?
 
-Vamos a ver como sería con y sin **pipe**.
+![alt text](imagen_7.png)
+
+Probemos en R cómo sería con y sin **pipe**.
 
 ```R
 # Cargar la base de datos iris y el paquete dplyr
@@ -536,6 +536,8 @@ summary_iris <- summarize(group_by(filter(mutate(iris, double_sepal_length = Sep
 summary_iris
 
 ```
+
+Con **%>%**:
 
 ```R
 # Cargar la base de datos iris y los paquetes necesarios
