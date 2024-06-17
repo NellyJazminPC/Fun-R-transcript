@@ -96,3 +96,34 @@ aggregate_result <- aggregate(value ~ group, data = df_example2, FUN = mean)
 print(aggregate_result)
 
 
+##################### Reshape2 #####################
+### Ejemplo con dcast() y melt()
+
+# Cargar la base de datos ChickWeight
+data("ChickWeight")
+#Explora la base de datos con head o completa
+head(ChickWeight)
+dim(ChickWeight)
+# Carga el paquete reshape2 
+#Si no lo tienes instalado, usa la siguiente línea:
+#install.packages("reshape2")
+library(reshape2)
+
+# Crea un data frame de ejemplo en formato wide (ancho)
+#Vamos a usar dcast()
+wide_chick <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
+#Revisa si cambio el formato
+head(wide_chick)
+dim(wide_chick)
+#wide_chick[wide_chick$Chick == 1, ]
+# Usa melt() para convertirlo a formato long (largo)
+long_chick <- melt(wide_chick, id.vars = c("Diet", "Chick"), variable.name = "Time", value.name = "Weight")
+#Revisa si cambio el formato
+head(long_chick)
+dim(long_chick)
+#Verifica si hay datos faltantes
+#sum(is.na(long_chick$Weight))
+#sum(is.na(ChickWeight))
+#Imprime las filas con NA
+#long_chick[is.na(long_chick$Weight), ]
+

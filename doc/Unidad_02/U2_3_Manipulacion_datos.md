@@ -177,17 +177,78 @@ Las funciones y conceptos anteriores proporcionan una base para la manipulación
 
 - **magrittr**: Para mejorar la legibilidad del código utilizando tuberías (%>%).
 
-
 ## 2.3.1 reshape2
 
+El paquete **reshape2** es una herramienta esencial para **transformar y reorganizar data frames**, especialmente cuando se necesita cambiar entre los **formatos "wide" y "long"**. Estos formatos son cruciales en la manipulación de datos, ya que ciertos análisis y visualizaciones requieren datos en un formato específico.
 
+**¿Por qué usar reshape2?**
+
+**Flexibilidad**: Permite cambiar entre formatos de datos con facilidad.
+**Eficiencia**: Realiza transformaciones complejas de datos de manera concisa y eficiente.
+**Compatibilidad**: Se integra bien con otros paquetes de R, facilitando su uso en flujos de trabajo de análisis de datos.
+
+**Reshape2** tiene **dos funciones principales**:
+
+`dcast()`: Convierte un data frame del formato long al formato wide.
+
+`melt()`: Convierte un data frame del formato wide al formato long.
+
+### Ejemplos con dcast() y melt()
+
+Para estos ejemplos, utilizaremos la base de datos **ChickWeight** que está incluida en R y tiene relación con el **crecimiento de pollos bajo diferentes dietas y en diferentes tiempos**.
+
+![alt text](image_5.png)
+
+```R
+# Cargar la base de datos ChickWeight
+data("ChickWeight")
+#Explora la base de datos con head o completa
+head(ChickWeight)
+
+# Carga el paquete reshape2 
+#Si no lo tienes instalado, usa la siguiente línea:
+#install.packages("reshape2")
+library(reshape2)
+
+# Crea un data frame de ejemplo en formato wide (ancho)
+#Vamos a usar dcast()
+wide_chick <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")
+#Revisa si cambio el formato
+head(wide_chick)
+dim(wide_chick)
+
+# Usa melt() para convertirlo a formato long (largo)
+long_chick <- melt(wide_chick, id.vars = c("Diet", "Chick"), variable.name = "Time", value.name = "Weight")
+#Revisa si cambio el formato
+head(long_chick)
+dim(long_chick)
+
+```
+
+La función `dcast()` convierte el data frame de formato **long a wide**. 
+
+- La **fórmula** (Diet + Chick ~ Time) define cómo se deben agrupar y distribuir los datos, en este caso manteniendo las columnas Diet y Chick, y asignando los valores de Time como variables separadas en columnas. 
+
+- **value.var** es la columna que contiene los valores a distribuir en el formato wide, en este caso fue **weight**.
+
+Con `melt()` se convierte el data frame de formato wide a long.
+
+- **id.vars** con las columnas que permanecerán como identificadores. En este caso, como son dos se utiliza la función `c()`, **c("Diet", "Chick")**.
+
+- **variable.name** es el nombre de la columna que contendrá los nombres de las columnas variables. En este caso, fue **Time**.
+
+- **value.name** es el nombre de la columna que contendrá los valores. En este caso, **Weight**.
 
 ### 2.3.1 Fuentes de información
 
+- [Una introducción a Reshape2](https://rpubs.com/enralvar/ReShape2)
+- [Melting & Casting](https://ademos.people.uic.edu/Chapter8.html)
+
 ---
 
-
 ## 2.3.2 tidyr
+
+
 
 ### 2.3.2 Fuentes de información
 
