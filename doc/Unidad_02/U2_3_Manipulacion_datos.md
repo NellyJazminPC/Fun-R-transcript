@@ -258,26 +258,118 @@ El nombre **tidyr** proviene de la combinación de las palabras "tidy" (ordenado
 
 En **tidyverse**, los **datos ordenados** son aquellos en los que **cada variable se guarda en una columna**, cada **observación** se guarda en una **fila** y cada tipo de **unidad observacional** forma una **tabla**. Este formato facilita el análisis y la visualización de datos.
 
+### Funciones principales en tidyr
+
+- `gather()`: convierte datos de formato wide a long.
+- `spread()`: convierte datos de formato long a wide.
+- `separate()`: divide una columna en varias columnas.
+- `unite()`: combina varias columnas en una sola.
+
+`pivot_longer()` y `pivot_wider()` son **versiones mejoradas** de `gather()` y `spread()`, respectivamente, introducidas en versiones más recientes de **tidyr**.
+
+- `pivot_longer()` convierte datos de formato wide a long de una manera más intuitiva y flexible.
+- `pivot_wider()` convierte datos de formato long a wide.
+
+#### Diferencias entre gather()/spread() y pivot_longer()/pivot_wider()
+
+- `gather()`/`spread()`:
+
+Son funciones más antiguas y menos intuitivas en algunos casos.
+Requieren especificar manualmente todas las columnas que se deben transformar.
+
+- `pivot_longer()`/`pivot_wider()`:
+
+Son más recientes y ofrecen una sintaxis más intuitiva y flexible.
+Permiten usar patrones para seleccionar columnas, lo que simplifica la transformación de datos.
+
+#### Ejemplos con la base de datos "Iris"
+
+```R
+# Carga la base de datos iris
+data("iris")
+head(iris)
+dim(iris)
+```
+
+La base de datos iris contiene las siguientes columnas:
+
+- Sepal.Length: Longitud del sépalo.
+- Sepal.Width: Anchura del sépalo.
+- Petal.Length: Longitud del pétalo.
+- Petal.Width: Anchura del pétalo.
+- Species: Especie de la flor.
+
+```R
+#Carga tidyr
+library(tidyr)
+
+#Si no tienes instalado el paquete usa:
+#install.packages("tidyr")
+
+# Usar gather() para convertir a formato long
+iris_long <- gather(iris, key = "Measurement", value = "Value", -Species)
+head(iris_long)
+dim(iris_long)
+
+
+# Usar spread() para convertir de nuevo a formato wide
+iris_wide_again <- spread(iris_long, key = "Measurement", value = "Value")
+head(iris_wide_again)
+dim(iris_wide_again)
+
+```
+
+Con `unite()` vamos a crear una columna que combine la especie y la longitud del sépalo, luego con `separate()` la separaremos en dos columnas
+
+```R
+# Crea una nueva columna combinada
+iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
+head(iris_combined)
+dim(iris_combined)
+
+# Usa separate() para dividir la columna combinada
+iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
+head(iris_separated)
+dim(iris_separated)
+```
+
+#### EXTRA: pivot_longer() y pivot_wider()
+
+```R
+# Usar pivot_longer() para convertir de wide a long
+iris_long_pivot <- pivot_longer(iris, cols = starts_with("Sepal") | starts_with("Petal"), names_to = "Measurement", values_to = "Value")
+head(iris_long_pivot)
+dim(iris_long_pivot)
+
+# Usar pivot_wider() para convertir de long a wide
+iris_wide_pivot <- pivot_wider(iris_long_pivot, names_from = "Measurement", values_from = "Value")
+head(iris_wide_pivot)
+dim(iris_wide_pivot)
+
+```
+
+Ambos paquetes, **reshape2** y **tidyr**, son herramientas poderosas para la **manipulación y transformación de datos** en R. La elección entre ellos puede depender de la familiaridad del usuario con tidyverse y la necesidad de funcionalidad y flexibilidad adicionales proporcionadas por **tidyr**. Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, tidyr con **pivot_longer()** y **pivot_wider()** es la opción preferida.
 
 ### 2.3.2 Fuentes de información
 
-- [](https://cran.rstudio.com/web/packages/tidyverse/vignettes/manifesto.html
-)
-- [](https://rpubs.com/jaortega/151936
-)
-
+- [The tidy tools manifesto](https://cran.rstudio.com/web/packages/tidyverse/vignettes/manifesto.html)
+- [Introducción a tidyr: Datos ordenados en R](https://rpubs.com/jaortega/151936)
 
 ---
 
+## 2.3.3 dplyr y magrittr
 
-## 2.3.3 dplyr
+### Introducción a dplyr 
+
+El paquete dplyr es una herramienta esencial para la manipulación de datos tabulares en R, proporcionando una gramática clara y eficiente para operaciones comunes. A menudo se utiliza junto con el paquete magrittr, que introduce el operador de tubería (%>%), permitiendo encadenar múltiples operaciones de manera más legible y concisa.
+
+Origen del Nombre dplyr
+El nombre dplyr proviene de "d" (de data) y "plyr" (de manipulación, en referencia al paquete plyr, un precursor de dplyr). dplyr se centra en la manipulación de datos tabulares, optimizando y simplificando el proceso.
 
 ### 2.3.3 Fuentes de información
 
+
 ---
 
 
-## 2.3.4 magrittr
-
-### 2.3.4 Fuentes de información
 

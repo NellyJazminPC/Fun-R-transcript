@@ -52,8 +52,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
       - [2.3 Manipulación de datos](doc/Unidad_02/U2_3_Manipulacion_datos.md): aspectos básicos
         - 2.3.1 reshape2
         - 2.3.2 tidyr
-        - 2.3.3 dplyr
-        - 2.3.4 magrittr
+        - 2.3.3 dplyr y magrittr
       - [2.4 Leer y guardar archivos](doc/Unidad_02/U2_4_Leer_guardar_archivos.md)
 
   - **Unidad 3** *(Miércoles 19 de Junio)*
