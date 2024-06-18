@@ -6,6 +6,8 @@
 
 ## 1.2 Uso de Rstudio
 
+[Presentación](https://docs.google.com/presentation/d/1C25TYFeb6kfJtSJ4V8YsgfRp5xjYab7W/edit?usp=sharing&ouid=114373641629175325732&rtpof=true&sd=true)
+
 ---
 
 ### R - el lenguaje de programación
