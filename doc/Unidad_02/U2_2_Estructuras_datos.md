@@ -294,13 +294,10 @@ Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada
  Se construyen con la función `matrix ( )`
 
 Puedes acceder a la documentación de la función:
+
 ```R
 ?matrix
 ```
-
-Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
-
-
 
 Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
 
@@ -321,7 +318,7 @@ matriz_filas <- matrix(1:12, ncol = 3, byrow = TRUE)
 matriz_filas
 ```
 
-Para acceder a un elemento especiífico de la matriz usamos **[ , ]**.
+Para acceder a un elemento específico de la matriz usamos **[ , ]**.
 En **[f,c]** el primer elemento (**f**) indica la **fila**, y el segundo (**c**) la **columna**.
 
 ```R
@@ -448,7 +445,7 @@ dim(m)
 
 ```
 
-Extra : Podrías generar una matriz de 4x4 a partir de la matriz de 4x3?
+**Extra**: Podrías generar una matriz de 4x4 a partir de la matriz de 4x3?
 
 ```R
 # Agrega una nueva columna adicional a la matriz m para obtener una matriz de 4x4

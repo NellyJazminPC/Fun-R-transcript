@@ -156,7 +156,7 @@ x
 # Suma 1 a "x"
 x + 1 
 
-# Revisa si se guardo el valor de 6 en "x"
+# Revisa si se guardó el valor de 6 en "x"
 x
 
 #¿Qué sucedió? 
