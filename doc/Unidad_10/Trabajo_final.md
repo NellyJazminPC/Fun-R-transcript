@@ -8,9 +8,9 @@
 
 ---
 
-El trabajo final se subirá a [esta carpeta de GoogleDrive](https://drive.google.com/drive/folders/1gh3tLnAuCXmokRhLujQRfgTR6Q0-EnTM?usp=sharing) el **viernes 28 antes del curso**. La presentación de su trabajo será en la segunda parte de la clase, aproximadamente a las 11 am.
+El trabajo final se subirá a [esta carpeta de GoogleDrive](https://drive.google.com/drive/folders/1gh3tLnAuCXmokRhLujQRfgTR6Q0-EnTM?usp=sharing) el **viernes 28 antes del comenzar la última sesión**. La presentación de su trabajo será en la segunda parte de la clase, aproximadamente a las 11 am.
 
-Los archivos que se evaluarán deben estar en alguno de los siguientes formatos:
+Los archivos que subiran a la carpeta y se evaluarán, deben estar en alguno de los siguientes formatos:
 
  **.R**, **.Rmd** o **HTML**
 
