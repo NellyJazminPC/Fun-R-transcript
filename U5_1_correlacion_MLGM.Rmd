@@ -1,0 +1,130 @@
+---
+output:
+  html_document: 
+    fig_caption: true
+  pdf_document: default
+---
+
+#leemos los datos siguientes
+
+```{r echo=TRUE}
+install.packages(c("MPV", "broom", "car", "lme4"), repos = "https://cran.r-project.org")
+library(MPV)
+library(broom)
+library(car)
+library(lme4)
+library(ggplot2)
+library(readr)
+library(magrittr)
+library(tidyverse)
+datos <- read.table("https://raw.githubusercontent.com/fhernanb/datos/master/propelente", heade =TRUE)
+head(datos) #¿de que son los datos?
+
+#graficamos los datos para ver si hay correlacion
+ggplot(datos, aes(x=Edad, y=Resistencia)) + 
+  geom_point() + theme_light()
+
+# vamos a realizar el modelado de la regresion
+mod1 <- lm(Resistencia ~ Edad, data=datos)
+mod1 # Para imprimir el objeto mod1
+
+##summary me da los resultados de la regresion lineal
+summary(mod1)
+```
+
+```{r}
+#la libreria broom convierte la salida de lm a tabla de tidy, lo cual permite manipular los datos mediante tidyverse
+library(broom)
+broom::tidy(mod1)
+```
+
+```{r}
+ggplot(datos, aes(x=Edad, y=Resistencia)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x, se=FALSE, col='dodgerblue1') +
+  theme_light()
+```
+
+# Regresion multiple
+
+```{r}
+colnames(softdrink) <- c("tiempo", "cantidad", "distancia") #carga la dataframe softdrink y asignale los nombres "tiempo", "cantidad" y "distancia" a cada columna
+head(softdrink)
+#Graficamos para buscar correlaciones
+ggplot(softdrink, aes(x=cantidad, y=tiempo)) + 
+  geom_point() +
+  theme_light()
+
+ggplot(softdrink, aes(x=distancia, y=tiempo)) + 
+  geom_point() +
+  theme_light()
+
+ggplot(softdrink, aes(x=cantidad, y=distancia)) + 
+  geom_point() +
+  theme_light()
+mod2 <- lm(tiempo ~ cantidad + distancia, data=softdrink)
+summary(mod2)
+
+
+```
+
+#Modelos lineales generalizados y mixtos
+
+# Calculamos los vivos, la probabilidad de morir, y el logaritmo de dosis que es la forma habitual de medirn en este tipo de situaciones
+
+```{r}
+Dosis = read_csv("https://goo.gl/w23RGz", col_types = "cdii")
+Dosis
+Dosis = Dosis %>%  
+  mutate(alive = total - dead, probabilidad = dead/total, ldosis = log(dosis))
+Dosis
+```
+
+# Representamos la probabilidad de morir en función de las covariables sex y ldosis
+
+```{r}
+ggplot(Dosis,aes(x = ldosis, y = probabilidad, color = sex)) + 
+  geom_point() +
+  labs(x = "Logaritmo Dosis", y = "Probabilidad de morir") 
+Yres <- cbind(Dosis$dead,Dosis$alive)
+Yres
+fit.dosis <- glm(Yres  ~ sex * ldosis,
+                 family = binomial(link = logit),
+                 data = Dosis)
+summary(fit.dosis)
+```
+
+```{r}
+fit.dosis <- glm(Yres ~ sex + ldosis,
+                 family = binomial(link = logit),
+                 data = Dosis)
+summary(fit.dosis)
+# prob = Probabilidad buscada (LD50) en concentración de insectícida
+predictor <- binomial(link = logit)$linkfun(0.5)
+machos <-exp((predictor+2.372)/1.535)
+hembras <- exp((predictor+3.473)/1.535)
+machos
+hembras
+prob <- seq(0.05,0.95,0.01)
+# Trabajamos con dosis 
+predictor <- binomial(link = logit)$linkfun(prob)
+machos <-exp((predictor + 2.372) / 1.535)
+hembras <- exp((predictor + 3.473) / 1.535)
+dosis <- data.frame(prob, machos, hembras)
+ggplot(dosis) + 
+  geom_line(aes(x = prob, y = machos), color = "blue") + 
+  geom_line(aes(x = prob, y = hembras), color = "red") + 
+  scale_x_continuous(breaks = seq(0,1,0.05)) +
+  scale_y_continuous(breaks = seq(0,70,5)) +
+  labs(x = "Probabilidad de muerte", y = "Dosis") + 
+  theme_bw()
+```
+
+#Modelos lineares generalizados mixtos
+
+```{r}
+head(CO2)
+glmm.CO2 <-lmer (uptake ~ conc + Type + Treatment + (1| Type / Plant),data = CO2)
+summary (glmm.CO2)
+Anova(glmm.CO2)
+```
