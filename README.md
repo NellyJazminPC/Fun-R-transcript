@@ -89,8 +89,8 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - [Gráficos y visualización de resultados](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_09/U9_notebook.pdf)
 
   - **Unidad 10** *(Viernes 28 de Junio)*
-    - Exposiciones de sus proyectos finales
     - Aplicaciones reales y dudas 2 horas
+    - [Exposiciones de sus proyectos finales](doc/Unidad_10/Trabajo_final.md)
 
 ---
 
