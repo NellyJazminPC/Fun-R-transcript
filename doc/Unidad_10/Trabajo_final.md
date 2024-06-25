@@ -16,17 +16,17 @@ Los archivos que subirán a la carpeta y se evaluarán, deben estar en alguno de
 
 Pueden hacer el trabajo en equipos de **2** a **4** personas.
 
-Se evaluará:
+**Se evaluará**:
 
 - El orden y limpieza del código
     - Encabezado descriptivo en sus scripts (autor, fecha, nombre y qué hará el script)
     - Incluir el enlace o la fuente de información que utilizaron para construir su script
-    - Nombre adecuados de sus variables creadas
+    - Nombres adecuados de sus variables creadas
     - Activar las librerias al inicio del script (`library()`)
     - Comentarios describiendo las líneas de comando que consideren más importantes.
 
 - Que funcione el código
 - Que no sea una copia exacta del código que se les proporcionó en el curso
 - Mínimo presentar una gráfica y su código.
-- La presentación de su trabajo será entre 5 y 10 minutos, donde expliquen la base de datos que utilizaron y qué modificaciones hicieron al script del que se basaron.
+- La presentación de su trabajo será de 5 minutos, dónde expliquen la base de datos que utilizaron y qué modificaciones hicieron al script del que se basaron.
 
