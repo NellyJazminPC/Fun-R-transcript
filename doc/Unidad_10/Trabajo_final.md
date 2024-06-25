@@ -14,7 +14,7 @@ Los archivos que subirán a la carpeta y se evaluarán, deben estar en alguno de
 
  **.R**, **.Rmd** o **HTML**
 
-Pueden hacer el trabajo de manera **individual o en equipos** de máximo 5 personas.
+Pueden hacer el trabajo en equipos de **2** a **4** personas.
 
 Se evaluará:
 
