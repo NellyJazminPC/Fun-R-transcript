@@ -283,6 +283,42 @@ heatmap.2(as.matrix (datos),
 )
 ```
 
+¿Como sabemos cual es el numero correcto de clusters?
+
+```{r}
+library(cluster)     ## Funciones para el análisis de agrupamiento
+library(factoextra)  ## Funciones para la visualización de los agrupamientos
+```
+
+El método Elbow (codo)
+```{r}
+# Determine el numero optimo de custers
+n_rows <- nrow(datos) #Determinar el Número de Filas del archivo
+
+# Ensure k.max is within the acceptable range
+max_k <- min(8, n_rows - 1)#Establecer el Valor Máximo para k
+if (max_k > 1) { #Condición para Asegurar un Número Suficiente de Filas
+  fviz_nbclust(datos, kmeans, method = "wss", k.max = max_k) #Visualización del Número Óptimo de Clusters
+} else {
+  print("No hay suficientes filas.")
+}
+```
+
+El método Silhouette
+```{r}
+# Verificar número de filas
+n_rows <- nrow(datos)
+
+# Asegurar que k.max esté dentro del rango aceptable
+max_k <- min(8, n_rows - 1)
+if (max_k > 1) {
+  # Determinación del número óptimo de clusters usando el método silhouette
+  fviz_nbclust(Std_USArrests, kmeans, method = "silhouette", k.max = max_k)
+} else {
+  print("No hay suficientes filas.")
+}
+```
+
 Enriquecimiento funcional
 
 Identificar grupos de genes o rutas metabolicas significativamente enriquecidas, se compara estadisticamente entre el experimento y una base de datos.
