@@ -95,7 +95,7 @@ EnhancedVolcano(resED,
 # coincidencias y diferencias.
 
 #--------------------Librerias-----------------------
-install.packages("VennDiagram")
+#install.packages("VennDiagram")
 
 library(VennDiagram)
 
@@ -127,8 +127,7 @@ venn.plot <- venn.diagram(
 # Mostrar diagrama de Venn 
 grid.draw(venn.plot)
 
-
-# Genes reprimidos
+#--------------------- Genes reprimidos--------------------------------
 
 # Leer los archivos CSV
 SAM_vs_MI <- read.csv("U9_SAM_vs_MI_down.csv", sep = ",", header = TRUE)
@@ -191,21 +190,22 @@ library(dendextend)
 
 #Crear matriz y normalizar valores
 alpha <- 0.01
-directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
-setwd(directorio)
 data <- read.table("U9_HM.csv", sep = ",", header = T)
 row.names(data) <- data[,1]
 mat_data <- data.matrix(data[,1:ncol(data)]) 
 mat_data2 <- mat_data[,-1]
-mat_data2 
+mat_data2
 
-
+# Sacamos el log2 de la matriz mat_data2
 countTable.kept <- log2(mat_data2) #Se obtiene el log2 para reducir diferencias
-dim(countTable.kept)
 
 datos <- countTable.kept
 
 datos <- scale(datos)
+
+#Iniciamos con el Heatmap
+
+#Creamos paletas de colores para heatmap
 
 colores <- viridis(256)
 
@@ -260,6 +260,41 @@ heatmap.2(as.matrix (datos),
           key.title=NA,
           col = colores
 )
+
+#¿Como sabemos cual es el numero correcto de clusters?
+
+library(cluster)     ## Funciones para el análisis de agrupamiento
+library(factoextra)  ## Funciones para la visualización de los agrupamientos
+
+
+#### El método Elbow (codo)
+
+# Determine el numero optimo de custers
+n_rows <- nrow(datos) #Determinar el Número de Filas del archivo
+
+# Ensure k.max is within the acceptable range
+max_k <- min(8, n_rows - 1)#Establecer el Valor Máximo para k
+if (max_k > 1) { #Condición para Asegurar un Número Suficiente de Filas
+  fviz_nbclust(datos, kmeans, method = "wss", k.max = max_k) #Visualización del Número Óptimo de Clusters
+} else {
+  print("No hay suficientes filas.")
+}
+
+#### El método Silhouette
+
+# Verificar número de filas
+n_rows <- nrow(datos)
+
+# Asegurar que k.max esté dentro del rango aceptable
+max_k <- min(8, n_rows - 1)
+if (max_k > 1) {
+  # Determinación del número óptimo de clusters usando el método silhouette
+  fviz_nbclust(Std_USArrests, kmeans, method = "silhouette", k.max = max_k)
+} else {
+  print("No hay suficientes filas.")
+}
+
+# Ta ocmprobamos que si tenemos dos clusters en el Heatmap
 
 #------------Enriquecimiento funcional----------------
 # Identificar grupos de genes o rutas metabolicas significativamente 
