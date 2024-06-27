@@ -42,7 +42,7 @@ head(USArrests)
 class(USArrests)
 
 # Ejecutamos el análisis de k-means considerado k = 2 y que empezamos 
-k2 <- kmeans(USArrests, centers = 2, nstart = 20)
+k2 <- kmeans(USArrests, centers = 3, nstart = 20)
 
 # Visualización del agrupamiento
 
@@ -57,10 +57,10 @@ fviz_cluster(k2, data = USArrests, repel = TRUE)
 Std_USArrests <- scale(USArrests)
 
 #Análisis de agrupamiento k-means
-ks <- kmeans(Std_USArrests, centers = 2)
+ks <- kmeans(Std_USArrests, centers = 2, nstart = 20)
 
 #Visualización del agrupamiento
-fviz_cluster(ks, data = Std_USArrests)
+fviz_cluster(ks, data = Std_USArrests, repel = TRUE)
 
 # Descripción o resumen de cada cluster
 ks$centers
@@ -72,6 +72,7 @@ ks$cluster
 #### El método Elbow (codo)
 
 fviz_nbclust(Std_USArrests, kmeans, method = "wss", k.max = 8)
+
 head(USArrests)
 
 
@@ -83,7 +84,7 @@ k2 <- kmeans(USArrests, centers = 2, nstart = 25)
 sil <- silhouette(k2$cluster, dist(USArrests), ordered = FALSE)
 row.names(sil) <- row.names(USArrests) # Needed to use label option
 fviz_silhouette(sil, label = TRUE)
-
+k2$cluster
 #### El método Gap
 
 #### ¿Qué son las barras en los puntos?
@@ -92,7 +93,7 @@ fviz_nbclust(Std_USArrests, kmeans, method = "gap", k.max = 8)
 
 #### PAM Clustering
 
-pam_std <- pam(Std_USArrests, k = 4)
+pam_std <- pam(Std_USArrests, k = 2)
 pam_std$medoids  ## Imprime los medoids
 fviz_cluster(pam_std) ## Grafica los clusters
 class(pam_std)
@@ -104,11 +105,11 @@ class(pam_std)
 
 d <- get_dist(scale(USArrests))  ## Hierarchical Clustering requires a distance matrix
 ag <- agnes(d)  ## AGNES
-fviz_dend(ag, cex = 0.4, k = 4)
+fviz_dend(ag, cex = 0.4, k = 2)
 
 
 di <- diana(d)  ## DIANA
-fviz_dend(di, cex = 0.4, k = 4)
+fviz_dend(di, cex = 0.4, k = 2)
 
 ################## Intermedio para que prueben k= 2 y k=5
 
