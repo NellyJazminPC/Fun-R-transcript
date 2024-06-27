@@ -11,7 +11,7 @@
 ##
 
 #Establecemos un directorio
-directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
+directorio <- "C:/Users/andii/Documents/Fun-R-transcript-main/data"
 setwd(directorio)
 
 
@@ -34,22 +34,24 @@ head(resED)
 
 #V1
 EnhancedVolcano(resED,
-                lab = rownames(resED),
-                x = 'log2FoldChange',
-                y = 'pvalue',
-                title = 'SAM vs MI',
-                xlab = bquote(~Log[2]~ 'fold change'),
-                pCutoff = 0.05,
-                FCcutoff = 2.0,
-                pointSize = 2.0,
-                labSize = 3.0,
-                col = c('black', '#009c8c', '#FDE725', '#440154'),
-                colAlpha = 1,
-                legendPosition = 'right',
-                legendLabSize = 8,
-                legendIconSize = 4.0,
-                drawConnectors = T,
-                widthConnectors = 0.5)
+  lab = rownames(resED),  # Etiquetas de los puntos en el gráfico
+  x = 'log2FoldChange',  # Columna para el eje x, que representa el cambio en el logaritmo base 2
+  y = 'pvalue',  # Columna para el eje y, que representa el valor de p
+  title = 'SAM vs MI',  # Título del gráfico
+  xlab = bquote(~Log[2]~ 'fold change'),  # Etiqueta del eje x, utilizando notación matemática para el cambio en log base 2
+  pCutoff = 0.05,  # Umbral de valor de p para significancia
+  FCcutoff = 2.0,  # Umbral de cambio fold (log base 2) para considerar como significativo
+  pointSize = 2.0,  # Tamaño de los puntos en el gráfico
+  labSize = 3.0,  # Tamaño de las etiquetas en el gráfico
+  col = c('black', '#009c8c', '#FDE725', '#440154'),  # Vector de colores para diferentes grupos o niveles de significancia
+  colAlpha = 1,  # Transparencia de los colores (1 para opaco)
+  legendPosition = 'right',  # Posición de la leyenda en el gráfico (a la derecha)
+  legendLabSize = 8,  # Tamaño de las etiquetas en la leyenda
+  legendIconSize = 4.0,  # Tamaño de los íconos en la leyenda
+  drawConnectors = TRUE,  # Si dibujar o no conectores para puntos resaltados
+  widthConnectors = 0.5  # Ancho de los conectores
+)
+
 
 #V2
 
@@ -83,7 +85,7 @@ EnhancedVolcano(resED,
                 pointSize = 2.0,
                 labSize = 3.0,
                 colAlpha = 1,
-                colGradient = c('#009c8c','#440154'),
+                colGradient = c('#009c8c','#440154'), # Gradiente de color
                 legendPosition = 'right',
                 legendLabSize = 8,
                 legendIconSize = 4.0,
@@ -111,12 +113,11 @@ genes_SAM_vs_MI <- SAM_vs_MI$gene_id
 genes_MI_vs_MF <- MI_vs_MF$gene_id
 
 # Graficar diagrama de Venn
-
 venn.plot <- venn.diagram(
-  x = list(SAM_vs_MI = genes_SAM_vs_MI, MI_vs_MF = genes_MI_vs_MF),
-  category.names = c("SAM vs MI", "MI vs MF"),
-  filename = NULL,
-  output = T,
+  x = list(SAM_vs_MI = genes_SAM_vs_MI, MI_vs_MF = genes_MI_vs_MF), # se especifican los conjuntos que se van a comparar 
+  category.names = c("SAM vs MI", "MI vs MF"), # nombres de las categorias
+  filename = NULL,  # no se va a guardar el diagrama como un archivo de imagen 
+  output = T, # Indica que se debe generar el diagrama y almacenarlo en la variable 
   col = "transparent",  # Color transparente
   fill = c("red", "blue"),  # Colores de de los círculos
   alpha = 0.5,  # Transparencia
@@ -212,19 +213,21 @@ colores <- viridis(256)
 colores2 <- magma(256)
 
 #Version 1
-heatmap.2(as.matrix (datos),
-          cexCol = 0.3,
-          cexRow = 1,
-          labCol=as.expression(lapply(colnames(datos),function(a) bquote(italic(.(a))))),
-          trace="none", hline = NA,         
-          margins =c(7,7),
-          denscol = "grey",
-          key.title=NA,
-          col = colores
+heatmap.2(
+  as.matrix(datos),  # Convierte 'datos' a una matriz
+  cexCol = 0.3,  # Tamaño de letra para las etiquetas de las columnas
+  cexRow = 1,    # Tamaño de letra para las etiquetas de las filas
+  labCol = as.expression(lapply(colnames(datos), function(a) bquote(italic(.(a))))),  # Etiquetas de columnas
+  trace = "none",  # No mostrar líneas de contorno
+  hline = NA,     # No dibujar líneas horizontales adicionales
+  margins = c(7, 7),  # Márgenes alrededor
+  denscol = "grey",   # Color de fondo para las celdas
+  key.title = NA,     # No mostrar título en la leyenda
+  col = colores       # paleta de colores
 )
 
-#Version 2
 
+#Version 2
 heatmap.2(as.matrix (datos),
           cexCol = 0.5,
           cexRow= 1,
@@ -235,11 +238,13 @@ heatmap.2(as.matrix (datos),
           col = colores2
 )
 
-#clusters
-dend_r <- datos %>% dist(method = "euclidean") %>%
-  hclust(method = "average") %>% 
-  as.dendrogram %>% ladderize %>%
-  color_branches(k=2)
+#clusters para el heatmap
+dend_r <- datos %>%  # Toma el dataframe 'datos'
+  dist(method = "euclidean") %>%  # Calcula la distancia euclidiana entre las filas de 'datos'
+  hclust(method = "average") %>%  # Realiza un agrupamiento jerárquico utilizando el método de enlace promedio
+  as.dendrogram %>%  # Convierte el resultado a un objeto dendrograma
+  ladderize %>%  # Ordena los nodos del dendrograma para que las ramas más largas estén en la parte inferior
+  color_branches(k = 2)  # Colorea las ramas del dendrograma en 2 grupos distintos
 
 
 dend_c <- t(datos) %>% dist(method = "euclidean") %>%
@@ -247,19 +252,43 @@ dend_c <- t(datos) %>% dist(method = "euclidean") %>%
   as.dendrogram %>% ladderize %>%
   color_branches(k=2)
 
-#Version 2 con clusters
 
+#Version 2 con clusters
 heatmap.2(as.matrix (datos),
           cexCol = 0.1,
           cexRow= 1,
-          Rowv = dend_r,
-          Colv = dend_c,
+          Rowv = dend_r, # Dendrograma para las filas (dend_r)
+          Colv = dend_c, # Dendrograma para las columnas (dend_c)
           trace="none", hline = NA,         
           margins =c(7,11),
           denscol = "grey",
           key.title=NA,
           col = colores
 )
+
+# Heatmap con paleta de colores propia
+
+# Define una paleta de colores personalizada
+my_palette2<- colorRampPalette(c("blue", "white", "red"))(n = 299)
+
+#Defini los intervalos de expresi?n que queria resaltar, como los datos m?s bajos
+#tendian a 0 estan en azul y los m?s altos llegaban hasta 6 por eso est?n en rojo
+mycol_breaks2 = c(seq(-1,0.2,length=100),  #azul
+                  seq(0.21,0.96,length=100), #blanco   
+                  seq(0.97,6,length=100))   #rojo
+
+heatmap.2(datos,
+          Rowv = dend_r, # Dendrograma para las filas (dend_r)
+          Colv = dend_c, # Dendrograma para las columnas (dend_c)
+          notecol = "black",
+          scale = "row",
+          key = TRUE,
+          keysize = c(1.5),
+          density.info = "none",
+          trace = "none",
+          margins = c(12,9),
+          col=my_palette2)
+
 
 #¿Como sabemos cual es el numero correcto de clusters?
 
@@ -308,9 +337,6 @@ library(tidyverse)
 library(dplyr)
 library(viridis)
 library(ggthemes)
-
-directorio <- "C:/Users/andii/OneDrive/Documents/02Fun-R-transcript/data"
-setwd(directorio)
 
 mydat <- read.table("U9_BP_bubble.csv", sep = ",", header = T)
 
