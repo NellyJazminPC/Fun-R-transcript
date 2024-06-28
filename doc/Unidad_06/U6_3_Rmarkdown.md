@@ -41,13 +41,13 @@ Cuando abrimos un archivo `.Rmd`, obtenemos una interfaz de **notebook** (cuader
 
 Para producir un reporte completo que contenga todo el texto, código y resultados, podemos dar click en `Knit` o presionar Ctrl + Shift + K. Esto mostrará el reporte en el panel Viewer y creará un archivo HTML independiente que podremos compartir con otros.
 
-> Si el reporte no aparece en el panel de Viewer, pudes configurarlo haciendo click en el símbolo de una turca que esta del lado izquiero de `Knit`.
+> Si el reporte no aparece en el panel de Viewer, puedes configurarlo haciendo click en el símbolo de una tuerca que está del lado izquierdo de `Knit`.
 
 #### Ejecutar el código por bloques
 
 Los bloques de código se pueden ejecutar haciendo click en el ícono ejecutar (el botón de Play en la parte superior/derecha del bloque), o presionando Ctrl + Shift + Enter. 
 
-RStudio ejecuta el código y muestra los resultados incustrados en el código.
+RStudio ejecuta el código y muestra los resultados incrustados en el código.
 
 > Con las actualizaciones de Posit, ahora podemos incorporar bloques de código también de otros lenguajes de programación (por ejemplo, Python, SQL, Bash, etc) en un mismo reporte.
 
