@@ -11,8 +11,8 @@
 ##
 
 #Establecemos un directorio
-directorio <- "C:/Users/andii/Documents/Fun-R-transcript-main/data"
-setwd(directorio)
+#directorio <- "C:/Users/andii/Documents/Fun-R-transcript-main/data"
+#setwd(directorio)
 
 
 #-------------------Volcano plot---------------------
@@ -22,14 +22,15 @@ setwd(directorio)
 # y en el eje de las y el p-value.
 #
 #--------------------Librerias-----------------------
-#BiocManager::install('EnhancedVolcano')
+BiocManager::install('EnhancedVolcano', force = TRUE)
 #install.packages('BiocManager')
 library(BiocManager)
 library(EnhancedVolcano)
 library("RColorBrewer")
+install.packages("proj4")
 
 #Abrimos el archivo con datos de expresión diferencial para graficarlos
-resED <- read.table("U9_tabla_ed_crudos_v2.csv", sep = ",", header = T)
+resED <- read.table("../data/U9_tabla_ed_crudos_v2.csv", sep = ",", header = T)
 head(resED)
 
 #V1
@@ -102,10 +103,10 @@ EnhancedVolcano(resED,
 library(VennDiagram)
 
 # Genes inducidos
-SAM_vs_MI <- read.csv("U9_SAM_vs_MI_up.csv", sep = ",", header = TRUE)
+SAM_vs_MI <- read.csv("../data/U9_SAM_vs_MI_up.csv", sep = ",", header = TRUE)
 head(SAM_vs_MI)
 
-MI_vs_MF <- read.csv("U9_MI_vs_MF_up.csv", sep = ",", header = TRUE)
+MI_vs_MF <- read.csv("../data/U9_MI_vs_MF_up.csv", sep = ",", header = TRUE)
 head(MI_vs_MF)
 
 # Obtener los conjuntos de genes
@@ -131,10 +132,10 @@ grid.draw(venn.plot)
 #--------------------- Genes reprimidos--------------------------------
 
 # Leer los archivos CSV
-SAM_vs_MI <- read.csv("U9_SAM_vs_MI_down.csv", sep = ",", header = TRUE)
+SAM_vs_MI <- read.csv("../data/U9_SAM_vs_MI_down.csv", sep = ",", header = TRUE)
 head(SAM_vs_MI)
 
-MI_vs_MF <- read.csv("U9_MI_vs_MF_down.csv", sep = ",", header = TRUE)
+MI_vs_MF <- read.csv("../data/U9_MI_vs_MF_down.csv", sep = ",", header = TRUE)
 head(MI_vs_MF)
 
 # Obtener los conjuntos de genes
@@ -164,7 +165,7 @@ grid.draw(venn.plot)
 #--------------------Librerias-----------------------
 library(ggplot2)
 
-Datos <- read.table("U9_Genes_up_down.csv", sep = ",", header = T)
+Datos <- read.table("../data/U9_Genes_up_down.csv", sep = ",", header = T)
 
 Datos
 
@@ -191,7 +192,7 @@ library(dendextend)
 
 #Crear matriz y normalizar valores
 alpha <- 0.01
-data <- read.table("U9_HM.csv", sep = ",", header = T)
+data <- read.table("../data/U9_HM.csv", sep = ",", header = T)
 row.names(data) <- data[,1]
 mat_data <- data.matrix(data[,1:ncol(data)]) 
 mat_data2 <- mat_data[,-1]
@@ -338,7 +339,7 @@ library(dplyr)
 library(viridis)
 library(ggthemes)
 
-mydat <- read.table("U9_BP_bubble.csv", sep = ",", header = T)
+mydat <- read.table("../data/U9_BP_bubble.csv", sep = ",", header = T)
 
 head(mydat)
 
