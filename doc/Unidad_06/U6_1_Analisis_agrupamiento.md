@@ -2,6 +2,9 @@
 
 ## Unidad 6
 
+[Presentación](https://docs.google.com/presentation/d/e/2PACX-1vRz4W_GUQChrKUkOWPMqGID4mjiJwLa9kym7ikm1qqOEmGyjpqLUwVLrGbSsj15Qu5IqWwSHf8_scYq/pub?start=false&loop=false&delayms=3000)
+
+-
 ---
 
 ## 6.1 Análisis de Agrupamiento
@@ -374,3 +377,7 @@ fviz_cluster(irisK, data = datos, repel = TRUE)
 
 - [Gower, J.C. (1971). "A General Coefficient of Similarity and Some of its Properties". Biometrics, 27(4), 857–871.](https://www.jstor.org/stable/2528823?casa_token=_lIKNqCrt8sAAAAA%3APC-WkPkGbM8dJ0hjnVnk6EXz8-Tk8vmx6y_uuQ8IwOOgjAyxWDFZcJqQMIoP9-2RDggBIw09SNvL3xYS2FjES8dV94p0os79nAiPD5EQFWDVa2ECX8_jTQ&seq=5)
 - [Hastie, T., Tibshirani, R., & Friedman, J. (2009). "The Elements of Statistical Learning: Data Mining, Inference, and Prediction". Springer.](https://link.springer.com/book/10.1007/978-0-387-21606-5)
+
+# Siguiente tema: 
+
+[6.2 Análisis de Componentes Principales](../Unidad_06/U6_2_Analisis_Componentes_Principales.md)
