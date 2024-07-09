@@ -2,7 +2,7 @@
 
 ## Unidad 1
 
-[Presentación](https://docs.google.com/presentation/d/1C25TYFeb6kfJtSJ4V8YsgfRp5xjYab7W/edit?usp=sharing&ouid=114373641629175325732&rtpof=true&sd=true)
+- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
 
 ---
 
