@@ -3,7 +3,9 @@
 
 ## Unidad 6
 
-[Presentación](https://docs.google.com/presentation/d/e/2PACX-1vRz4W_GUQChrKUkOWPMqGID4mjiJwLa9kym7ikm1qqOEmGyjpqLUwVLrGbSsj15Qu5IqWwSHf8_scYq/pub?start=false&loop=false&delayms=3000)
+- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vRz4W_GUQChrKUkOWPMqGID4mjiJwLa9kym7ikm1qqOEmGyjpqLUwVLrGbSsj15Qu5IqWwSHf8_scYq/pub?start=false&loop=false&delayms=10000)
+
+- [Script U6_3_Reporte_ejemplo.Rmd](../../bin/U6_3_Reporte_ejemplo.Rmd) de esta unidad en la carpeta **bin**
 
 ---
 
