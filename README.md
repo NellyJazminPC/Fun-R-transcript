@@ -7,6 +7,8 @@
     - jorge.campos@iztacala.unam.mx
 - Dr. Hector Salgado Ortiz
     - bio.h.salgado@gmail.com
+- Dra. Maria Teresa Ortiz Melo
+    - teresaortiz@iztacala.unam.mx 
 - M. en C. Olga Andrea Hernández Miranda
   - andii.manch@gmail.com
 - M. en C. Nelly Jazmín Pacheco Cruz
