@@ -43,20 +43,17 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - [1.1 Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_1_Intro_R.md)
     - [1.2 Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_2_Rstudio.md)
     - [1.3 Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_3_Gestion_proyectos.md)
+    - [1.4 Rutas; abrir y guardar archivos](doc/Unidad_02/U2_4_Leer_guardar_archivos.md)
 
 
   - **Unidad 2** *(Martes 18 de Junio)*
       - [2.1 Introducción a las variables y funciones](doc/Unidad_02/U2_1_Intro_var_funciones.md)
       - [2.2 Estructuras de datos](doc/Unidad_02/U2_2_Estructuras_datos.md): aspectos básicos
-        - 2.2.1 Vectores y Factores
-        - 2.2.2 Matrices y _Arrys_ (arreglos)
-        - 2.2.3 _Data.frames_ (marcos de datos)
-        - 2.2.4 Listas
+        - 2.2.1 Matrices
+        - 2.2.2 _Data.frames_ (marcos de datos)
       - [2.3 Manipulación de datos](doc/Unidad_02/U2_3_Manipulacion_datos.md): aspectos básicos
-        - 2.3.1 reshape2
-        - 2.3.2 tidyr
-        - 2.3.3 dplyr y magrittr
-      - [2.4 Leer y guardar archivos](doc/Unidad_02/U2_4_Leer_guardar_archivos.md)
+        - 2.3.1 tidyr, dplyr y magrittr
+
 
   - **Unidad 3** *(Miércoles 19 de Junio)*
     - [Gráficos en R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_03/U3_notebook.pdf)
