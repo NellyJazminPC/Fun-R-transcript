@@ -116,6 +116,6 @@ Estas capacidades hacen de R una herramienta versátil y poderosa para el análi
 
 - [R for Marketing Research and Analytics](https://r-marketing.r-forge.r-project.org/)
 
-# Siguiente tema: 
+---------
 
-[1.2 RStudio](../Unidad_01/U1_2_Rstudio.md)
+### Siguiente tema: [1.2 RStudio](../Unidad_01/U1_2_Rstudio.md)
