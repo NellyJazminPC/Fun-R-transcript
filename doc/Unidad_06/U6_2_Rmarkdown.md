@@ -9,7 +9,7 @@
 
 ---
 
-## 6.3 Generación de reportes con Rmarkdown
+## 6.2 Generación de reportes con Rmarkdown
 
 ---
 
