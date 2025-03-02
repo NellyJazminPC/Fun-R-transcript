@@ -43,7 +43,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - [1.1 Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_1_Intro_R.md)
     - [1.2 Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_2_Rstudio.md)
     - [1.3 Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_3_Gestion_proyectos.md)
-    - [1.4 Rutas; abrir y guardar archivos](doc/Unidad_02/U2_4_Leer_guardar_archivos.md)
+    - [1.4 Rutas; abrir y guardar archivos](doc/Unidad_01/U1_4_Leer_guardar_archivos.md)
 
 
   - **Unidad 2** *(Martes 18 de Junio)*
