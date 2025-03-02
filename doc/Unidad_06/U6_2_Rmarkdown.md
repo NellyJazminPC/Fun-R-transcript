@@ -269,3 +269,7 @@ Genera un reporte Rmarkdown copiando algunas líneas de código que hemos visto 
 
 - [Quarto or R Markdown?](https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/)
 - [Notebook format](https://bookdown.org/yihui/rmarkdown/notebook.html)
+
+-----------
+
+## Siguiente tema: [7.1 Enfoque de Transcriptómica](../Unidad_07/)
