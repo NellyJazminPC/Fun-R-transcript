@@ -70,8 +70,8 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom.
 
   - **Unidad 6** *(Lunes 24 de Junio)*
-    - [6.1 Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_2_Analisis_Componentes_Principales.md)
-    - [6.2 Generación de reportes en Rmarkdown](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_3_Rmarkdown.md)
+    - [6.1 Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)
+    - [6.2 Generación de reportes en Rmarkdown](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_2_Rmarkdown.md)
 
 - **ENFOQUE EN TRANSCRIPTÓMICA**
 
