@@ -8,7 +8,7 @@
 
 ---
 
-## 6.1 Análisis de Agrupamiento
+## EXTRA: Análisis de Agrupamiento
 
 ---
 
