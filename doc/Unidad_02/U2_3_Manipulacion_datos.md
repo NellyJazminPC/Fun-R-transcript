@@ -596,5 +596,4 @@ Otros paquetes como `ggplot2`, `readr`, `data.table`, `vegan`, `phyloseq` y `ape
 
 ---
 
-### Siguiente tema: [2.4 Leer y guardar archivos](../Unidad_02/U2_4_Leer_guardar_archivos.md)
-
+### Siguiente tema: [3.1 Gráficos en R](../Unidad_03/U3_notebook.pdf)
