@@ -116,9 +116,35 @@ Otra ventaja de usar el editor es que puede ayudarnos a **auto-completar** los c
 
 En la imagen vemos conceptos como paquetes y funciones que veremos con mayor detalle más adelante pero por ahora, es importante saber que acceder a sus descripciones es una buena manera de tener documentación resumida que nos ayudará a la hora de escribir y ejecutar nuestros scripts, y podemos acceder a esto desde el Editor.
 
-### Ejercicio
+### Ejercicio extra
 
-Empecemos usando R como si lo hicieramos con una calculadora.
+
+
+¿Qué obtienes al ejecutar cada línea de código?
+
+>Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
+
+Los números pequeños o grandes tienen una notación científica:
+
+### Ejercicio extra 
+
+Empecemos usando R para resolver operaciones aritméticas como si fuera una calculadora, a través de la interfaz de RStudio.
+
+Primero, abre un Editor de Script y copia las siguientes operaciones aritméticas:
+
+> Puedes dar click en el boton que dice Copy ubicado en la parte superior derecha del siguiente apartado. Luego vas a RStudio y daz click en el panel de Editor de Script, das click derecho y seleccionas Pegar.
+
+```R
+5 + 5
+10*8 + 3*(6 - 2/4)^10
+```
+
+¿Qué obtienes al ejecutar cada línea de código?
+
+>Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter` (Windows) o `command`+ `Enter` (macOS)
+
+---
+### Ejercicios extra:
 
 El orden de las operaciones es el mismo que has aprendido en la escuela.
 
@@ -140,9 +166,7 @@ El orden de las operaciones es el mismo que has aprendido en la escuela.
 # %x%	Producto Kronecker
 ```
 
-¿Qué obtienes al ejecutar cada línea de código?
-
->Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
+Ejecuta cada línea de código.
 
 Los números pequeños o grandes tienen una notación científica:
 
@@ -154,13 +178,6 @@ Los números pequeños o grandes tienen una notación científica:
 # También puedes escribir números en notación científica:
 5e3  # nota la falta del signo menos aquí, ¿cuál fue el resultado?
 5e-3 # ¿Qué obuviste al agregar el signo - ?
-```
-
-Podemos ir aumentando los términos en las operaciones matemáticas:
-
-```R
-5 + 5
-10*8 + 3*(6 - 2/4)^10
 ```
 
 #### Fuentes de información:

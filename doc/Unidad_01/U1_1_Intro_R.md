@@ -36,10 +36,10 @@ R fue desarrollado inicialmente por Ross Ihaka y Robert Gentleman en 1993.
 
 La pregunta más frecuente sobre R: **"¿Por qué las versiones de R tienen nombres raros?"**
 
-![alt text](Imagen_1_1.png)
 
+![alt text](R-4.4.3_Peanuts.png)
 
-> R version 4.3.3 (Angel Food Cake) has been released on 2024-02-29.
+> R version 4.4.3 "Trophy Case" released on 2025/02/28
 
 Respuesta: "Todos los nombres de los lanzamientos son referencias a las tiras/películas de Peanuts".
 
