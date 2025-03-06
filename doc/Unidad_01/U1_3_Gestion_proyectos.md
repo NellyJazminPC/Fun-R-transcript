@@ -148,7 +148,7 @@ La función help() es una herramienta crucial para:
 
 Utilizar help() y los comandos relacionados te ayudará a aprender y resolver problemas de manera más efectiva mientras programas en R.
 
-#### Ejemplo
+## Ejercicio:
 
 Supongamos que tienes un script que quieres ejecutar y adecuar a tus datos pero hay funciones que desconoces, por ejemplo `lm()`. ¿Qué harías para saber que hace esta función?
 
