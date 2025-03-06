@@ -116,23 +116,13 @@ Otra ventaja de usar el editor es que puede ayudarnos a **auto-completar** los c
 
 En la imagen vemos conceptos como paquetes y funciones que veremos con mayor detalle más adelante pero por ahora, es importante saber que acceder a sus descripciones es una buena manera de tener documentación resumida que nos ayudará a la hora de escribir y ejecutar nuestros scripts, y podemos acceder a esto desde el Editor.
 
-### Ejercicio extra
-
-
-
-¿Qué obtienes al ejecutar cada línea de código?
-
->Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter`
-
-Los números pequeños o grandes tienen una notación científica:
-
-### Ejercicio extra 
+### Ejercicio:
 
 Empecemos usando R para resolver operaciones aritméticas como si fuera una calculadora, a través de la interfaz de RStudio.
 
 Primero, abre un Editor de Script y copia las siguientes operaciones aritméticas:
 
-> Puedes dar click en el boton que dice Copy ubicado en la parte superior derecha del siguiente apartado. Luego vas a RStudio y daz click en el panel de Editor de Script, das click derecho y seleccionas Pegar.
+> Puedes dar click en el botón ubicado en la esquina de la parte superior derecha del siguiente apartado. Luego vas a RStudio y daz click en el panel de Editor de Script, das click derecho y seleccionas Pegar o utiliza `Ctrl` + `v` (Windows) o `command`+ `v` (macOS)
 
 ```R
 5 + 5
@@ -144,7 +134,7 @@ Primero, abre un Editor de Script y copia las siguientes operaciones aritmética
 >Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter` (Windows) o `command`+ `Enter` (macOS)
 
 ---
-### Ejercicios extra:
+### Ejercicios EXTRA:
 
 El orden de las operaciones es el mismo que has aprendido en la escuela.
 
