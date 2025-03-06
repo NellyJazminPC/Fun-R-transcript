@@ -23,42 +23,47 @@
 - Coloque los scripts fuente del proyecto y los programas en el directorio src o bin (si tienes programas traídos de otra parte o compilados localmente, en el directorio bin).
 - Nombre todos archivos de tal manera que reflejen su contenido o función.
 
-
-#### ¿Cómo crear un proyecto en RStudio?
+---
+## ¿Cómo crear un proyecto en RStudio?
 
 A continuación veremos  dos formas para crear un proyecto en RStudio, la primera es cuando no tenemos ningún directorio o carpeta ya creado, y la segunda es cuando queremos enlazar nuestro proyecto a un directorio o carpeta ya existente.
 
-**En el primer caso - Nuevo directorio:**
+- **En el primer caso - Nuevo directorio:**
 
-- Haz clic en el menú “File”, luego en “New Project”
-- Haz clic en “New Directory”
-- Haz clic en “New Project”
-- Introduce el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”. Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
-    -  Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
+   - Haz clic en el menú “File”, luego en “New Project”
+   - Haz clic en “New Directory”
+   - Haz clic en “New Project”
+   - Introduce el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”. Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
+      -  *EXTRA.* Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
 
-- Haz clic en el botón “Create Project”
+   - Haz clic en el botón “Create Project”
 
-**En el segundo caso -  Directorio existente:**
+- **En el segundo caso -  Directorio existente:**
 
-- Haz clic en el menú “File”, luego en “New Project”
-- Haz clic en “Existing Directory”
-- Haz clic en “Browse” y selecciona la carpeta con la que quieres enlazar tu proyecto
-- Haz clic en el botón “Create Project”
+   - Haz clic en el menú “File”, luego en “New Project”
+   - Haz clic en “Existing Directory”
+   - Haz clic en “Browse” y selecciona la carpeta con la que quieres enlazar tu proyecto
+   - Haz clic en el botón “Create Project”
 
 
 ![alt text](Imagen_1_16.png)
 
-#### Ejercicio
+---
+## Ejercicio:
 
-- Crea tu proyecto de R enlazándolo a la carpeta del curso que descargaste desde Github.
+- [Descarga la carpeta del curso desde Github como un archivo Zip](../../README.md)
+- Descomprimela la carpeta zip y colócala en el directorio de Documentos o en otro que puedas ubicar facilmente.
+- Crea tu proyecto de R en RStudio para enlazarlo a la carpeta del curso.
 
-Tip: [Descarga la carpeta desde Github como un archivo Zip](../../README.md)
+Si tienes dudas puedes revisar el siguiente [video]()
 
 ---
 
-### Conceptos básicos: carpetas
+## Conceptos básicos: carpetas, función y paquete (package).
 
-Podemos movernos entre carpetas y archivos por medio de comandos.
+Podemos movernos entre carpetas y archivos por medio de comandos podemos usar los siguientes comandos: 
+
+> Ejecuta los siguientes comandos en RStudio. Usa el teclado o copia y pega la siguiente sección en el Editor de Scripts.
 
 ```R
 # ¿Cuál es el directorio de trabajo en el que estas?
@@ -76,7 +81,9 @@ dir() # muestra los archivos que están en la carpeta donde te encuentras
 
 Antes de continuar, es importante familiarizarnos con algunos términos que veremos más a detalle en la [siguiente unidad](../Unidad_02/U2_1_Intro_var_funciones.md). En R, los comandos como `setwd()`, `dir()`, y otros que van seguidos por paréntesis son llamados **funciones**.
 
-#### ¿Qué es una función?
+----
+
+### ¿Qué es una función?
 
 De manera muy general, con una función damos instrucciones a R para llevar a cabo alguna operación. Las funciones empiezan con un nombre, seguido de paréntesis, y dentro de estos especificamos los parámetros.
 
@@ -84,7 +91,7 @@ De manera muy general, con una función damos instrucciones a R para llevar a ca
 
 ---
 
-### Conceptos básicos: packages
+### ¿Qué son los paquetes (packages)?
 
 En R, un paquete (package) se define como una **unidad organizada** de **código**, **funciones**, **datos** y **documentación** que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
 
@@ -112,7 +119,9 @@ Hay tres formas para instalar paquetes:
 2. Desde la venta de Directorio de Trabajo/Gráficos/Paquetes: como vimos previamente en la ventana de _Paquetes_ y dando click en _Instalar_. 
 3. Desde el Editor/Consola: con el comando `install.packages()`
 
-#### Ejercicio
+---
+
+## Ejercicio:
 
 Instala el paquete de `ggplot2` desde cualquier de las tres opciones anteriores.
 
@@ -152,7 +161,8 @@ help("lm")
 
 En el panel de Ayuda se mostrará la documentación de la función. En este caso, `lm()` es una función para modelos lineales.
 
-#### Ejercicio
+---
+### Ejercicio EXTRA:
 
 Busca más información acerca de la función `boxplot()`. **¿Puedes identificar los siguientes apartados en la sección de ayuda?**
 
@@ -172,7 +182,9 @@ Busca más información acerca de la función `boxplot()`. **¿Puedes identifica
 
 ```
 
-#### ¿En qué otros lugares puedo buscar ayuda?
+---
+
+## ¿En qué otros lugares puedo buscar ayuda?
 
 Hay una serie de sitios donde puedes buscar ayuda sobre un temá en específico, si tu código no funciona o incluso si tienes problemas con otros lenguajes de programación:
 
@@ -220,7 +232,37 @@ Los archivos de R se guardan con la extensión **.r** o **.R**
 
 ---
 
-### Conceptos básicos: archivos generados por default
+#### Fuentes de información
+
+- [Controversia con rm(list = ls())](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
+)
+- [swcarpentry - rstudio-intro](https://swcarpentry.github.io/r-novice-gapminder-es/01-rstudio-intro.html)
+
+- [swcarpentry - project-intro](https://swcarpentry.github.io/r-novice-gapminder-es/02-project-intro.html)
+
+- [The Comprehensive R Archive Network](https://cran.r-project.org/)
+- [8. Introduction to R Packages by Ken Rice
+Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
+
+- [Contributed Packages. CRAN](https://cran.r-project.org/web/packages/
+)
+- [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/
+)
+
+- [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
+
+- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+---
+
+### Siguiente tema: [1.4 Rutas; abrir y guardar archivos](U1_4_Leer_guardar_archivos.md)
+
+
+---
+
+### EXTRA
+
+#### Conceptos básicos: archivos generados por default
 
 Cada sesión guarda o carga dos archivos ocultos:
 
@@ -234,7 +276,7 @@ En la imagen se muestra que al acceder a la carpeta no puedes ver los archivos o
 
 ---
 
-### Extra: administrar tu entorno
+#### Administrar tu entorno
 
 ```R
 #ls() mostrara una lista de todas las variables y funciones almacenadas en el entorno global, es decir, en tu sesión de trabajo en R:
@@ -254,17 +296,9 @@ rm(list = ls())
 
 ```
 
-#### Fuentes de información
-
-- [Controversia con rm(list = ls())](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
-)
-- [swcarpentry - rstudio-intro](https://swcarpentry.github.io/r-novice-gapminder-es/01-rstudio-intro.html)
-
-- [swcarpentry - project-intro](https://swcarpentry.github.io/r-novice-gapminder-es/02-project-intro.html)
-
 ---
 
-### Extra: source
+#### Source
 
 La función `source` básicamente lee y ejecuta el código contenido en un archivo (extensión **.R**) y lo incorpora al espacio de trabajo de RStudio como si hubiera sido escrito directamente en la consola o en el Editor.
 
@@ -299,21 +333,3 @@ source("U1_1_IntroRstudio.R")
 # ¿Qué paso?
 ```
 
-#### Fuentes de información:
-
-- [The Comprehensive R Archive Network](https://cran.r-project.org/)
-- [8. Introduction to R Packages by Ken Rice
-Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
-
-- [Contributed Packages. CRAN](https://cran.r-project.org/web/packages/
-)
-- [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/
-)
-
-- [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
-
-- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
-
----
-
-### Siguiente tema: [1.4 Rutas; abrir y guardar archivos](U1_4_Leer_guardar_archivos.md)
