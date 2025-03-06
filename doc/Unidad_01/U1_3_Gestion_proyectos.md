@@ -257,6 +257,7 @@ Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
 
 ### Siguiente tema: [1.4 Rutas; abrir y guardar archivos](U1_4_Leer_guardar_archivos.md)
 
+![alt text](<20250305_2218_Focused Tech Collaboration.gif>)
 
 ---
 
