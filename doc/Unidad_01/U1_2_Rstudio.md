@@ -127,11 +127,18 @@ Primero, abre un Editor de Script y copia las siguientes operaciones aritmética
 ```R
 5 + 5
 10*8 + 3*(6 - 2/4)^10
+10-5
+10 - 5
+8 * 8
+8/8
+8 / 8
 ```
 
-¿Qué obtienes al ejecutar cada línea de código?
+- **¿Qué obtienes al ejecutar cada línea de código?**
 
 >Recuerda que puedes usar `Run` o las teclas `Ctrl` + `Enter` (Windows) o `command`+ `Enter` (macOS)
+
+- **Agrega algunos comentarios que describan que estas haciendo en ese script**
 
 ---
 ### Ejercicios EXTRA:
