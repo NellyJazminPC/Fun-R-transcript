@@ -100,6 +100,16 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 - Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
 
+### Proyecto final:
+
+- En equipos de 4-5 personas 
+- El trabajo se presentará el último día del curso (viernes 27 de junio).
+- Pueden consultar la [Rúbrica aquí]().
+- Pueden seleccionar alguna de las siguientes opciones: 
+  - tutorial con datos del curso.
+  - tutorial con sus datos propios.
+  - pueden proponer algún análisis de los visto en el curso y ejecutado con sus datos propios.
+
 ---
 
 ## Antes de empezar...
@@ -159,7 +169,7 @@ A continuación te recomendamos estos videos en Youtube donde se muestra la inst
 
 ### Instalación de paquetes:
 
-Puedes avanzar con la instalación de los siguientes paquetes que utlizaremos a lo largo del curso: (en progreso)
+Puedes avanzar con la instalación de los siguientes paquetes que utilizaremos a lo largo del curso: (en progreso)
 
 - ggplot2
 - tidyr

@@ -12,7 +12,7 @@
 
 ![alt text](image_2.2_01.png)
 
-Las estructuras de datos en R son fundamentalmente formas de organizar, almacenar y manipular datos. 
+Las estructuras de datos en R son fundamentalmente formas de organizar, almacenar y manipular datos.
 
 Cada tipo de estructura de datos tiene sus propias características y se utiliza en diferentes contextos según las necesidades de análisis y procesamiento de datos.
 
@@ -30,26 +30,9 @@ Entre los principales tipos de estructuras de datos que se utilizan en R están:
 
 - **Las Listas** son **colecciones** ordenadas de **objetos** que pueden ser de **diferentes tipos**. Las listas pueden ser unidimensionales, pero **cada elemento** de la lista puede contener **cualquier estructura de datos**, lo que proporciona flexibilidad en la organización de datos complejos.
 
-A continuación vamos a enfocarnos en los vectores, las matrices y los data.frame, sin embargo, si quieres explorar más sobre estas y las otras estructuras puedes consultar la versión [extendida](doc/Unidad_02/U2_2_Estructuras_datos_V_EXTENDIDA.md). 
+A continuación, vamos a enfocarnos en tres principales estructuras que utilizaremos en las siguientes unidades: los vectores, las matrices y los data.frame.
 
-Aquí algunos tips que usaremos más adelante:
-
-```R
-# Información de estructuras y conversión
-
-# Para convertir una estructura de un tipo a otro, usamos la función as.*().
-
-?as.vector
-
-?as.matrix
-
-# Para saber las dimensiones y que clase de objeto (variable) es:
-
-?dim
-
-?class
-
-```
+Si quieres explorar más sobre estas y las otras estructuras previamente mencionadas, puedes consultar la versión [extendida](doc/Unidad_02/U2_2_Estructuras_datos_V_EXTENDIDA.md).
 
 ---
 
