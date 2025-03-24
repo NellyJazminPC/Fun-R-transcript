@@ -103,12 +103,12 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 ### Proyecto final:
 
 - En equipos de 4-5 personas 
-- El trabajo se presentará el último día del curso (viernes 27 de junio).
-- Pueden consultar la [Rúbrica aquí]().
+- El trabajo se presentará el último día del curso (viernes 28 de junio).
+- Pueden consultar la [Rúbrica aquí](https://docs.google.com/presentation/d/e/2PACX-1vStG-G3J6JiqLi2y5rHR_udfwTYOmG4lQw6hvTueggdH6fqKk9GPsnGDzhGJMsD3A/pub?start=false&loop=false&delayms=3000).
 - Pueden seleccionar alguna de las siguientes opciones: 
   - tutorial con datos del curso.
   - tutorial con sus datos propios.
-  - pueden proponer algún análisis de los visto en el curso y ejecutado con sus datos propios.
+  - pueden proponer algún análisis de los realizados en el curso con sus datos propios.
 
 ---
 
@@ -174,14 +174,12 @@ Puedes avanzar con la instalación de los siguientes paquetes que utilizaremos a
 - ggplot2
 - tidyr
 - dplyr
-- reshape2
 - cluster
 - factoextra
 - FactoMineR
 - rmarkdown
 - BiocManager
 - DESeq2
-- gplots
 - RColorBrewer
 - EnhancedVolcano
 - VennDiagram
