@@ -28,46 +28,7 @@ Así como puedes guardar **diferentes tipos de objetos en diferentes contenedore
 
 En el contexto de programación en R, los términos "variable" y "objeto" tienen significados específicos y relacionados, pero **no son completamente intercambiables**. 
 
-1. **Variable:**
-   - Una variable es un nombre simbólico que se utiliza para almacenar un valor o una referencia a un objeto. En otras palabras, una variable es un contenedor que puede contener diferentes tipos de datos a lo largo de su ciclo de vida.
-   - En R, una variable se define mediante el operador de asignación `<-` o `=`.
-   - Ejemplo:
-     ```R
-     x <- 42        # x es una variable que almacena el valor 42
-     nombre <- "Juan" # nombre es una variable que almacena el string "Juan"
-     ```
-
-2. **Objeto:**
-   - Un objeto es una instancia de una clase que puede almacenar datos y métodos para manipular esos datos. En R, casi todo es un objeto, incluyendo vectores, matrices, data.frames, listas, funciones, etc.
-   - Los objetos en R tienen atributos y pueden ser manipulados mediante funciones.
-   - Ejemplo:
-   
-     ```R
-     vector <- c(1, 2, 3)          # vector es un objeto de clase "numeric"
-     matriz <- matrix(1:9, nrow=3) # matriz es un objeto de clase "matrix"
-     df <- data.frame(a = 1:3, b = c("x", "y", "z")) # df es un objeto de clase "data.frame"
-     ```
-
-##### Relación entre Variables y Objetos
-
-- En R, las variables actúan como etiquetas o nombres que apuntan a objetos almacenados en la memoria. Cuando asignas un valor a una variable, estás creando un objeto y asignándolo a esa variable.
-- Una variable puede cambiar el objeto al que apunta, pero el objeto en sí puede mantenerse igual si no se modifica explícitamente.
-
-##### Ejemplo para ilustrar la diferencia:
-
-```R
-# Crear un objeto (vector) y asignarlo a una variable
-mi_vector <- c(1, 2, 3, 4)
-
-# Aquí, mi_vector es una variable que referencia un objeto de tipo vector
-
-# Modificar el objeto
-mi_vector <- mi_vector * 2
-
-# La variable mi_vector ahora referencia un nuevo objeto, que es el resultado de multiplicar el original por 2
-```
-
-En resumen, una variable es una referencia o un nombre simbólico que apunta a un objeto, mientras que un objeto es una entidad en la memoria que puede contener datos y métodos para manipular esos datos. En R, casi todo es considerado un objeto, y las variables se utilizan para acceder y manipular estos objetos.
+- En R, una **variable es una referencia o un nombre simbólico** que apunta a un objeto, mientras que **un objeto es una entidad** en la memoria **que puede contener datos y métodos para manipular esos datos**. En R, casi todo es considerado un objeto, y las variables se utilizan para acceder y manipular estos objetos.
 
 ---
 
@@ -110,20 +71,15 @@ Aquí estan algunas recomendaciones al elegir como nombrarás a una nueva variab
 - Usa nombres descriptivos.
 - Sigue una convención de nombres consistente.
 - Usa nombres en inglés.
-- Sé conciso pero claro.
-- Usa prefijos y sufijos cuando sea necesario.
-- Utiliza comentarios cuando sea necesario.
 
 Por otro lado, aquí está lo que debes evitar al nombrar una nueva variable:
 
-- Evita palabras reservadas.
-- Evita nombres confusos, ambiguos o crípticos.
-- Evita nombres de variables similares.
-- Evita nombres de una sola letra, excepto en contextos específicos (como en una prueba rápida).
-- No uses nombres que coincidan con funciones integradas.
+- Evita palabras reservadas (por ejemplo, nombres de funciones en R).
+- Evita nombres confusos o ambiguos
+- Evita repetir nombres.
+- Evita nombres de una sola letra, excepto en contextos muy específicos (como en una prueba rápida).
 - No empieces los nombres de variables con un número.
-- Evita caracteres especiales en los nombres de variables.
-- Usa nombres descriptivos pero concisos.
+- Evita caracteres especiales en los nombres de variables (por ejemplo, $%/"¨*).
 
 #### Ejemplo
 
@@ -147,8 +103,9 @@ De la siguiente lista, ¿cuáles son los nombres de variables que debemos evitar
 Vamos a practicar en R cómo asignar valores a una variable.
 
 ```R
+#Si aún no creaste la variable x y le has asignado el valor 5, quita el # que esta antes de x <- 5 para que puedas ejecutar esa línea.
 # Agregar un valor a la variable
-x <- 5
+#x <- 5
 
 # Imprime lo que contiene la variable X
 x 
@@ -160,17 +117,17 @@ x + 1
 x
 
 #¿Qué sucedió? 
-```
+#Si no se guarda el valor, es decir, sino se vuelve a asignar con el operador flecha <-, el resultado de la operación solo se imprime.
+#En este caso estamos manipulando los objetos (sumando el objeto de la variable x, que es 5, más 1, que es otro objeto) pero no estamos modificando la variable x.
 
-**Si no se guarda el valor**, es decir, sino se vuelve a asignar con el operador flecha **<-**, el resultado de la operación solo se imprime. En este caso estamos manipulando los objetos (sumando el objeto de la variable **x**, que es **5**, más **1**, que es otro objeto) pero no estamos modificando la variable.
 
-```R
-#Para guardar este valor podemos reescribir la variable
+#Para guardar este valor hay dos opciones:
+# 1) podemos reescribir la variable
 # Incrementamos x en 1:
 x <- x + 1
 x
 
-# O podemos asignar este nuevo valor a otra variable
+# 2) podemos asignar este nuevo valor a otra variable
 # y es el valor de x multiplicado por dos
 y <- x * 2 
 
@@ -183,7 +140,7 @@ y
 
 Sobrescribir variables es una práctica común en R y puede ser útil en contextos específicos, por ejemplo, ayuda a reducir el uso de memoria de la computadora. Sin embargo, hay que tener cuidado con la potencial pérdida de información al sobrescribir una variable por error, además de que puede ser difícil rastrear los cambios.
 
-Por otro lado, el crear muchas variables nuevas en tus scripts también tiene sus propias ventajas y desventajas a considerar:
+Por otro lado, el **crear muchas variables nuevas en tus scripts** también tiene sus propias **ventajas y desventajas** a considerar:
 
 | Ventajas                         | Desventajas                            |
 |----------------------------------|----------------------------------------|
@@ -192,33 +149,34 @@ Por otro lado, el crear muchas variables nuevas en tus scripts también tiene su
 | Evitar sobrescritura accidental  | Posibilidad de confusión               |
 | Facilitar el reuso de datos      | Dificultad para seguir el flujo de datos|
 
-En resumen, se recomienda buscar un equilibrio entre tus decisiones de crear nuevas variables o sobreescribir las que tienes, esto puede depender de la cantidad de datos que manejes, la memoria de tu computadora y que tan complejo puede ser el rastreo de los cambios en tu script.
 
 ---
 
 ## Conceptos básicos: funciones
 
-Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo alguna operación. La siguiente imagen muestra cómo usamos la función `plot`para realizar una operación, que en este caso es generar un gráfico. 
+Previamente, vimos de manera general que con las funciones damos instrucciones a R para llevar a cabo alguna operación. 
+
+![alt text](cat-driving.gif)
+
+![alt text](<Captura de pantalla 2025-03-27 a la(s) 3.57.40 p.m..png>)
 
 > REPASO: Recordemos cómo se "llama" una función. Empiezan por el nombre de la función (plot), seguido por paréntesis, en donde estan los argumentos y parámetros:
 
-![alt text](image_2.1_02.png)
+La siguiente imagen muestra cómo usamos la función `plot`para realizar una operación, que en este caso es generar un gráfico. 
 
-Hemos vistó como podemos **usar una función**, pero **¿qué es una función?**
+![alt text](image_2.1_02.png)
 
 En R, las funciones pueden compararse con una caja que recibe **entradas** (inputs), las procesa y luego genera **salidas** (outputs).
 
-Imagina que una función es como una maquina a la que agregas diferentes ingredientes y aunque no vez a simple vista lo que pasa dentro de la maquina, el resultado final es una increible barra de chocolate.
+Imagina que una función es como una maquina a la que agregas diferentes ingredientes y aunque no vez a simple vista lo que pasa dentro de la maquina, el resultado final es una **increible barra de chocolate**.
 
 ![alt text](image_2.1_05.png)
-
-En "Charlie y la fábrica de chocolate" de Roald Dahl, Willy Wonka tiene varias máquinas y dispositivos que transforman ingredientes en deliciosos y mágicos dulces y chocolates.
 
 Esos ejemplos ilustran bien la idea de una caja o dispositivo mágico donde se introducen materiales y se obtiene un resultado final de manera sorprendente, similar a cómo funcionan las funciones en R: introduciendo **argumentos (inputs)**, procesándolos y obteniendo un **resultado (output)**.
 
 ![alt text](image_2.1_04.png)
 
-El cuerpo de la función, donde se procesan estos **inputs** para convertirlos en **outputs**, se encuentra **dentro de llaves**.
+Para ver dentro de estas cajas mágicas, es decir, el cuerpo de la función donde se procesan estos **inputs** para convertirlos en **outputs**, hay que ver *_dentro de llaves_*.
 
 ### Ejemplo - función
 
@@ -289,11 +247,6 @@ function (x, y = NULL, type = "p", xlim = NULL, ylim = NULL,
 
 Si quieres saber cómo está construida otra función, escribe el nombre de la función sin los paréntesis.
 
-```R
-# por ejemplo la función lm - modelos lineales
-lm
-```
-
 ---
 
 ### Tips en el editor y en la línea de comandos de la consola
@@ -316,18 +269,13 @@ En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente 
 #Versiones más recientes pueden aceptar el nombre sin comillas
 
 install.packages("ggplot2")
-```
 
-- Para saber más acerca de como utilizar una función, qué es lo que necesitas ingresar como argumentos y parámetros, podemos usar la función `help()`
+## Para saber más acerca de como utilizar una función, usa la función `help()`
 
-```R
-# La función Help
 help()
 # Para buscar un paquete o función en específico. 
-# Por ejemplo, para la función "plot"
+# Por ejemplo, para la función "plot" la cual se utiliza para graficar
 help(plot)
-# ¿Qué pasa si usas la función help() para saber más de "help"?
-help("help")
 ```
 
 ### Fuentes de información
