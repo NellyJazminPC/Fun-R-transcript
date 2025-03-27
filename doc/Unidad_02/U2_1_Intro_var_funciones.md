@@ -6,6 +6,7 @@
 
 ## 2.1 Introducción a las variables y funciones
 
+#### [Versión extendida](../Unidad_02/U2_1_Intro_var_funciones_version_ext.md)
 ---
 
 ### ¿Qué es una variable?
