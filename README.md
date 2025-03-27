@@ -39,14 +39,14 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 ### TEMARIO 
 
 - **FUNDAMENTOS DE PROGRAMACIÓN EN R**
-  - **Unidad 1** *(Lunes 17 de Junio)*
+  - **Unidad 1** *(Lunes 16 de Junio)*
     - [1.1 Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_1_Intro_R.md)
     - [1.2 Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_2_Rstudio.md)
     - [1.3 Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_3_Gestion_proyectos.md)
     - [1.4 Rutas; abrir y guardar archivos](doc/Unidad_01/U1_4_Leer_guardar_archivos.md)
 
 
-  - **Unidad 2** *(Martes 18 de Junio)*
+  - **Unidad 2** *(Martes 17 de Junio)*
       - [2.1 Introducción a las variables y funciones](doc/Unidad_02/U2_1_Intro_var_funciones.md)
       - [2.2 Estructuras de datos](doc/Unidad_02/U2_2_Estructuras_datos.md): aspectos básicos
         - 2.2.1 Matrices
@@ -55,38 +55,38 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
         - 2.3.1 tidyr, dplyr y magrittr
 
 
-  - **Unidad 3** *(Miércoles 19 de Junio)*
+  - **Unidad 3** *(Miércoles 18 de Junio)*
     - [Gráficos en R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_03/U3_notebook.pdf)
     - Generación de gráficos sencillos
     - Generación de gráficos complejos
     - Modificando las características de los gráficos
     - Múltiples figuras en un mismo gráfico. librería ggplot
 
-  - **Unidad 4** *(Jueves 20 de Junio)*
+  - **Unidad 4** *(Jueves 19 de Junio)*
     - Limpieza de datos
     - Estadística inferencial 
 
-  - **Unidad 5** *(Viernes 21 de Junio)*
+  - **Unidad 5** *(Viernes 20 de Junio)*
     - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom.
 
-  - **Unidad 6** *(Lunes 24 de Junio)*
+  - **Unidad 6** *(Lunes 23 de Junio)*
     - [6.1 Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)
     - [6.2 Generación de reportes en Rmarkdown](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_2_Rmarkdown.md)
 
 - **ENFOQUE EN TRANSCRIPTÓMICA**
 
-  - **Unidad 7** *(Martes 25 de Junio)*
+  - **Unidad 7** *(Martes 24 de Junio)*
     - Secuenciación masiva
     - RNA-seq 
 
-  - **Unidad 8** *(Miércoles 26 de Junio)*
+  - **Unidad 8** *(Miércoles 25 de Junio)*
     - Flujo de trabajo
     - [Expresión diferencial](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_08/U8_notebook.pdf)
 
-  - **Unidad 9** *(Jueves 27 de Junio)*
+  - **Unidad 9** *(Jueves 26 de Junio)*
     - [Gráficos y visualización de resultados](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_09/U9_notebook.pdf)
 
-  - **Unidad 10** *(Viernes 28 de Junio)*
+  - **Unidad 10** *(Viernes 27 de Junio)*
     - Aplicaciones reales y dudas 2 horas
     - [Exposiciones de sus proyectos finales](doc/Unidad_10/Trabajo_final.md)
 
@@ -96,19 +96,21 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
 
 - Curso teórico y práctico
 - Horario: 9:00-13:00. Receso intermedio.
-- Proyecto final: equipos de 4-5 personas. Presentación el viernes 28 de junio
+- Proyecto final: equipos de 4-5 personas. Presentación el viernes 27 de junio
 
 - Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
 
 ### Proyecto final:
 
 - En equipos de 4-5 personas 
-- El trabajo se presentará el último día del curso (viernes 28 de junio).
+- El trabajo se presentará el último día del curso (viernes 27 de junio).
 - Pueden consultar la [Rúbrica aquí](https://docs.google.com/presentation/d/e/2PACX-1vStG-G3J6JiqLi2y5rHR_udfwTYOmG4lQw6hvTueggdH6fqKk9GPsnGDzhGJMsD3A/pub?start=false&loop=false&delayms=3000).
 - Pueden seleccionar alguna de las siguientes opciones: 
   - tutorial con datos del curso.
   - tutorial con sus datos propios.
   - pueden proponer algún análisis de los realizados en el curso con sus datos propios.
+
+Para el cierre de la primera semana, es necesario que tengan definido el tema del proyecto y que envíen la lista con los nombres de los integrantes de su equipo.
 
 ---
 
