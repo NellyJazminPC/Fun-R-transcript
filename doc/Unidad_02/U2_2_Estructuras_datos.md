@@ -6,33 +6,35 @@
 
 ## 2.2 Estructuras de datos
 
+#### [Versión extendida](../Unidad_02/U2_2_Estructuras_datos_version_ext.md)
+
 ---
 
 ### Aspectos básicos
 
 ![alt text](image_2.2_01.png)
 
-Las estructuras de datos en R son fundamentalmente formas de organizar, almacenar y manipular datos.
+Las **estructuras de datos en R** son fundamentalmente formas de **organizar, almacenar y manipular datos**.
 
 Cada tipo de estructura de datos tiene sus propias características y se utiliza en diferentes contextos según las necesidades de análisis y procesamiento de datos.
 
 Entre los principales tipos de estructuras de datos que se utilizan en R están:
 
-- **Los Vectores** son estructuras de datos **unidimensionales** que pueden contener elementos del **mismo tipo**, como números, caracteres o valores lógicos. Los vectores pueden ser simples (de longitud uno) o múltiples (de longitud mayor a uno)
+- **1. Los Vectores** son estructuras de datos **unidimensionales** que pueden contener elementos del **mismo tipo**, como números, caracteres o valores lógicos. Los vectores pueden ser simples (de longitud uno) o múltiples (de longitud mayor a uno)
 
     - **Los Factores** son **vectores** que representan datos categóricos, donde cada elemento tiene un nivel específico. Aunque internamente se almacenan como enteros, los factores tienen un **atributo de nivel** que especifica las etiquetas de categoría asociadas.
 
-- **Las Matrices** son arreglos **bidimensionales** que contienen elementos del **mismo tipo**. Tienen **filas y columnas**, lo que significa que son útiles para organizar datos en una tabla de dos dimensiones.
+- **2. Las Matrices** son arreglos **bidimensionales** que contienen elementos del **mismo tipo**. Tienen **filas y columnas**, lo que significa que son útiles para organizar datos en una tabla de dos dimensiones.
 
     - **Los _Arrays_** son estructuras de datos **multidimensionales** que pueden contener elementos del mismo tipo. A diferencia de las matrices, los arrays pueden tener **más de dos dimensiones**, lo que los hace útiles para almacenar y manipular datos con múltiples índices.
 
-- **Los _Data frames_** son estructuras de datos **bidimensionales** similares a las matrices, pero cada **columna** puede contener un **tipo diferente** de datos. Se utilizan para representar conjuntos de datos tabulares, donde las **filas** representan **observaciones** y las **columnas** representan **variables**.
+- **3. Los _Data frames_** son estructuras de datos **bidimensionales** similares a las matrices, pero cada **columna** puede contener un **tipo diferente** de datos. Se utilizan para representar conjuntos de datos tabulares, donde las **filas** representan **observaciones** y las **columnas** representan **variables**.
 
-- **Las Listas** son **colecciones** ordenadas de **objetos** que pueden ser de **diferentes tipos**. Las listas pueden ser unidimensionales, pero **cada elemento** de la lista puede contener **cualquier estructura de datos**, lo que proporciona flexibilidad en la organización de datos complejos.
+- **4. Las Listas** son **colecciones** ordenadas de **objetos** que pueden ser de **diferentes tipos**. Las listas pueden ser unidimensionales, pero **cada elemento** de la lista puede contener **cualquier estructura de datos**, lo que proporciona flexibilidad en la organización de datos complejos.
 
-A continuación, vamos a enfocarnos en tres principales estructuras que utilizaremos en las siguientes unidades: los vectores, las matrices y los data.frame.
+A continuación, vamos a enfocarnos en **tres principales estructuras** que utilizaremos en las siguientes unidades: los **vectores**, las **matrices** y los **_data.frame_**.
 
-Si quieres explorar más sobre estas y las otras estructuras previamente mencionadas, puedes consultar la versión [extendida](doc/Unidad_02/U2_2_Estructuras_datos_V_EXTENDIDA.md).
+Si quieres explorar más sobre las otras estructuras previamente mencionadas puedes consultar la versión [extendida](../Unidad_02/U2_3_Manipulacion_dato_version_ext.md).
 
 ---
 
@@ -51,26 +53,19 @@ mi_vector <- c(5,10,15,20)
 mi_vector
 
 # ¿Puedes hacer operaciones con este vector?
+# Suma 1 a cada elemento del vector "mi_vector"
 mi_vector + 1
-
-mi_vector + mi_vector
 
 #Crea un nuevo vector y guarda elementos de tipo caracter, es decir, letras
 letras <- c("a","b","c","d") 
 
-```
+#Los elementos en el vector se referencian con corchetes `[i]`
 
-Los elementos en el vector se referencian con corchetes `[i]`
-
-```R
 #Veamos el primer elemento del vector "letras"
 letras[1]
 
-#Veamos los elementos 1, 2 y 3
-letras[1:3]
-
-#Veamos los elementos 1 y 4
-letras[c(1,4)]
+#Para un rango de elementos utiliza : 
+#Para seleccionar elementos específicos usa un vector c(,)
 ```
 
 #### Usos
@@ -85,49 +80,27 @@ Los vectores numéricos son útiles para cálculos sencillos:
 
 #### Ejercicio
 
-Considera los vectores x y y:
-
 ```R
+#Considera los vectores x y y:
 x <- c(4,6,5,7,10,9,4,15) 
 y <- c(0,10,1,8,2,3,4,1)
-```
 
-Realiza algunas operaciones con estos vectores. Por ejemplo:
+# Realiza algunas operaciones con estos vectores. Por ejemplo:
 
-```R
 #Suma los dos vectores
 x+y
 
 # ¿Puedes saber si el vector x es mayor a 7?
 x >7
 
-#¿Puedes unir ambos vectores en uno solo?
-
-c(x,y)
-
-# Crea un nuevo vector que guarde los valores de ambos vectores, "x" y "y"
-
-z <- c(x,y)
-
 # Averigua cuántos elementos contienen los vectores creados
-
 length(x)
 length(y)
-length(z)
 ```
 
 #### Extra:
 
 ```R
-##### Extra: ¿Qué pasa si los vectores tienen tamaños diferentes?
-# Crea dos vectores con un número distinto de elementos
-x_long <- c(4, 6, 5, 7, 10, 9, 4, 15)
-y_short <- c(0, 10, 1, 8)
-#Suma los dos vectores,¿qué paso?
-x_long + y_short
-# el vector "y_short" se recicló para que tuviera la misma longitud que "x_long"
-
-
 # ¿Qué pasa si uno de los vectores tiene datos faltantes? NA
 # Vectores con valores NA
 x_na <- c(4, 6, NA, 7, 10, 9, 4, 15)
