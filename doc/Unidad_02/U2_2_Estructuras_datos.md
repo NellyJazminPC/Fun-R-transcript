@@ -215,43 +215,6 @@ dim(matriz_filas)
 matriz_filas
 ``` 
 
-La función `length()` se puede utilizar para obtener el número total de elementos en una matriz. 
-
-```R
-# Obtén el número total de elementos en la matriz
-length(matriz_filas)  
-```
-
-Puedes seleccionar elementos que cumplen cierta condición.
-
-```R
-# Selecciona elementos mayores que 5 en la matriz
-matriz_filas[matriz_filas > 5]  
-```
-
-Para obtener los nombres de las columnas y de las filas puedes usar las funciones `colnames()`y `rownames()`respectivamente. Además, puedes cambiar esos nombres:
-
-```R
-# Asigna nombres a las columnas
-colnames(matriz_filas) <- c("col1", "col2", "col3")  
-#Visualiza la matriz
-matriz_filas
-# Asigna nombres a las filas
-rownames(matriz_filas) <- c("fila1", "fila2", "fila3", "fila4") 
-#Visualiza la matriz
-matriz_filas
-```
-
-También puedes obtener la suma y el promedio por filas o por columnas
-
-```R
-# Calcula la suma y promedio de las filas de la matriz
-rowSums(matriz_filas) 
-rowMeans(matriz_filas)
-# Calcula la suma y promedio de las columnas de la matriz
-colSums(matriz_filas)
-colMeans(matriz_filas) 
-```
 
 #### Ejercicio 
 
