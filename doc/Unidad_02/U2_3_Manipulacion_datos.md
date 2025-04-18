@@ -4,7 +4,13 @@
 
 ---
 
+#### [Versión extendida](../Unidad_02/U2_3_Manipulacion_dato_version_ext.md)
+
+---
+
 ## 2.3 Manipulación de datos
+
+- [Script U2_3_Manipulacion_datos.R](../../bin/U2_3_Manipulacion_datos.R) de esta unidad en la carpeta **bin**
 
 ---
 

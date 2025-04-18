@@ -6,6 +6,7 @@
 
 ## 2.3 Manipulación de datos
 
+- [Script U2_3_Manipulacion_datos.R](../../bin/U2_3_Manipulacion_datos.R) de esta unidad en la carpeta **bin**
 ---
 
 ### Aspectos básicos

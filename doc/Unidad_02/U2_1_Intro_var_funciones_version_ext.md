@@ -6,6 +6,8 @@
 
 ## 2.1 Introducción a las variables y funciones
 
+- [Script U2_1_Intro_Var_Fun.R](../../bin/U2_1_Intro_Var_Fun.R) de esta unidad en la carpeta **bin**
+
 ---
 
 ### ¿Qué es una variable?

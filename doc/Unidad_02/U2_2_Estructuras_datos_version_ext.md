@@ -6,6 +6,8 @@
 
 ## 2.2 Estructuras de datos
 
+- [Script U2_2_Estructura_datos_EXTENDIDO.R](../../bin/U2_2_Estructura_datos_EXTENDIDO.R) de esta unidad en la carpeta **bin**
+
 ---
 
 ### Aspectos básicos

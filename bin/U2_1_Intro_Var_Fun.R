@@ -1,8 +1,8 @@
-###### Sesión de la Unidad 2 ######
-## Martes 18 de junio de 2024
-## Nelly Jazmín Pacheco Cruz
+###### Unidad 2 ######
+#### Sesión 2.1
+## Martes 17 de junio de 2025
 ## Introducción a las variables y funciones
-# 
+## Nelly Jazmín Pacheco Cruz
 
 # Recordando el ejemplo de la caja, la caja en donde guardaras el valor 5 se llamará x
 x <- 5
@@ -17,17 +17,38 @@ x
 # ¿Qué pasa en este caso?
 10 <- x
 
+#### Ejercicio:  ####
+### reescribir el valor de una variable o asignarlo a una nueva
+
 # Agregar un valor a la variable (objeto)
 x <- 5
 x #Imprime lo que contiene el variable X
 x + 1 #Suma 1 a x
-#Se guardo el valor de 6?
+
+# ¿Se guardó el valor de 6?
 x
-#Para guardar este valor podemos reescribir la variable
+
+#Para guardar este valor hay dos opciones:
+# 1) podemos reescribir la variable
+# A x le sumamos 1:
 x <- x + 1
 x
-# O podemos asignar este nuevo valor a otra variable
-y <- x * 2 # estamos guardando el resultado de x por 2 en la variable y
+
+# 2) podemos asignar este nuevo valor a otra variable
+# y es el valor de x multiplicado por dos
+y <- x * 2 
+
 # Verifica que valores tiene "x" y "y"
 x
 y
+
+#### Ejemplo de función ####
+#Ejecuta la siguiente línea así como está
+plot.default
+# ¿Qué obtuviste?
+
+#### Ejercicio de función ####
+install.packages("ggplot2")
+
+# Quieres saber más de una función, utiliza help() 
+help("install.packages")

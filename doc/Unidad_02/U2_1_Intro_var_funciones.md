@@ -4,9 +4,14 @@
 
 ---
 
+#### [Versión extendida](../Unidad_02/U2_1_Intro_var_funciones_version_ext.md)
+
+---
+
 ## 2.1 Introducción a las variables y funciones
 
-#### [Versión extendida](../Unidad_02/U2_1_Intro_var_funciones_version_ext.md)
+- [Script U2_1_Intro_Var_Fun.R](../../bin/U2_1_Intro_Var_Fun.R) de esta unidad en la carpeta **bin**
+
 ---
 
 ### ¿Qué es una variable?
@@ -71,7 +76,7 @@ Aquí estan algunas recomendaciones al elegir como nombrarás a una nueva variab
 
 - Usa nombres descriptivos.
 - Sigue una convención de nombres consistente.
-- Usa nombres en inglés.
+- Si vas a publicar tu script, usa nombres en inglés.
 
 Por otro lado, aquí está lo que debes evitar al nombrar una nueva variable:
 
@@ -124,7 +129,7 @@ x
 
 #Para guardar este valor hay dos opciones:
 # 1) podemos reescribir la variable
-# Incrementamos x en 1:
+# A x le sumamos 1:
 x <- x + 1
 x
 

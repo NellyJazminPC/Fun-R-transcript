@@ -4,9 +4,13 @@
 
 ---
 
+#### [Versión extendida](../Unidad_02/U2_2_Estructuras_datos_version_ext.md)
+
+---
+
 ## 2.2 Estructuras de datos
 
-#### [Versión extendida](../Unidad_02/U2_2_Estructuras_datos_version_ext.md)
+- [Script U2_2_Estructura_datos.R](../../bin/U2_2_Estructura_datos.R) de esta unidad en la carpeta **bin**
 
 ---
 
@@ -64,8 +68,10 @@ letras <- c("a","b","c","d")
 #Veamos el primer elemento del vector "letras"
 letras[1]
 
-#Para un rango de elementos utiliza : 
+#Para un rango de elementos utiliza :
+#letras[1:3]
 #Para seleccionar elementos específicos usa un vector c(,)
+#letras[c(1,4)]
 ```
 
 #### Usos
@@ -135,6 +141,7 @@ Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada
 Puedes acceder a la documentación de la función:
 
 ```R
+#Puedes acceder a la Ddocumentación de la función para crear matrices
 ?matrix
 ```
 
@@ -210,9 +217,11 @@ sd(matriz_filas)
 Para revisar las dimensiones de la matriz recuerda utilizar la función `dim()`
 
 ```R
+# Revisa la matriz original:
+matriz_filas
 # Revisa las dimensiones de las matrices:
 dim(matriz_filas)
-matriz_filas
+
 ``` 
 
 
@@ -251,6 +260,7 @@ dim(m)
 
 ```R
 # Agrega una nueva columna adicional a la matriz m para obtener una matriz de 4x4
+# Para ello usamos la función cbind()
 m_4x4 <- cbind(m, c(13, 14, 15, 16))
 m_4x4
 ```
@@ -282,6 +292,7 @@ data_frame_dist_cond <- data.frame(distance=c(4,4,4,7,8,5), condition=c("a","a",
 #Visualiza el data frame
 data_frame_dist_cond
 ```
+
 > También puedes visualizar el **data frame** desde el panel de **Environment**. Solo da **click** sobre el nombre del data frame creado. Inténtalo!
 
 Para ver un elemento en específico dentro del data frame:
@@ -350,10 +361,10 @@ df_age_name_gen <- data.frame(edades=edad,names_df=nombres,genero=genero)
 df_age_name_gen
 ```
 
-- Para ordena los valores por edad usa la función `order()`
+- Para ordenar los valores por edad usa la función `order()`
 
 ```R
-#ordernar por edades
+# ordernar por edades
 df_age_name_gen[order(df_age_name_gen$edades),]
 ```
 
