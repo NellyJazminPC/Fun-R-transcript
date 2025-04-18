@@ -269,6 +269,7 @@ Genera un reporte Rmarkdown copiando algunas líneas de código que hemos visto 
 
 - [Quarto or R Markdown?](https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/)
 - [Notebook format](https://bookdown.org/yihui/rmarkdown/notebook.html)
+- [Automatiza Tus Informes EN MINUTOS con R Markdown (Tutorial Desde Cero)](https://www.youtube.com/watch?v=-G_TXW9BnxQ)
 
 -----------
 

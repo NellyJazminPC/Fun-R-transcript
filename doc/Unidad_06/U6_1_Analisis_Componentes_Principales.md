@@ -6,7 +6,7 @@
 
 ---
 
-## [EXTRA: 6.0 Análisis de Agrupamiento](../Unidad_06/U6_0_Analisis_agrupamiento.md)
+#### [EXTRA: 6.0 Análisis de Agrupamiento](../Unidad_06/U6_0_Analisis_agrupamiento.md)
 
 ---
 
@@ -558,7 +558,7 @@ Para mayor información puedes revisar el pre-print de [Galván y colaboradores 
 
 -----
 
-## Extra: [Análisis de Agrupamiento](../U6_0_Analisis_agrupamiento.md)
+#### Extra: [Análisis de Agrupamiento](../U6_0_Analisis_agrupamiento.md)
 ------
 
 ## Siguiente tema: [6.2 Generación de reportes con Rmarkdown](../Unidad_06/U6_2_Rmarkdown.md)
