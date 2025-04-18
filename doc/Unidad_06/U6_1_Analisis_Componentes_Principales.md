@@ -4,11 +4,15 @@
 
 - [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vRz4W_GUQChrKUkOWPMqGID4mjiJwLa9kym7ikm1qqOEmGyjpqLUwVLrGbSsj15Qu5IqWwSHf8_scYq/pub?start=false&loop=false&delayms=10000)
 
-- [Script U6_1-2_Clustering_PCA.R](../../bin/U6_1-2_Clustering_PCA.R) de esta unidad en la carpeta **bin**
+---
+
+## [EXTRA: 6.0 Análisis de Agrupamiento](../Unidad_06/U6_0_Analisis_agrupamiento.md)
 
 ---
 
 ## 6.1 Análisis de Componentes Principales
+
+- [Script U6_1_PCA.R](../../bin/U6_1_PCA.R) de esta unidad en la carpeta **bin**
 
 ---
 

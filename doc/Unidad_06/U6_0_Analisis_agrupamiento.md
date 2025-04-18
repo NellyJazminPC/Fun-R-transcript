@@ -4,11 +4,11 @@
 
 - [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vRz4W_GUQChrKUkOWPMqGID4mjiJwLa9kym7ikm1qqOEmGyjpqLUwVLrGbSsj15Qu5IqWwSHf8_scYq/pub?start=false&loop=false&delayms=10000)
 
-- [Script U6_1-2_Clustering_PCA.R](../../bin/U6_1-2_Clustering_PCA.R) de esta unidad en la carpeta **bin**
-
 ---
 
 ## EXTRA: Análisis de Agrupamiento
+
+- [Script U6_0_Clustering.R](../../bin/U6_0_Clustering.R) de esta unidad en la carpeta **bin**
 
 ---
 
@@ -381,4 +381,4 @@ fviz_cluster(irisK, data = datos, repel = TRUE)
 
 # Siguiente tema: 
 
-[6.2 Análisis de Componentes Principales](../Unidad_06/U6_2_Analisis_Componentes_Principales.md)
+[6.1 Análisis de Componentes Principales](../Unidad_06/U6_1_Analisis_Componentes_Principales.md)
