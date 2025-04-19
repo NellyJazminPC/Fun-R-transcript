@@ -6,6 +6,8 @@
 
 ## 1.4 Rutas; abrir y guardar archivos
 
+- [Script U1_4_leer_guardar.R](../../bin/U1_4_leer_guardar.R) de esta unidad en la carpeta **bin**
+
 ---
 
 ### Aspectos básicos
