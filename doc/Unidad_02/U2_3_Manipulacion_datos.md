@@ -14,27 +14,33 @@
 
 ---
 
-### Aspectos básicos
+## 2.3.1 Aspectos básicos
 
-1. Funciones Básicas de Manipulación de Datos
+**1. Funciones Básicas de Manipulación de Datos**
 
 
-# Operadores lógicos
+#### Operadores lógicos
+
+```R
+#Crea dos variable y asignales el valor de 5 y 15 
+x <- 5
+y <- 15
+#Usa los operadores lógicos:
+x > 5 
+x == y # Compara si dos valores son exactamente iguales
+x != y # Compara si dos valores son diferentes
+x & (y < 10) # Evalúa si ambas condiciones son verdaderas
+
+x | (y < 10) # Evalúa si al menos una condición es verdadera
 
 ```
-x > 5
-x == y
-x != y
-x & (y < 10)
-x | (y < 10)
-```
+
+#### Otros caracteres especiales:
+![alt text](image-3.png)
 
 - `is.na()`
 
 La función `is.na()` se utiliza para **identificar valores NA** (faltantes) en un vector o data frame.
-
-Otros caracteres especiales:
-![alt text](image-3.png)
 
 #### Ejemplo de `is.na()`
 
@@ -46,7 +52,6 @@ vector_with_na <- c(1, 2, NA, 4, NA, 6)
 is.na(vector_with_na)
 
 ```
-
 
 **2. Diferencias entre formatos ancho (Wide) y largo (Long)**
 
@@ -66,14 +71,11 @@ En el formato **long**, las observaciones se registran en **filas adicionales**,
 
 Las funciones y conceptos anteriores proporcionan una base para la manipulación de datos en R. Ahora vamos a continuar con los paquetes especializados para la manipulación de datos en R:
 
-- **reshape2**: Para transformar y reorganizar data frames.
+- **tidyr**: Para cambiar entre formatos _wide_ y _long_.
 
-- **tidyr**: Para cambiar entre formatos wide y long.
+- **dplyr**: Para la manipulación eficiente de _data frames_.
 
-- **dplyr**: Para la manipulación eficiente de data frames.
-
-- **magrittr**: Para mejorar la legibilidad del código utilizando tuberías (%>%).
-
+- **magrittr**: Para mejorar la legibilidad del código utilizando tuberías o _pipes_ (%>%).
 
 ---
 
@@ -85,7 +87,7 @@ El paquete **tidyr** es parte del ecosistema de **tidyverse** en R, fue diseñad
 
 El nombre **tidyr** proviene de la combinación de las palabras "tidy" (ordenado) y "R". El objetivo del paquete es **transformar los datos en un formato ordenado**.
 
-### ¿Qué Son los Datos Ordenados?
+### ¿Qué son los datos ordenados?
 
 En **tidyverse**, los **datos ordenados** son aquellos en los que **cada variable se guarda en una columna**, cada **observación** se guarda en una **fila** y cada tipo de **unidad observacional** forma una **tabla**. Este formato facilita el análisis y la visualización de datos.
 
@@ -131,7 +133,7 @@ La base de datos iris contiene las siguientes columnas:
 - Species: Especie de la flor.
 
 ```R
-#Carga tidyr
+#Carga el paquete tidyr
 library(tidyr)
 
 #Si no tienes instalado el paquete usa:
@@ -176,18 +178,29 @@ dim(iris_separated)
 
 ```R
 # Usar pivot_longer() para convertir de wide a long
-iris_long_pivot <- pivot_longer(iris, cols = starts_with("Sepal") | starts_with("Petal"), names_to = "Measurement", values_to = "Value")
-head(iris_long_pivot)
-dim(iris_long_pivot)
+iris_long_pivot <- pivot_longer(
+  iris, 
+  cols = c(starts_with("Sepal"), starts_with("Petal")), 
+  names_to = "Measurement", 
+  values_to = "Value"
+)
+#Revisa el data.frame:
+class(iris_long_pivot)
+print(iris_long_pivot)
 
 # Usar pivot_wider() para convertir de long a wide
-iris_wide_pivot <- pivot_wider(iris_long_pivot, names_from = "Measurement", values_from = "Value")
+iris_wide_pivot <- pivot_wider(
+  iris_long_pivot, 
+  names_from = "Measurement", 
+  values_from = "Value")
+#Revisa el data frame
 head(iris_wide_pivot)
 dim(iris_wide_pivot)
-
 ```
 
-Ambos paquetes, **reshape2** y **tidyr**, son herramientas poderosas para la **manipulación y transformación de datos** en R. La elección entre ellos puede depender de la familiaridad del usuario con tidyverse y la necesidad de funcionalidad y flexibilidad adicionales proporcionadas por **tidyr**. Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, tidyr con **pivot_longer()** y **pivot_wider()** es la opción preferida.
+El paquete **tidyr**, es una herramienta poderosa para la **manipulación y transformación de datos** en R. 
+
+Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, **tidyr** con `pivot_longer()` y `pivot_wider()` es una opción recomendada.
 
 ### 2.3.2 Fuentes de información
 
@@ -233,7 +246,7 @@ result <- 1:10 %>%
   sum() %>% 
   sqrt()
 
-result
+print(result)
 # Output: 7.416198
 ```
 
@@ -269,7 +282,7 @@ head(mutated_iris)
 Ahora, veamos el código si incorporamos **%>%**:
 
 ```R
-# Carga la base de datos iris y los paquetes dplyr y magrittr
+# Carga la base de datos iris y los paquetes dplyr y magrittr si aún no lo has hecho
 #data("iris")
 #library(dplyr)
 library(magrittr)
@@ -421,9 +434,7 @@ Después de ver esta diferencias, ¿qué opinas, vale la pena intentar usar **%>
 
 ---
 
-
-
-La **manipulación de datos** es una habilidad **esencial** en el análisis de datos. Los paquetes `reshape2`, `tidyr`, `dplyr` y `magrittr` proporcionan herramientas fundamentales para **transformar, limpiar y analizar** datos de manera eficiente. 
+La **manipulación de datos** es una habilidad **esencial** en el análisis de datos. Los paquetes `tidyr`, `dplyr` y `magrittr` proporcionan herramientas fundamentales para **transformar, limpiar y analizar** datos de manera eficiente. 
 
 Otros paquetes como `ggplot2`, `readr`, `data.table`, `vegan`, `phyloseq` y `ape` permiten profundizar en el manejo y analisis de datos en contextos más específicos (filogenético, evolutivo, ecológico, diversidad, etc.)
 

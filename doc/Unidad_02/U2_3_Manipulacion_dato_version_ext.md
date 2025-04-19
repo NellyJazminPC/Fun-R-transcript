@@ -346,15 +346,24 @@ dim(iris_separated)
 
 ```R
 # Usar pivot_longer() para convertir de wide a long
-iris_long_pivot <- pivot_longer(iris, cols = starts_with("Sepal") | starts_with("Petal"), names_to = "Measurement", values_to = "Value")
-head(iris_long_pivot)
-dim(iris_long_pivot)
+iris_long_pivot <- pivot_longer(
+  iris, 
+  cols = c(starts_with("Sepal"), starts_with("Petal")), 
+  names_to = "Measurement", 
+  values_to = "Value"
+)
+#Revisa el data.frame:
+class(iris_long_pivot)
+print(iris_long_pivot)
 
 # Usar pivot_wider() para convertir de long a wide
-iris_wide_pivot <- pivot_wider(iris_long_pivot, names_from = "Measurement", values_from = "Value")
+iris_wide_pivot <- pivot_wider(
+  iris_long_pivot, 
+  names_from = "Measurement", 
+  values_from = "Value")
+#Revisa el data frame
 head(iris_wide_pivot)
 dim(iris_wide_pivot)
-
 ```
 
 Ambos paquetes, **reshape2** y **tidyr**, son herramientas poderosas para la **manipulación y transformación de datos** en R. La elección entre ellos puede depender de la familiaridad del usuario con tidyverse y la necesidad de funcionalidad y flexibilidad adicionales proporcionadas por **tidyr**. Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, tidyr con **pivot_longer()** y **pivot_wider()** es la opción preferida.
