@@ -141,7 +141,7 @@ Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada
 Puedes acceder a la documentación de la función:
 
 ```R
-#Puedes acceder a la Ddocumentación de la función para crear matrices
+#Puedes acceder a la documentación de la función para crear matrices
 ?matrix
 ```
 
@@ -278,7 +278,7 @@ Los **Data Frames** o **Marcos de Datos** son estructuras que pueden **combinar 
 
 Para construir un **data frame** necesitas la función `data.frame()`
 
-Para obtener solo una columna específica del data frame puedes usar corchetes **[]** como en caso de las matrices, o el operador compacto `$`.
+Para obtener solo una columna específica del data frame puedes usar corchetes **[ ]** como en caso de las matrices, o el operador compacto `$`.
 
 
 #### Ejemplo
@@ -341,7 +341,10 @@ nombres <- c("Jaime", "Mateo", "Olivia", "Javier","Sandra")
 nombres
 genero <- c("M", "M", "F", "M", "F")
 genero
-
+#Puedes usar la función print() para ver las variables generadas
+print(edad)
+print(nombres)
+print(genero)
 ```
 
 - Ordena los valores por edad.
@@ -349,14 +352,14 @@ genero
 > _tip_: función `order()`
 
 
-#### Soluciones:
+#### Soluciones data.frame:
 
 - Crea un data frame (df)
 
 ```R
 # Puedes asignarle otro nombre a las columnas que aparecerán en tu df
 # Renombra las columnas
-df_age_name_gen <- data.frame(edades=edad,names_df=nombres,genero=genero)
+df_age_name_gen <- data.frame(edades=edad, names_df=nombres, genero=genero)
 
 df_age_name_gen
 ```

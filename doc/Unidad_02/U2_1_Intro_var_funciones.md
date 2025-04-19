@@ -51,7 +51,7 @@ Escribe los siguiente en tu editor en RStudio
 > Recuerda que para ejecutar cada operación hay que dar click en **Run** o **Ctrl + Enter** (Windows) o **Command + Enter** (MacOs).
 
 ```R
-# Recordando el ejemplo de la caja, la caja en donde guardaras el valor 5 se llamará x
+# Recordando el ejemplo de la caja, la caja en donde guardarás el valor 5, se llamará x
  x <- 5
 # Ahora revisa lo que tiene tu variable x
 x
@@ -166,7 +166,7 @@ Previamente, vimos de manera general que con las funciones damos instrucciones a
 
 ![alt text](<Captura de pantalla 2025-03-27 a la(s) 3.57.40 p.m..png>)
 
-> REPASO: Recordemos cómo se "llama" una función. Empiezan por el nombre de la función (plot), seguido por paréntesis, en donde estan los argumentos y parámetros:
+> REPASO: Recordemos cómo se "llama" una función. Empiezan por el nombre de la función (plot), seguido por paréntesis, en donde están los argumentos y parámetros:
 
 La siguiente imagen muestra cómo usamos la función `plot`para realizar una operación, que en este caso es generar un gráfico. 
 
@@ -178,7 +178,7 @@ Imagina que una función es como una maquina a la que agregas diferentes ingredi
 
 ![alt text](image_2.1_05.png)
 
-Esos ejemplos ilustran bien la idea de una caja o dispositivo mágico donde se introducen materiales y se obtiene un resultado final de manera sorprendente, similar a cómo funcionan las funciones en R: introduciendo **argumentos (inputs)**, procesándolos y obteniendo un **resultado (output)**.
+Esos ejemplos ilustran bien la idea de una caja o dispositivo mágico donde se introducen materiales y se obtiene un resultado final de manera sorprendente, similar a cómo funcionan las funciones en R: introduciendo **parámetros o argumentos (inputs)**, **procesándolos** y obteniendo un **resultado (output)**.
 
 ![alt text](image_2.1_04.png)
 
@@ -257,7 +257,7 @@ Si quieres saber cómo está construida otra función, escribe el nombre de la f
 
 ### Tips en el editor y en la línea de comandos de la consola
 
-En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente la utilidad de **Tab**. Recordemoslo ahora:
+En la [Unidad 1.2 RStudio](../Unidad_01/U1_2_Rstudio.md) mencionamos brevemente la utilidad de **Tab**. Recordémoslo ahora:
 
 - Al presionar 1 vez Tab (tabulador), se muestran sugerencias
 
