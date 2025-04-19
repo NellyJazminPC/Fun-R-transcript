@@ -440,4 +440,4 @@ Otros paquetes como `ggplot2`, `readr`, `data.table`, `vegan`, `phyloseq` y `ape
 
 ---
 
-### Siguiente tema: [3.1 Gráficos en R](../Unidad_03/U3_notebook.pdf)
+### Siguiente tema: [3.1 Gráficos en R](../Unidad_03/)
