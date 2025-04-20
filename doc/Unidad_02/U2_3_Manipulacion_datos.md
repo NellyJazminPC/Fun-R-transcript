@@ -115,7 +115,9 @@ Requieren especificar manualmente todas las columnas que se deben transformar.
 Son más recientes y ofrecen una sintaxis más intuitiva y flexible.
 Permiten usar patrones para seleccionar columnas, lo que simplifica la transformación de datos.
 
-#### Ejemplos con la base de datos "Iris"
+## gather() y spread()
+
+#### Ejemplos de gather y spread con la base de datos "Iris"
 
 ```R
 # Carga la base de datos iris
@@ -158,21 +160,7 @@ head(iris_wide_again)
 
 ![alt text](image_8.png)
 
-Con `unite()` vamos a crear una columna que combine la especie y la longitud del sépalo, luego con `separate()` la separaremos en dos columnas
-
-```R
-# Crea una nueva columna combinada
-iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
-head(iris_combined)
-dim(iris_combined)
-
-# Usa separate() para dividir la columna combinada
-iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
-head(iris_separated)
-dim(iris_separated)
-```
-
-![alt text](image-6.png)
+---
 
 #### EXTRA: pivot_longer() y pivot_wider()
 
@@ -198,9 +186,38 @@ head(iris_wide_pivot)
 dim(iris_wide_pivot)
 ```
 
+Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, **tidyr** con `pivot_longer()` y `pivot_wider()` es una opción recomendada.
+
+---
+
+## separate() y unite()
+
+- **separate()** divide variables complejas en variables individuales
+
+- **unite()** une varias variables en una sola columna 
+
+#### Continuando con unite y separate
+
+Con `unite()` vamos a **crear una columna** que **combine la especie y la longitud del sépalo**, luego con `separate()` la **separaremos en dos columnas**.
+
+```R
+# Crea una nueva columna combinada
+iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
+head(iris_combined)
+dim(iris_combined)
+
+# Usa separate() para dividir la columna combinada
+iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
+head(iris_separated)
+dim(iris_separated)
+```
+
+![alt text](image-6.png)
+
+---
+
 El paquete **tidyr**, es una herramienta poderosa para la **manipulación y transformación de datos** en R. 
 
-Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, **tidyr** con `pivot_longer()` y `pivot_wider()` es una opción recomendada.
 
 ### 2.3.2 Fuentes de información
 
@@ -221,8 +238,13 @@ Las **principales funciones** de **dplyr** incluyen:
 - `filter()`: selecciona filas de un data frame según ciertas condiciones.
 - `group_by()`: agrupa datos por una o más variables.
 - `summarize()`: calcula estadísticas resumidas, como medias o desviaciones estándar, para cada grupo de datos.
+- `select()`: selecciona variables (columnas) basado en sus nombres.
 
 ![alt text](image-5.png)
+
+Para más información, se recomienda la siguiente página: [Visualizing {dplyr}’s mutate(), summarize(), group_by(), and ungroup() with animations](https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/)
+
+---
 
 ### Introducción a magrittr
 
@@ -252,10 +274,12 @@ print(result)
 
 ---
 
+### dplyr y magrittr
+
 Ahora, comenzaremos a usar **dplyr** y veremos las diferencias entre usar o no el **pipe** de **magrittr**. Seguiremos usando la base de datos de Iris:
 
 
-#### Ejemplo de mutate()
+#### Ejemplo con mutate() de dplyr y magrittr
 
 ![alt text](image-7.png)
 
@@ -422,6 +446,30 @@ summary_iris_pipe <- iris %>%
 print(summary_iris)
 
 ```
+
+#### EXTRA de dplyr + magrittr
+
+![alt text](extra_dplyr_magrittr.png)
+
+```R
+#Cargar las librerías 
+library(gapminder)
+library(magrittr)
+library(dplyr)
+#Base de datos
+gapminder
+#Renombra la base de datos con un nombre más corto
+gm=gapminder
+#Muestra las primeras líneas de la base de datos renombrada
+head(gm)
+#Utiliza magrittr para manipular los datos y obtener un resumen estadístico de los datos
+gm %>%
+mutate(gdp=gdpPercap+pop) %>%
+filter(continent==”Asia”) %>%
+group_by(year) %>%
+summarize(mean(lifeExp), mean(gdp))
+```
+
 
 Después de ver esta diferencias, ¿qué opinas, vale la pena intentar usar **%>%**?
 

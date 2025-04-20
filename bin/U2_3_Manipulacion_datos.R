@@ -55,19 +55,6 @@ iris_wide_again <- spread(iris_long, key = "Measurement", value = "Value")
 # Ver el data frame en formato wide
 head(iris_wide_again)
 
-### Ejemplo con unite() y separate()
-
-# Crea una nueva columna combinada
-iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
-head(iris_combined)
-dim(iris_combined)
-
-# Usa separate() para dividir la columna combinada
-iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
-head(iris_separated)
-dim(iris_separated)
-
-
 ### EXTRA: pivot_longer() y pivot_wider()
 
 # Usar pivot_longer() para convertir de wide a long
@@ -89,6 +76,19 @@ iris_wide_pivot <- pivot_wider(
 #Revisa el data frame
 head(iris_wide_pivot)
 dim(iris_wide_pivot)
+
+
+### Ejemplo con unite() y separate()
+
+# Crea una nueva columna combinada
+iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
+head(iris_combined)
+dim(iris_combined)
+
+# Usa separate() para dividir la columna combinada
+iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
+head(iris_separated)
+dim(iris_separated)
 
 
 ##################### dplyr   y   magrittr #####################
