@@ -8,7 +8,7 @@
 
 ## EXTRA: Análisis de Agrupamiento
 
-- [Script U6_0_Clustering.R](../../bin/U6_0_Clustering.R) de esta unidad en la carpeta **bin**
+- [Script U6_0_Clustering.R](../../bin/U6_0_Clustering.r) de esta unidad en la carpeta **bin**
 
 ---
 
