@@ -193,6 +193,6 @@ Esta forma de importar archivos puede ser la más facil al principio, pero confo
 - [Lectura de bases de datos](https://fhernanb.github.io/Manual-de-R/read.html)
 - [Exportar datos](https://bookdown.org/jboscomendoza/r-principiantes4/exportar-datos.html)
 
---------
+---
 
 ### Siguiente tema: [Unidad 2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)
