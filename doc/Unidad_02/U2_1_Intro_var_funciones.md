@@ -10,6 +10,8 @@
 
 ## 2.1 Introducción a las variables y funciones
 
+- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
+
 - [Script U2_1_Intro_Var_Fun.R](../../bin/U2_1_Intro_Var_Fun.R) de esta unidad en la carpeta **bin**
 
 ---

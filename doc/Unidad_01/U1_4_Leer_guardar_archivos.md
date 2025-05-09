@@ -6,6 +6,8 @@
 
 ## 1.4 Rutas; abrir y guardar archivos
 
+- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
+
 - [Script U1_4_leer_guardar.R](../../bin/U1_4_leer_guardar.R) de esta unidad en la carpeta **bin**
 
 ---

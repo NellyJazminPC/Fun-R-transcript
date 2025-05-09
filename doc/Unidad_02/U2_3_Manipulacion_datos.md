@@ -10,6 +10,8 @@
 
 ## 2.3 Manipulación de datos
 
+- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
+
 - [Script U2_3_Manipulacion_datos.R](../../bin/U2_3_Manipulacion_datos.R) de esta unidad en la carpeta **bin**
 
 ---
