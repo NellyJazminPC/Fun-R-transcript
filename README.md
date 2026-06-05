@@ -65,7 +65,7 @@ El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a vie
     - Estadística inferencial 
 
   - **Unidad 5** *(Viernes 19 de Junio)*
-    - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom.
+    - Análisis estadísticos: LM, GLMs y GLMMs.
 
   - **Unidad 6** *(Lunes 22 de Junio)*
     - [6.1 Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)
