@@ -140,7 +140,7 @@ Para el cierre de la primera semana, cada equipo deberá tener definido:
 - tipo de datos que utilizarán;
 - análisis o flujo de trabajo que desean presentar.
 
-La **rúbrica del proyecto final** estará disponible [aquí]() en el repositorio.
+La **rúbrica del proyecto final** estará disponible [aquí](https://docs.google.com/presentation/d/e/2PACX-1vSerGawHdg5XaqcxUnH-8HjjCqR9_ecevd2sKj1tHlLcfkTSCv-1QYXZktQLBQMdQ/pub?start=false&loop=false&delayms=60000) en el repositorio.
 
 ---
 
