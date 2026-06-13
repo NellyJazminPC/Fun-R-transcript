@@ -13,14 +13,16 @@ Este repositorio contiene los materiales del curso: documentos de apoyo, scripts
 - **Dr. Jorge E. Campos Contreras**  
   jorge.campos@iztacala.unam.mx
 
+- **M. en C. Nelly Jazmín Pacheco Cruz**  
+  nelly.pacheco.cruz@iztacala.unam.mx
+
 - **Dr. Héctor Salgado Ortiz**  
   bio.h.salgado@gmail.com
 
 - **Dra. María Teresa Ortiz Melo**  
   teresaortiz@iztacala.unam.mx
 
-- **M. en C. Nelly Jazmín Pacheco Cruz**  
-  nelly.pacheco.cruz@iztacala.unam.mx
+
 
 ---
 
@@ -239,17 +241,69 @@ install.packages(c( "tidyverse", "magrittr", "dslabs", "ggrepel", "psych", "broo
 ### Unidad 7. Introducción a transcriptómica
 
 ```r
-# Unidad 7
-# Código de instalación por liberar.
+# Unidad 7 y 8
+
+# Instalar BiocManager si no está instalado
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")}
+
+# Paquetes de CRAN
+install.packages(c(
+  "tidyverse",
+  "pheatmap",
+  "ggrepel",
+  "patchwork",
+  "RColorBrewer",
+  "viridis",
+  "knitr",
+  "rmarkdown"))
+
+# Paquetes de Bioconductor
+BiocManager::install(c(
+  "airway",
+  "SummarizedExperiment",
+  "DESeq2",
+  "AnnotationDbi",
+  "org.Hs.eg.db",
+  "clusterProfiler",
+  "enrichplot",
+  "EnhancedVolcano",
+  "apeglm",
+  "ComplexHeatmap"))
 ```
 
 ### Unidad 8. Expresión diferencial
 
-Algunos paquetes especializados podrán instalarse desde Bioconductor durante esta unidad.
-
 ```r
-# Unidad 8
-# Código de instalación por liberar.
+# Unidad 7 y 8
+
+# Instalar BiocManager si no está instalado
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")}
+
+# Paquetes de CRAN
+install.packages(c(
+  "tidyverse",
+  "pheatmap",
+  "ggrepel",
+  "patchwork",
+  "RColorBrewer",
+  "viridis",
+  "knitr",
+  "rmarkdown"))
+
+# Paquetes de Bioconductor
+BiocManager::install(c(
+  "airway",
+  "SummarizedExperiment",
+  "DESeq2",
+  "AnnotationDbi",
+  "org.Hs.eg.db",
+  "clusterProfiler",
+  "enrichplot",
+  "EnhancedVolcano",
+  "apeglm",
+  "ComplexHeatmap"))
 ```
 
 ### Unidad 9. Visualización, enriquecimiento funcional e IA
