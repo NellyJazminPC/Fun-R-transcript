@@ -1,203 +1,254 @@
-# CURSO: Fundamentos de Programación en R para análisis transcriptómicos
+# Fundamentos de Programación en R para análisis transcriptómicos
 
+Curso presencial teórico-práctico orientado al uso de **R** y **RStudio** para el análisis, visualización e interpretación de datos biológicos, con énfasis en aplicaciones introductorias al análisis transcriptómico.
 
-### INSTRUCTORES:
-
-- Dr. Jorge E. Campos Contreras
-    - jorge.campos@iztacala.unam.mx
-- Dr. Hector Salgado Ortiz
-    - bio.h.salgado@gmail.com
-- Dra. Maria Teresa Ortiz Melo
-    - teresaortiz@iztacala.unam.mx 
-- M. en C. Nelly Jazmín Pacheco Cruz
-    - nelly.pacheco.cruz@iztacala.unam.mx
-  
----
-
-### OBJETIVO GENERAL 
-
-El participante conocerá los fundamentos de programación en R para su aplicación en análisis transcriptómicos. 
+Este repositorio contiene los materiales del curso: documentos de apoyo, scripts, datos de ejemplo, prácticas y recursos complementarios.
 
 ---
 
-### OBJETIVOS ESPECÍFICOS
+## Instructores
 
-Comprender los fundamentos de programación en R para el análisis de datos biológicos.
+- **Dr. Jorge E. Campos Contreras**  
+  jorge.campos@iztacala.unam.mx
 
-Conocer los fundamentos teóricos del campo de estudio de la transcriptómica y sus principales análisis desde el lenguaje de programación R.  
+- **Dr. Héctor Salgado Ortiz**  
+  bio.h.salgado@gmail.com
 
----
+- **Dra. María Teresa Ortiz Melo**  
+  teresaortiz@iztacala.unam.mx
 
-**ENCUADRE**    
-
-El curso se ofrecerá en la modalidad presencial con cuatro horas de lunes a viernes durante dos semanas (40h).
-
----
-
-### TEMARIO 
-
-- **FUNDAMENTOS DE PROGRAMACIÓN EN R**
-  - **Unidad 1** *(Lunes 15 de Junio)*
-    - [1.1 Introducción a R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_1_Intro_R.md)
-    - [1.2 Uso de R Studio](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_2_Rstudio.md)
-    - [1.3 Generación de proyectos](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_01/U1_3_Gestion_proyectos.md)
-    - [1.4 Rutas; abrir y guardar archivos](doc/Unidad_01/U1_4_Leer_guardar_archivos.md)
-
-
-  - **Unidad 2** *(Martes 16 de Junio)*
-      - [2.1 Introducción a las variables y funciones](doc/Unidad_02/U2_1_Intro_var_funciones.md)
-      - [2.2 Estructuras de datos](doc/Unidad_02/U2_2_Estructuras_datos.md): aspectos básicos
-        - 2.2.1 Matrices
-        - 2.2.2 _Data.frames_ (marcos de datos)
-      - [2.3 Manipulación de datos](doc/Unidad_02/U2_3_Manipulacion_datos.md): aspectos básicos
-        - 2.3.1 tidyr, dplyr y magrittr
-
-
-  - **Unidad 3** *(Miércoles 17 de Junio)*
-    - [Gráficos en R](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_03/U3_notebook.pdf)
-    - Generación de gráficos sencillos
-    - Generación de gráficos complejos
-    - Modificando las características de los gráficos
-    - Múltiples figuras en un mismo gráfico. librería ggplot
-
-  - **Unidad 4** *(Jueves 18 de Junio)*
-    - Limpieza de datos
-    - Estadística inferencial 
-
-  - **Unidad 5** *(Viernes 19 de Junio)*
-    - Estadística multivariada: LM, GLMs y GLMMs librería tidy, librería broom.
-
-  - **Unidad 6** *(Lunes 22 de Junio)*
-    - [6.1 Análisis de Componentes Principales](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)
-    - [6.2 Generación de reportes en Rmarkdown](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_06/U6_2_Rmarkdown.md)
-
-- **ENFOQUE EN TRANSCRIPTÓMICA**
-
-  - **Unidad 7** *(Martes 23 de Junio)*
-    - Secuenciación masiva
-    - RNA-seq
-    - Flujo de trabajo
-
-  - **Unidad 8** *(Miércoles 24 de Junio)*
-    - [Expresión diferencial](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_08/U8_notebook.pdf)
-    - [Gráficos y visualización de resultados (primera parte)]()
-
-  - **Unidad 9** *(Jueves 25 de Junio)*
-    - [Gráficos y visualización de resultados (segunda parte)](https://github.com/NellyJazminPC/Fun-R-transcript/blob/main/doc/Unidad_09/U9_notebook.pdf)
-    - [Enriquecimiento funcional]()
-    - [IAs y R]()
-
-  - **Unidad 10** *(Viernes 26 de Junio)*
-    - Aplicaciones reales y dudas 2 horas
-    - [Exposiciones de sus proyectos finales](doc/Unidad_10/Trabajo_final.md)
+- **M. en C. Nelly Jazmín Pacheco Cruz**  
+  nelly.pacheco.cruz@iztacala.unam.mx
 
 ---
 
-### DINÁMICA DEL CURSO:
+## Objetivo general
 
-- Curso teórico y práctico
-- Horario: 10:00-14:00. Receso intermedio.
-- Proyecto final: equipos de 4-5 personas. Presentación el viernes 26 de junio
-
-- Todos los materiales de la clase estarán disponibles en este repositorio de Github https://github.com/NellyJazminPC/Fun-R-transcript
-
-### Proyecto final:
-
-- En equipos de 4-5 personas 
-- El trabajo se presentará el último día del curso (viernes 26 de junio).
-- Pueden consultar la [Rúbrica aquí](https://docs.google.com/presentation/d/e/2PACX-1vStG-G3J6JiqLi2y5rHR_udfwTYOmG4lQw6hvTueggdH6fqKk9GPsnGDzhGJMsD3A/pub?start=false&loop=false&delayms=3000).
-- Pueden seleccionar alguna de las siguientes opciones: 
-  - tutorial con datos del curso.
-  - tutorial con sus datos propios.
-  - pueden proponer algún análisis de los realizados en el curso con sus datos propios.
-
-Para el cierre de la primera semana, es necesario que tengan definido el tema del proyecto y que envíen la lista con los nombres de los integrantes de su equipo.
+El participante conocerá los fundamentos de programación en R para su aplicación en análisis transcriptómicos.
 
 ---
 
-## Antes de empezar...
+## Objetivos específicos
 
-- **¿Qué es [Github](https://github.com/)?**  
-
-![alt text](image.png)
-
-**GitHub** es una **plataforma en línea** que facilita el desarrollo colaborativo de software.  
-Permite a los desarrolladores **trabajar juntos** en proyectos de software al **alojar y compartir código fuente**, realizar seguimiento de problemas, proponer y revisar cambios, y colaborar en el desarrollo de aplicaciones y proyectos.
-
-En resumen es una **plataforma de desarrollo colaborativo** y de **acceso gratuito** (con límite de acciones y repositorios privados)
-
-- **¿Por qué usar Github?**
-
-1. **Transparencia y reproducibilidad:** Al alojar el código y los datos en GitHub, los estudiantes pueden crear un registro transparente de su trabajo bioinformático. Esto facilita la revisión y la reproducción de los análisis realizados, lo que contribuye a la transparencia y la reproducibilidad de los resultados.
-1. **Colaboración y trabajo en equipo:** GitHub facilita la colaboración, permitiendo que múltiples personas trabajen juntas en proyectos de bioinformática. Por ejemplo, los estudiantes pueden compartir código, datos y documentos de manera eficiente, lo que fomenta el trabajo en equipo y la colaboración.
-3. **Comentarios y retroalimentación:** GitHub proporciona herramientas para que los estudiantes y el profesor comenten y revisen el código y los documentos compartidos. Esto facilita la comunicación y la retroalimentación, lo que puede mejorar la comprensión y la calidad del trabajo realizado.
-4. **Gestión de proyectos:** GitHub ofrece funciones de gestión de proyectos, como tableros Kanban y seguimiento de problemas, que pueden ser útiles para organizar las tareas y el progreso del trabajo bioinformático. Por ejemplo, los estudiantes pueden utilizar estas herramientas para administrar sus proyectos y seguir el estado de las actividades asignadas.
-5. **Control de versiones:** GitHub utiliza Git como sistema de control de versiones, lo que permite realizar un seguimiento de los cambios en el código y los archivos de datos a lo largo del tiempo. Esto facilita la gestión de proyectos y la reversión a versiones anteriores en caso de errores o cambios no deseados.
-
-![alt text](image-1.png)
-
-En resumen, GitHub proporciona una plataforma robusta y colaborativa que puede mejorar significativamente la experiencia de aprendizaje al facilitar la colaboración, el control de versiones, la transparencia, la retroalimentación y la gestión de proyectos.
-
-- **¿En que parte de Github estamos?**
-
-Esto es un **Repositorio**, basicamente son espacios de almacenamiento donde se guarda el código de un proyecto. Cada repositorio tiene su propia URL.
-
-![alt text](image-2.png)
-
-Puedes descargar este repositorio entero y tenerlo  en tu computadora como otra carpeta más:
-
-Haz click en **< > Code** y en la opción de **Download Zip**
-![alt text](image-3.png)
-
-### ¡LISTO! ahora solo tienes que descomprimirla
+- Comprender los fundamentos de programación en R para el análisis de datos biológicos.
+- Aplicar herramientas básicas de R para importar, organizar, limpiar, analizar y visualizar datos.
+- Conocer los fundamentos generales de la transcriptómica y algunos de sus principales flujos de análisis desde R.
+- Desarrollar criterios básicos para interpretar resultados, revisar código y comunicar análisis de manera reproducible.
 
 ---
 
-## ¿Qué necesitamos?
+## Modalidad, duración y horario
 
-- Computadora personal
-- Windows 10. 4GB RAM
-- MacOS  > x10.11
-- Linux - Ubuntu
-- Espacio libre en disco duro, mínimo 30 GB.
-- Tener instalado R y Rstudio. Puedes descargarlo desde https://posit.co/download/rstudio-desktop/
+- **Modalidad:** presencial.
+- **Duración:** 40 horas.
+- **Periodo:** dos semanas, de lunes a viernes.
+- **Horario:** 10:00 a 14:00 h.
+- **Receso:** intermedio.
 
-[Aquí](https://drive.google.com/file/d/12I0TpB_Ivr1XJhWm-h4ca5s_4Ecx1pQ6/view?usp=sharing) esta un video tutorial para guiarte en la instalación de R y RStudio en Windows (2024). 
-
-A continuación te recomendamos estos videos en Youtube donde se muestra la instalación de R y RStudio en Windows 11 y en Ubuntu 24.04:
-
-- [Instalación de R y RStudio en Windows 11 (2025)](https://www.youtube.com/watch?v=V1y-fnfjJdw&t=3s)
-- [Instalación de R y RStudio en Ubuntu 24 (2025)](https://www.youtube.com/watch?v=d_aWs65C0dk&t=13s)
-
-
-### Instalación de paquetes:
-
-Puedes avanzar con la instalación de los siguientes paquetes que utilizaremos a lo largo del curso: (en progreso)
-
-- ggplot2
-- tidyr
-- dplyr
-- cluster
-- factoextra
-- FactoMineR
-- rmarkdown
-- BiocManager
-- DESeq2
-- RColorBrewer
-- EnhancedVolcano
-- VennDiagram
-- viridis
-- lattice
-- dendextend
-- forcats
-- ggthemes
+El curso combina explicaciones breves, demostraciones guiadas, ejercicios prácticos en R y discusión de resultados.
 
 ---
 
-## Fuentes de información recomendadas:
+## ¿Cómo usaremos este repositorio?
 
-- [Para instalación de R y Rstudio](https://swcarpentry.github.io/r-novice-gapminder-es/index.html) 
-- [Documentación en la página oficial de GitHub](https://docs.github.com/es)
+Este repositorio será el espacio principal para organizar y compartir los materiales del curso.
 
-- [Aprende Git y GitHub - Curso desde Cero (Youtube)](https://www.youtube.com/watch?v=mBYSUUnMt9M)
-- [RNASeq Workshop R-Bioconductor](http://biocluster.ucr.edu/~rkaundal/workshops/R_mar2016/RNAseq.html)
+Para facilitar el seguimiento, los materiales se liberarán de manera progresiva. Al inicio de cada sesión se indicará qué carpeta, archivo o enlace deberán utilizar los participantes. No es necesario descargar ni revisar todo el repositorio desde el primer día.
+
+Durante el curso usaremos GitHub principalmente para:
+
+- consultar materiales de cada sesión;
+- descargar scripts y datos de ejemplo;
+- mantener una estructura ordenada de trabajo;
+- favorecer la reproducibilidad de los análisis.
+
+No es necesario tener experiencia previa con GitHub. En cada sesión se indicará qué archivos abrir o descargar.
+
+---
+
+## Estructura general del curso
+
+El curso está organizado en dos bloques:
+
+1. **Fundamentos de programación en R**  
+   Introducción a R, RStudio, proyectos, rutas, estructuras de datos, manipulación, visualización, limpieza de datos, análisis estadísticos básicos, PCA y reportes reproducibles.
+
+2. **Enfoque en transcriptómica**  
+   Introducción a RNA-seq, flujo general de análisis, expresión diferencial, visualización de resultados, enriquecimiento funcional y reflexión crítica sobre el uso de IA en R y bioinformática.
+
+---
+
+## Temario por sesión
+
+### Semana 1. Fundamentos de programación en R
+
+| Unidad | Fecha | Tema general | Contenidos principales |
+|---|---|---|---|
+| Unidad 1 | Lunes 15 de junio | Introducción a R y RStudio | Introducción a R, uso de RStudio, creación de proyectos, rutas, abrir y guardar archivos. |
+| Unidad 2 | Martes 16 de junio | Variables, funciones y estructuras de datos | Variables, funciones, matrices, data frames, introducción a `tidyr`, `dplyr` y `%>%`. |
+| Unidad 3 | Miércoles 17 de junio | Gráficos en R | Gráficos sencillos y complejos, personalización de figuras, múltiples paneles y uso de `ggplot2`. |
+| Unidad 4 | Jueves 18 de junio | Limpieza de datos e introducción a estadística inferencial | Revisión, organización y limpieza de datos; aproximación a pruebas estadísticas e interpretación básica. |
+| Unidad 5 | Viernes 19 de junio | Modelos estadísticos en R | Introducción aplicada a modelos lineales, modelos generalizados y ejemplos biológicos. Énfasis en lectura e interpretación de resultados. |
+
+### Semana 2. Análisis, reportes y enfoque transcriptómico
+
+| Unidad | Fecha | Tema general | Contenidos principales |
+|---|---|---|---|
+| Unidad 6 | Lunes 22 de junio | PCA y reportes reproducibles | Análisis de Componentes Principales y generación de reportes en RMarkdown. |
+| Unidad 7 | Martes 23 de junio | Introducción a transcriptómica | Secuenciación masiva, RNA-seq y flujo general de trabajo. |
+| Unidad 8 | Miércoles 24 de junio | Expresión diferencial | Introducción al análisis de expresión diferencial y visualización inicial de resultados. |
+| Unidad 9 | Jueves 25 de junio | Visualización, enriquecimiento funcional e IA | Visualización avanzada, enriquecimiento funcional y uso crítico de IA como apoyo para revisar, explicar o modificar scripts. |
+| Unidad 10 | Viernes 26 de junio | Aplicaciones reales y cierre | Dudas, integración de contenidos y presentación de proyectos finales. |
+
+---
+
+## Uso breve y crítico de IA
+
+En algunas sesiones se podrá cerrar con un **mini prompt de IA** de máximo 20 minutos.
+
+La dinámica será sencilla:
+
+1. Primero se trabajará el script en clase sin IA.
+2. Después se usará IA para una tarea pequeña y verificable.
+3. Finalmente se revisará si la respuesta tiene sentido con el código, los datos y la documentación.
+
+Ejemplos de uso:
+
+- explicar un bloque de código;
+- cambiar una característica de un gráfico;
+- detectar un posible error;
+- comentar un script;
+- proponer una modificación sencilla.
+
+La IA se usará como apoyo para explorar y revisar, no como sustituto de la práctica en R ni de la interpretación biológica.
+
+---
+
+## Proyecto final
+
+El proyecto final se realizará en **equipos de 4 a 5 personas** y se presentará el **viernes 26 de junio**.
+
+Cada equipo podrá elegir una de las siguientes opciones:
+
+- elaborar un tutorial con datos del curso;
+- elaborar un tutorial con datos propios;
+- proponer una adaptación de alguno de los análisis realizados durante el curso usando datos propios.
+
+Para el cierre de la primera semana, cada equipo deberá tener definido:
+
+- integrantes del equipo;
+- tema general del proyecto;
+- tipo de datos que utilizarán;
+- análisis o flujo de trabajo que desean presentar.
+
+La rúbrica del proyecto final estará disponible en el repositorio o mediante el enlace indicado por los instructores.
+
+---
+
+## Antes de empezar
+
+### ¿Qué es GitHub?
+
+GitHub es una plataforma en línea que permite alojar, compartir y organizar archivos de proyectos de programación, análisis de datos y documentación.
+
+En este curso lo usaremos como un repositorio de materiales. Un repositorio es un espacio donde se guardan archivos relacionados con un proyecto.
+
+### ¿Cómo descargar materiales?
+
+Cuando se indique en clase, podrán descargar los archivos necesarios desde este repositorio.
+
+Una forma sencilla de hacerlo es:
+
+1. Entrar al repositorio del curso.
+2. Hacer clic en el botón **Code**.
+3. Seleccionar **Download ZIP**.
+4. Descomprimir el archivo en una carpeta local de su computadora.
+
+También se podrán descargar archivos específicos conforme se vayan liberando en cada sesión.
+
+---
+
+## Requisitos técnicos
+
+Para participar en el curso se recomienda contar con:
+
+- computadora personal;
+- sistema operativo Windows, macOS o Linux;
+- al menos 4 GB de RAM;
+- al menos 30 GB de espacio libre en disco;
+- conexión a internet;
+- R instalado;
+- RStudio instalado.
+
+Pueden descargar R y RStudio desde:
+
+<https://posit.co/download/rstudio-desktop/>
+
+---
+
+## Instalación de paquetes
+
+Durante el curso utilizaremos distintos paquetes de R. La instalación podrá realizarse de forma guiada durante las sesiones, pero se recomienda revisar con anticipación que R y RStudio abran correctamente.
+
+Algunos paquetes que se utilizarán son:
+
+```r
+install.packages(c(
+  "ggplot2",
+  "tidyr",
+  "dplyr",
+  "cluster",
+  "factoextra",
+  "FactoMineR",
+  "rmarkdown",
+  "RColorBrewer",
+  "VennDiagram",
+  "viridis",
+  "lattice",
+  "dendextend",
+  "forcats",
+  "ggthemes"
+))
+```
+
+Para instalar paquetes de Bioconductor, primero se puede instalar `BiocManager`:
+
+```r
+install.packages("BiocManager")
+```
+
+Algunos paquetes especializados podrán instalarse durante las sesiones correspondientes, por ejemplo:
+
+```r
+BiocManager::install(c(
+  "DESeq2",
+  "EnhancedVolcano"
+))
+```
+
+---
+
+## Fuentes de información recomendadas
+
+- Instalación e introducción a R:  
+  <https://swcarpentry.github.io/r-novice-gapminder-es/index.html>
+
+- Documentación oficial de GitHub:  
+  <https://docs.github.com/es>
+
+- Aprende Git y GitHub. Curso desde cero:  
+  <https://www.youtube.com/watch?v=mBYSUUnMt9M>
+
+- RNASeq Workshop R-Bioconductor:  
+  <http://biocluster.ucr.edu/~rkaundal/workshops/R_mar2016/RNAseq.html>
+
+---
+
+## Recomendación final
+
+Antes de la primera sesión, se recomienda:
+
+- instalar R y RStudio;
+- abrir RStudio para verificar que funcione;
+- crear una carpeta local para guardar los materiales del curso;
+- revisar este repositorio al inicio de cada sesión para identificar los archivos indicados por los instructores.

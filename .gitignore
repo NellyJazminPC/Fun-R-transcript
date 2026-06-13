@@ -15,3 +15,5 @@ bin/Pruebas/
 *.Rproj.user*
 
 .Rproj.user
+
+archive/
