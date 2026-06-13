@@ -191,36 +191,97 @@ Pueden descargar R y RStudio desde:
 
 ## Instalación de paquetes
 
-Durante el curso utilizaremos distintos paquetes de R. La instalación podrá realizarse de forma guiada durante las sesiones, pero se recomienda revisar con anticipación que R y RStudio abran correctamente.
+Durante el curso utilizaremos distintos paquetes de R. La instalación se organizará por unidad para evitar instalar paquetes innecesarios desde el primer día.
 
-Algunos paquetes que se utilizarán son:
+La instalación podrá realizarse de forma guiada durante las sesiones, pero se recomienda revisar con anticipación que R y RStudio abran correctamente.
+
+> **Nota:** Los bloques de código se irán actualizando conforme se liberen los materiales de cada unidad.
+
+### Unidad 1. Introducción a R y RStudio
+
+Para la Unidad 1 se utilizarán principalmente funciones básicas de R. No se requiere instalar paquetes adicionales.
 
 ```r
-install.packages(c(
-  "ggplot2",
-  "tidyr",
-  "dplyr",
-  "cluster",
-  "factoextra",
-  "FactoMineR",
-  "rmarkdown",
-  "RColorBrewer",
-  "VennDiagram",
-  "viridis",
-  "lattice",
-  "dendextend",
-  "forcats",
-  "ggthemes"
-))
+# Unidad 1
+# No se requiere instalación adicional.
 ```
 
-Para instalar paquetes de Bioconductor, primero se puede instalar `BiocManager`:
+### Unidad 2. Variables, funciones y estructuras de datos
+
+```r
+# Unidad 2
+# Código de instalación por liberar.
+```
+
+### Unidad 3. Gráficos en R
+
+```r
+# Unidad 3
+# Código de instalación por liberar.
+```
+
+### Unidad 4. Limpieza de datos e introducción a estadística inferencial
+
+```r
+# Unidad 4
+# Código de instalación por liberar.
+```
+
+### Unidad 5. Modelos estadísticos en R
+
+```r
+# Unidad 5
+# Código de instalación por liberar.
+```
+
+### Unidad 6. PCA y reportes reproducibles
+
+```r
+# Unidad 6
+# Código de instalación por liberar.
+```
+
+### Unidad 7. Introducción a transcriptómica
+
+```r
+# Unidad 7
+# Código de instalación por liberar.
+```
+
+### Unidad 8. Expresión diferencial
+
+Algunos paquetes especializados podrán instalarse desde Bioconductor durante esta unidad.
+
+```r
+# Unidad 8
+# Código de instalación por liberar.
+```
+
+### Unidad 9. Visualización, enriquecimiento funcional e IA
+
+```r
+# Unidad 9
+# Código de instalación por liberar.
+```
+
+### Unidad 10. Aplicaciones reales y cierre
+
+No se espera instalar paquetes nuevos, salvo que el proyecto de cada equipo lo requiera.
+
+```r
+# Unidad 10
+# No se espera instalación adicional.
+```
+
+### Paquetes de Bioconductor
+
+Para instalar paquetes de Bioconductor, primero se requiere instalar `BiocManager`:
 
 ```r
 install.packages("BiocManager")
 ```
 
-Algunos paquetes especializados podrán instalarse durante las sesiones correspondientes, por ejemplo:
+Después se podrán instalar los paquetes especializados indicados por los instructores en la unidad correspondiente. Por ejemplo:
 
 ```r
 BiocManager::install(c(
