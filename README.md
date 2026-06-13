@@ -1,5 +1,7 @@
 # Fundamentos de Programación en R para análisis transcriptómicos
 
+![alt text](banner.png)
+
 Curso presencial teórico-práctico orientado al uso de **R** y **RStudio** para el análisis, visualización e interpretación de datos biológicos, con énfasis en aplicaciones introductorias al análisis transcriptómico.
 
 Este repositorio contiene los materiales del curso: documentos de apoyo, scripts, datos de ejemplo, prácticas y recursos complementarios.
