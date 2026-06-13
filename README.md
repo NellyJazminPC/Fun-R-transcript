@@ -79,33 +79,35 @@ El curso está organizado en dos bloques:
    Introducción a RNA-seq, flujo general de análisis, expresión diferencial, visualización de resultados, enriquecimiento funcional y reflexión crítica sobre el uso de IA en R y bioinformática.
 
 ---
+![alt text](flujo_trabajo.png)
+---
+
 
 ## Temario por sesión
 
+Los materiales se liberarán progresivamente. Al inicio de cada sesión se indicará qué archivos deberán abrirse o descargarse.
+
 ### Semana 1. Fundamentos de programación en R
 
-| Unidad | Fecha | Tema general | Contenidos principales |
-|---|---|---|---|
-| Unidad 1 | Lunes 15 de junio | Introducción a R y RStudio | Introducción a R, uso de RStudio, creación de proyectos, rutas, abrir y guardar archivos. |
-| Unidad 2 | Martes 16 de junio | Variables, funciones y estructuras de datos | Variables, funciones, matrices, data frames, introducción a `tidyr`, `dplyr` y `%>%`. |
-| Unidad 3 | Miércoles 17 de junio | Gráficos en R | Gráficos sencillos y complejos, personalización de figuras, múltiples paneles y uso de `ggplot2`. |
-| Unidad 4 | Jueves 18 de junio | Limpieza de datos e introducción a estadística inferencial | Revisión, organización y limpieza de datos; aproximación a pruebas estadísticas e interpretación básica. |
-| Unidad 5 | Viernes 19 de junio | Modelos estadísticos en R | Introducción aplicada a modelos lineales, modelos generalizados y ejemplos biológicos. Énfasis en lectura e interpretación de resultados. |
+| Unidad   | Fecha                 | Tema general                                               | Materiales de apoyo                                                                                                                                                                                                                                                          |
+| -------- | --------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unidad 1 | Lunes 15 de junio     | Introducción a R y RStudio                                 | [1.1 Introducción a R](doc/Unidad_01/U1_1_Intro_R.md)<br>[1.2 Uso de RStudio](doc/Unidad_01/U1_2_Rstudio.md)<br>[1.3 Generación de proyectos](doc/Unidad_01/U1_3_Gestion_proyectos.md)<br>[1.4 Rutas, abrir y guardar archivos](doc/Unidad_01/U1_4_Leer_guardar_archivos.md) |
+| Unidad 2 | Martes 16 de junio    | Variables, funciones y estructuras de datos                | [2.1 Variables y funciones](doc/Unidad_02/U2_1_Intro_var_funciones.md)<br>[2.2 Estructuras de datos](doc/Unidad_02/U2_2_Estructuras_datos.md)<br>[2.3 Manipulación de datos](doc/Unidad_02/U2_3_Manipulacion_datos.md)                                                       |
+| Unidad 3 | Miércoles 17 de junio | Gráficos en R                                              | [Notebook de gráficos en R](doc/Unidad_03/U3_notebook.pdf)                                                                                                                                                                                                                   |
+| Unidad 4 | Jueves 18 de junio    | Limpieza de datos e introducción a estadística inferencial | Material por liberar                                                                                                                                                                                                                                                         |
+| Unidad 5 | Viernes 19 de junio   | Modelos estadísticos en R                                  | Material por liberar                                                                                                                                                                                                                                                         |
 
 ### Semana 2. Análisis, reportes y enfoque transcriptómico
 
-| Unidad | Fecha | Tema general | Contenidos principales |
-|---|---|---|---|
-| Unidad 6 | Lunes 22 de junio | PCA y reportes reproducibles | Análisis de Componentes Principales y generación de reportes en RMarkdown. |
-| Unidad 7 | Martes 23 de junio | Introducción a transcriptómica | Secuenciación masiva, RNA-seq y flujo general de trabajo. |
-| Unidad 8 | Miércoles 24 de junio | Expresión diferencial | Introducción al análisis de expresión diferencial y visualización inicial de resultados. |
-| Unidad 9 | Jueves 25 de junio | Visualización, enriquecimiento funcional e IA | Visualización avanzada, enriquecimiento funcional y uso crítico de IA como apoyo para revisar, explicar o modificar scripts. |
-| Unidad 10 | Viernes 26 de junio | Aplicaciones reales y cierre | Dudas, integración de contenidos y presentación de proyectos finales. |
-
-![alt text](flujo_trabajo.png)
+| Unidad    | Fecha                 | Tema general                                  | Materiales de apoyo                                                                                                                                                           |
+| --------- | --------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unidad 6  | Lunes 22 de junio     | PCA y reportes reproducibles                  | [6.1 Análisis de Componentes Principales](doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)<br>[6.2 Reportes en RMarkdown](doc/Unidad_06/U6_2_Rmarkdown.md)             |
+| Unidad 7  | Martes 23 de junio    | Introducción a transcriptómica                | Material por liberar                                                                                                                                                          |
+| Unidad 8  | Miércoles 24 de junio | Expresión diferencial                         | [Notebook de expresión diferencial](doc/Unidad_08/U8_notebook.pdf)<br>Visualización de resultados I: material por liberar                                                     |
+| Unidad 9  | Jueves 25 de junio    | Visualización, enriquecimiento funcional e IA | [Notebook de visualización de resultados II](doc/Unidad_09/U9_notebook.pdf)<br>Enriquecimiento funcional: material por liberar<br>IA como apoyo crítico: material por liberar |
+| Unidad 10 | Viernes 26 de junio   | Aplicaciones reales y cierre                  | [Trabajo final](doc/Unidad_10/Trabajo_final.md)                                                                                                                               |
 
 ---
-
 ## Uso breve y crítico de IA
 
 En algunas sesiones se podrá cerrar con un **mini prompt de IA** de máximo 20 minutos.
