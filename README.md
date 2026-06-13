@@ -43,7 +43,7 @@ El participante conocerá los fundamentos de programación en R para su aplicaci
 
 - **Modalidad:** presencial.
 - **Duración:** 40 horas.
-- **Periodo:** dos semanas, de lunes a viernes.
+- **Periodo:** dos semanas, de lunes a viernes, del 15 al 26 de junio.
 - **Horario:** 10:00 a 14:00 h.
 - **Receso:** intermedio.
 
@@ -101,6 +101,8 @@ El curso está organizado en dos bloques:
 | Unidad 8 | Miércoles 24 de junio | Expresión diferencial | Introducción al análisis de expresión diferencial y visualización inicial de resultados. |
 | Unidad 9 | Jueves 25 de junio | Visualización, enriquecimiento funcional e IA | Visualización avanzada, enriquecimiento funcional y uso crítico de IA como apoyo para revisar, explicar o modificar scripts. |
 | Unidad 10 | Viernes 26 de junio | Aplicaciones reales y cierre | Dudas, integración de contenidos y presentación de proyectos finales. |
+
+![alt text](flujo_trabajo.png)
 
 ---
 
