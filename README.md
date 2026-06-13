@@ -220,18 +220,11 @@ Para la Unidad 1 se utilizarán principalmente funciones básicas de R. No se re
 # Código de instalación por liberar.
 ```
 
-### Unidad 4. Limpieza de datos e introducción a estadística inferencial
+### Unidades 4 y 5. Limpieza de datos, estadística inferencial y modelos en R
 
 ```r
-# Unidad 4
-# Código de instalación por liberar.
-```
-
-### Unidad 5. Modelos estadísticos en R
-
-```r
-# Unidad 5
-# Código de instalación por liberar.
+# Unidades 4 y 5 
+install.packages(c( "tidyverse", "magrittr", "dslabs", "ggrepel", "psych", "broom", "readxl", "lme4", "car", "nlme", "patchwork", "marginaleffects", "MPV" ))
 ```
 
 ### Unidad 6. PCA y reportes reproducibles
