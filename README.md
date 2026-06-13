@@ -252,3 +252,5 @@ Antes de la primera sesión, se recomienda:
 - abrir RStudio para verificar que funcione;
 - crear una carpeta local para guardar los materiales del curso;
 - revisar este repositorio al inicio de cada sesión para identificar los archivos indicados por los instructores.
+
+![alt text](ilustracion_programacion_R.png)
