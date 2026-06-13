@@ -108,21 +108,13 @@ El curso está organizado en dos bloques:
 
 En algunas sesiones se podrá cerrar con un **mini prompt de IA** de máximo 20 minutos.
 
-La dinámica será sencilla:
+La dinámica será:
 
 1. Primero se trabajará el script en clase sin IA.
 2. Después se usará IA para una tarea pequeña y verificable.
 3. Finalmente se revisará si la respuesta tiene sentido con el código, los datos y la documentación.
 
-Ejemplos de uso:
-
-- explicar un bloque de código;
-- cambiar una característica de un gráfico;
-- detectar un posible error;
-- comentar un script;
-- proponer una modificación sencilla.
-
-La IA se usará como apoyo para explorar y revisar, no como sustituto de la práctica en R ni de la interpretación biológica.
+**La IA se usará como apoyo para explorar y revisar, no como sustituto de la práctica en R ni de la interpretación biológica**.
 
 ---
 
@@ -143,13 +135,15 @@ Para el cierre de la primera semana, cada equipo deberá tener definido:
 - tipo de datos que utilizarán;
 - análisis o flujo de trabajo que desean presentar.
 
-La rúbrica del proyecto final estará disponible en el repositorio o mediante el enlace indicado por los instructores.
+La **rúbrica del proyecto final** estará disponible [aquí]() en el repositorio.
 
 ---
 
 ## Antes de empezar
 
 ### ¿Qué es GitHub?
+
+![alt text](image.png)
 
 GitHub es una plataforma en línea que permite alojar, compartir y organizar archivos de proyectos de programación, análisis de datos y documentación.
 
@@ -165,6 +159,8 @@ Una forma sencilla de hacerlo es:
 2. Hacer clic en el botón **Code**.
 3. Seleccionar **Download ZIP**.
 4. Descomprimir el archivo en una carpeta local de su computadora.
+
+![alt text](image-3.png)
 
 También se podrán descargar archivos específicos conforme se vayan liberando en cada sesión.
 
