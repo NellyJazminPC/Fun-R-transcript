@@ -6,334 +6,585 @@
 
 ## 1.3 Gestión de proyectos
 
-- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
 
 ---
 
-### Creación de un proyecto en R
+## Objetivo de esta sección
 
-![alt text](Imagen_1_15.png)
+Al finalizar esta sección, reconocerás la importancia de organizar un proyecto de análisis en RStudio, identificarás la estructura básica del repositorio del curso y crearás un proyecto de RStudio desde la carpeta raíz del repositorio.
 
-
-[Good Enough Practices for Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) brinda las siguientes recomendaciones para la organización de proyectos:
-
-- Coloque cada proyecto en su propio directorio, el cual lleva el nombre del proyecto.
-- Coloque documentos de texto asociados con proyecto en el directorio doc.
-- Coloque los datos sin procesar y los metadatos en el directorio data, y archivos generados durante la limpieza y análisis en el directorio results.
-- Coloque los scripts fuente del proyecto y los programas en el directorio src o bin (si tienes programas traídos de otra parte o compilados localmente, en el directorio bin).
-- Nombre todos archivos de tal manera que reflejen su contenido o función.
-
----
-## ¿Cómo crear un proyecto en RStudio?
-
-A continuación veremos  dos formas para crear un proyecto en RStudio, la primera es cuando no tenemos ningún directorio o carpeta ya creado, y la segunda es cuando queremos enlazar nuestro proyecto a un directorio o carpeta ya existente.
-
-- **En el primer caso - Nuevo directorio:**
-
-   - Haz clic en el menú “File”, luego en “New Project”
-   - Haz clic en “New Directory”
-   - Haz clic en “New Project”
-   - Introduce el nombre del directorio para guardar tu proyecto, por ejemplo: “Curso_R_2024”. Puedes seleccionar una ubicación específica donde se creara la carpeta del Nuevo proyecto con “Browse”
-      -  *EXTRA.* Si quieres conectarlo a una cuenta en Github, selecciona la casilla de verificación “Create a git repository”
-
-   - Haz clic en el botón “Create Project”
-
-- **En el segundo caso -  Directorio existente:**
-
-   - Haz clic en el menú “File”, luego en “New Project”
-   - Haz clic en “Existing Directory”
-   - Haz clic en “Browse” y selecciona la carpeta con la que quieres enlazar tu proyecto
-   - Haz clic en el botón “Create Project”
-
-
-![alt text](Imagen_1_16.png)
-
----
-## Ejercicio:
-
-- [Descarga la carpeta del curso desde Github como un archivo Zip](../../README.md)
-- Descomprimela la carpeta zip y colócala en el directorio de Documentos o en otro que puedas ubicar facilmente.
-- Crea tu proyecto de R en RStudio para enlazarlo a la carpeta del curso.
-
-Si tienes dudas puedes revisar el siguiente [video]()
+También tendrás un primer acercamiento a tres conceptos que usaremos constantemente durante el curso: **funciones**, **paquetes** y **ayuda en RStudio**.
 
 ---
 
-## Conceptos básicos: carpetas, función y paquete (package).
+## ¿Por qué organizar un proyecto?
 
-Podemos movernos entre carpetas y archivos por medio de comandos podemos usar los siguientes comandos: 
+Cuando trabajamos con datos, scripts, imágenes, resultados y documentos, es fácil perder archivos o no recordar qué versión usamos para obtener un resultado. Organizar un proyecto desde el inicio ayuda a evitar ese tipo de problemas.
 
-> Ejecuta los siguientes comandos en RStudio. Usa el teclado o copia y pega la siguiente sección en el Editor de Scripts.
+![Frase sobre la importancia de gestionar proyectos reproducibles](Imagen_1_15.png)
 
-```R
-# ¿Cuál es el directorio de trabajo en el que estas?
+Organizar un proyecto no solo hace que el análisis sea más ordenado. También facilita que otras personas puedan revisar, ejecutar o adaptar nuestro trabajo.
 
-getwd()
+La idea central es que cada proyecto tenga una carpeta principal y, dentro de ella, subcarpetas con funciones claras.
 
-# ¿Para que funciona setwd()?
-setwd() 
-#Este comando cumple la misma función que Session > Set working directory 
+[Good Enough Practices for Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) recomienda, entre otras cosas:
 
-# ¿Qué nos muestra el comando dir() ?
-dir() # muestra los archivos que están en la carpeta donde te encuentras
+* colocar cada proyecto en su propio directorio;
+* guardar documentos de texto en una carpeta como `doc`;
+* guardar datos originales y metadatos en una carpeta como `data`;
+* guardar resultados generados durante la limpieza o el análisis en una carpeta como `results`;
+* guardar scripts en una carpeta como `src` o `bin`;
+* nombrar los archivos de forma clara, de acuerdo con su contenido o función.
 
+En este curso seguiremos una estructura sencilla basada en estas recomendaciones.
+
+---
+
+## La carpeta raíz del proyecto
+
+La **carpeta raíz** es la carpeta principal del proyecto. Es el punto de partida desde el cual se organizan las demás carpetas.
+
+En este curso, la carpeta raíz será la carpeta del repositorio descargado desde GitHub. Dentro de ella encontraremos carpetas como `doc`, `bin`, `data` y `results`.
+
+Una forma sencilla de imaginarlo es como un árbol:
+
+```text
+Fun-R-transcript/
+├── doc/
+├── bin/
+├── data/
+└── results/
 ```
 
-Antes de continuar, es importante familiarizarnos con algunos términos que veremos más a detalle en la [siguiente unidad](../Unidad_02/U2_1_Intro_var_funciones.md). En R, los comandos como `setwd()`, `dir()`, y otros que van seguidos por paréntesis son llamados **funciones**.
+La carpeta raíz es `Fun-R-transcript/`. Desde ahí se ramifican las demás carpetas.
 
-----
+![Estructura jerárquica del repositorio del curso y ejemplos para leer rutas en R](estructura_de_repositorio_y_rutas_en_r.png)
+
+Esta organización será importante cuando trabajemos con rutas para leer y guardar archivos. Por ejemplo, si un archivo está dentro de la carpeta `data`, podremos referirnos a él desde R usando una ruta como:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+Esto es más práctico que escribir la ruta completa de la computadora, porque cada participante puede tener el repositorio guardado en una ubicación diferente.
+
+---
+
+## Estructura del repositorio del curso
+
+El repositorio del curso tendrá una estructura similar a esta:
+
+```text
+Fun-R-transcript/
+├── README.md
+├── doc/
+│   ├── U1_1_Intro_R.md
+│   ├── U1_2_Rstudio.md
+│   ├── U1_3_Gestion_proyectos.md
+│   └── U1_4_Leer_guardar_archivos.md
+├── bin/
+│   └── U1_practica_general.R
+├── data/
+│   ├── U1_datos_expresion.csv
+│   └── U1_datos_expresion.xlsx
+└── results/
+```
+
+Cada carpeta cumple una función:
+
+* `doc/`: contiene guías, instrucciones y materiales escritos.
+* `bin/`: contiene scripts de R.
+* `data/`: contiene datos originales o datos de entrada.
+* `results/`: contiene archivos generados durante los ejercicios o análisis.
+* `README.md`: contiene información general del repositorio y del curso.
+
+> Nota: si la carpeta `results/` no aparece al descargar el repositorio, la crearemos durante esta sección.
+
+---
+
+## Revisión del repositorio descargado
+
+Antes de crear el proyecto de RStudio, revisa la carpeta del curso que descargaste desde GitHub.
+
+Busca la carpeta principal del repositorio. Esa será la **carpeta raíz**.
+
+Dentro de ella, identifica las carpetas disponibles:
+
+```text
+doc/
+bin/
+data/
+```
+
+Después revisa si existe la carpeta:
+
+```text
+results/
+```
+
+Si no existe, créala manualmente dentro de la carpeta raíz del repositorio.
+
+### Ejercicio breve
+
+1. Abre la carpeta del repositorio en el explorador de archivos o Finder.
+2. Identifica la carpeta raíz.
+3. Revisa si existen las carpetas `doc`, `bin`, `data` y `results`.
+4. Si no existe `results`, créala.
+5. Guarda el script que trabajaste en la sección 1.2 dentro de la carpeta `bin`.
+
+El script puede llamarse, por ejemplo:
+
+```text
+U1_2_primer_script.R
+```
+
+Además, en la carpeta `bin` encontrarás el script de apoyo:
+
+```text
+U1_practica_general.R
+```
+
+Este script reúne el código principal de la Unidad 1 y puede servirte para repasar o comparar tu avance.
+
+---
+
+## ¿Cómo crear un proyecto en RStudio?
+
+RStudio permite crear proyectos de distintas formas. Aquí veremos dos opciones generales, pero para este curso usaremos principalmente la segunda.
+
+### Opción 1: crear un proyecto en un directorio nuevo
+
+Esta opción se usa cuando todavía no tenemos una carpeta creada para el proyecto.
+
+Pasos generales:
+
+1. Haz clic en **File**.
+2. Selecciona **New Project**.
+3. Elige **New Directory**.
+4. Selecciona **New Project**.
+5. Escribe el nombre de la carpeta del proyecto.
+6. Haz clic en **Create Project**.
+
+### Opción 2: crear un proyecto desde un directorio existente
+
+Esta opción se usa cuando ya tenemos una carpeta creada y queremos convertirla en un proyecto de RStudio.
+
+En este curso usaremos esta opción, porque ya descargaste el repositorio desde GitHub.
+
+Pasos:
+
+1. Haz clic en **File**.
+2. Selecciona **New Project**.
+3. Elige **Existing Directory**.
+4. Haz clic en **Browse**.
+5. Selecciona la **carpeta raíz del repositorio**.
+6. Haz clic en **Create Project**.
+
+![Opciones para crear un proyecto nuevo o desde un directorio existente en RStudio](Imagen_1_16.png)
+
+> Importante: selecciona la carpeta raíz del repositorio, no las carpetas internas `doc`, `bin`, `data` o `results`.
+
+Después de crear el proyecto, RStudio generará un archivo con extensión `.Rproj`. Ese archivo nos permitirá volver a abrir el proyecto en futuras sesiones.
+
+---
+
+## Verificar el directorio de trabajo
+
+Una vez creado el proyecto, podemos verificar desde R en qué carpeta estamos trabajando.
+
+Para ello usaremos la función:
+
+```r
+getwd()
+```
+
+La función `getwd()` muestra el directorio de trabajo actual.
+
+Ejecuta en la consola o en el editor:
+
+```r
+getwd()
+```
+
+Si el proyecto se creó correctamente, la ruta debe terminar en el nombre de la carpeta raíz del repositorio.
+
+También podemos revisar qué archivos y carpetas hay en el directorio actual con:
+
+```r
+dir()
+```
+
+Ejecuta:
+
+```r
+dir()
+```
+
+Deberías ver algunos de los archivos y carpetas principales del repositorio, por ejemplo:
+
+```text
+README.md
+doc
+bin
+data
+results
+```
+
+---
+
+## Revisar carpetas desde los menús de RStudio
+
+Además de usar código, también puedes revisar tu ubicación desde la interfaz de RStudio.
+
+En el panel **Files** puedes ver la carpeta actual y los archivos disponibles.
+
+Durante el curso recomendamos trabajar con proyectos de RStudio, porque al abrir el archivo `.Rproj`, RStudio se ubica automáticamente en la carpeta raíz del proyecto.
+
+---
+
+## Nota sobre `setwd()`
+
+La función `setwd()` permite cambiar manualmente el directorio de trabajo.
+
+Por ejemplo:
+
+```r
+setwd("ruta/a/una/carpeta")
+```
+
+También se puede hacer algo similar desde los menús de RStudio:
+
+```text
+Session > Set Working Directory > Choose Directory...
+```
+
+Sin embargo, en este curso evitaremos usar `setwd()` dentro de los scripts.
+
+¿Por qué?
+
+Porque `setwd()` suele usar rutas absolutas, es decir, rutas completas que dependen de cada computadora. Por ejemplo:
+
+```r
+"/Users/nombre_usuario/Documents/Curso_R/Fun-R-transcript"
+```
+
+Ese tipo de ruta puede funcionar en una computadora, pero fallar en otra.
+
+En cambio, si abrimos el proyecto desde el archivo `.Rproj`, RStudio se coloca automáticamente en la carpeta raíz. Así podemos usar rutas relativas como:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+o:
+
+```r
+"results/U1_datos_Etapa1.txt"
+```
+
+Esto facilita compartir el proyecto sin tener que modificar todas las rutas.
+
+---
+
+## Primer saludo a funciones, paquetes y ayuda
+
+En esta sección ya usamos algunas instrucciones de R, como:
+
+```r
+getwd()
+dir()
+setwd()
+```
+
+Estas instrucciones tienen algo en común: son **funciones**.
 
 ### ¿Qué es una función?
 
-De manera muy general, con una función damos instrucciones a R para llevar a cabo alguna operación. Las funciones empiezan con un nombre, seguido de paréntesis, y dentro de estos especificamos los parámetros.
+Una función es una instrucción que le pide a R realizar una tarea.
 
-![alt text](image_2.1_02.png)
+Por ejemplo:
 
----
-
-### ¿Qué son los paquetes (packages)?
-
-En R, un paquete (package) se define como una **unidad organizada** de **código**, **funciones**, **datos** y **documentación** que extiende las capacidades de R y proporciona herramientas adicionales para realizar análisis de datos y tareas relacionadas.
-
-Aspectos claves que definen un paquete en R:
-
-- **Estructura organizada:** sigue una estructura de directorios organizada que incluye subdirectorios específicos para almacenar código fuente, datos, documentación y otros archivos relacionados con el paquete.
-
-- **Código y funciones:** contiene código fuente que define nuevas funciones y métodos para realizar tareas específicas de análisis de datos, modelado estadístico, visualización y más. Estas funciones están diseñadas para ser reutilizables y pueden ser llamadas por los usuarios en sus propios scripts y análisis.
-
-- **Datos y conjuntos de datos:** los paquetes pueden incluir conjuntos de datos de ejemplo, archivos de datos o bases de datos que son utilizados por las funciones del paquete para ejemplificar su uso o para realizar análisis demostrativos.
-
-- **Documentación:** incluyen documentación detallada que describe el propósito del paquete, cómo instalarlo, cómo usar sus funciones y métodos, ejemplos de uso y más. Se puede acceder a esta documentación a través de funciones de ayuda integradas en R.
-
-- **Compilación y distribución:** Los paquetes de R se distribuyen en archivos comprimidos con una extensión ".tar.gz" para sistemas operativos del tipo Unix y ".zip" para sistemas Windows. Estos archivos contienen todos los componentes del paquete, incluido el código fuente, la documentación y los datos, y se pueden instalar fácilmente en R utilizando la función `install.packages()`.
-
-![alt text](Imagen_1_17.png)
-
-Actualmente, el repositorio de paquetes CRAN (The Comprehensive R Archive Network) cuenta con 20,420 paquetes disponibles, ha sido un gran incremento desde el 2017 cuando tenía aproximadamente 10,000 paquetes.
-
-**¿Cómo se instalan los paquetes en RStudio?**
-
-Hay tres formas para instalar paquetes:
-
-1. Desde la barra de Menús de Rstudio: en _Tools_ > _Install packages..._
-2. Desde la venta de Directorio de Trabajo/Gráficos/Paquetes: como vimos previamente en la ventana de _Paquetes_ y dando click en _Instalar_. 
-3. Desde el Editor/Consola: con el comando `install.packages()`
-
----
-
-## Ejercicio:
-
-Instala el paquete de `ggplot2` desde cualquier de las tres opciones anteriores.
-
-```R
-#Desde el editor en RStudio puedes averiguar más acerca de la función install.packages
-?install.packages()
-
-#Después de revisar su sintaxis encontrarás que debemos poner el nombre del paquete que quieras instalar dentro de los paréntesis:
-
-install.packages(ggplot2)
-
-# Cuidado: si te aparece un error puede ser por la versión de R, en algunas versiones previas necesitas poner entre comillas el nombre del paquete: install.packages("ggplot2") 
+```r
+dir()
 ```
 
----
+le pide a R que muestre los archivos y carpetas del directorio actual.
 
-### Conceptos básicos: help
+Algunas funciones necesitan información adicional para funcionar. Esa información se escribe dentro de los paréntesis.
 
-La función help() es una herramienta crucial para:
+Por ejemplo:
 
-- Obtener información detallada sobre **funciones**, incluyendo su uso y ejemplos.
-- Acceder a la documentación general de paquetes.
-- Mejorar tu comprensión y eficiencia al trabajar con R.
-
-Utilizar help() y los comandos relacionados te ayudará a aprender y resolver problemas de manera más efectiva mientras programas en R.
-
-## Ejercicio:
-
-Supongamos que tienes un script que quieres ejecutar y adecuar a tus datos pero hay funciones que desconoces, por ejemplo `lm()`. ¿Qué harías para saber que hace esta función?
-
-```R
-# Obtener ayuda sobre la función lm
-help("lm")
-# O usar el atajo
-?lm
+```r
+plot(x, y, type = "p")
 ```
 
-En el panel de Ayuda se mostrará la documentación de la función. En este caso, `lm()` es una función para modelos lineales.
+![Partes básicas de una función en R](image_2.1_02.png)
+
+En esta imagen podemos reconocer:
+
+* el **nombre de la función**: `plot`;
+* los **argumentos**: `x`, `y`;
+* un parámetro o argumento con valor asignado: `type = "p"`.
+
+No necesitas memorizar todavía estos términos. En la Unidad 2 los revisaremos con más detalle.
 
 ---
-### Ejercicio EXTRA:
 
-Busca más información acerca de la función `boxplot()`. **¿Puedes identificar los siguientes apartados en la sección de ayuda?**
+## ¿Qué es un paquete?
 
-- Paquete que lo contiene
-- Descripción
-- Uso
-- Argumentos (valores que recibe la función) 
-- Detalles
-- Notas
-- Referencias bibliográficas 
-- Ver también
-- Ejemplos
+Un paquete es una colección organizada de funciones, datos y documentación que amplía lo que R puede hacer.
 
-```R
-#Atajo para buscar información de la función boxplot()
+R ya trae funciones básicas instaladas, pero muchas tareas requieren paquetes adicionales.
+
+Por ejemplo:
+
+* `ggplot2` permite crear gráficos más flexibles y personalizados;
+* `readxl` permite leer archivos de Excel;
+* `writexl` permite guardar archivos en formato Excel;
+* `dplyr` permite manipular tablas de datos.
+
+![Los paquetes se pueden añadir al conjunto básico de R](Imagen_1_17.png)
+
+Podemos imaginar los paquetes como cajas de herramientas. R trae una caja básica, pero podemos agregar otras cajas especializadas según el análisis que queramos hacer.
+
+---
+
+## ¿Cómo se instalan los paquetes?
+
+Hay varias formas de instalar paquetes en RStudio.
+
+### Desde el menú
+
+Puedes ir a:
+
+```text
+Tools > Install Packages...
+```
+
+### Desde la pestaña Packages
+
+En el panel correspondiente puedes entrar a la pestaña **Packages** y usar el botón **Install**.
+
+### Desde la consola o el editor
+
+También puedes usar la función:
+
+```r
+install.packages()
+```
+
+Por ejemplo, para instalar `ggplot2`:
+
+```r
+install.packages("ggplot2")
+```
+
+> Nota: el nombre del paquete debe ir entre comillas.
+
+Después de instalar un paquete, normalmente se carga con `library()`:
+
+```r
+library(ggplot2)
+```
+
+Instalar un paquete y cargar un paquete no son lo mismo:
+
+* `install.packages()` instala el paquete en la computadora.
+* `library()` carga el paquete en la sesión actual de R.
+
+---
+
+## Ayuda en RStudio
+
+RStudio también permite consultar documentación desde el panel **Help**.
+
+Podemos pedir ayuda sobre una función usando `?`.
+
+Por ejemplo:
+
+```r
+?dir
+```
+
+o:
+
+```r
+?plot
+```
+
+También podemos usar la función `help()`:
+
+```r
+help("plot")
+```
+
+La documentación suele incluir:
+
+* descripción de la función;
+* forma de uso;
+* argumentos;
+* detalles;
+* ejemplos;
+* funciones relacionadas.
+
+### Ejercicio breve
+
+Consulta la ayuda de alguna de estas funciones:
+
+```r
+?getwd
+?dir
+?plot
 ?boxplot
-
 ```
+
+Explora la sección de ejemplos y revisa si puedes identificar qué argumentos recibe la función.
 
 ---
 
 ## ¿En qué otros lugares puedo buscar ayuda?
 
-Hay una serie de sitios donde puedes buscar ayuda sobre un temá en específico, si tu código no funciona o incluso si tienes problemas con otros lenguajes de programación:
+Además de la ayuda interna de RStudio, puedes consultar otros recursos:
 
-1. **Stack Overflow**
-   - Un foro muy popular para programadores de todas las disciplinas.
-   - [Stack Overflow](https://stackoverflow.com/)
+1. **Documentación oficial de R o de los paquetes.**
+2. **Stack Overflow**, para dudas de programación.
+3. **Biostars**, para dudas relacionadas con bioinformática.
+4. **RStudio Community / Posit Community**, para dudas sobre R y RStudio.
+5. **GitHub**, para revisar documentación, ejemplos o reportar problemas en paquetes.
+6. **Libros y tutoriales en línea**, como *R for Data Science*.
+7. **Herramientas de IA**, siempre verificando las respuestas con documentación, código y discusión con instructores.
 
-2. **Google**
-   - Puedes encontrar una gran cantidad de tutoriales, blogs y documentación oficial buscando términos relacionados con tu problema.
+Cuando consultes ayuda externa, intenta incluir:
 
-3. **ChatGPT**
-   - Puedes hacer preguntas específicas y obtener respuestas detalladas de modelos de lenguaje como ChatGPT.
-
-4. **Biostars**
-   - Un foro específico para bioinformática, donde puedes encontrar ayuda y discusiones sobre temas relacionados con la bioinformática y el uso de R en ese campo.
-   - [Biostars](https://www.biostars.org/p/2748/#2751)
-
-5. **RStudio Community**
-   - Una comunidad en línea para usuarios de R y RStudio, donde puedes encontrar ayuda, compartir ideas y discutir sobre R.
-   - [RStudio Community](https://community.rstudio.com/)
-
-6. **GitHub**
-   - Muchos proyectos de R están alojados en GitHub, donde puedes encontrar documentación, ejemplos de código y abrir _issues_ para obtener ayuda.
-   - [GitHub](https://github.com/)
-
-7. **Books and Online Tutorials**
-    - Existen numerosos libros y tutoriales en línea que cubren desde lo básico hasta temas avanzados en R. Libros como "R for Data Science" de Hadley Wickham y Garrett Grolemund son altamente recomendados.
-
-Estos recursos te proporcionarán una amplia gama de información y ayuda para resolver problemas y aprender más sobre R y programación en general.
-
-![alt text](image-1.png)
+* qué querías hacer;
+* qué código usaste;
+* qué error apareció;
+* qué versión de R o paquete estás usando, si es relevante.
 
 ---
 
-### Conceptos básicos: salir
+## Para explorar más
 
-Para salir de R desde la interfaz de Rstudio:
-
-- _File_ > _Quit Session_. Pueden guardar la sesión para que cuando vuelvan a abrir Rstudio se abra el editor y el script de inmediato.
-
-- Cerrar la venta de Rstudio
-Los archivos de R se guardan con la extensión **.r** o **.R**
-
-- Para guardar tu script ve al Menú de RStudio, _File_ > _Save_
+Esta sección no es obligatoria para la práctica principal, pero puede ayudarte a entender otros elementos que aparecen al trabajar con RStudio.
 
 ---
 
-#### Fuentes de información
+### Archivos ocultos: `.RData` y `.RHistory`
 
-- [Controversia con rm(list = ls())](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
-)
-- [swcarpentry - rstudio-intro](https://swcarpentry.github.io/r-novice-gapminder-es/01-rstudio-intro.html)
+En algunas sesiones, RStudio puede guardar o cargar archivos ocultos como:
 
-- [swcarpentry - project-intro](https://swcarpentry.github.io/r-novice-gapminder-es/02-project-intro.html)
+```text
+.RData
+.RHistory
+```
 
-- [The Comprehensive R Archive Network](https://cran.r-project.org/)
-- [8. Introduction to R Packages by Ken Rice
-Timothy Thornotn](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
+* `.RData` puede guardar objetos del ambiente de trabajo.
+* `.RHistory` puede guardar el historial de comandos ejecutados.
 
-- [Contributed Packages. CRAN](https://cran.r-project.org/web/packages/
-)
-- [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/
-)
+En algunos sistemas estos archivos no se ven desde el explorador de archivos, pero pueden aparecer desde la terminal o desde configuraciones que muestren archivos ocultos.
 
-- [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
+![Archivos ocultos generados por RStudio](Imagen_1_18.png)
 
-- [Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+Aunque estos archivos pueden ser útiles en algunos contextos, durante el curso será más importante guardar el código en scripts claros y reproducibles.
 
 ---
 
-### Siguiente tema: [1.4 Rutas; abrir y guardar archivos](U1_4_Leer_guardar_archivos.md)
+### Revisar objetos del ambiente
 
-![alt text](<20250305_2218_Focused Tech Collaboration.gif>)
+La función `ls()` muestra los objetos que existen en el ambiente de trabajo.
 
----
+```r
+ls()
+```
 
-### EXTRA
+También puedes listar objetos ocultos con:
 
-#### Conceptos básicos: archivos generados por default
-
-Cada sesión guarda o carga dos archivos ocultos:
-
-**.RData** y **.RHistory**
-
-#### Ejemplo: 
-
-En la imagen se muestra que al acceder a la carpeta no puedes ver los archivos ocultos, pero al entrar desde la terminal y con el comando `ls -la`puedes ver estos archivos ocultos.
-
-![alt text](Imagen_1_18.png)
-
----
-
-#### Administrar tu entorno
-
-```R
-#ls() mostrara una lista de todas las variables y funciones almacenadas en el entorno global, es decir, en tu sesión de trabajo en R:
-
-ls() #Prueba este comando y ve que obtienes.
-
-#Para listar todos los objetos, escribe 
+```r
 ls(all.names = TRUE)
-
-#Puedes usar rm para eliminar objetos que ya no necesitas:
-
-rm(x)
-
-# Si tienes muchas cosas en tu entorno y deseas borrarlas todas, puedes pasar los resultados de ls y mandarlos a la función rm:
-
-rm(list = ls())
-
 ```
 
 ---
 
-#### Source
+### Eliminar objetos del ambiente
 
-La función `source` básicamente lee y ejecuta el código contenido en un archivo (extensión **.R**) y lo incorpora al espacio de trabajo de RStudio como si hubiera sido escrito directamente en la consola o en el Editor.
+La función `rm()` permite eliminar objetos del ambiente.
 
-La sintaxis básica de la función "source" es la siguiente:
+Por ejemplo, si existe un objeto llamado `x`, podrías eliminarlo con:
 
-```R
+```r
+rm(x)
+```
+
+También existe una instrucción para eliminar todos los objetos del ambiente:
+
+```r
+rm(list = ls())
+```
+
+> Cuidado: `rm(list = ls())` borra todos los objetos del ambiente de trabajo. No la ejecutes durante la práctica a menos que tengas claro qué hace y que no necesitas conservar esos objetos.
+
+En general, para mantener un análisis reproducible es mejor poder reconstruir los objetos ejecutando el script desde el inicio, en lugar de depender de objetos guardados manualmente en el ambiente.
+
+---
+
+### Ejecutar scripts con `source()`
+
+La función `source()` permite ejecutar un script completo desde otro script o desde la consola.
+
+Su estructura general es:
+
+```r
 source("ruta/del/archivo.R")
 ```
 
-Donde "ruta/del/archivo.R" es la ubicación del archivo que contiene el código R que deseas ejecutar.
+Por ejemplo:
 
-La función "source" es útil en el análisis de datos por varias razones:
-
-1. **Reutilización de código:** Permite reutilizar fragmentos de código R almacenados en archivos externos en lugar de tener que volver a escribirlos manualmente en cada sesión. Esto facilita la gestión y mantenimiento del código, especialmente cuando se trabaja con análisis complejos que requieren múltiples pasos.
-
-2. **Organización del código:** Al dividir el código en archivos separados, puedes organizar y estructurar tu análisis de datos de manera más ordenada y modular. Esto facilita la comprensión y la colaboración con otros usuarios, ya que pueden revisar y ejecutar cada parte del análisis por separado.
-
-3. **Automatización de tareas:** Puedes usar la función "source" en scripts de R para automatizar tareas recurrentes. Esto te permite ahorrar tiempo y minimizar errores al evitar la necesidad de ejecutar manualmente cada paso del análisis.
-
-En resumen, la función "source" en R es una herramienta poderosa que permite cargar y ejecutar código R desde archivos externos, lo que facilita la reutilización, organización y automatización del análisis de datos.
-
-**Ejemplo:**
-Podemos enviar la totalidad de nuestro archivo a la línea de comando con **Source**.
-
-O seleccionando todas las líneas del **Editor** y presionar **Run** o presionar `Ctrl` + `Enter`
-
-```R
-#Desde tu sesión en RStudio, abre un nuevo archivo de R Script y desde tu Editor ejecuta la siguiente línea de código:
-
-source("U1_1_IntroRstudio.R")
-
-# ¿Qué paso?
+```r
+source("bin/U1_practica_general.R")
 ```
+
+Esto puede ser útil cuando quieres reutilizar código guardado en otro archivo.
+
+Sin embargo, al inicio del curso trabajaremos línea por línea para entender qué hace cada instrucción. Por eso, no es necesario usar `source()` durante la primera práctica.
 
 ---
 
-### Siguiente tema: [1.4 Rutas; abrir y guardar archivos](../Unidad_01/U1_4_Leer_guardar_archivos.md)
+## Para recordar
+
+En esta sección vimos que organizar un proyecto desde el inicio ayuda a trabajar de forma más clara y reproducible.
+
+Ideas clave:
+
+* La **carpeta raíz** es la carpeta principal del proyecto.
+* El proyecto de RStudio debe crearse desde la carpeta raíz del repositorio.
+* `doc/` guarda materiales escritos.
+* `bin/` guarda scripts.
+* `data/` guarda datos originales.
+* `results/` guarda archivos generados.
+* `getwd()` muestra dónde estamos trabajando.
+* `dir()` muestra qué archivos y carpetas hay en el directorio actual.
+* Usar proyectos de RStudio ayuda a evitar problemas con rutas absolutas.
+* Las funciones, paquetes y ayuda de RStudio serán herramientas constantes durante el curso.
+
+---
+
+## Fuentes de información
+
+* [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+* [GitHub: good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/tree/gh-pages)
+* [Software Carpentry: Project Management With RStudio](https://swcarpentry.github.io/r-novice-gapminder-es/02-project-intro.html)
+* [Software Carpentry: Introduction to R and RStudio](https://swcarpentry.github.io/r-novice-gapminder-es/01-rstudio-intro.html)
+* [The Comprehensive R Archive Network](https://cran.r-project.org/)
+* [Contributed Packages. CRAN](https://cran.r-project.org/web/packages/)
+* [Introduction to R Packages](https://faculty.washington.edu/kenrice/rintro/sess08.pdf)
+* [Tutorial de programación en R orientado al estudiante de Bioquímica](https://ucodemy.github.io/rbioq/RStudio/)
+* [Workflow vs. script](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+
+---
+
+## Siguiente tema
+
+[1.4 Rutas; abrir y guardar archivos](U1_4_Leer_guardar_archivos.md)
+
+![Imagen de cierre sobre colaboración y programación](<20250305_2218_Focused Tech Collaboration.gif>)

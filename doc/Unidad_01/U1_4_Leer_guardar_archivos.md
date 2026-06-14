@@ -6,193 +6,562 @@
 
 ## 1.4 Rutas; abrir y guardar archivos
 
-- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
 
-- [Script U1_4_leer_guardar.R](../../bin/U1_4_leer_guardar.R) de esta unidad en la carpeta **bin**
-
----
-
-### Aspectos básicos
-
-Saber cómo leer y guardar archivos en RStudio es una habilidad esencial que te permite:
-
-- Acceder y preparar datos para análisis.
-- Asegurar la reproducibilidad y documentación de tus proyectos.
-- Facilitar la colaboración y el intercambio de datos.
-- Integrar datos de múltiples fuentes y trabajar con diferentes formatos (.txt, .csv, .xls, etc).
+* [Script U1_practica_general.R](../../bin/U1_practica_general.R) de esta unidad en la carpeta `bin`.
 
 ---
 
-En RStudio, puedes leer y guardar archivos utilizando varias funciones. Aquí hay algunos ejemplos comunes para leer/importar y guardar/exportar archivos en diversos formatos como **CSV**, **Excel**, y **archivos de texto** (.txt).
+## Objetivo de esta sección
 
-A continuación, observa el siguiente **Cuadro comparativo** que resume las funciones, sus paquetes, el tipo de archivo que manejan y si es para importar/leer o exportar/guardar archivos en RStudio.
-
-| Para ... | Paquete   | Función           | Tipo de archivos que maneja (extensión) |
-|------------------------------|-----------|-------------------|-----------------------------------------|
-| Leer archivos                | base      | `read.csv()`      | .csv                                    |
-| Leer archivos                | **readr**     | `read_csv()`      | .csv                                    |
-| Leer archivos                | `readxl`    | `read_excel()`    | .xls, .xlsx                             |
-| Leer archivos                | base      | `read.table()`    | .txt, .tsv, .dat                        |
-| Leer archivos                | **readr**     | `read_tsv()`      | .tsv, .txt                              |
-| Guardar archivos             | base      | `write.csv()`     | .csv                                    |
-| Guardar archivos             | **readr**     | `write_csv()`     | .csv                                    |
-| Guardar archivos             | _writexl_   | `write_xlsx()`    | .xlsx                                   |
-| Guardar archivos             | base      | `write.table()`   | .txt, .tsv, .dat                        |
-| Guardar archivos             | **readr**     | `write_tsv()`     | .tsv, .txt                              |
+Al finalizar esta sección, podrás identificar rutas dentro del proyecto, leer un archivo `.csv` desde la carpeta `data/`, guardar un archivo generado en la carpeta `results/` y reconocer por qué registrar estos pasos en un script mejora la reproducibilidad del análisis.
 
 ---
 
-### Primero, ¿en donde estás?
+## Aspectos básicos
 
-Recordemos algunas funciones básicas para saber en que ruta/directorio estas, prueba con `getwd()`. 
+Saber cómo leer y guardar archivos en RStudio es una habilidad esencial porque permite:
 
-Al obtener la ruta, notaras que tiene una estructura especial, la podemos resumir como "ruta/al/archivo.csv" donde cada nivel del directorio general esta separado por diagonales **/**. Aquí una imagen para ilustrar los niveles de los directorios.
+* acceder y preparar datos para análisis;
+* documentar de dónde vienen los archivos utilizados;
+* conservar un registro reproducible del flujo de trabajo;
+* facilitar la colaboración y el intercambio de datos;
+* trabajar con diferentes formatos, como `.csv`, `.txt`, `.xls` o `.xlsx`.
 
-![alt text](image_4_01.png)
+En esta sección trabajaremos principalmente con archivos `.csv`, porque pueden leerse usando funciones de R base, sin instalar paquetes adicionales.
 
+---
 
-Si quieres saber más información de las [rutas](https://www.educatica.es/sistemas-operativos/principios-basicos/sistemas-de-ficheros/rutas-de-ficheros-y-directorios/), puedes buscar información sobre las [rutas absolutas](https://docs.oracle.com/cd/E19253-01/816-3938/filemanager-8/index.html) y las [rutas relativas](https://docs.oracle.com/cd/E19253-01/816-3938/filemanager-9/index.html).
+## Funciones comunes para leer y guardar archivos
+
+En RStudio, puedes leer y guardar archivos utilizando varias funciones. Algunas pertenecen a R base y otras requieren paquetes adicionales.
+
+| Para...          | Paquete   | Función         | Tipo de archivos       |
+| ---------------- | --------- | --------------- | ---------------------- |
+| Leer archivos    | base      | `read.csv()`    | `.csv`                 |
+| Leer archivos    | `readr`   | `read_csv()`    | `.csv`                 |
+| Leer archivos    | `readxl`  | `read_excel()`  | `.xls`, `.xlsx`        |
+| Leer archivos    | base      | `read.table()`  | `.txt`, `.tsv`, `.dat` |
+| Leer archivos    | `readr`   | `read_tsv()`    | `.tsv`, `.txt`         |
+| Guardar archivos | base      | `write.csv()`   | `.csv`                 |
+| Guardar archivos | `readr`   | `write_csv()`   | `.csv`                 |
+| Guardar archivos | `writexl` | `write_xlsx()`  | `.xlsx`                |
+| Guardar archivos | base      | `write.table()` | `.txt`, `.tsv`, `.dat` |
+| Guardar archivos | `readr`   | `write_tsv()`   | `.tsv`, `.txt`         |
+
+> En la práctica principal usaremos funciones de R base: `read.csv()` y `write.table()`.
+
+---
+
+## Primero, ¿en dónde estás?
+
+Antes de leer o guardar archivos, necesitamos saber desde dónde está trabajando R.
+
+Para revisar el directorio de trabajo actual, usa:
+
+```r
+getwd()
+```
+
+Si abriste el proyecto desde la carpeta raíz del repositorio, `getwd()` debería mostrar una ruta que termina en el nombre de la carpeta principal del curso.
+
+También puedes revisar qué archivos y carpetas hay en el directorio actual con:
+
+```r
+dir()
+```
+
+---
+
+## Recordatorio: estructura del proyecto y rutas
+
+Recuerda que estamos trabajando desde la **carpeta raíz** del proyecto. Desde ahí podemos entrar a carpetas como `data/`, `bin/` o `results/` usando rutas relativas.
+
+![Estructura jerárquica del repositorio del curso y ejemplos para leer rutas en R](estructura_de_repositorio_y_rutas_en_r.png)
+
+En este curso usaremos una estructura como esta:
+
+```text
+Fun-R-transcript/
+├── doc/
+├── bin/
+├── data/
+└── results/
+```
+
+La carpeta `data/` contiene los datos originales o de entrada.
+La carpeta `results/` contiene los archivos generados durante los ejercicios o análisis.
+
+Por ejemplo, si queremos leer un archivo que está dentro de `data/`, podemos escribir:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+Si queremos guardar un resultado dentro de `results/`, podemos escribir:
+
+```r
+"results/U1_datos_Etapa1.txt"
+```
+
+---
+
+## Rutas absolutas y rutas relativas
+
+Una **ruta absoluta** indica la ubicación completa de un archivo en una computadora. Por ejemplo:
+
+```text
+/Users/nombre_usuario/Documents/Fun-R-transcript/data/U1_datos_expresion.csv
+```
+
+El problema de las rutas absolutas es que dependen de cada computadora. Si compartes tu script con otra persona, esa ruta probablemente no funcionará.
+
+Una **ruta relativa** indica la ubicación de un archivo tomando como referencia el directorio de trabajo actual. Si abrimos el proyecto desde la carpeta raíz, podemos usar rutas más simples:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+o:
+
+```r
+"results/U1_datos_Etapa1.txt"
+```
+
+Esto hace que el proyecto sea más fácil de compartir y reproducir.
+
+![Ejemplo de rutas absolutas y relativas en una estructura de carpetas](image_4_01.png)
+
+---
+
+## ¿Qué significan `/`, `..` y `.` en una ruta?
+
+Al trabajar con rutas, verás algunos símbolos importantes:
+
+| Símbolo | Significado                                                    |
+| ------- | -------------------------------------------------------------- |
+| `/`     | Separa niveles de carpetas o indica que entramos a una carpeta |
+| `..`    | Sube un nivel en la jerarquía de carpetas                      |
+| `.`     | Representa la carpeta actual                                   |
+
+Por ejemplo:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+significa: desde la carpeta raíz, entra a `data/` y busca el archivo `U1_datos_expresion.csv`.
+
+En cambio:
+
+```r
+"../data/U1_datos_expresion.csv"
+```
+
+significa: sube un nivel con `..`, luego entra a `data/` y busca el archivo.
+
+En este curso, como abriremos el proyecto desde la carpeta raíz, usaremos rutas como:
+
+```r
+"data/U1_datos_expresion.csv"
+```
+
+sin necesidad de escribir `../` en la práctica principal.
+
+---
+
+## Tip: usar `Tab` para escribir rutas
+
+Cuando escribas una ruta dentro de comillas, puedes presionar la tecla `Tab` para que RStudio te ayude a completar nombres de carpetas o archivos.
+
+Por ejemplo, si escribes:
+
+```r
+read.csv("data/
+```
+
+y presionas `Tab`, RStudio puede mostrarte los archivos disponibles dentro de la carpeta `data`.
+
+Esto ayuda a evitar errores de escritura en las rutas y a verificar que el archivo realmente está en la carpeta indicada.
+
+También puedes usar `Tab` después de escribir parte del nombre de un archivo:
+
+```r
+read.csv("data/U1_
+```
+
+RStudio mostrará opciones que coincidan con ese inicio, como:
+
+```text
+U1_datos_expresion.csv
+```
+
+Este recurso es muy útil cuando trabajamos con archivos dentro de carpetas como `data/`, `bin/` o `results/`.
+
+---
 
 ## Con línea de código
 
-### Leer archivos en R
+La forma más recomendable de leer y guardar archivos durante un análisis es usando código dentro de un script. Así queda registrado qué archivo se usó, dónde estaba y cómo fue importado.
 
-#### Leer archivos CSV
+---
 
-Para leer archivos CSV, puedes usar la función `read.csv()` del paquete base de R o la función `read_csv()` del paquete `readr`:
+## Leer archivos CSV
+
+Para leer archivos `.csv`, podemos usar la función `read.csv()` de R base.
+
+La estructura general es:
 
 ```r
-# Usando la función base de R
-data <- read.csv("ruta/al/archivo.csv")
-
-# Usando el paquete readr
-library(readr)
-data <- read_csv("ruta/al/archivo.csv")
+objeto <- read.csv("ruta/al/archivo.csv", header = TRUE, sep = ",")
 ```
 
-#### Leer archivos Excel
+Donde:
 
-Para leer archivos Excel, puedes usar el paquete `readxl`:
+* `objeto` es el nombre que tendrá la tabla dentro de R;
+* `read.csv()` es la función que lee el archivo;
+* `"ruta/al/archivo.csv"` indica dónde está el archivo;
+* `header = TRUE` indica que la primera fila contiene nombres de columnas;
+* `sep = ","` indica que las columnas están separadas por comas.
 
-```r
-library(readxl)
-data <- read_excel("ruta/al/archivo.xlsx", sheet = "nombre_hoja")
+---
+
+## Ejercicio: leer un archivo CSV
+
+En este ejercicio leeremos el archivo:
+
+```text
+data/U1_datos_expresion.csv
 ```
 
-#### Leer archivos de texto
+Este archivo se encuentra dentro de la carpeta `data/`.
 
-Para leer archivos de texto, puedes usar la función `read.table()` del paquete base o `read_tsv()` del paquete `readr` para archivos delimitados por tabulaciones:
+Ejecuta:
 
 ```r
-# Usando la función base de R
-data <- read.table("ruta/al/archivo.txt", header = TRUE, sep = "\t")
-
-# Usando el paquete readr
-library(readr)
-data <- read_tsv("ruta/al/archivo.txt")
+data_expresion <- read.csv(
+  "data/U1_datos_expresion.csv",
+  header = TRUE,
+  sep = ","
+)
 ```
 
-### Guardar archivos en R
+Con esta línea estamos leyendo el archivo `U1_datos_expresion.csv` y guardándolo dentro de R como un objeto llamado `data_expresion`.
 
-#### Guardar archivos CSV
-Para guardar archivos en formato CSV, puedes usar la función `write.csv()` del paquete base o la función `write_csv()` del paquete `readr`:
+---
+
+## Explorar el objeto importado
+
+Después de importar los datos, podemos revisar el objeto de varias formas.
+
+Para imprimirlo en la consola:
 
 ```r
-# Usando la función base de R
-write.csv(data, "ruta/al/archivo.csv", row.names = FALSE)
-
-# Usando el paquete readr
-library(readr)
-write_csv(data, "ruta/al/archivo.csv")
+data_expresion
 ```
 
-#### Guardar archivos Excel
-
-Para guardar archivos Excel, puedes usar el paquete `writexl`:
+Para ver las primeras filas:
 
 ```r
-library(writexl)
-write_xlsx(data, "ruta/al/archivo.xlsx")
+head(data_expresion)
 ```
 
-#### Guardar archivos de texto
-
-Para guardar archivos de texto, puedes usar la función `write.table()` del paquete base o la función `write_tsv()` del paquete `readr`:
+Para revisar los nombres de las columnas:
 
 ```r
-# Usando la función base de R
-write.table(data, "ruta/al/archivo.txt", sep = "\t", row.names = FALSE)
+names(data_expresion)
+```
 
-# Usando el paquete readr
-library(readr)
-write_tsv(data, "ruta/al/archivo.txt")
+Para conocer su estructura general:
+
+```r
+str(data_expresion)
+```
+
+Estas funciones ayudan a verificar que el archivo se importó correctamente.
+
+---
+
+## Modificar los datos sin alterar el archivo original
+
+Cuando leemos un archivo en R, el archivo original no se modifica automáticamente. R crea una copia en memoria con el nombre del objeto que asignamos.
+
+Por ejemplo, el archivo original sigue estando en:
+
+```text
+data/U1_datos_expresion.csv
+```
+
+y dentro de R trabajamos con el objeto:
+
+```r
+data_expresion
+```
+
+Esto permite explorar, filtrar o modificar datos sin alterar el archivo original.
+
+---
+
+## Filtrar datos
+
+Ahora filtraremos solo las filas correspondientes a `Etapa1`.
+
+```r
+filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
+```
+
+Con esta línea creamos un nuevo objeto llamado `filtered_data_etapa1`.
+
+Para revisarlo:
+
+```r
+filtered_data_etapa1
+```
+
+También puedes usar:
+
+```r
+head(filtered_data_etapa1)
 ```
 
 ---
 
-### Ejemplo
+## Guardar archivos generados
 
-Este es un ejemplo desde como importar un archivo CSV. Esta base de datos se puede cambiar en R sin que altere el archivo original. A continuación, modifica el archivo importando en R con una operación simple y ahora hay que guarda/exportar el resultado en un nuevo archivo CSV:
+Después de modificar o filtrar datos, podemos guardar el resultado como un nuevo archivo.
+
+En este curso seguiremos esta regla:
+
+* los datos originales o de entrada se guardan en `data/`;
+* los archivos generados durante los ejercicios se guardan en `results/`.
+
+Esto nos ayuda a no mezclar los datos originales con los resultados producidos durante el análisis.
+
+---
+
+## Guardar el resultado como archivo `.txt`
+
+Para guardar el objeto `filtered_data_etapa1` como archivo `.txt`, usaremos `write.table()`:
 
 ```r
-# Leer el archivo CSV
-data <- read.csv("ruta/al/archivo.csv")
-
-# Realizar una operación simple (por ejemplo, filtrar filas)
-filtered_data <- subset(data, columna > valor)
-
-# Guardar el archivo CSV resultante
-write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
+write.table(
+  filtered_data_etapa1,
+  "results/U1_datos_Etapa1.txt",
+  sep = "\t",
+  row.names = FALSE
+)
 ```
 
-### Ejercicio
+En esta línea:
 
-Siguiendo el ejemplo, ahora has una prueba importando los datos del archivo U3_2.csv que se encuentran en la carpeta data. Recuerda asignar esa base de datos a un nuevo objeto o variable en R.
+* `filtered_data_etapa1` es el objeto que queremos guardar;
+* `"results/U1_datos_Etapa1.txt"` indica dónde se guardará el archivo;
+* `sep = "\t"` indica que las columnas estarán separadas por tabulaciones;
+* `row.names = FALSE` evita guardar una columna extra con los nombres o números de fila.
 
-Después, exportar el archivo a un formato .txt con otro nombre.
+### Nota sobre el formato del código
 
-```R
-# Ejercicio. Con los datos U3_2.csv dentro de la carpeta data.
-# Conserva los encabezados de las columnas 
-# Este archivo esta delimitado por ","
+En R, una misma instrucción puede escribirse en una sola línea o en varias líneas.
 
-data_expresion <- read.csv("../data/U3_2.csv", header = T, sep = ",") 
+Por ejemplo, esta instrucción:
 
-#Explora el objeto
-data_expresion
+```r
+write.table(filtered_data_etapa1, "results/U1_datos_Etapa1.txt", sep = "\t", row.names = FALSE)
+```
 
-# Realizar una operación simple (por ejemplo, filtrar solo los datos de Etapa1)
+hace exactamente lo mismo que esta otra:
+
+```r
+write.table(
+  filtered_data_etapa1,
+  "results/U1_datos_Etapa1.txt",
+  sep = "\t",
+  row.names = FALSE
+)
+```
+
+La diferencia está en la forma de escribir el código, no en el resultado.
+
+R entiende que la instrucción continúa mientras los paréntesis no se hayan cerrado. Por eso podemos separar los argumentos en varias líneas.
+
+Ambos estilos son válidos. Lo importante es que la instrucción esté completa y que los paréntesis, comillas y comas estén correctamente escritos.
+
+---
+
+Después de ejecutar esta línea, revisa la carpeta `results/`. Debería aparecer el archivo:
+
+```text
+U1_datos_Etapa1.txt
+```
+
+---
+
+## Guardar el resultado como archivo `.csv`
+
+También podríamos guardar el resultado como un archivo `.csv`:
+
+```r
+write.csv(
+  filtered_data_etapa1,
+  "results/U1_datos_Etapa1.csv",
+  row.names = FALSE
+)
+```
+
+Este archivo también se guardará dentro de la carpeta `results/`.
+
+---
+
+## Flujo completo de la práctica
+
+El flujo básico de esta sección es:
+
+```r
+# 1. Revisar dónde estamos
+getwd()
+dir()
+
+# 2. Leer el archivo CSV desde data/
+data_expresion <- read.csv(
+  "data/U1_datos_expresion.csv",
+  header = TRUE,
+  sep = ","
+)
+
+# 3. Explorar el objeto
+head(data_expresion)
+names(data_expresion)
+
+# 4. Filtrar datos de Etapa1
 filtered_data_etapa1 <- subset(data_expresion, Etapas == "Etapa1")
 
-#Guardar el archivo en formato .txt
-#Usando la función base de R
-write.table(filtered_data_etapa1, "../data/filtered_data_Etapa1.txt", sep = "\t", row.names = T)
-
-# Guardar el archivo CSV resultante
-#write.csv(filtered_data, "ruta/al/nuevo_archivo.csv", row.names = FALSE)
-
+# 5. Guardar el resultado en results/
+write.table(
+  filtered_data_etapa1,
+  "results/U1_datos_Etapa1.txt",
+  sep = "\t",
+  row.names = FALSE
+)
 ```
 
-Este flujo básico te permitirá manejar archivos en RStudio desde el panel de Editor de manera efectiva, además de llevar un registro de la ruta del archivo original. 
+Este mismo flujo se encuentra integrado en el script de apoyo:
 
-Por otro lado, si aún no te sientes muy cómodo puedes ir practicando a través de la interfaz gráfica de RStudio.
+```text
+bin/U1_practica_general.R
+```
+
+---
 
 ## Desde la interfaz de RStudio
 
-1. Puedes leer/cargar archivos desde el panel de "Environment", haciendo click en "Import Data set". Desde ahí selecciona el tipo de archivo que desees importar, csv, excel, txt, etc.
-2. Busca el archivo en el Explorador de Archivos/Finder.
-3. Aparecerá un panel donde veras el formato del archivo de entrada y el formato del archivo de salida que en este caso será un **data.frame**. Revisa que el tipo de *Separador* coincida con el archivo original, en el ejemplo se trata de un archivo **csv**, por lo que el separador es por "comma" (,). Da click en **Import** al final.
-4. Inmediatamente después la interfaz ejecutara una líneas de código para importar el archivo, si lo observas detalladamente notarás que son las mismas que vimos en la sección anterior. El nombre del objeto en R que ahora guarda la base de datos recibe el mismo nombre del archivo original por default.
+También puedes cargar archivos desde la interfaz gráfica de RStudio:
 
-![alt text](image_4_02.png)
+1. En el panel **Environment**, haz clic en **Import Dataset**.
+2. Selecciona el tipo de archivo que deseas importar, por ejemplo `.csv`, `.txt` o `.xlsx`.
+3. Busca el archivo en el Explorador de archivos o Finder.
+4. Revisa que el formato de entrada sea correcto. Por ejemplo, en un archivo `.csv`, verifica que el separador sea una coma `,`.
+5. Haz clic en **Import**.
 
-Esta forma de importar archivos puede ser la más facil al principio, pero conforme avances y necesites llevar un registro de los archivos originales que ocupas y sus rutas para poder encontrarlos nuevamente, notarás que será mejor usar las líneas de código desde el Editor y añadir tus anotaciones/comentarios. Además, la forma de exportar los archivos es a través de líneas de código.
+![Importación de archivos desde la interfaz gráfica de RStudio](image_4_02.png)
 
-### Fuentes de información
+Al importar el archivo, RStudio ejecuta automáticamente algunas líneas de código en la consola. Si observas la consola, verás que esas instrucciones son similares a las que podrías escribir en tu script.
 
-- [Lectura de bases de datos](https://fhernanb.github.io/Manual-de-R/read.html)
-- [Exportar datos](https://bookdown.org/jboscomendoza/r-principiantes4/exportar-datos.html)
+Sin embargo, hay un detalle importante: **ese código no se guarda automáticamente en tu script**.
+
+Esto significa que, aunque el archivo se haya cargado correctamente, si abres tu proyecto semanas o meses después, puede ser difícil recordar qué archivo importaste, dónde estaba guardado o qué instrucciones se usaron para cargarlo.
+
+Por eso, usar la interfaz puede ser útil para explorar al inicio, pero para un análisis reproducible es mejor escribir y guardar el código en un script. Así queda registrado el nombre del archivo, su ruta y la forma en que fue importado.
+
+En resumen:
+
+* la interfaz ayuda a explorar;
+* la consola muestra el código que se ejecutó;
+* el script conserva el registro del análisis.
 
 ---
 
-### Siguiente tema: [Unidad 2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)
+## Para explorar más
+
+En la carpeta `bin` encontrarás el script:
+
+```text
+U1_extra_excel.R
+```
+
+Este script incluye una práctica adicional para leer y guardar archivos de Excel usando los paquetes `readxl` y `writexl`.
+
+No es una actividad obligatoria de la sesión. Puedes revisarla después de clase si quieres practicar con otros formatos de archivo o explorar cómo usar paquetes adicionales para importar y exportar datos.
+
+Para trabajar con Excel desde R, primero es necesario instalar y cargar los paquetes correspondientes.
+
+```r
+# Instalar paquetes, solo si no los tienes instalados
+install.packages("readxl")
+install.packages("writexl")
+```
+
+Después, se pueden cargar con:
+
+```r
+library(readxl)
+library(writexl)
+```
+
+Para leer el archivo Excel:
+
+```r
+datos_excel <- read_excel("data/U1_datos_expresion.xlsx")
+```
+
+Para filtrar los datos de `Etapa1`:
+
+```r
+filtered_data_excel <- subset(datos_excel, Etapas == "Etapa1")
+```
+
+Para guardar el resultado como archivo Excel:
+
+```r
+write_xlsx(
+  filtered_data_excel,
+  "results/U1_datos_Etapa1.xlsx"
+)
+```
+
+Recuerda que este flujo está en el script extra:
+
+```text
+bin/U1_extra_excel.R
+```
+
+---
+
+## Para recordar
+
+En esta sección practicamos cómo leer y guardar archivos desde RStudio.
+
+Ideas clave:
+
+* R necesita conocer la ruta del archivo que queremos leer o guardar.
+* Si abrimos el proyecto desde la carpeta raíz, podemos usar rutas relativas simples.
+* `data/` debe contener datos originales o de entrada.
+* `results/` debe contener archivos generados durante los ejercicios.
+* `read.csv()` permite leer archivos `.csv`.
+* `write.table()` y `write.csv()` permiten guardar resultados.
+* La tecla `Tab` ayuda a autocompletar rutas y nombres de archivos.
+* La interfaz gráfica puede ayudar a importar datos, pero el script conserva el registro reproducible del análisis.
+
+---
+
+## Fuentes de información
+
+* [Lectura de bases de datos](https://fhernanb.github.io/Manual-de-R/read.html)
+* [Exportar datos](https://bookdown.org/jboscomendoza/r-principiantes4/exportar-datos.html)
+* [R for Data Science: Importación de datos](https://es.r4ds.hadley.nz/import.html)
+* [Data Carpentry: Introduction to R for Genomics](https://datacarpentry.org/genomics-r-intro/00-introduction.html)
+
+---
+
+## Siguiente tema
+
+[Unidad 2.1 Introducción a las variables y funciones](../Unidad_02/U2_1_Intro_var_funciones.md)

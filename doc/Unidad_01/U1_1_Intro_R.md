@@ -6,116 +6,189 @@
 
 ## 1.1 Introducción a R
 
-- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vR7evjJrmd9C0bvguWb_lu2rUQGmL3vg-fk-ateV_JAF10BhSoGgr9W01wXbrDXyQ/pub?start=false&loop=false&delayms=10000)
 
 ---
 
-### ¿Qué es R?  
+## Objetivo de esta sección
 
-R es un lenguaje de programación y un entorno de software ampliamente utilizado en estadística y análisis de datos.
+Al finalizar esta sección, reconocerás qué es R, por qué se utiliza en análisis de datos biológicos y qué ventajas ofrece para construir flujos de trabajo reproducibles.
 
-A continuación se mencionan seis puntos que explican qué es R:
-
-1. **Lenguaje de programación orientado a estadísticas:**  R es un lenguaje diseñado específicamente para el análisis estadístico y la visualización de datos. Ofrece una amplia gama de funciones y bibliotecas especializadas para realizar tareas estadísticas avanzadas como modelado, pruebas de hipótesis, análisis de series temporales y más.
-
-2. **Entorno de software de código abierto:** R es un software de código abierto, lo que significa que su código fuente está disponible públicamente y es gratuito para su uso y modificación. Esta característica ha llevado a una comunidad activa de desarrolladores que contribuyen con paquetes, extensiones y mejoras constantes al ecosistema de R.
-
-3. **Gráficos y visualización de datos:** Una de las fortalezas principales de R es su capacidad para generar gráficos de alta calidad y visualizaciones de datos. Con paquetes como ggplot2, R proporciona herramientas flexibles y potentes para crear una amplia variedad de gráficos, desde simples diagramas de dispersión hasta complejos gráficos de series temporales y mapas geoespaciales.
-
-4. **Análisis de datos reproducibles:** R fomenta la práctica de análisis de datos reproducibles al permitir a los usuarios escribir scripts y documentos dinámicos utilizando herramientas como R Markdown y knitr. Estas herramientas permiten combinar código, resultados y visualizaciones en un solo documento, facilitando la comunicación y la replicabilidad de los análisis.
-
-5. **Amplia comunidad y soporte:** R cuenta con una comunidad activa de usuarios y desarrolladores que contribuyen con tutoriales, documentación, paquetes y soporte en línea a través de foros, listas de correo y sitios web especializados. Esta comunidad ayuda a los usuarios a resolver problemas, compartir conocimientos y mantenerse actualizados sobre las últimas tendencias y técnicas en análisis de datos.
-
-6. **Integración con otras tecnologías:** R se integra fácilmente con otras tecnologías y lenguajes de programación, lo que lo hace interoperable con una variedad de herramientas y plataformas. Por ejemplo, existen paquetes que permiten la conexión de R con bases de datos, sistemas de almacenamiento en la nube, herramientas de big data como Hadoop y Spark, y lenguajes como Python, facilitando la integración de R en flujos de trabajo complejos y entornos tecnológicos diversos.
+Esta primera parte no busca que memorices todos los detalles técnicos de R, sino que tengas una idea general de la herramienta que usaremos durante el curso y de su importancia en el análisis de datos científicos.
 
 ---
 
-### Datos curiosos
+## ¿Qué es R?
 
-R fue desarrollado inicialmente por Ross Ihaka y Robert Gentleman en 1993.  
+R es un lenguaje de programación y un entorno de software ampliamente utilizado en estadística, análisis de datos y visualización.
 
-La pregunta más frecuente sobre R: **"¿Por qué las versiones de R tienen nombres raros?"**
+En términos sencillos, R permite escribir instrucciones para importar datos, modificarlos, analizarlos, graficarlos y guardar resultados. A diferencia de otros programas donde muchas acciones se hacen mediante botones o menús, en R gran parte del trabajo se realiza escribiendo código.
 
+Esto puede parecer desafiante al inicio, pero tiene una ventaja muy importante: cada paso del análisis queda registrado y puede revisarse, corregirse, compartirse y repetirse.
 
-![alt text](R-4.4.3_Peanuts.png)
+Algunas características importantes de R son:
 
-> R version 4.4.3 "Trophy Case" released on 2025/02/28
+1. **Está diseñado para análisis estadístico y visualización de datos.**
+   R incluye funciones básicas para realizar análisis estadísticos y generar gráficos. Además, puede ampliarse mediante paquetes especializados.
 
-Respuesta: "Todos los nombres de los lanzamientos son referencias a las tiras/películas de Peanuts".
+2. **Es software libre y de código abierto.**
+   R puede instalarse y utilizarse gratuitamente. También cuenta con una comunidad activa que desarrolla paquetes, materiales de aprendizaje, tutoriales y documentación.
 
----
+3. **Permite crear gráficos de alta calidad.**
+   R es ampliamente utilizado para visualizar datos mediante gráficos simples y complejos. Paquetes como `ggplot2` permiten generar figuras claras, personalizables y útiles para la interpretación de resultados.
 
-### ¿Por qué usar R en las ciencias?
+4. **Favorece la reproducibilidad.**
+   Al trabajar con scripts, es posible documentar cada paso del análisis. Esto facilita repetir el flujo de trabajo, detectar errores y compartir el procedimiento con otras personas.
 
-**Pros:**
+5. **Cuenta con una comunidad amplia.**
+   Existen foros, libros, cursos, documentación y comunidades de usuarios que facilitan el aprendizaje y la resolución de problemas.
 
-1. **Amplia gama de herramientas estadísticas:** R ofrece una amplia variedad de paquetes y funciones especializadas en análisis estadístico, lo que permite realizar análisis complejos y avanzados de datos.
-
-2. **Gráficos de alta calidad:** R proporciona herramientas poderosas para la visualización de datos, lo que permite crear gráficos de alta calidad que son fundamentales para la presentación e interpretación de resultados.
-
-3. **Flexibilidad y personalización:** R es altamente flexible y permite a los usuarios personalizar y adaptar análisis y visualizaciones según las necesidades específicas de su investigación.
-
-4. **Reproducibilidad y transparencia:** R fomenta la práctica de la ciencia reproducible al permitir a los investigadores escribir scripts y documentos dinámicos para llevar un registro y compartir su análisis de datos de manera transparente.
-
-5. **Comunidad activa:** R cuenta con una comunidad activa de usuarios y desarrolladores en el campo de las ciencias, lo que facilita el acceso a recursos, tutoriales y soporte en línea.
-
-6. **Integración con otras herramientas y tecnologías:** R se integra fácilmente con otras herramientas y tecnologías utilizadas en las ciencias biológicas, como bases de datos, software de secuenciación genómica y herramientas de análisis bioinformático, lo que facilita la integración de R en flujos de trabajo complejos.
-
-**Contras:**
-
-1. **Curva de aprendizaje inicial:** Para los principiantes, R puede tener una curva de aprendizaje pronunciada debido a su sintaxis y estructura de programación, lo que puede requerir tiempo y esfuerzo para dominar.
-
-2. **Dependencia de scripts y programación:** Utilizar R efectivamente en las ciencias a menudo requiere escribir scripts y código, lo que puede ser una barrera para los científicos biológicos que no tienen experiencia en programación.
-
-3. **Actualización y mantenimiento de paquetes:** Dado que R es un ecosistema en constante evolución con nuevos paquetes y versiones que se lanzan regularmente, puede requerir esfuerzos significativos para mantenerse al día con las últimas actualizaciones y mantener la compatibilidad entre paquetes.
-
-4. **Documentación mayoritariamente en inglés:** la predominancia del inglés en la documentación de R puede representar una barrera pero también es importante reconocer los esfuerzos de la comunidad de R para traducir la documentación a otros idiomas y hacer que R sea más accesible para una audiencia global.
-
-- **¿Limitaciones en el manejo de grandes conjuntos de datos?**
-Ver [¿Cuantos Datos Puede Manejar R?](https://www.youtube.com/watch?v=5bhqkMMrBmU)
+6. **Se integra con otras herramientas.**
+   R puede conectarse con bases de datos, otros lenguajes de programación, sistemas de control de versiones, herramientas para reportes dinámicos y plataformas de análisis bioinformático.
 
 ---
 
-**¿Hay otras razones para aprender R?**
+## ¿Por qué usaremos R en este curso?
 
-![alt text](Imagen_1_2.png)
+En este curso usaremos R porque es una herramienta muy útil para trabajar con datos biológicos y, en particular, para construir flujos de análisis reproducibles.
 
-- Tiene diversas herramientas, desde análisis de regresión hasta el [análisis bayesiano](https://marissabarlaz.github.io/portfolio/bayesian/).
-- R es el segundo lenguaje más utilizado en la [minería de datos](https://www.coursera.org/professional-certificates/ibm-data-science?utm_medium=sem&utm_source=gg&utm_campaign=B2C_LATAM_ibm-data-science_ibm_FTCOF_professional-certificates_countrygroup-1&campaignid=20849957655&adgroupid=155915853119&device=c&keyword=databases%20and%20sql%20for%20data%20science&matchtype=b&network=g&devicemodel=&adposition=&creativeid=684377192129&hide_mobile_promo&gad_source=1&gclid=Cj0KCQjwk6SwBhDPARIsAJ59GwdHnu3dS6E0M8JjjiLAeRGPc52Y2CtEZ4E-1EKfaC0BDnPQ53QifJkaAsxTEALw_wcB), después de [SQL](https://aws.amazon.com/es/what-is/sql/).
-- Tiene la facilidad de generar reportes en formatos html, pdf, word y presentaciones con [Rmarkdown](https://www.linkedin.com/pulse/r-markdown-analiza-comparte-y-reproduce-rosana-ferrero/?originalSubdomain=es).
-- R puede conectarse a una variedad de [bases de datos con dbplyr](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html)
-- Se pueden crear aplicaciones web interactivas con [flexdashboard](https://rstudio.github.io/flexdashboard/articles/examples.html) y convertirlas en videojuegos al estilo de NES con [nessy](https://github.com/ColinFay/nessy).
-- Se pueden crear [APIs web](https://info201.github.io/apis.html) a partir de funciones de R, permitiendo su integración en otras aplicaciones.
+A lo largo del curso, R nos permitirá:
 
-Estas capacidades hacen de R una herramienta versátil y poderosa para el análisis de datos y el desarrollo de aplicaciones.
+* importar y explorar tablas de datos;
+* modificar, filtrar y organizar información;
+* crear gráficos para interpretar resultados;
+* utilizar paquetes especializados;
+* documentar el análisis mediante scripts;
+* guardar resultados de forma ordenada;
+* avanzar hacia flujos de trabajo aplicados al análisis transcriptómico.
 
-[**R en el mundo**](https://benubah.github.io/r-community-explorer/rugs.html)
+La idea central es que R no se use solo para “obtener un resultado”, sino para construir un proceso claro, revisable y reproducible.
 
-## Fuentes de información recomendadas:
+---
 
-- [R Release Names](https://bookdown.org/martin_monkman/DataScienceResources_book/r-release-names.html)
-- Video [Creando APIs en R - Plumber - Sesion 1](https://www.youtube.com/watch?v=QIWISjRKzKM)
+## Dificultades normales al empezar con R
 
-### Cursos introductorios de R
+Aprender R puede ser desafiante al inicio, especialmente si no se tiene experiencia previa en programación. Esto es completamente normal.
 
-- <https://datacarpentry.org/genomics-r-intro/00-introduction.html>
-- <https://melbournebioinformatics.github.io/r-intro-biologists/intro_r_biologists.html>
+Algunas dificultades frecuentes son:
 
-### R en las ciencias
+1. **Errores de sintaxis.**
+   Un paréntesis sin cerrar, una coma fuera de lugar o una letra mal escrita pueden generar errores. Parte del aprendizaje consiste en leer esos mensajes y aprender a corregirlos.
 
-- [The Use of R and R Packages in Biodiversity Conservation Research](https://www.mdpi.com/1424-2818/15/12/1202)
-- [Ten simple rules for teaching yourself R](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010372)
-- [The R Language: An Engine for Bioinformatics and Data Science](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9148156/)
-- [Why is R one of the best Statistical programming languages for Biomedical and Pharmaceutical industries](https://www.linkedin.com/pulse/why-r-one-best-statistical-programming-languages-biomedical-medin/)
+2. **Rutas de archivos.**
+   R necesita saber en qué carpeta estamos trabajando y dónde se encuentran los archivos que queremos leer o guardar. Este será uno de los temas importantes de la Unidad 1.
+
+3. **Uso de scripts.**
+   Al principio puede parecer más lento escribir instrucciones en lugar de usar botones. Sin embargo, los scripts permiten guardar el procedimiento completo del análisis.
+
+4. **Instalación y carga de paquetes.**
+   Muchos análisis requieren paquetes adicionales. Aprenderemos poco a poco cuándo instalarlos, cómo cargarlos y cómo consultar su documentación.
+
+5. **Documentación en inglés.**
+   Gran parte de la documentación de R está en inglés. Sin embargo, también existen materiales en español y comunidades que han hecho esfuerzos importantes para traducir recursos.
+
+Estas dificultades no significan que R sea inaccesible. Más bien, forman parte del proceso de aprender a comunicarnos con una herramienta nueva.
+
+---
+
+## Datos curiosos sobre R
+
+R fue desarrollado inicialmente por Ross Ihaka y Robert Gentleman en 1993.
+
+Una pregunta frecuente sobre R es:
+
+> ¿Por qué las versiones de R tienen nombres raros?
+
+Los nombres de las versiones de R suelen hacer referencia a tiras o películas de *Peanuts*. Por eso, algunas versiones tienen nombres curiosos, como “Trophy Case”, “Puppy Cup” o “Great Truth”.
+
+Puedes consultar más ejemplos en el recurso [R Release Names](https://bookdown.org/martin_monkman/DataScienceResources_book/r-release-names.html).
+
+---
+
+## ¿Qué se puede hacer con R?
+
+R puede utilizarse en muchas áreas del análisis de datos. En ciencias biológicas, puede apoyar tareas como:
+
+* análisis estadísticos;
+* visualización de datos;
+* análisis de expresión génica;
+* exploración de datos ecológicos;
+* análisis de diversidad;
+* construcción de reportes reproducibles;
+* integración con herramientas bioinformáticas;
+* automatización de flujos de trabajo.
+
+La siguiente imagen reúne algunos ejemplos de gráficos, aplicaciones y recursos relacionados con R.
+
+![Ejemplos de visualizaciones, análisis y aplicaciones desarrolladas con R](Imagen_1_2.png)
+
+Además de los análisis estadísticos básicos, R permite trabajar con herramientas más especializadas. Por ejemplo:
+
+* realizar análisis de regresión y modelos estadísticos;
+* generar reportes en HTML, PDF, Word o presentaciones mediante R Markdown;
+* conectarse a bases de datos mediante paquetes como `dbplyr`;
+* crear aplicaciones web interactivas con herramientas como `shiny` o `flexdashboard`;
+* integrar funciones de R en otros flujos de trabajo mediante APIs.
+
+No veremos todo esto en el curso, pero es útil reconocer que R es una herramienta amplia. En este curso nos enfocaremos en construir bases sólidas para usar R en análisis de datos y transcriptómica.
+
+---
+
+## R y la reproducibilidad
+
+Una de las principales razones para usar R en investigación científica es que permite trabajar de manera reproducible.
+
+Un análisis reproducible es aquel en el que otras personas, o tú misma/o en el futuro, pueden revisar qué datos se usaron, qué pasos se siguieron y cómo se obtuvieron los resultados.
+
+Para lograrlo, es importante:
+
+* escribir scripts claros;
+* comentar el código;
+* organizar los archivos en carpetas;
+* separar datos originales de resultados generados;
+* guardar los pasos importantes del análisis;
+* evitar modificar manualmente los datos sin dejar registro.
+
+Durante el curso regresaremos varias veces a esta idea. La reproducibilidad no depende solo de saber programar, sino también de mantener buenas prácticas de organización.
+
+---
+
+## Recursos recomendados para profundizar
+
+Los siguientes recursos pueden ayudarte a repasar o ampliar lo visto en esta sección.
+
+### Introducción a R
+
+* [Data Carpentry: Introduction to R for Genomics](https://datacarpentry.org/genomics-r-intro/00-introduction.html)
+* [Introduction to R for Biologists](https://melbournebioinformatics.github.io/r-intro-biologists/intro_r_biologists.html)
+
+### R en ciencias biológicas y bioinformática
+
+* [The Use of R and R Packages in Biodiversity Conservation Research](https://www.mdpi.com/1424-2818/15/12/1202)
+* [Ten simple rules for teaching yourself R](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010372)
+* [The R Language: An Engine for Bioinformatics and Data Science](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9148156/)
 
 ### R en español
 
-- Traducción del libro [**“R for Data Science”**](https://es.r4ds.hadley.nz/), de Hadley Wickham y Garrett Grolemund.
+* Traducción al español del libro [R for Data Science](https://es.r4ds.hadley.nz/), de Hadley Wickham, Mine Çetinkaya-Rundel y Garrett Grolemund.
 
-### R en los negocios
+### Otros ejemplos de uso de R
 
-- [R for Marketing Research and Analytics](https://r-marketing.r-forge.r-project.org/)
+* [R en el mundo: comunidades de usuarios](https://benubah.github.io/r-community-explorer/rugs.html)
+* [Creando APIs en R con Plumber](https://www.youtube.com/watch?v=QIWISjRKzKM)
+* [Ejemplos de flexdashboard](https://rstudio.github.io/flexdashboard/articles/examples.html)
+* [dbplyr: trabajo con bases de datos desde R](https://dbplyr.tidyverse.org/)
 
----------
+---
 
-### Siguiente tema: [1.2 RStudio](../Unidad_01/U1_2_Rstudio.md)
+## Para recordar
+
+R es una herramienta poderosa para analizar datos, pero su valor no está solo en los resultados que produce. Su principal fortaleza es que permite construir análisis claros, documentados y reproducibles.
+
+En esta unidad comenzaremos con lo básico: conocer el entorno de trabajo, escribir nuestras primeras líneas de código, organizar un proyecto, leer archivos y guardar resultados.
+
+---
+
+### Siguiente tema
+
+[1.2 Uso de RStudio](../Unidad_01/U1_2_Rstudio.md)
