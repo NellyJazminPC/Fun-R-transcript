@@ -312,4 +312,6 @@ Antes de la primera sesión, se recomienda:
 - crear una carpeta local para guardar los materiales del curso;
 - revisar este repositorio al inicio de cada sesión para identificar los archivos indicados por los instructores.
 
+La **presentación de Bienvenida** está [aquí](https://docs.google.com/presentation/d/e/2PACX-1vTa2XsnQZZjmqla7TkKfoGV41pq-zmF9tBUYX18UVzmdwOBAO-vj3I-4-XXMsnupg/pub?start=false&loop=false&delayms=3000)
+
 ![alt text](ilustracion_programacion_R.png)
