@@ -214,7 +214,10 @@ Para la Unidad 1 se utilizarán principalmente funciones básicas de R. No se re
 
 ```r
 # Unidad 2
-# Código de instalación por liberar.
+install.packages(c("tidyverse", "readxl"))
+
+# De tidyverse usaremos principalmente dplyr, magrittr, tibble, readr y tidyr.
+
 ```
 
 ### Unidad 3. Gráficos en R
