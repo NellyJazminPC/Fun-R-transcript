@@ -8,485 +8,535 @@
 
 ---
 
-## 2.3 Manipulación de datos
+## 2.3 Manipulación de datos con `dplyr`
 
-- [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
 
-- [Script U2_3_Manipulacion_datos.R](../../bin/U2_3_Manipulacion_datos.R) de esta unidad en la carpeta **bin**
+## Objetivo
+
+Aplicar funciones básicas de `dplyr` para seleccionar columnas, filtrar filas, crear variables, ordenar datos y resumir información en un data frame.
+
+## Material de apoyo
+
+Durante esta unidad trabajaremos con un script general de práctica:
+
+* [Script de práctica general Unidad 2](../../bin/U2_practica_general.R)
+
+Durante la sesión iremos ejecutando solo los bloques indicados por la instructora.
 
 ---
 
-## 2.3.1 Aspectos básicos
+## 1. ¿Qué significa manipular datos?
 
-**1. Funciones Básicas de Manipulación de Datos**
+Manipular datos significa realizar operaciones para **seleccionar, filtrar, modificar, ordenar o resumir** la información contenida en una tabla.
 
+En R, una de las herramientas más utilizadas para manipular datos tabulares es el paquete `dplyr`, que forma parte de `tidyverse`.
 
-#### Operadores lógicos
+Algunas preguntas que podemos responder al manipular un data frame son:
 
-```R
-#Crea dos variable y asignales el valor de 5 y 15 
+* ¿Qué columnas necesito conservar?
+* ¿Qué filas cumplen una condición?
+* ¿Puedo crear una nueva columna a partir de otra?
+* ¿Puedo ordenar mis datos?
+* ¿Puedo resumir la información por grupo?
+
+---
+
+## 2. Preparar el data frame de trabajo
+
+En el tema anterior creamos un data frame llamado `metadata`, con información hipotética de muestras para un análisis transcriptómico.
+
+Si no lo tienes en tu sesión de R, puedes volver a crearlo:
+
+```r
+metadata <- data.frame(
+  sample_id = c("S01", "S02", "S03", "S04", "S05", "S06"),
+  condition = c("control", "control", "stress", "stress", "control", "stress"),
+  tissue = c("leaf", "leaf", "leaf", "root", "root", "root"),
+  reads_million = c(18.5, 21.2, 19.8, 25.1, 20.4, 17.9)
+)
+
+metadata
+```
+
+Revisemos nuevamente su estructura:
+
+```r
+head(metadata)
+dim(metadata)
+str(metadata)
+summary(metadata)
+```
+
+Este data frame será nuestra tabla de práctica para aplicar funciones básicas de manipulación de datos.
+
+---
+
+## 3. Cargar `dplyr`
+
+Para usar las funciones de `dplyr`, primero necesitamos cargar el paquete.
+
+```r
+library(dplyr)
+```
+
+Si ya cargaste `tidyverse`, entonces `dplyr` ya está disponible, porque forma parte de esa colección de paquetes.
+
+---
+
+## 4. Operadores lógicos
+
+Antes de filtrar datos, necesitamos recordar algunos **operadores lógicos**.
+
+Los operadores lógicos permiten hacer comparaciones y obtener resultados de tipo `TRUE` o `FALSE`.
+
+```r
+# Crea dos variables
 x <- 5
 y <- 15
-#Usa los operadores lógicos:
-x > 5 
-x == y # Compara si dos valores son exactamente iguales
-x != y # Compara si dos valores son diferentes
-x & (y < 10) # Evalúa si ambas condiciones son verdaderas
 
-x | (y < 10) # Evalúa si al menos una condición es verdadera
-
+# Comparaciones
+x > 5
+x == y
+x != y
+x < y
 ```
 
-#### Otros caracteres especiales:
-![alt text](image-3.png)
+También podemos combinar condiciones:
 
-- `is.na()`
+```r
+# Evalúa si ambas condiciones son verdaderas
+x < 10 & y < 20
 
-La función `is.na()` se utiliza para **identificar valores NA** (faltantes) en un vector o data frame.
+# Evalúa si al menos una condición es verdadera
+x > 10 | y < 20
+```
 
-#### Ejemplo de `is.na()`
+Algunos operadores frecuentes son:
 
-```R
-# Crea un vector con valores NA
+| Operador | Significado                       |                                       |
+| -------- | --------------------------------- | ------------------------------------- |
+| `>`      | mayor que                         |                                       |
+| `<`      | menor que                         |                                       |
+| `>=`     | mayor o igual que                 |                                       |
+| `<=`     | menor o igual que                 |                                       |
+| `==`     | exactamente igual a               |                                       |
+| `!=`     | diferente de                      |                                       |
+| `&`      | ambas condiciones deben cumplirse |                                       |
+| `        | `                                 | al menos una condición debe cumplirse |
+
+Estos operadores serán útiles para filtrar filas dentro de un data frame.
+
+---
+
+## 5. Valores faltantes: `NA`
+
+En R, `NA` representa un **valor faltante**.
+
+```r
 vector_with_na <- c(1, 2, NA, 4, NA, 6)
 
-# Identifica valores NA
+vector_with_na
+```
+
+Para identificar valores faltantes usamos `is.na()`:
+
+```r
 is.na(vector_with_na)
-
 ```
 
-**2. Diferencias entre formatos ancho (Wide) y largo (Long)**
+Muchas funciones devuelven `NA` si los datos contienen valores faltantes:
 
-En el formato **wide**, **cada variable se extiende en columnas diferentes**. Este formato es útil para **visualizaciones** y algunas operaciones estadísticas.
+```r
+mean(vector_with_na)
+```
 
-En el formato **long**, las observaciones se registran en **filas adicionales**, lo que **facilita** la **manipulación** y **análisis** de datos longitudinales.
+Para ignorar los valores faltantes al calcular el promedio, podemos usar `na.rm = TRUE`:
 
-![alt text](image_4.png)
+```r
+mean(vector_with_na, na.rm = TRUE)
+```
 
-### Fuentes de información
-
-- [base R Cheat Sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
-- [Data wrangling Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-- [Getting started R](https://www.datacamp.com/cheat-sheet/getting-started-r)
+En datos reales, es importante revisar si hay valores faltantes antes de continuar con el análisis.
 
 ---
 
-Las funciones y conceptos anteriores proporcionan una base para la manipulación de datos en R. Ahora vamos a continuar con los paquetes especializados para la manipulación de datos en R:
+## 6. Seleccionar columnas con `select()`
 
-- **tidyr**: Para cambiar entre formatos _wide_ y _long_.
+La función `select()` permite elegir columnas de un data frame.
 
-- **dplyr**: Para la manipulación eficiente de _data frames_.
+Por ejemplo, podemos seleccionar solo las columnas `sample_id`, `condition` y `reads_million`:
 
-- **magrittr**: Para mejorar la legibilidad del código utilizando tuberías o _pipes_ (%>%).
+```r
+metadata_select <- select(metadata, sample_id, condition, reads_million)
+
+metadata_select
+```
+
+También podemos hacerlo indicando que queremos excluir una columna:
+
+```r
+metadata_sin_tissue <- select(metadata, -tissue)
+
+metadata_sin_tissue
+```
+
+`select()` responde a la pregunta:
+
+> ¿Qué columnas quiero conservar?
 
 ---
 
-## 2.3.2 tidyr
+## 7. Filtrar filas con `filter()`
 
-El paquete **tidyr** es parte del ecosistema de **tidyverse** en R, fue diseñado para ayudar a limpiar y estructurar datos de una manera que facilite su análisis. Su desarrollador es [Hadley Wickham](https://twitter.com/hadleywickham), un conocido científico de datos y autor de varios paquetes populares en R (`ggplot2`, `dplyr`, `readr`, entre otros).
+La función `filter()` permite conservar solo las filas que cumplen una o más condiciones.
 
-![alt text](image-4.png)
+Por ejemplo, podemos filtrar las muestras de la condición `control`:
 
-El nombre **tidyr** proviene de la combinación de las palabras "tidy" (ordenado) y "R". El objetivo del paquete es **transformar los datos en un formato ordenado**.
+```r
+metadata_control <- filter(metadata, condition == "control")
 
-### ¿Qué son los datos ordenados?
-
-En **tidyverse**, los **datos ordenados** son aquellos en los que **cada variable se guarda en una columna**, cada **observación** se guarda en una **fila** y cada tipo de **unidad observacional** forma una **tabla**. Este formato facilita el análisis y la visualización de datos.
-
-### Funciones principales en tidyr
-
-- `gather()`: convierte datos de formato wide a long.
-- `spread()`: convierte datos de formato long a wide.
-- `separate()`: divide una columna en varias columnas.
-- `unite()`: combina varias columnas en una sola.
-
-`pivot_longer()` y `pivot_wider()` son **versiones mejoradas** de `gather()` y `spread()`, respectivamente, introducidas en versiones más recientes de **tidyr**.
-
-- `pivot_longer()` convierte datos de formato wide a long de una manera más intuitiva y flexible.
-- `pivot_wider()` convierte datos de formato long a wide.
-
-#### Diferencias entre gather()/spread() y pivot_longer()/pivot_wider()
-
-- `gather()`/`spread()`:
-
-Son funciones más antiguas y menos intuitivas en algunos casos.
-Requieren especificar manualmente todas las columnas que se deben transformar.
-
-- `pivot_longer()`/`pivot_wider()`:
-
-Son más recientes y ofrecen una sintaxis más intuitiva y flexible.
-Permiten usar patrones para seleccionar columnas, lo que simplifica la transformación de datos.
-
-## gather() y spread()
-
-#### Ejemplos de gather y spread con la base de datos "Iris"
-
-```R
-# Carga la base de datos iris
-data("iris")
-head(iris)
-dim(iris)
+metadata_control
 ```
 
-La base de datos iris contiene las siguientes columnas:
+También podemos filtrar las muestras del tejido `root`:
 
-- Sepal.Length: Longitud del sépalo.
-- Sepal.Width: Anchura del sépalo.
-- Petal.Length: Longitud del pétalo.
-- Petal.Width: Anchura del pétalo.
-- Species: Especie de la flor.
+```r
+metadata_root <- filter(metadata, tissue == "root")
 
-```R
-#Carga el paquete tidyr
-library(tidyr)
-
-#Si no tienes instalado el paquete usa:
-#install.packages("tidyr")
-
-# Añadir un identificador único a las filas de iris
-iris$ID <- 1:nrow(iris)
-
-# Convertir a formato long usando gather
-iris_long <- gather(iris, key = "Measurement", value = "Value", -Species, -ID)
-
-# Ver el data frame en formato long
-head(iris_long)
-
-# Convertir de vuelta a formato wide usando spread
-iris_wide_again <- spread(iris_long, key = "Measurement", value = "Value")
-
-# Ver el data frame en formato wide
-head(iris_wide_again)
-
+metadata_root
 ```
 
-![alt text](image_8.png)
+Y podemos combinar condiciones:
+
+```r
+metadata_control_leaf <- filter(metadata, condition == "control", tissue == "leaf")
+
+metadata_control_leaf
+```
+
+`filter()` responde a la pregunta:
+
+> ¿Qué filas cumplen la condición que necesito?
 
 ---
 
-#### EXTRA: pivot_longer() y pivot_wider()
+## 8. Crear o modificar columnas con `mutate()`
 
-```R
-# Usar pivot_longer() para convertir de wide a long
-iris_long_pivot <- pivot_longer(
-  iris, 
-  cols = c(starts_with("Sepal"), starts_with("Petal")), 
-  names_to = "Measurement", 
-  values_to = "Value"
+La función `mutate()` permite crear nuevas columnas o modificar columnas existentes.
+
+Por ejemplo, podemos crear una nueva columna con el número aproximado de lecturas, ya no en millones sino en unidades:
+
+```r
+metadata_reads <- mutate(
+  metadata,
+  reads = reads_million * 1e6
 )
-#Revisa el data.frame:
-class(iris_long_pivot)
-print(iris_long_pivot)
 
-# Usar pivot_wider() para convertir de long a wide
-iris_wide_pivot <- pivot_wider(
-  iris_long_pivot, 
-  names_from = "Measurement", 
-  values_from = "Value")
-#Revisa el data frame
-head(iris_wide_pivot)
-dim(iris_wide_pivot)
+metadata_reads
 ```
 
-Para la mayoría de los usuarios nuevos y aquellos que trabajan extensivamente con el **ecosistema tidyverse**, **tidyr** con `pivot_longer()` y `pivot_wider()` es una opción recomendada.
+También podemos crear una etiqueta combinando información de dos columnas:
+
+```r
+metadata_label <- mutate(
+  metadata,
+  sample_label = paste(condition, tissue, sample_id, sep = "_")
+)
+
+metadata_label
+```
+
+`mutate()` responde a la pregunta:
+
+> ¿Qué nueva variable puedo crear a partir de la información que ya tengo?
 
 ---
 
-## separate() y unite()
+## 9. Ordenar filas con `arrange()`
 
-- **separate()** divide variables complejas en variables individuales
+La función `arrange()` permite ordenar las filas de un data frame.
 
-- **unite()** une varias variables en una sola columna 
+Por ejemplo, podemos ordenar las muestras de menor a mayor número de lecturas:
 
-#### Continuando con unite y separate
+```r
+metadata_ordenado <- arrange(metadata, reads_million)
 
-Con `unite()` vamos a **crear una columna** que **combine la especie y la longitud del sépalo**, luego con `separate()` la **separaremos en dos columnas**.
-
-```R
-# Crea una nueva columna combinada
-iris_combined <- unite(iris, col = "Species_SepalLength", Species, Sepal.Length, sep = "_")
-head(iris_combined)
-dim(iris_combined)
-
-# Usa separate() para dividir la columna combinada
-iris_separated <- separate(iris_combined, col = "Species_SepalLength", into = c("Species", "Sepal.Length"), sep = "_")
-head(iris_separated)
-dim(iris_separated)
+metadata_ordenado
 ```
 
-![alt text](image-6.png)
+Para ordenar de mayor a menor, usamos `desc()`:
+
+```r
+metadata_ordenado_desc <- arrange(metadata, desc(reads_million))
+
+metadata_ordenado_desc
+```
+
+También podemos ordenar por más de una columna:
+
+```r
+metadata_ordenado_grupos <- arrange(metadata, condition, tissue)
+
+metadata_ordenado_grupos
+```
+
+`arrange()` responde a la pregunta:
+
+> ¿En qué orden quiero ver mis datos?
 
 ---
 
-El paquete **tidyr**, es una herramienta poderosa para la **manipulación y transformación de datos** en R. 
+## 10. Resumir información por grupos con `group_by()` y `summarise()`
 
+La función `group_by()` permite agrupar datos según una o más columnas.
 
-### 2.3.2 Fuentes de información
+La función `summarise()` permite calcular resúmenes por grupo.
 
-- [The tidy tools manifesto](https://cran.rstudio.com/web/packages/tidyverse/vignettes/manifesto.html)
-- [Introducción a tidyr: Datos ordenados en R](https://rpubs.com/jaortega/151936)
+Por ejemplo, podemos calcular cuántas muestras hay por condición:
 
----
-
-## 2.3.3 dplyr y magrittr
-
-### Introducción a dplyr
-
-El paquete **dplyr** es una herramienta **esencial** para la **manipulación de datos tabulares** en R, proporcionando una gramática clara y eficiente para operaciones comunes. Su nombre proviene de "**d**" (de **data**) y "**plyr**" (de **pliers o alicates**, y en referencia al paquete **plyr**, un precursor de **dplyr**).
-
-Las **principales funciones** de **dplyr** incluyen:
-
-- `mutate()`: se utiliza para crear nuevas variables o modificar las existentes.
-- `filter()`: selecciona filas de un data frame según ciertas condiciones.
-- `group_by()`: agrupa datos por una o más variables.
-- `summarize()`: calcula estadísticas resumidas, como medias o desviaciones estándar, para cada grupo de datos.
-- `select()`: selecciona variables (columnas) basado en sus nombres.
-
-![alt text](image-5.png)
-
-Para más información, se recomienda la siguiente página: [Visualizing {dplyr}’s mutate(), summarize(), group_by(), and ungroup() with animations](https://www.andrewheiss.com/blog/2024/04/04/group_by-summarize-ungroup-animations/)
-
----
-
-### Introducción a magrittr
-
-A menudo, junto a **dplyr** se utiliza el paquete **magrittr**, que introduce el **operador de tubería** (**%>%**), permitiendo encadenar múltiples operaciones de manera más legible y concisa. Este operador **toma la salida** de una función y la pasa **como entrada** a la siguiente, permitiendo escribir código más limpio y entendible.
-
-![alt text](imagen_6.png)
-
-#### Ejemplo básico de magrittr
-
-```R
-#Carga el paquete de magrittr
-library(magrittr)
-
-#Si no lo tienes instalado:
-#install.package("magrittr")
-
-# Ejemplo simple usando %>%
-#Crea un vector que contenga valores de 1 a 10, suma todo y obtén el cuadrado de esa suma total
-
-result <- 1:10 %>% 
-  sum() %>% 
-  sqrt()
-
-print(result)
-# Output: 7.416198
-```
-
----
-
-### dplyr y magrittr
-
-Ahora, comenzaremos a usar **dplyr** y veremos las diferencias entre usar o no el **pipe** de **magrittr**. Seguiremos usando la base de datos de Iris:
-
-
-#### Ejemplo con mutate() de dplyr y magrittr
-
-![alt text](image-7.png)
-
-```R
-# Cargar la base de datos iris y el paquete dplyr
-#data("iris")
-#Carga el paquete dplyr
-#Si no lo tienes instalado usa install.package()
-library(dplyr)
-#Revisa nuevamente la base iris
-head(iris)
-
-# Crea nuevas columnas que son el doble de Sepal.Length y la relación Sepal.Length/Sepal.Width
-
-mutated_iris <- mutate(
-  iris,
-  double_sepal_length = Sepal.Length * 2,
-  sepal_ratio = Sepal.Length / Sepal.Width)
-
-#Revisa el nuevo df con las nuevas columnas
-head(mutated_iris)
-```
-
-Ahora, veamos el código si incorporamos **%>%**:
-
-```R
-# Carga la base de datos iris y los paquetes dplyr y magrittr si aún no lo has hecho
-#data("iris")
-#library(dplyr)
-library(magrittr)
-#Revisa nuevamente la base iris
-head(iris)
-
-# Crea nuevas columnas que son el doble de Sepal.Length y la relación Sepal.Length/Sepal.Width
-
-mutated_iris_pipe <- iris %>%
-  mutate(
-    double_sepal_length = Sepal.Length * 2,
-    sepal_ratio = Sepal.Length / Sepal.Width)
-
-#Revisa el nuevo df con las nuevas columnas
-head(mutated_iris_pipe)
-
-```
-
-#### Ejemplo de filter()
-
-```R
-# Filtra filas donde Sepal.Length es mayor a 5 y Species es "setosa"
-
-filtered_iris <- filter(iris, Sepal.Length > 5, Species == "setosa")
-#Revisa el nuevo df
-filtered_iris
-```
-
-Con **%>%**:
-
-```R
-# Filtra filas donde Sepal.Length es mayor a 5 y Species es "setosa"
-
-filtered_iris_pipe <- iris %>%
-  filter(Sepal.Length > 5, Species == "setosa")
-#Revisa el nuevo df
-filtered_iris_pipe
-
-```
-
-#### Ejemplo de group_by()
-
-![alt text](image-8.png)
-
-```R
-# Agrupa por Species
-iris_grouped <- group_by(iris, Species)
-
-# Muestra los datos agrupados
-iris_grouped
-```
-
-Con **%>%**:
-
-```R
-# Agrupa por Species usando %>%
-iris_grouped_pipe <- iris %>% group_by(Species)
-
-# Muestra los datos agrupados
-iris_grouped_pipe
-```
-
-#### Ejemplo de summarize()
-
-![alt text](image-9.png)
-
-```R
-# Calcula la media y desviación estándar de Sepal.Length por especie
-
-summar_iris <- summarize(
-  group_by(iris, Species),
-  mean_sepal_length = mean(Sepal.Length),
-  sd_sepal_length = sd(Sepal.Length))
-#Revisa los resultados:
-summar_iris
-
-```
-
-Ahora, con **%>%**:
-
-```R
-# Calcula la media y desviación estándar de Sepal.Length por especie
-
-summar_iris_pipe <- iris %>%
-  group_by(Species) %>%
-  summarize(
-    mean_sepal_length = mean(Sepal.Length),
-    sd_sepal_length = sd(Sepal.Length))
-#Revisa los resultados:
-summar_iris_pipe
-
-```
-
-### ¿Es posible tener las cuatro funciones en una sola línea de código (chunk)?
-
-![alt text](imagen_7.png)
-
-Probemos en R cómo sería con y sin **pipe**.
-
-```R
-# Cargar la base de datos iris y el paquete dplyr
-data("iris")
-library(dplyr)
-
-# Manipulación de datos en una sola línea sin usar %>%
-summary_iris <- summarize(group_by(filter(mutate(iris, double_sepal_length = Sepal.Length * 2), Sepal.Length > 5), Species), mean_sepal_length = mean(Sepal.Length), sd_sepal_length = sd(Sepal.Length), mean_double_sepal_length = mean(double_sepal_length), sd_double_sepal_length = sd(double_sepal_length))
-
-# Imprimir el resumen
-summary_iris
-
-```
-
-Con **%>%**:
-
-```R
-# Cargar la base de datos iris y los paquetes necesarios
-data("iris")
-library(dplyr)
-
-# Manipulación de datos en un solo chunk usando %>%
-summary_iris_pipe <- iris %>%
-  # Crear una nueva columna que es el doble de Sepal.Length
-  mutate(double_sepal_length = Sepal.Length * 2) %>%
-  # Filtrar filas donde Sepal.Length es mayor a 5
-  filter(Sepal.Length > 5) %>%
-  # Agrupar por Species
-  group_by(Species) %>%
-  # Calcular la media y la desviación estándar de Sepal.Length y double_sepal_length
-  summarize(
-    mean_sepal_length = mean(Sepal.Length),
-    sd_sepal_length = sd(Sepal.Length),
-    mean_double_sepal_length = mean(double_sepal_length),
-    sd_double_sepal_length = sd(double_sepal_length)
+```r
+metadata_por_condicion <- metadata %>%
+  group_by(condition) %>%
+  summarise(
+    n_muestras = n()
   )
 
-# Imprimir el resumen
-print(summary_iris)
-
+metadata_por_condicion
 ```
 
-#### EXTRA de dplyr + magrittr
+También podemos calcular el promedio de lecturas por condición:
 
-![alt text](extra_dplyr_magrittr.png)
+```r
+metadata_promedio <- metadata %>%
+  group_by(condition) %>%
+  summarise(
+    promedio_lecturas_millones = mean(reads_million)
+  )
 
-```R
-#Cargar las librerías 
-library(gapminder)
-library(magrittr)
-library(dplyr)
-#Base de datos
-gapminder
-#Renombra la base de datos con un nombre más corto
-gm=gapminder
-#Muestra las primeras líneas de la base de datos renombrada
-head(gm)
-#Utiliza magrittr para manipular los datos y obtener un resumen estadístico de los datos
-gm %>%
-mutate(gdp=gdpPercap+pop) %>%
-filter(continent==”Asia”) %>%
-group_by(year) %>%
-summarize(mean(lifeExp), mean(gdp))
+metadata_promedio
 ```
 
+Y podemos agrupar por más de una columna:
 
-Después de ver esta diferencias, ¿qué opinas, vale la pena intentar usar **%>%**?
+```r
+metadata_resumen_grupos <- metadata %>%
+  group_by(condition, tissue) %>%
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
 
+metadata_resumen_grupos
+```
 
-### 2.3.3 Fuentes de información
+`group_by()` y `summarise()` responden a preguntas como:
 
-- [Data transformations - Cheat Sheets](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
-- [dplyr - tidyverse](https://dplyr.tidyverse.org/)
-- [Pipe](https://magrittr.tidyverse.org/reference/pipe.html)
+> ¿Cuántas muestras tengo por grupo?
+> ¿Cuál es el promedio de lecturas por condición o tejido?
 
 ---
 
-La **manipulación de datos** es una habilidad **esencial** en el análisis de datos. Los paquetes `tidyr`, `dplyr` y `magrittr` proporcionan herramientas fundamentales para **transformar, limpiar y analizar** datos de manera eficiente. 
+## 11. Pipe: encadenar pasos de análisis
 
-Otros paquetes como `ggplot2`, `readr`, `data.table`, `vegan`, `phyloseq` y `ape` permiten profundizar en el manejo y analisis de datos en contextos más específicos (filogenético, evolutivo, ecológico, diversidad, etc.)
+El **pipe** permite encadenar varias operaciones de forma más legible.
+
+La idea general es:
+
+> toma este objeto, pásalo a la siguiente función y después a la siguiente.
+
+En muchos scripts de R encontrarás el pipe de `magrittr`:
+
+```r
+%>%
+```
+
+En versiones recientes de R también existe el pipe base:
+
+```r
+|>
+```
+
+Ambos permiten leer el código de izquierda a derecha o de arriba hacia abajo. Durante esta sesión revisaremos ambos para reconocerlos, pero nos enfocaremos en una versión para practicar.
+
+### Ejemplo sin usar pipe
+
+```r
+metadata_resumen_sin_pipe <- summarise(
+  group_by(
+    mutate(
+      filter(metadata, !is.na(condition)),
+      reads = reads_million * 1e6
+    ),
+    condition,
+    tissue
+  ),
+  n_muestras = n(),
+  promedio_lecturas_millones = mean(reads_million),
+  .groups = "drop"
+)
+
+metadata_resumen_sin_pipe
+```
+
+Este código funciona, pero puede ser difícil de leer porque las funciones quedan anidadas unas dentro de otras.
+
+### Ejemplo con `%>%`
+
+```r
+metadata_resumen <- metadata %>%
+  filter(!is.na(condition)) %>%
+  mutate(reads = reads_million * 1e6) %>%
+  group_by(condition, tissue) %>%
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
+
+metadata_resumen
+```
+
+### Ejemplo con `|>`
+
+```r
+metadata_resumen_base_pipe <- metadata |>
+  filter(!is.na(condition)) |>
+  mutate(reads = reads_million * 1e6) |>
+  group_by(condition, tissue) |>
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
+
+metadata_resumen_base_pipe
+```
+
+La lógica es la misma: partimos de `metadata`, filtramos filas, creamos una nueva columna, agrupamos y generamos un resumen.
+
+---
+
+## 12. Ejercicio integrador
+
+Usa el data frame `metadata` para crear un resumen de las muestras.
+
+### Instrucciones
+
+1. Filtra las muestras que no tengan valores faltantes en `condition`.
+2. Crea una nueva columna llamada `reads`, convirtiendo `reads_million` a lecturas totales.
+3. Agrupa por `condition` y `tissue`.
+4. Calcula:
+
+   * el número de muestras por grupo;
+   * el promedio de lecturas en millones.
+5. Guarda el resultado en un objeto llamado `metadata_resumen`.
+
+Puedes usar como guía el siguiente flujo:
+
+```r
+metadata_resumen <- metadata %>%
+  filter(!is.na(condition)) %>%
+  mutate(reads = reads_million * 1e6) %>%
+  group_by(condition, tissue) %>%
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
+
+metadata_resumen
+```
+
+### Preguntas
+
+* ¿Qué función permitió filtrar filas?
+* ¿Qué función permitió crear una nueva columna?
+* ¿Qué función permitió agrupar los datos?
+* ¿Qué función permitió generar el resumen?
+* ¿Por qué puede ser útil guardar el resultado en un nuevo objeto?
+
+---
+
+## 13. Desafío extra: exportar el resultado
+
+Una vez que generamos un data frame nuevo, podemos guardarlo como archivo para conservar el resultado de nuestro análisis.
+
+Intenta exportar el objeto `metadata_resumen` dentro de la carpeta `results/`.
+
+> La respuesta completa está disponible en el script de práctica general de la Unidad 2.
+
+---
+
+## Para seguir explorando
+
+Los siguientes ejemplos no forman parte del núcleo principal de la sesión, pero pueden ayudarte a practicar o profundizar después.
+
+El código complementario está dividido en dos scripts:
+
+* `bin/U2_para_seguir_explorando.R`: incluye ejemplos adicionales sobre funciones base de manipulación, datos en formato ancho y largo, `tidyr`, `pivot_longer()`, `pivot_wider()`, `separate()` y `unite()`.
+* `bin/U2_extra_starwars.R`: incluye un ejercicio adicional con la base `starwars` para practicar funciones de manipulación de datos en un contexto más ligero.
+
+### Datos en formato ancho y largo
+
+En análisis de datos es común encontrar tablas en formato **ancho** o **largo**.
+
+En el formato **ancho**, una variable puede extenderse en varias columnas.
+
+En el formato **largo**, las observaciones se registran en filas adicionales.
+
+Reconocer estos formatos es importante porque algunas funciones y visualizaciones requieren que los datos estén organizados de una forma específica.
+
+### `tidyr`
+
+El paquete `tidyr`, que forma parte de `tidyverse`, permite reorganizar datos tabulares.
+
+Algunas funciones útiles son:
+
+* `pivot_longer()`: convierte datos de formato ancho a largo.
+* `pivot_wider()`: convierte datos de formato largo a ancho.
+* `separate()`: divide una columna en varias columnas.
+* `unite()`: une varias columnas en una sola.
+
+Estas funciones se retomarán cuando sea necesario reorganizar datos para análisis o visualización.
+
+### Ejercicio extra con `starwars`
+
+La base `starwars`, incluida en `dplyr`, puede usarse para practicar funciones de manipulación de datos en un contexto más ligero.
+
+El ejercicio estará disponible en:
+
+* `bin/U2_extra_starwars.R`
+
+En ese script podrás practicar funciones como:
+
+* `select()`
+* `filter()`
+* `mutate()`
+* `arrange()`
+* `group_by()`
+* `summarise()`
+
+### Algunas funciones base de R
+
+Además de `dplyr`, R base incluye funciones para manipular datos, por ejemplo:
+
+* `subset()`: extrae subconjuntos de un data frame.
+* `aggregate()`: calcula resúmenes por grupo.
+* `t()`: transpone matrices o data frames.
+* `lapply()` y `sapply()`: aplican funciones a listas o vectores.
+
+Estas funciones pueden ser útiles, pero en esta unidad nos enfocaremos principalmente en `dplyr`.
+
+---
+
+## Fuentes de información
+
+* [Data transformations - Cheat Sheets](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+* [dplyr - tidyverse](https://dplyr.tidyverse.org/)
+* [Pipe - magrittr](https://magrittr.tidyverse.org/reference/pipe.html)
+* [Introducción a tidyr: Datos ordenados en R](https://rpubs.com/jaortega/151936)
 
 ---
 

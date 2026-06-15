@@ -8,421 +8,467 @@
 
 ---
 
-## 2.2 Estructuras de datos
+## 2.2 Estructuras de datos: vectores y data frames
 
 - [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
 
-- [Script U2_2_Estructura_datos.R](../../bin/U2_2_Estructura_datos.R) de esta unidad en la carpeta **bin**
+## Objetivo
+
+Distinguir entre vectores y data frames, reconocer qué tipo de información puede guardar cada estructura y practicar formas básicas de explorar filas, columnas y dimensiones.
+
+## Material de apoyo
+
+Durante esta unidad trabajaremos con un script general de práctica:
+
+* [Script de práctica general Unidad 2](../../bin/U2_practica_general.R)
+
+Durante la sesión iremos ejecutando solo los bloques indicados por la instructora.
 
 ---
 
-### Aspectos básicos
+## 1. ¿Qué son las estructuras de datos?
+
+Las **estructuras de datos** son formas de organizar, almacenar y manipular información en R.
 
 ![alt text](image_2.2_01.png)
 
-Las **estructuras de datos en R** son fundamentalmente formas de **organizar, almacenar y manipular datos**.
+En R existen distintos tipos de estructuras de datos. Algunas de las más comunes son:
 
-Cada tipo de estructura de datos tiene sus propias características y se utiliza en diferentes contextos según las necesidades de análisis y procesamiento de datos.
+* **Vectores:** guardan una secuencia de valores del mismo tipo, por ejemplo, solo números o solo texto.
+* **Factores:** representan datos categóricos, como tratamientos, grupos, especies o condiciones experimentales.
+* **Matrices:** organizan datos en filas y columnas, pero todos sus elementos deben ser del mismo tipo.
+* **Arrays:** son estructuras con más de dos dimensiones; pueden pensarse como matrices multidimensionales.
+* **Data frames:** organizan datos en filas y columnas; cada columna puede tener un tipo de dato diferente.
+* **Listas:** pueden guardar objetos de distintos tipos y tamaños dentro de una misma estructura.
 
-Entre los principales tipos de estructuras de datos que se utilizan en R están:
+En este tema nos centraremos en dos estructuras que usaremos constantemente durante el curso:
 
-- **1. Los Vectores** son estructuras de datos **unidimensionales** que pueden contener elementos del **mismo tipo**, como números, caracteres o valores lógicos. Los vectores pueden ser simples (de longitud uno) o múltiples (de longitud mayor a uno)
+* **vectores**, porque son la base de muchas operaciones en R;
+* **data frames**, porque nos permiten trabajar con datos tabulares, como metadatos de muestras o resultados de análisis.
 
-    - **Los Factores** son **vectores** que representan datos categóricos, donde cada elemento tiene un nivel específico. Aunque internamente se almacenan como enteros, los factores tienen un **atributo de nivel** que especifica las etiquetas de categoría asociadas.
+También veremos una cápsula breve sobre **matrices**, porque más adelante pueden aparecer como matrices de conteos en análisis transcriptómicos.
 
-- **2. Las Matrices** son arreglos **bidimensionales** que contienen elementos del **mismo tipo**. Tienen **filas y columnas**, lo que significa que son útiles para organizar datos en una tabla de dos dimensiones.
-
-    - **Los _Arrays_** son estructuras de datos **multidimensionales** que pueden contener elementos del mismo tipo. A diferencia de las matrices, los arrays pueden tener **más de dos dimensiones**, lo que los hace útiles para almacenar y manipular datos con múltiples índices.
-
-- **3. Los _Data frames_** son estructuras de datos **bidimensionales** similares a las matrices, pero cada **columna** puede contener un **tipo diferente** de datos. Se utilizan para representar conjuntos de datos tabulares, donde las **filas** representan **observaciones** y las **columnas** representan **variables**.
-
-- **4. Las Listas** son **colecciones** ordenadas de **objetos** que pueden ser de **diferentes tipos**. Las listas pueden ser unidimensionales, pero **cada elemento** de la lista puede contener **cualquier estructura de datos**, lo que proporciona flexibilidad en la organización de datos complejos.
-
-A continuación, vamos a enfocarnos en **tres principales estructuras** que utilizaremos en las siguientes unidades: los **vectores**, las **matrices** y los **_data.frame_**.
-
-Si quieres explorar más sobre las otras estructuras previamente mencionadas puedes consultar la versión [extendida](../Unidad_02/U2_3_Manipulacion_dato_version_ext.md).
+> Si quieres revisar con más detalle factores, matrices, arrays o listas, puedes consultar la [versión extendida](../Unidad_02/U2_2_Estructuras_datos_version_ext.md) de este tema.
 
 ---
 
-## 2.2.1 Vectores 
+## 2. Vectores
 
-### Vectores
+Los **vectores** son una de las estructuras más sencillas de R.
 
-Son la estructura más sencilla de R, contiene una fila de valores del mismo tipo (numérico o cadena de texto)
+Un vector guarda una secuencia de valores del mismo tipo. Por ejemplo, un vector puede contener números, texto o valores lógicos (`TRUE` / `FALSE`), pero no mezcla tipos de datos de manera ideal.
 
-Se construye con la función `c()`, que va a combinar valores en un vector o lista.
+Los vectores se crean con la función `c()`, que significa “combinar”.
 
-```R
-# Construye un vector con los valores 5,10,15 y 20:
-mi_vector <- c(5,10,15,20) 
-#Revisa que elementos contiene "mi_vector"
+```r
+# Construye un vector con valores numéricos
+mi_vector <- c(5, 10, 15, 20)
+
+# Revisa qué contiene mi_vector
 mi_vector
-
-# ¿Puedes hacer operaciones con este vector?
-# Suma 1 a cada elemento del vector "mi_vector"
-mi_vector + 1
-
-#Crea un nuevo vector y guarda elementos de tipo caracter, es decir, letras
-letras <- c("a","b","c","d") 
-
-#Los elementos en el vector se referencian con corchetes `[i]`
-
-#Veamos el primer elemento del vector "letras"
-letras[1]
-
-#Para un rango de elementos utiliza :
-#letras[1:3]
-#Para seleccionar elementos específicos usa un vector c(,)
-#letras[c(1,4)]
 ```
 
-#### Usos
+Podemos hacer operaciones con vectores numéricos:
 
-Los vectores numéricos son útiles para cálculos sencillos:
+```r
+# Suma 1 a cada elemento del vector
+mi_vector + 1
 
-- `mean()`: Calcula el valor medio (promedio) de un vector numérico.
-- `sd()`: Calcula la desviación estándar de un vector numérico, que indica la dispersión de los datos con respecto a la media.
-- `max()`: Devuelve el valor máximo de un vector numérico.
-- `min()`: Devuelve el valor mínimo de un vector numérico.
-- `length()`: Devuelve la longitud (cantidad de elementos) de un vector o lista en R.
+# Multiplica cada elemento por 2
+mi_vector * 2
+```
 
-#### Ejercicio
+También podemos crear vectores de texto:
 
-```R
-#Considera los vectores x y y:
-x <- c(4,6,5,7,10,9,4,15) 
-y <- c(0,10,1,8,2,3,4,1)
+```r
+# Crea un vector con letras
+letras <- c("a", "b", "c", "d")
 
-# Realiza algunas operaciones con estos vectores. Por ejemplo:
+# Revisa qué contiene letras
+letras
+```
 
-#Suma los dos vectores
-x+y
+### Acceder a elementos de un vector
 
-# ¿Puedes saber si el vector x es mayor a 7?
-x >7
+Los elementos de un vector se pueden consultar usando corchetes `[ ]`.
 
-# Averigua cuántos elementos contienen los vectores creados
+```r
+# Primer elemento del vector
+letras[1]
+
+# Elementos del 1 al 3
+letras[1:3]
+
+# Elementos 1 y 4
+letras[c(1, 4)]
+```
+
+Recuerda que en R la numeración empieza en `1`.
+
+---
+
+## 3. Operaciones básicas con vectores
+
+Los vectores numéricos son útiles para hacer cálculos sencillos.
+
+Algunas funciones útiles son:
+
+* `mean()`: calcula el promedio.
+* `sd()`: calcula la desviación estándar.
+* `max()`: devuelve el valor máximo.
+* `min()`: devuelve el valor mínimo.
+* `length()`: indica cuántos elementos tiene el vector.
+
+### Ejercicio
+
+Considera los siguientes vectores:
+
+```r
+x <- c(4, 6, 5, 7, 10, 9, 4, 15) 
+y <- c(0, 10, 1, 8, 2, 3, 4, 1)
+```
+
+Realiza las siguientes operaciones:
+
+```r
+# Suma los dos vectores
+x + y
+
+# Revisa si los valores de x son mayores a 7
+x > 7
+
+# Calcula el promedio de x
+mean(x)
+
+# Obtén el valor máximo de y
+max(y)
+
+# Averigua cuántos elementos tiene cada vector
 length(x)
 length(y)
 ```
 
-#### Extra:
+---
 
-```R
-# ¿Qué pasa si uno de los vectores tiene datos faltantes? NA
-# Vectores con valores NA
-x_na <- c(4, 6, NA, 7, 10, 9, 4, 15)
-y_na <- c(0, 10, 1, 8, NA, 3, 4, 1)
+## 4. Data frames
 
-# Suma de vectores con NA
-x_na + y_na
+Los **data frames** son estructuras de datos en forma de tabla.
 
-# Dónde hay un NA el resultado también es NA
+En un data frame:
+
+* las **filas** suelen representar observaciones;
+* las **columnas** suelen representar variables;
+* cada columna puede tener un tipo de dato distinto.
+
+Por ejemplo, una columna puede contener nombres de muestras, otra puede contener condiciones experimentales y otra puede contener valores numéricos.
+
+### Caso de estudio hipotético
+
+Imagina que estamos preparando un análisis transcriptómico sencillo. Antes de analizar la expresión de genes, necesitamos organizar los **metadatos** de las muestras.
+
+En este ejemplo hipotético, tenemos seis muestras de tejido vegetal. Para cada muestra conocemos:
+
+* su identificador;
+* la condición experimental;
+* el tejido analizado;
+* el número aproximado de lecturas de secuenciación, en millones.
+
+Vamos a crear esta información como un data frame.
+
+```r
+metadata <- data.frame(
+  sample_id = c("S01", "S02", "S03", "S04", "S05", "S06"),
+  condition = c("control", "control", "stress", "stress", "control", "stress"),
+  tissue = c("leaf", "leaf", "leaf", "root", "root", "root"),
+  reads_million = c(18.5, 21.2, 19.8, 25.1, 20.4, 17.9)
+)
+
+metadata
+```
+
+Este data frame tiene información tabular similar a la que podríamos encontrar en un archivo de metadatos para análisis de transcriptomas.
+
+---
+
+## 5. Explorar un data frame
+
+Antes de modificar o analizar una tabla, necesitamos revisar su estructura.
+
+Algunas funciones útiles son:
+
+```r
+# Ver las primeras filas
+head(metadata)
+
+# Ver las dimensiones: número de filas y columnas
+dim(metadata)
+
+# Ver los nombres de las columnas
+names(metadata)
+
+# Ver la estructura del data frame
+str(metadata)
+
+# Obtener un resumen general
+summary(metadata)
+```
+
+Estas funciones nos ayudan a responder preguntas básicas:
+
+* ¿Cuántas muestras hay?
+* ¿Cuántas variables tenemos?
+* ¿Cómo se llaman las columnas?
+* ¿Qué tipo de datos contiene cada columna?
+* ¿Hay algo inesperado en la tabla?
+
+---
+
+## 6. Acceder a columnas y elementos de un data frame
+
+Podemos acceder a columnas de un data frame de varias formas.
+
+### Usando `$`
+
+```r
+# Acceder a la columna condition
+metadata$condition
+
+# Acceder a la columna reads_million
+metadata$reads_million
+```
+
+### Usando corchetes `[ ]`
+
+```r
+# Seleccionar una columna como data frame
+metadata["condition"]
+
+# Seleccionar una columna como vector
+metadata[["condition"]]
+```
+
+### Acceder a un elemento específico
+
+En un data frame también podemos usar la lógica de filas y columnas:
+
+```r
+# Elemento de la fila 1, columna 1
+metadata[1, 1]
+
+# Elemento de la fila 3, columna 2
+metadata[3, 2]
+
+# Toda la fila 1
+metadata[1, ]
+
+# Toda la columna 2
+metadata[, 2]
 ```
 
 ---
 
-### 2.2.1 Fuentes de información
+## 7. Cápsula breve: matrices
 
-- [6.1 Vectores](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)
+Una **matriz** también organiza datos en filas y columnas, pero a diferencia de un data frame, todos sus elementos deben ser del mismo tipo.
+
+En análisis transcriptómico, podemos encontrar matrices de conteos donde:
+
+* las filas representan genes;
+* las columnas representan muestras;
+* los valores representan conteos de lecturas.
+
+Por ahora solo revisaremos un ejemplo mínimo:
+
+```r
+conteos <- matrix(1:12, nrow = 4)
+
+conteos
+dim(conteos)
+
+# Elemento de la fila 1, columna 2
+conteos[1, 2]
+```
+
+Retomaremos esta idea más adelante cuando trabajemos con datos de expresión.
 
 ---
 
-## 2.2.2 Matrices 
+## 8. Ejercicio integrador breve
 
-Son estructuras que pueden contener información del mismo tipo (numérica o cadenas de texto) en dos (**matrices**) o más dimensiones (***arrays*** o **arreglos**).
+Usa el data frame `metadata` para responder:
+
+```r
+# ¿Cuántas filas y columnas tiene metadata?
+dim(metadata)
+
+# ¿Cómo se llaman sus columnas?
+names(metadata)
+
+# ¿Qué tipo de datos contiene cada columna?
+str(metadata)
+
+# ¿Cuál es el promedio de lecturas en millones?
+mean(metadata$reads_million)
+
+# ¿Qué muestras pertenecen a la condición control?
+metadata[metadata$condition == "control", ]
+
+# ¿Qué muestras pertenecen al tejido root?
+metadata[metadata$tissue == "root", ]
+```
+
+### Preguntas
+
+* ¿Qué representa cada fila del data frame?
+* ¿Qué representa cada columna?
+* ¿Qué columna contiene texto?
+* ¿Qué columna contiene valores numéricos?
+* ¿Por qué este tipo de estructura es útil para organizar metadatos?
+
+---
+
+## Para seguir explorando
+
+Los siguientes ejemplos no forman parte del núcleo principal de la sesión, pero pueden ayudarte a practicar o profundizar después.
+
+El código complementario está dividido en dos scripts:
+
+* `bin/U2_para_seguir_explorando.R`: incluye ejemplos adicionales sobre reciclaje de vectores, valores faltantes, matrices, factores, listas y arrays.
+
+### Reciclaje de vectores
+
+R puede realizar operaciones con vectores de distinta longitud usando una regla llamada **reciclaje**. Esto significa que, si un vector es más corto, R puede repetir sus valores para completar la operación.
+
+```r
+x_long <- c(4, 6, 5, 7, 10, 9, 4, 15)
+y_short <- c(0, 10, 1, 8)
+
+x_long + y_short
+```
+
+En este caso, `y_short` se recicla para tener la misma longitud que `x_long`.
+
+Esto puede ser útil, pero también puede causar errores difíciles de detectar si no revisamos bien la longitud de nuestros vectores.
+
+```r
+length(x_long)
+length(y_short)
+```
+
+### Valores faltantes en vectores
+
+En R, `NA` representa un dato faltante.
+
+```r
+x_na <- c(4, 6, NA, 7, 10, 9, 4, 15)
+
+x_na
+mean(x_na)
+mean(x_na, na.rm = TRUE)
+```
+
+Cuando hay valores faltantes, muchas funciones devuelven `NA` a menos que indiquemos cómo manejarlos.
 
 ### Matrices
 
-Una matriz es una estructura de datos **bidimensional** que contiene elementos del mismo tipo (por ejemplo, números). 
+Una matriz se construye con la función `matrix()`.
 
-Se puede pensar en una matriz como una **tabla rectangular** de datos donde cada **fila** representa una **observación** y cada **columna** representa una **variable**.
-
- Se construyen con la función `matrix ( )`
-
-Puedes acceder a la documentación de la función:
-
-```R
-#Puedes acceder a la documentación de la función para crear matrices
-?matrix
-```
-
-Elementos en la matriz se referencian usando corchetes y comas: `[i,j]`
-
-**Ejemplo**
-
-Para crear una matriz podemos indicar la forma en que se asignaran los valores
-
-```R
-# Creación de una matriz donde los valores se llenan por columnas
-# 1:12 indica que habrá valores desde el número 1 hasta el 12
-# ncol indica que la matriz tendrá 3 columnas
-matriz_columnas <- matrix(1:12, ncol = 3)
-matriz_columnas
-
-# Creación de una matriz donde los valores se llenan por filas
-# byrow indica que los valores del 1:12 se distribuirán por filas 
+```r
+# Crear una matriz con valores del 1 al 12
 matriz_filas <- matrix(1:12, ncol = 3, byrow = TRUE)
+
 matriz_filas
 ```
 
-Para acceder a un elemento específico de la matriz usamos **[ , ]**.
-En **[f,c]** el primer elemento (**f**) indica la **fila**, y el segundo (**c**) la **columna**.
+Para acceder a un elemento específico usamos `[fila, columna]`.
 
-```R
-# [1,3] representa el elemento de la fila 1 y columna 3
+```r
+# Elemento de la fila 1 y columna 3
 matriz_filas[1, 3]
 
-# Intenta la siguiente línea:
-matriz_filas[3, 4] 
-# ¿Qué pasó? 
-```
-
-`matriz_filas[3, 4]` intenta acceder al valor en la tercera fila y cuarta columna. Sin embargo, esta línea de código generaría un error porque `matriz_filas` solo tiene 3 columnas (ya que se creó con `ncol = 3`), por lo que **no hay una cuarta columna**.
-
-Para ver **todos los elementos de una columna** se deja **vacío el primer elemento** **[,c]** que indica las **filas** (**f**).
-Caso contrario si queremos todos los elementos de una fila **[f,]**
-
-```R
 # Todos los elementos de la columna 3
-matriz_filas[, 3] 
+matriz_filas[, 3]
+
 # Todos los elementos de la fila 4
-matriz_filas[4, ] 
+matriz_filas[4, ]
 ```
 
-Podemos hacer operaciones aritméticas sencillas con los valores de la matriz.
+Podemos revisar sus dimensiones:
 
-```R
-# Suma 1 a cada elemento:
-matriz_filas + 1 
-# Suma a cada elemento su valor correspondiente
-matriz_filas + matriz_filas
-
-# Revisa la matriz original:
-matriz_filas
-```
-
-Y también operaciones estadísticas
-
-```R
-# Suma de todos los elementos en la matriz
-sum(matriz_filas)  
-# Media de todos los elementos en la matriz
-mean(matriz_filas)  
-# Desviación estándar de todos los elementos en la matriz
-sd(matriz_filas)  
-```
-
-
-#### Otras funciones para manejar matrices:
-
-Para revisar las dimensiones de la matriz recuerda utilizar la función `dim()`
-
-```R
-# Revisa la matriz original:
-matriz_filas
-# Revisa las dimensiones de las matrices:
+```r
 dim(matriz_filas)
-
-``` 
-
-
-#### Ejercicio 
-
-- ¿Cómo puedes crear un vector con 12 enteros del 1 al 12 y qué función puedes utilizar para convertir este vector en una matriz de 4 filas y 3 columnas?
-
-- ¿Cuál es la función para cambiar los nombres de las columnas y filas de una matriz en R?
-
-- ¿Cómo puedes obtener una submatriz de 3x3 de una matriz existente?
-
-- ¿Qué función te permite obtener las dimensiones (número de filas y columnas) de una matriz en R?
-
-#### Solución
-
-```R
-# Crea un vector con 12 enteros y conviértelo en una matriz de 4*3
-m <- matrix(1:12, nrow = 4)
-m
-
-# Cambia los nombres de las columnas y filas
-colnames(m) <- c("x", "y", "z")
-rownames(m) <- c("a", "b", "c", "d")
-m
-
-# Obtiene una matriz de 3*3
-m_submatriz <- m[1:3, 1:3]
-m_submatriz
-
-# Dimensiones de m
-dim(m)
-
 ```
 
-**Extra**: Podrías generar una matriz de 4x4 a partir de la matriz de 4x3?
+También podemos asignar nombres a filas y columnas:
 
-```R
-# Agrega una nueva columna adicional a la matriz m para obtener una matriz de 4x4
-# Para ello usamos la función cbind()
-m_4x4 <- cbind(m, c(13, 14, 15, 16))
-m_4x4
+```r
+colnames(matriz_filas) <- c("col1", "col2", "col3")
+rownames(matriz_filas) <- c("fila1", "fila2", "fila3", "fila4")
+
+matriz_filas
 ```
 
-### 2.2.2 Fuentes de información
+Algunas funciones útiles para matrices son:
 
-- [Matrices y arrays](https://bookdown.org/jboscomendoza/r-principiantes4/matrices-y-arrays.html)
-- [Data structure types](http://venus.ifca.unican.es/Rintro/dataStruct.html)
+```r
+# Suma por filas
+rowSums(matriz_filas)
+
+# Promedio por filas
+rowMeans(matriz_filas)
+
+# Suma por columnas
+colSums(matriz_filas)
+
+# Promedio por columnas
+colMeans(matriz_filas)
+```
+
+### Factores
+
+Los factores representan datos categóricos, como tratamientos, grupos o especies.
+
+```r
+condiciones <- c("control", "stress", "control", "stress")
+condiciones_factor <- factor(condiciones)
+
+condiciones_factor
+table(condiciones_factor)
+```
+
+### Listas
+
+Las listas pueden guardar objetos de distintos tipos y tamaños.
+
+```r
+mi_lista <- list(
+  muestra = "S01",
+  lecturas = 15000,
+  metadata = metadata
+)
+
+mi_lista
+str(mi_lista)
+```
+
+### Arrays
+
+Los arrays son estructuras multidimensionales.
+
+```r
+array_3d <- array(1:27, dim = c(3, 3, 3))
+
+array_3d
+```
 
 ---
 
-## 2.2.3 Data.frames (marcos de datos)
+## Fuentes de información
 
-Los **Data Frames** o **Marcos de Datos** son estructuras que pueden **combinar argumentos numéricos** y de **cadena de texto** dentro de la misma entidad.
-
-Para construir un **data frame** necesitas la función `data.frame()`
-
-Para obtener solo una columna específica del data frame puedes usar corchetes **[ ]** como en caso de las matrices, o el operador compacto `$`.
-
-
-#### Ejemplo
-
-Primero vamos a crear un data frame con dos columnas llamadas "distance" y "condition".
-
-
-```R
-data_frame_dist_cond <- data.frame(distance=c(4,4,4,7,8,5), condition=c("a","a","a","b","b","b"))
-
-#Visualiza el data frame
-data_frame_dist_cond
-```
-
-> También puedes visualizar el **data frame** desde el panel de **Environment**. Solo da **click** sobre el nombre del data frame creado. Inténtalo!
-
-Para ver un elemento en específico dentro del data frame:
-
-```R
-#Para seleccionar la primera columna
-data_frame_dist_cond[1]
-
-#Otra forma de seleccionar una columna es por el nombre de la misma:
-
-data_frame_dist_cond["distance"]
-
-#Si queremos el primer elemento de la columna "distance" usando los [ ]
-#Primero selecciona la columna como un vector y accesa al primer elemento
-data_frame_dist_cond[["distance"]][1]
-
-
-# Otra forma de seleccionar una columna es con el operador compacto $
-
-data_frame_dist_cond$condition
-data_frame_dist_cond$condition[1]
-
-#Puedes explorar las primeras y últimas 3 filas del data frame 
-head(data_frame_dist_cond, 3)
-tail(data_frame_dist_cond, 3)
-
-```
-
-#### Usos:
-
-- Muy similar a una hoja de cálculo estándar
-
-- Se pueden modificar los nombres de filas y columnas
-
-- Se pueden unir dos o más data frames con: `cbind ()` y `rbind ()`
-
-#### Ejercicio:
-
-Crea un data frame con los siguientes datos:
-
-```R
-#Crea los vectores: edad, nombres y genero
-edad <- c(22, 25, 18, 15, 20)
-edad
-nombres <- c("Jaime", "Mateo", "Olivia", "Javier","Sandra") 
-nombres
-genero <- c("M", "M", "F", "M", "F")
-genero
-#Puedes usar la función print() para ver las variables generadas
-print(edad)
-print(nombres)
-print(genero)
-```
-
-- Ordena los valores por edad.
-
-> _tip_: función `order()`
-
-
-#### Soluciones data.frame:
-
-- Crea un data frame (df)
-
-```R
-# Puedes asignarle otro nombre a las columnas que aparecerán en tu df
-# Renombra las columnas
-df_age_name_gen <- data.frame(edades=edad, names_df=nombres, genero=genero)
-
-df_age_name_gen
-```
-
-- Para ordenar los valores por edad usa la función `order()`
-
-```R
-# ordernar por edades
-df_age_name_gen[order(df_age_name_gen$edades),]
-```
-
-**Pregunta extra:** ¿Cómo los ordenarías por nombres de forma descendente?
-
-```R
-#Extra: ordernar por nombres, en forma descendente
-df_age_name_gen[order(df_age_name_gen$names_df, decreasing = T),]
-
-#Extra: ordenar múltiples columnas, NOMBRES y EDAD, de forma descendente: 
-df_age_name_gen[order(df_age_name_gen$names_df, df_age_name_gen$edades, decreasing = T), ]
-
-```
-
-### Extra:
-
-```R
-# Ver la estructura del data frame
-str(df)
-
-# Resumen estadístico del data frame
-summary(df)
-
-# Cambiar los nombres de las columnas
-names(df) <- c("Edad", "Nombre", "Género")
-
-# Cambiar el nombre de una sola columna con la función names()
-names(df)[names(df) == "Edad"] <- "age"
-
-# Añadir una nueva columna
-df$height <- c(180, 165, 170, 175)
-
-# Eliminar una columna
-df$height <- NULL
-```
-
-### 2.2.3 Fuentes de información
-- [Data frames](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html)
-
-- [Función data.frame](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/data.frame)
-
----
-
-### Fuentes de información
-
-- [Listas](https://bookdown.org/jboscomendoza/r-principiantes4/listas.html)
-- [Listas - GitLab - Blog](https://soka.gitlab.io/blog/post/2019-03-11-r-listas/)
-
----
-
-### Estructuras de Datos: Resumen
-
-![alt text](Resumen_estructura_datos.png)
+* [6.1 Vectores](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)
+* [Data frames](https://bookdown.org/jboscomendoza/r-principiantes4/data-frames.html)
+* [Matrices y arrays](https://bookdown.org/jboscomendoza/r-principiantes4/matrices-y-arrays.html)
+* [Listas](https://bookdown.org/jboscomendoza/r-principiantes4/listas.html)
 
 ---
 
