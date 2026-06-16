@@ -469,6 +469,116 @@ Intenta exportar el objeto `metadata_resumen` dentro de la carpeta `results/`.
 
 ---
 
+## Mini prompt de IA: explicar, detectar y verificar
+
+En este cierre usaremos IA de forma acotada. El objetivo no es que la IA resuelva el análisis ni escriba el código por nosotros, sino que nos ayude a **explicar un bloque de código**, **anticipar errores comunes** y **verificar la respuesta en R**.
+
+La idea es usar la IA como una lupa: nos ayuda a observar el código con más detalle, pero la interpretación final debe verificarse con el script, los datos y la documentación.
+
+### 1. Antes de usar IA: revisa tu objeto en R
+
+Antes de pegar el prompt, revisa qué tipo de objeto tienes, qué columnas contiene y si hay valores faltantes.
+
+```r
+class(metadata)
+names(metadata)
+colSums(is.na(metadata))
+```
+
+Estas tres líneas nos ayudan a responder preguntas básicas:
+
+¿metadata es un data frame?
+¿Qué columnas tiene?
+¿Hay valores faltantes (NA) en alguna columna?
+
+### 2. Código que vamos a revisar
+
+Usaremos este fragmento del flujo de trabajo con dplyr:
+
+```r
+metadata_resumen <- metadata %>%
+  filter(!is.na(condition)) %>%
+  mutate(reads = reads_million * 1e6) %>%
+  group_by(condition, tissue) %>%
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
+
+```
+
+### 3. Mini prompt
+
+Copia y pega el siguiente prompt en la herramienta de IA:
+
+```
+Estoy aprendiendo R con dplyr.
+
+Tengo un data frame llamado metadata con estas columnas:
+
+sample_id, condition, tissue, reads_million
+
+Explica línea por línea este código. Después identifica dos errores comunes:
+1. que una columna no exista;
+2. que haya valores NA.
+
+No propongas código nuevo todavía. Primero explica la lógica y dime cómo podría verificarla en R.
+
+Código:
+
+metadata_resumen <- metadata %>%
+  filter(!is.na(condition)) %>%
+  mutate(reads = reads_million * 1e6) %>%
+  group_by(condition, tissue) %>%
+  summarise(
+    n_muestras = n(),
+    promedio_lecturas_millones = mean(reads_million),
+    .groups = "drop"
+  )
+```
+
+### 4. ¿Qué respuesta esperamos?
+
+La IA debería explicar, de forma general, que:
+
+* `metadata` es el data frame de entrada.
+* `filter(!is.na(condition))` conserva solo las filas donde `condition` no es `NA`.
+* `mutate(reads = reads_million * 1e6)` crea una nueva columna llamada `reads`.
+* `group_by(condition, tissue)` agrupa los datos por condición y tejido.
+* `summarise()` genera una tabla resumen por grupo.
+* `n_muestras = n()` cuenta cuántas muestras hay en cada grupo.
+* `promedio_lecturas_millones = mean(reads_million)` calcula el promedio de lecturas en millones.
+* `.groups = "drop"` elimina la agrupación al finalizar el resumen.
+
+También debería advertir que:
+
+* Si una columna no existe, por ejemplo si escribimos `read_million` en lugar de `reads_million`, `dplyr` devolverá un error.
+* Si `reads_million` contiene valores `NA`, el promedio puede devolver `NA` si no indicamos cómo manejar los valores faltantes.
+* Si `condition` contiene `NA`, `filter(!is.na(condition))` elimina esas filas antes del resumen.
+
+### 5. Verifica la respuesta en R
+
+Después de leer la respuesta de la IA, vuelve a R y verifica lo que dice.
+
+```r
+metadata_resumen
+class(metadata)
+names(metadata)
+colSums(is.na(metadata))
+```
+
+Preguntas de cierre:
+
+1. ¿La IA explicó correctamente qué hace cada paso?
+2. ¿Detectó errores posibles relacionados con columnas inexistentes o valores `NA`?
+3. ¿Qué parte pudiste verificar directamente en R?
+4. ¿Qué parte convendría revisar en la documentación de `dplyr`?
+
+> Recuerda: la IA puede ayudar a explicar y revisar código, pero la respuesta debe comprobarse con el código, los datos y la documentación.
+
+---
+
 ## Para seguir explorando
 
 Los siguientes ejemplos no forman parte del núcleo principal de la sesión, pero pueden ayudarte a practicar o profundizar después.
