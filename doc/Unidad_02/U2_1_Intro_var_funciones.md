@@ -14,7 +14,7 @@
 
 Reconocer qué son las variables y las funciones en R, practicar la asignación de valores con `<-` y distinguir entre ejecutar una operación y guardar su resultado.
 
-* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQw4Yy6iZP5lUw238gcODPyiUBbpRDzETNL1PAGfx9LvtF3ad_WR3fm68RBUeUuHA/pub?start=false&loop=false&delayms=60000)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vSB3Md124uOGccszAAuw5HToGG-yD8cNnB_DKTXxN5_aS492SpRHTr9Da4NphY98g/pub?start=false&loop=false&delayms=60000)
 
 * [Script de práctica general Unidad 2](../../bin/U2_practica_general.R)
 
