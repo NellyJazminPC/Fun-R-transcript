@@ -222,9 +222,21 @@ install.packages(c("tidyverse", "readxl"))
 
 ### Unidad 3. Gráficos en R
 
+Para la Unidad 3 utilizaremos principalmente `ggplot2`, que forma parte de `tidyverse`.
+
+Si ya instalaste `tidyverse` para la Unidad 2, no es necesario volver a instalarlo.
+
 ```r
 # Unidad 3
-# Código de instalación por liberar.
+
+# Si aún no tienes instalado tidyverse, ejecuta:
+install.packages("tidyverse")
+
+# De tidyverse usaremos principalmente:
+# ggplot2: para construir gráficos.
+# dplyr: para organizar y resumir datos antes de graficar.
+# readr: para leer archivos .csv, si es necesario.
+# tibble: para visualizar tablas de forma ordenada.
 ```
 
 ### Unidades 4 y 5. Limpieza de datos, estadística inferencial y modelos en R
