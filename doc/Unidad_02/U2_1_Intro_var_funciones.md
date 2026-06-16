@@ -16,6 +16,10 @@ Reconocer qué son las variables y las funciones en R, practicar la asignación 
 
 * [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vSB3Md124uOGccszAAuw5HToGG-yD8cNnB_DKTXxN5_aS492SpRHTr9Da4NphY98g/pub?start=false&loop=false&delayms=60000)
 
+* [Descargar materiales de la sesión](https://drive.google.com/drive/folders/1CeJ-NR5Si9EvTRLp2uNyFfe_06LaZiU2?usp=sharing) 
+
+**Recuerda**: los script van en la carpeta `bin/` y la carpeta `Unidad_02` va en la carpeta `doc/`
+
 * [Script de práctica general Unidad 2](../../bin/U2_practica_general.R)
 
 ---
