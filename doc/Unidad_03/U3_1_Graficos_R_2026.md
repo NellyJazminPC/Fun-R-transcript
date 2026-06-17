@@ -19,7 +19,7 @@ Construir, interpretar y exportar figuras reproducibles en R, usando funciones g
 
 Para la práctica principal de esta unidad usaremos:
 
-* [Script de práctica general Unidad 3](../../bin/U3_practica_general_comentado.R)
+* [Script de práctica general Unidad 3](bin/U3_practica_general_comentado.R)
 
 Archivos de datos:
 
@@ -1141,7 +1141,7 @@ Este ejemplo permite practicar:
 
 ### Actividad para seleccionar gráfico + IA
 
-* [Actividad final: de una pregunta a una figura con apoyo de IA](../Unidad_03/U3_2_Actividad_graficos_IA.md)
+* [Actividad final: de una pregunta a una figura con apoyo de IA](doc/Unidad_03/U3_2_Actividad_graficos_IA_2026.md)
 
 ---
 

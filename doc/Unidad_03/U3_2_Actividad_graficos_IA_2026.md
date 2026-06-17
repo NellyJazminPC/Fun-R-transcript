@@ -589,10 +589,8 @@ Antes de aceptar una respuesta de IA:
 
 La guía contestada de esta actividad está en:
 
-* `bin/U3_actividad_graficos_IA.R`
-
-> **Sugerencia:** libera esta guía solo después de que el grupo haya intentado resolver la actividad. Así funciona como retroalimentación y no como atajo.
+* [bin/U3_actividad_graficos_IA.R](bin/U3_actividad_graficos_IA.R)
 
 ---
 
-### Regresar a: [3.1 Visualización de datos con R y ggplot2](../Unidad_03/U3_1_Graficos_R.md)
+### Regresar a: [3.1 Visualización de datos con R y ggplot2](doc/Unidad_03/U3_1_Graficos_R_2026.md)
