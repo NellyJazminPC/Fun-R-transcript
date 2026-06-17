@@ -10,7 +10,7 @@
 
 Seleccionar variables de una base de datos amplia, identificar el tipo de datos, elegir una gráfica adecuada según una pregunta de análisis y construir un prompt para pedir apoyo con código en `ggplot2` sin subir la base de datos completa.
 
-* [Presentación](#)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQtaKnkQnFAH7OeeoQaWMeWDd9uO60nk1kBylvAIT-rm4kTaY5sFeUDrCETQkz3lQ/pub?start=false&loop=false&delayms=60000)
 * [Guía principal de Unidad 3](../Unidad_03/U3_1_Graficos_R_2026.md)
 * [Script de práctica general Unidad 3](../../bin/U1_practica_general.R)
 

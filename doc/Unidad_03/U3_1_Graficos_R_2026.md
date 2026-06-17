@@ -10,8 +10,8 @@
 
 Construir, interpretar y exportar figuras reproducibles en R, usando funciones gráficas base y `ggplot2`, seleccionando el tipo de gráfica según la pregunta de análisis y el tipo de datos disponibles.
 
-* [Presentación](#)
-* [Descargar materiales de la sesión](#)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQtaKnkQnFAH7OeeoQaWMeWDd9uO60nk1kBylvAIT-rm4kTaY5sFeUDrCETQkz3lQ/pub?start=false&loop=false&delayms=60000)
+* [Descargar materiales de la sesión](https://drive.google.com/drive/folders/1DA4HfOHyQySxT8gE2lVct2JgwkbpoYRY?usp=sharing)
 
 **Recuerda**: los scripts van en la carpeta `bin/`, los datos en `data/`, los documentos `.md` en `doc/Unidad_03/` y los resultados generados durante la práctica en `results/`.
 
