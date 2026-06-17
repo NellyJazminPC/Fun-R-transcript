@@ -1130,6 +1130,7 @@ Este ejemplo permite practicar:
 * [ggplot2](https://ggplot2.tidyverse.org/)
 * [ggplot2: `facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 * [ggplot2: `ggsave()`](https://ggplot2.tidyverse.org/reference/ggsave.html)
+* [R Chart - Colores en R](https://r-charts.com/es/colores/)
 * [R Graph Gallery](https://r-graph-gallery.com/)
 * [R Graph Gallery: ggplot2](https://r-graph-gallery.com/ggplot2-package.html)
 * [From Data to Viz](https://www.data-to-viz.com/)
