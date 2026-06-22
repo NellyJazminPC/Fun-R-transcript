@@ -1,0 +1,183 @@
+---
+title: "Reporte PCA reproducible"
+author: "Escribe aquí tu nombre"
+format:
+  html:
+    toc: true
+    embed-resources: true
+editor: visual
+---
+
+# Nota sobre rutas
+
+Este archivo `.qmd` está pensado para guardarse en la carpeta `bin/`.
+
+Por eso, las rutas del código se escriben considerando que el archivo se ejecuta desde `bin/`:
+
+-   los datos se leen desde `../data/`;
+-   las figuras y tablas se guardan en `../results/`.
+
+# Introducción
+
+En este reporte se presenta un análisis exploratorio de Componentes Principales (PCA) a partir de una tabla de datos biológicos.
+
+Escribe aquí, con tus propias palabras, el objetivo del análisis. Puedes apoyarte en estas preguntas:
+
+-   ¿Qué tipo de datos se están analizando?
+-   ¿Qué representa cada muestra?
+-   ¿Qué se quiere explorar con el PCA?
+
+# Cargar paquetes
+
+En esta sección se cargan los paquetes necesarios para importar datos desde Excel, manipular tablas y generar figuras.
+
+```{r}
+#| label: paquetes
+#| message: false
+#| warning: false
+
+# Copia aquí el bloque del script donde se cargan los paquetes
+
+```
+
+# Importar datos
+
+En esta sección se importa el archivo de datos desde la carpeta `data/`.
+
+Como este archivo `.qmd` estará en `bin/`, la ruta debe iniciar con `../data/`.
+
+```{r}
+#| label: importar-datos
+
+# Copia aquí el bloque del script donde se importan los datos
+
+```
+
+Después de importar los datos, revisa brevemente la tabla.
+
+```{r}
+#| label: explorar-datos
+
+# Copia aquí algunas líneas para explorar los datos
+# Por ejemplo: head(), dim(), names() o str()
+
+```
+
+Escribe aquí una breve descripción de la tabla:
+
+-   ¿Cuántas filas tiene?
+-   ¿Cuántas columnas tiene?
+-   ¿Qué columnas corresponden a metadatos?
+-   ¿Qué columnas numéricas se usarán para el PCA?
+
+# Preparar datos para el PCA
+
+Antes de ejecutar el PCA, separamos los metadatos de las variables numéricas.
+
+```{r}
+#| label: preparar-datos
+
+# Copia aquí el bloque donde se separan metadatos y variables numéricas
+
+```
+
+Explica brevemente:
+
+-   ¿Qué objeto contiene los metadatos?
+-   ¿Qué objeto contiene las variables numéricas?
+-   ¿Por qué no todas las columnas entran al cálculo del PCA?
+
+# Ejecutar PCA
+
+En esta sección se ejecuta el PCA con la función `prcomp()`.
+
+```{r}
+#| label: ejecutar-pca
+
+# Copia aquí el bloque donde se ejecuta el PCA
+
+```
+
+Explica brevemente qué indican los argumentos `center = TRUE` y `scale. = TRUE`.
+
+# Varianza explicada
+
+En esta sección se calcula qué porcentaje de variación explica cada componente principal.
+
+```{r}
+#| label: varianza-explicada
+
+# Copia aquí el bloque donde se calcula la varianza explicada
+
+```
+
+Escribe aquí una interpretación breve:
+
+-   ¿Qué porcentaje explica PC1?
+-   ¿Qué porcentaje explica PC2?
+-   ¿Cuánto explican juntas PC1 y PC2?
+
+# Visualización del PCA
+
+En esta sección se construye una figura del PCA usando `ggplot2`.
+
+```{r}
+#| label: figura-pca
+#| fig-width: 7
+#| fig-height: 5
+
+# Copia aquí el bloque donde se construye la figura principal del PCA
+
+```
+
+# Guardar la figura
+
+En esta sección se guarda la figura generada en la carpeta `results/`.
+
+Como este archivo `.qmd` estará en `bin/`, la ruta debe iniciar con `../results/`.
+
+```{r}
+#| label: guardar-figura
+
+# Copia aquí el bloque donde se guarda la figura con ggsave()
+
+```
+
+# Interpretación
+
+Escribe aquí una interpretación breve del PCA.
+
+Puedes apoyarte en estas preguntas:
+
+-   ¿Qué representa cada punto?
+-   ¿Qué variable se usó para colorear las muestras?
+-   ¿Se observa separación entre etapas?
+-   ¿La separación ocurre principalmente en PC1, PC2 o ambas?
+-   ¿Hay traslape entre grupos?
+-   ¿Qué precaución debes mencionar al interpretar el PCA?
+
+Ejemplo de redacción cuidadosa:
+
+> El PCA sugiere un patrón de separación parcial entre etapas, principalmente a lo largo de PC1. Sin embargo, el análisis debe interpretarse como exploratorio, ya que la separación visual no equivale por sí sola a una prueba estadística de diferencia entre grupos.
+
+# Limitaciones
+
+Menciona al menos una limitación del PCA.
+
+Puedes considerar:
+
+-   El PCA es exploratorio.
+-   No prueba diferencias significativas.
+-   Puede verse influido por valores extremos.
+-   La interpretación depende de la preparación de los datos.
+-   En datos transcriptómicos reales suelen requerirse pasos previos de normalización o transformación.
+
+# Conclusión
+
+Escribe dos o tres líneas para cerrar el reporte.
+
+Puedes responder:
+
+-   ¿Qué aprendiste del patrón observado?
+-   ¿Qué información adicional sería útil para continuar el análisis?
+-   ¿Qué análisis complementario podría realizarse después?
