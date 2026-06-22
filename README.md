@@ -98,13 +98,13 @@ Los materiales se liberarán progresivamente. Al inicio de cada sesión se indic
 
 ### Semana 2. Análisis, reportes y enfoque transcriptómico
 
-| Unidad | Fecha                 | Tema general                                  | Materiales de apoyo    |
-| :----: | --------------------- | --------------------------------------------- | ---------------------- |
-|    6   | Lunes 22 de junio     | PCA y reportes reproducibles                  | Materiales por liberar |
-|    7   | Martes 23 de junio    | Introducción a transcriptómica                | Materiales por liberar |
-|    8   | Miércoles 24 de junio | Expresión diferencial                         | Materiales por liberar |
-|    9   | Jueves 25 de junio    | Visualización, enriquecimiento funcional e IA | Materiales por liberar |
-|   10   | Viernes 26 de junio   | Aplicaciones reales y cierre                  | Materiales por liberar |
+| Unidad | Fecha                 | Tema general                                                | Materiales de apoyo                                                                                                                                                                                                                                                                                                 |
+| :----: | --------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    6   | Lunes 22 de junio     | Análisis multivariado exploratorio y reportes reproducibles | [6.1 Análisis de Componentes Principales](doc/Unidad_06/U6_1_Analisis_Componentes_Principales.md)<br>[6.2 Reportes reproducibles con Quarto](doc/Unidad_06/U6_2_Reportes_reproducibles_con_Quarto.md)<br>[Material extra: agrupamiento y PCA avanzado](doc/Unidad_06/U6_3_Material_extra_agrupamiento_y_PCA.md) |
+|    7   | Martes 23 de junio    | Introducción a transcriptómica                              | Materiales por liberar                                                                                                                                                                                                                                                                                              |
+|    8   | Miércoles 24 de junio | Expresión diferencial                                       | Materiales por liberar                                                                                                                                                                                                                                                                                              |
+|    9   | Jueves 25 de junio    | Visualización, enriquecimiento funcional e IA               | Materiales por liberar                                                                                                                                                                                                                                                                                              |
+|   10   | Viernes 26 de junio   | Aplicaciones reales y cierre                                | Materiales por liberar                                                                                                                                                                                                                                                                                              |
 
 ---
 
