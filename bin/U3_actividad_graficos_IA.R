@@ -408,7 +408,7 @@ figura_caso_3_dispersion <- ggplot(
     y = "GA",
     color = "Etapa"
   ) +
-  theme_classic()
+  theme_bw()
 
 figura_caso_3_dispersion
 

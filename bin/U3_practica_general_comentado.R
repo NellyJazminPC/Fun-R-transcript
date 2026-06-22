@@ -75,6 +75,8 @@ datos_genes_manual <- data.frame(
   expresion = c(2, 10, 10, 15)
 )
 
+dim(datos_genes_manual)
+
 # Mostrar el data frame en la consola.
 datos_genes_manual
 
@@ -143,8 +145,8 @@ barplot(
   main = "Etapa 1",
   xlab = "Gen",
   ylab = "Expresión",
-  col = "skyblue",
-  border = "black",
+  col = "red",
+  border = "yellow",
   ylim = c(0, max(datos_genes_manual$expresion) + 2)
 )
 
@@ -312,7 +314,7 @@ boxplot(
   main = "Expresión de TAR por etapa",
   xlab = "Etapa",
   ylab = "Expresión de TAR",
-  col = c("#1699B5", "#1F5FAF", "#E8B84A")
+  col = c("red", "#1F5FAF", "#606D96")
 )
 
 # Preguntas:
@@ -351,6 +353,7 @@ boxplot(
 ggplot(datos_genes_archivo, aes(x = Gen, y = ED)) +
   geom_col()
 
+
 # Agregamos color fijo y un tema.
 #
 # fill = "purple3" dentro de geom_col() aplica el mismo color
@@ -358,8 +361,8 @@ ggplot(datos_genes_archivo, aes(x = Gen, y = ED)) +
 # theme_classic() cambia el estilo visual de la gráfica.
 
 ggplot(datos_genes_archivo, aes(x = Gen, y = ED)) +
-  geom_col(fill = "purple3", alpha = 0.7) +
-  theme_classic()
+  geom_col(fill = "purple3", alpha = 0.4) +
+  theme_minimal()
 
 # Colores manuales.
 #
@@ -486,7 +489,7 @@ ggplot(datos_expresion, aes(x = Etapas, y = TAR, fill = Etapas)) +
 
 ggplot(datos_expresion, aes(x = Etapas, y = TAR, fill = Etapas)) +
   geom_boxplot(alpha = 0.7, outlier.shape = NA) +
-  geom_jitter(width = 0.15, alpha = 0.4) +
+  geom_jitter(width = 0.6, alpha = 0.9) +
   scale_fill_manual(values = c("#1699B5", "#1F5FAF", "#E8B84A")) +
   labs(
     x = "Etapa",
@@ -511,7 +514,7 @@ ggplot(datos_expresion, aes(x = Etapas, y = TAR, fill = Etapas)) +
 # de una variable de la tabla.
 
 ggplot(datos_expresion, aes(x = CO, y = GA)) +
-  geom_point(aes(color = Etapas), alpha = 0.8) +
+  geom_point(aes(color = Etapas), alpha = 0.8, size=7) +
   scale_color_manual(values = c("#1699B5", "#1F5FAF", "#E8B84A")) +
   labs(
     x = "CO",
@@ -536,7 +539,7 @@ ggplot(datos_expresion, aes(x = CO, y = GA)) +
 # La interpretación estadística formal se retomará en la Unidad 4.
 
 ggplot(datos_expresion, aes(x = CO, y = GA)) +
-  geom_point(aes(color = Etapas), alpha = 0.8) +
+  geom_point(aes(color = Etapas), alpha = 0.8, size=7) +
   geom_smooth(method = "lm") +
   scale_color_manual(values = c("#1699B5", "#1F5FAF", "#E8B84A")) +
   labs(
@@ -656,7 +659,7 @@ tema_articulo <- theme_classic(base_size = 12) +
 
 figura_final <- ggplot(
   datos_expresion,
-  aes(x = Etapas, y = TAR, fill = Etapas)
+  aes(x = Etapas, y = GA, fill = Etapas)
 ) +
   geom_boxplot(
     alpha = 0.7,
@@ -670,10 +673,10 @@ figura_final <- ggplot(
   ) +
   scale_fill_manual(values = c("#1699B5", "#1F5FAF", "#E8B84A")) +
   labs(
-    title = "Expresión de TAR por etapa",
+    title = "Expresión de GA por etapa",
     subtitle = "Distribución de valores individuales por grupo",
     x = "Etapa",
-    y = "Expresión relativa de TAR",
+    y = "Expresión relativa de GA",
     fill = "Etapa"
   ) +
   tema_articulo
@@ -693,12 +696,8 @@ figura_final
 # dpi: resolución. 300 dpi es común para impresión.
 
 ggsave(
-  filename = "results/figura_final_TAR_etapas.png",
-  plot = figura_final,
-  width = 7,
-  height = 5,
-  units = "in",
-  dpi = 300
+  filename = "results/figura_final_GA.tiff",
+  plot = figura_final
 )
 
 # También podemos exportar en PDF.

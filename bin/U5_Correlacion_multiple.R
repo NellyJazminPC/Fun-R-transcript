@@ -121,7 +121,8 @@ Dosis_2
 # las covariables sex y ldosis
 ggplot(Dosis_2,aes(x = ldosis, y = probabilidad, color = sex)) + 
   geom_point() +
-  labs(x = "Logaritmo Dosis", y = "Probabilidad de morir") 
+  labs(x = "Logaritmo Dosis", y = "Probabilidad de morir") +
+  theme_bw()
 #Se genera un vector con la relación de insectos muertos y vivos
 Yres <- cbind(Dosis_2$dead,Dosis_2$alive)
 Yres
@@ -160,7 +161,8 @@ ggplot(Dosis_2,
        aes(x = dosis,
            y = probabilidad,
            color = sex)) +
-  geom_point()
+  geom_point(size=6, alpha = 0.5)+
+  theme_classic()
 
 ##############################################################################
 #Modelos lineales generalizados mixtos
@@ -173,7 +175,7 @@ anova(glmm.CO2)
 
 ##########################################################################
 #el paquete lmerTest te da los valores de p-value
-install.packages("lmerTest")
+#install.packages("lmerTest")
 library(lmerTest)
 mod <- lmer(uptake ~ conc + Type + Treatment +
               (1 | Type/Plant),
@@ -184,7 +186,7 @@ summary(mod)
 CO2$pred <- predict(glmm.CO2)
 #grafica las predicciones en Uptake segun el modelo
 ggplot(CO2, aes(conc, uptake, group = Plant)) +
-  geom_point(alpha = 0.6) +
+  geom_point(alpha = 0.6, size = 4, color="red") +
   geom_line(aes(y = pred), color = "blue", alpha = 0.3) +
   theme_minimal()
 

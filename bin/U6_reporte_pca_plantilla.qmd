@@ -1,14 +1,17 @@
 ---
 title: "Reporte PCA reproducible"
-author: "Escribe aquí tu nombre"
+author: "Nombre de la persona"
 format:
-  html:
+  docx:
     toc: true
-    embed-resources: true
-editor: visual
+    number-sections: true
 ---
 
 # Nota sobre rutas
+
+## Subtitulo
+
+**En negritas**
 
 Este archivo `.qmd` está pensado para guardarse en la carpeta `bin/`.
 
@@ -31,13 +34,15 @@ Escribe aquí, con tus propias palabras, el objetivo del análisis. Puedes apoya
 
 En esta sección se cargan los paquetes necesarios para importar datos desde Excel, manipular tablas y generar figuras.
 
+Este reporte es una prueba de PCA exploratorio
+
 ```{r}
-#| label: paquetes
-#| message: false
-#| warning: false
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
 
 # Copia aquí el bloque del script donde se cargan los paquetes
-
 ```
 
 # Importar datos
@@ -48,9 +53,9 @@ Como este archivo `.qmd` estará en `bin/`, la ruta debe iniciar con `../data/`.
 
 ```{r}
 #| label: importar-datos
-
-# Copia aquí el bloque del script donde se importan los datos
-
+ # Recuerda: este script está pensado para ejecutarse desde la raíz del proyecto.
+datos <- read_excel("../data/U6_datos_pca.xlsx")
+datos
 ```
 
 Después de importar los datos, revisa brevemente la tabla.
@@ -58,17 +63,31 @@ Después de importar los datos, revisa brevemente la tabla.
 ```{r}
 #| label: explorar-datos
 
-# Copia aquí algunas líneas para explorar los datos
-# Por ejemplo: head(), dim(), names() o str()
+# Exploración inicial de la tabla.
+head(datos)
+dim(datos)
+names(datos)
+str(datos)
 
 ```
 
 Escribe aquí una breve descripción de la tabla:
 
 -   ¿Cuántas filas tiene?
+
+-   Tiene 900 fila
+
 -   ¿Cuántas columnas tiene?
+
+-   Tiene 4, que son los genes
+
 -   ¿Qué columnas corresponden a metadatos?
+
+    Son las columnas de muestra, sitio, tratamiento y etapa
+
 -   ¿Qué columnas numéricas se usarán para el PCA?
+
+    Los 4 genes
 
 # Preparar datos para el PCA
 
@@ -76,15 +95,27 @@ Antes de ejecutar el PCA, separamos los metadatos de las variables numéricas.
 
 ```{r}
 #| label: preparar-datos
+# Separar columnas de metadatos.
+metadatos <- datos %>%
+  select(muestra, etapa, tratamiento, sitio)
 
-# Copia aquí el bloque donde se separan metadatos y variables numéricas
+# Seleccionar variables numéricas para el PCA.
+genes <- c("TAR", "ARF", "CO", "GA")
+
+datos_pca <- datos %>%
+  select(all_of(genes))
+datos_pca
 
 ```
 
 Explica brevemente:
 
 -   ¿Qué objeto contiene los metadatos?
+
+    La variable llamada metadatos
+
 -   ¿Qué objeto contiene las variables numéricas?
+
 -   ¿Por qué no todas las columnas entran al cálculo del PCA?
 
 # Ejecutar PCA
@@ -93,8 +124,15 @@ En esta sección se ejecuta el PCA con la función `prcomp()`.
 
 ```{r}
 #| label: ejecutar-pca
+# Ejecutar PCA con variables centradas y escaladas.
+pca_resultado <- prcomp(
+  datos_pca,
+  center = TRUE,
+  scale. = TRUE
+)
 
-# Copia aquí el bloque donde se ejecuta el PCA
+# Revisar estructura general del resultado.
+str(pca_resultado)
 
 ```
 
@@ -107,7 +145,29 @@ En esta sección se calcula qué porcentaje de variación explica cada component
 ```{r}
 #| label: varianza-explicada
 
-# Copia aquí el bloque donde se calcula la varianza explicada
+# Calcular la varianza explicada por cada componente principal.
+varianza <- pca_resultado$sdev^2
+varianza_explicada <- varianza / sum(varianza)
+
+tabla_varianza <- data.frame(
+  componente = paste0("PC", seq_along(varianza_explicada)),
+  varianza_explicada = varianza_explicada,
+  porcentaje = varianza_explicada * 100
+)
+
+tabla_varianza
+
+# Guardar porcentajes para etiquetas de los ejes.
+pc1 <- round(tabla_varianza$porcentaje[1], 1)
+pc2 <- round(tabla_varianza$porcentaje[2], 1)
+
+# Extraer coordenadas de las muestras en el espacio del PCA.
+pca_scores <- as.data.frame(pca_resultado$x)
+
+# Agregar metadatos a las coordenadas del PCA.
+pca_scores <- bind_cols(metadatos, pca_scores)
+
+head(pca_scores)
 
 ```
 
@@ -122,10 +182,17 @@ Escribe aquí una interpretación breve:
 En esta sección se construye una figura del PCA usando `ggplot2`.
 
 ```{r}
-#| label: figura-pca
-#| fig-width: 7
-#| fig-height: 5
+pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = etapa)) +
+  geom_point(size = 1.8, alpha = 0.45) +
+  labs(
+    title = "PCA exploratorio coloreado por etapa",
+    x = paste0("PC1 (", pc1, "%)"),
+    y = paste0("PC2 (", pc2, "%)"),
+    color = "Etapa"
+  ) +
+  theme_minimal()
 
+pca_etapa
 # Copia aquí el bloque donde se construye la figura principal del PCA
 
 ```

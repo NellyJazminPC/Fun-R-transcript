@@ -1,0 +1,209 @@
+---
+title: "Reporte PCA reproducible"
+author: "Nombre de la persona"
+format:
+  html:
+    toc: true
+    embed-resources: true
+editor: visual
+---
+
+# Nota sobre rutas
+
+Este archivo `.qmd` está pensado para guardarse en la carpeta `bin/`.
+
+Por eso, las rutas del código se escriben considerando que el archivo se ejecuta desde `bin/`:
+
+-   los datos se leen desde `../data/`;
+-   las figuras y tablas se guardan en `../results/`.
+
+# Introducción
+
+Este reporte presenta un análisis exploratorio de Componentes Principales (PCA) usando una tabla de datos biológicos simulados. El objetivo es explorar si las muestras presentan un patrón de agrupamiento asociado con la etapa registrada en los metadatos.
+
+Un PCA permite resumir la variación de varias variables numéricas en nuevos ejes llamados componentes principales. En este ejemplo, los puntos representan muestras y el color indica la etapa a la que pertenece cada muestra.
+
+El análisis debe interpretarse como una exploración inicial. Una separación visual entre grupos no demuestra por sí sola diferencias estadísticamente significativas.
+
+# Cargar paquetes
+
+Primero cargamos los paquetes necesarios para importar datos desde Excel, manipular tablas y construir figuras.
+
+```{r}
+#| label: paquetes
+#| message: false
+#| warning: false
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+```
+
+# Datos utilizados
+
+Importamos el archivo de datos desde la carpeta `data/` del proyecto.
+
+Como este archivo `.qmd` está guardado en `bin/`, usamos `../data/` para subir un nivel y entrar a la carpeta de datos.
+
+```{r}
+#| label: importar-datos
+
+datos <- read_excel("../data/U6_datos_pca.xlsx")
+```
+
+Revisamos la estructura general de la tabla.
+
+```{r}
+#| label: explorar-datos
+
+head(datos)
+dim(datos)
+names(datos)
+str(datos)
+```
+
+La tabla contiene columnas de metadatos y columnas numéricas. En este ejemplo, los metadatos describen la muestra, etapa, tratamiento y sitio. Las columnas numéricas corresponden a las variables que usaremos para calcular el PCA.
+
+# Preparación de datos
+
+Separamos los metadatos de las variables numéricas. Los metadatos se usarán para interpretar y colorear la figura, pero no entran al cálculo del PCA.
+
+```{r}
+#| label: preparar-datos
+
+metadatos <- datos %>%
+  select(muestra, etapa, tratamiento, sitio)
+
+genes <- c("TAR", "ARF", "CO", "GA")
+
+datos_pca <- datos %>%
+  select(all_of(genes))
+
+head(metadatos)
+head(datos_pca)
+```
+
+# Análisis de Componentes Principales
+
+Calculamos el PCA con la función `prcomp()`. Usamos `center = TRUE` y `scale. = TRUE` para centrar y escalar las variables antes del análisis. Esto ayuda a que las variables contribuyan de forma más comparable, especialmente cuando tienen escalas distintas.
+
+```{r}
+#| label: pca
+
+pca_resultado <- prcomp(
+  datos_pca,
+  center = TRUE,
+  scale. = TRUE
+)
+```
+
+# Varianza explicada
+
+Calculamos qué porcentaje de la variación total explica cada componente principal.
+
+```{r}
+#| label: varianza-explicada
+
+varianza <- pca_resultado$sdev^2
+varianza_explicada <- varianza / sum(varianza)
+
+tabla_varianza <- data.frame(
+  componente = paste0("PC", seq_along(varianza_explicada)),
+  varianza_explicada = varianza_explicada,
+  porcentaje = varianza_explicada * 100
+)
+
+tabla_varianza
+```
+
+Guardamos los porcentajes de PC1 y PC2 para usarlos en las etiquetas de los ejes.
+
+```{r}
+#| label: porcentajes-ejes
+
+pc1 <- round(tabla_varianza$porcentaje[1], 1)
+pc2 <- round(tabla_varianza$porcentaje[2], 1)
+```
+
+# Coordenadas de las muestras
+
+Extraemos las coordenadas de las muestras en el espacio del PCA y agregamos los metadatos para poder colorear la figura por etapa.
+
+```{r}
+#| label: coordenadas-pca
+
+pca_scores <- as.data.frame(pca_resultado$x)
+
+pca_scores <- bind_cols(metadatos, pca_scores)
+
+head(pca_scores)
+```
+
+# Visualización del PCA
+
+Graficamos PC1 contra PC2. Cada punto representa una muestra y el color indica la etapa.
+
+```{r}
+#| label: figura-pca
+#| fig-width: 7
+#| fig-height: 5
+
+pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = etapa)) +
+  geom_point(size = 1.8, alpha = 0.45) +
+  labs(
+    title = "PCA exploratorio coloreado por etapa",
+    x = paste0("PC1 (", pc1, "%)"),
+    y = paste0("PC2 (", pc2, "%)"),
+    color = "Etapa"
+  ) +
+  theme_minimal()
+
+pca_etapa
+```
+
+También podemos guardar la figura y las tablas principales en la carpeta `results/`.
+
+Como este archivo `.qmd` está en `bin/`, usamos `../results/` para guardar los productos en la carpeta de resultados del proyecto.
+
+```{r}
+#| label: guardar-resultados
+
+ggsave(
+  filename = "../results/U6_pca_reporte_etapa.png",
+  plot = pca_etapa,
+  width = 7,
+  height = 5,
+  dpi = 300
+)
+
+write.csv(
+  tabla_varianza,
+  "../results/U6_pca_reporte_varianza_explicada.csv",
+  row.names = FALSE
+)
+
+write.csv(
+  pca_scores,
+  "../results/U6_pca_reporte_scores.csv",
+  row.names = FALSE
+)
+```
+
+# Interpretación
+
+El PCA muestra un patrón de separación parcial entre etapas, principalmente a lo largo de PC1. En términos generales, las muestras de una etapa tienden a concentrarse hacia un extremo del eje PC1, mientras que otra etapa aparece más hacia el extremo opuesto. La etapa intermedia puede presentar mayor traslape con las otras etapas.
+
+PC1 y PC2 resumen una parte importante de la variación total de los datos, por lo que la figura permite explorar la estructura general de las muestras en un espacio bidimensional. Sin embargo, el patrón no debe interpretarse como una prueba estadística de diferencia entre etapas.
+
+# Limitaciones
+
+Este análisis es exploratorio. Algunas limitaciones importantes son:
+
+-   El PCA no prueba diferencias significativas entre grupos.
+-   La separación visual puede depender de las variables incluidas en el análisis.
+-   Los patrones observados pueden estar influidos por valores extremos o por la escala de las variables.
+-   En datos transcriptómicos reales, normalmente se requieren pasos previos de control de calidad, normalización y transformación de la matriz de expresión.
+
+# Conclusión
+
+El PCA permitió resumir la variación de las variables numéricas y visualizar la distribución de las muestras según su etapa. El reporte reproducible permite conservar en un mismo documento el código, las figuras, los resultados y una interpretación breve del análisis.

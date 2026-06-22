@@ -32,10 +32,10 @@
 ## Si alguno de estos paquetes no está instalado, puedes instalarlo con:
 ## install.packages(c("readxl", "dplyr", "tidyr", "ggplot2"))
 
-#library(readxl)   # Para importar archivos de Excel (.xlsx)
-#library(dplyr)    # Para seleccionar, revisar y manipular datos
-#library(tidyr)    # Para reorganizar datos a formato largo
-#library(ggplot2)  # Para construir las figuras del PCA
+library(readxl)   # Para importar archivos de Excel (.xlsx)
+library(dplyr)    # Para seleccionar, revisar y manipular datos
+library(tidyr)    # Para reorganizar datos a formato largo
+library(ggplot2)  # Para construir las figuras del PCA
 
 
 # 2. Definir rutas de trabajo ---------------------------------------------
@@ -43,8 +43,8 @@
 ## Guardamos la ruta del archivo de datos en un objeto.
 ## Esto facilita corregir la ruta si el archivo cambia de nombre o ubicación.
 # ¿cuál es la ruta para tu archivo U6_datos_pca.xlsx? 
-# Recuerda revisar en donde estas - ubicación
-ruta_datos <- "aquí_va_la_ruta_al_archivo"
+# Recuerda revisar en donde estas - ubicación con getwd()
+ruta_datos <- "data/U6_datos_pca.xlsx"
 
 
 # 3. Importar datos desde Excel -------------------------------------------
@@ -54,6 +54,7 @@ ruta_datos <- "aquí_va_la_ruta_al_archivo"
 
 excel_sheets(ruta_datos)
 
+excel_sheets("data/U6_datos_pca.xlsx")
 ## Importamos la primera hoja del archivo.
 ## En esta práctica el archivo contiene una tabla con metadatos y variables numéricas.
 
@@ -106,12 +107,15 @@ metadatos <- datos %>%
     sitio = as.factor(sitio)
   )
 
+metadatos
+
 ## Seleccionamos explícitamente las variables que entrarán al PCA.
 ## También podríamos usar select(where(is.numeric)), pero aquí lo hacemos
 ## de forma explícita para que sea claro qué variables se están analizando.
 
 datos_pca <- datos %>%
-  select() #Qué variables son las que se seleccionaran? - Los genes
+  select(TAR,ARF,CO,GA) #Qué variables son las que se seleccionaran? - Los genes
+
 
 ## Revisamos ambos objetos.
 
@@ -146,7 +150,7 @@ colSums(is.na(datos_pca))
 ## Así evitamos que una variable domine el PCA solo por tener valores más grandes.
 
 pca_resultado <- prcomp(
-  datos_pac,
+  datos_pca,
   center = TRUE,
   scale. = TRUE
 )
@@ -160,7 +164,7 @@ str(pca_resultado)
 ## pca_resultado$x        coordenadas de las muestras en PC1, PC2, PC3...
 ## pca_resultado$sdev     desviación estándar de cada componente
 ## pca_resultado$rotation relación entre variables originales y componentes
-
+pca_resultado$x
 
 # 7. Calcular varianza explicada ------------------------------------------
 
@@ -192,11 +196,13 @@ pc3 <- round(tabla_varianza$porcentaje[3], 1)
 ## Ayuda a decidir si PC1 y PC2 resumen una proporción suficiente de la variación.
 
 scree_plot <- ggplot(tabla_varianza, aes(x = componente, y = porcentaje)) +
+  geom_col(fill="blue") +
   labs(
     title = "Varianza explicada por componente principal",
     x = "Componente principal",
     y = "Varianza explicada (%)"
-  ) 
+  ) +
+  theme_bw()
 
 # ¿Qué le falta a este bloque de código? Si queremos una gráfica de barras, qué le faltaría?
 # ¿Cómo agregarias un theme de ggplot? 
@@ -231,8 +237,8 @@ head(pca_scores)
 ## Esto permite ver zonas de mayor densidad y evita que la nube de puntos
 ## oculte completamente el patrón general.
 
-pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = etapa)) +
-  geom_point(size = 1.6, alpha = 0.40) +
+pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC3, color = etapa)) +
+  geom_point(size = 4, alpha = 0.60) +
   labs(
     title = "PCA exploratorio coloreado por etapa",
     x = paste0("PC1 (", pc1, "%)"),
@@ -299,7 +305,7 @@ centroides_etapa <- pca_scores %>%
 centroides_etapa
 
 pca_etapa_centroides <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = etapa)) +
-  geom_point(size = 1.4, alpha = 0.25) +
+  geom_point(size = 3, alpha = 0.5) +
   geom_point(
     data = centroides_etapa,
     aes(x = PC1, y = PC2, color = etapa),
@@ -713,7 +719,7 @@ pca_3d <- plot_ly(
   mode = "markers",
   marker = list(
     size = 2.5,
-    opacity = 0.35
+    opacity = 0.8
   )
 ) %>%
   layout(

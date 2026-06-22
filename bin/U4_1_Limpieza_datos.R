@@ -6,7 +6,7 @@ install.packages(c(
   "ggrepel",
   "psych",
   "broom",
-  "lm4",
+  "lme4",
   "marginaleffects"
 ))
 library(tidyverse)
@@ -14,8 +14,9 @@ library(magrittr)
 library(readxl)
 library(readr)
 #revisemos el df de la clase pasada
-U3_2 <- read_csv("Documents/Clases/cursos_2024-2/Programacion R/Fun-R-transcript-main/data/U3_2.csv")
+U3_2 <- read_csv("data/U3_2.csv")
 View(U3_2)
+
 
 #acomodando en una sola columna los genes
 U4_1 <- U3_2 %>%
@@ -257,3 +258,7 @@ chisq.test(tabla)
 #¿Se rechaza o acepta la hipotesis nula?
 
 #############################################################################################
+
+#Simulación de monte carlo
+chisq.test(tabla, simulate.p.value = TRUE, B = 10000)
+
