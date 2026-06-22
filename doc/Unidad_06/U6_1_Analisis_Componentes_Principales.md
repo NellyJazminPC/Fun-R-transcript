@@ -10,7 +10,7 @@
 
 ## 6.1 Análisis de Componentes Principales
 
-* [Presentación](ENLACE_PRESENTACION_UNIDAD_6)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQU8VcZ5-ekl8pOHomXSAGDdQOd7aeJjJabDHOdEVqzsJ8ONekC5Xwvf1PnUp_mxw/pub?start=false&loop=false&delayms=60000)
 
 ## Objetivo
 
@@ -27,7 +27,6 @@ Durante esta unidad trabajaremos con un script general de práctica:
 También estarán disponibles:
 
 * [Datos de práctica](../../data/U6_datos_pca.xlsx)
-* [Material extra: agrupamiento y PCA avanzado](../Unidad_06/U6_3_Material_extra_agrupamiento_y_PCA.md)
 
 Durante la sesión iremos ejecutando solo los bloques indicados por la instructora.
 

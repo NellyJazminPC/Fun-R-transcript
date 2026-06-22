@@ -10,7 +10,7 @@
 
 ## 6.2 Reportes reproducibles con Quarto
 
-* [Presentación](ENLACE_PRESENTACION_UNIDAD_6)
+* [Presentación](https://docs.google.com/presentation/d/e/2PACX-1vQU8VcZ5-ekl8pOHomXSAGDdQOd7aeJjJabDHOdEVqzsJ8ONekC5Xwvf1PnUp_mxw/pub?start=false&loop=false&delayms=60000)
 
 ![alt text](IMG_principal/Unidad_06_Quarto.png)
 
