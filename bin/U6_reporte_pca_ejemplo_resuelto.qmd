@@ -3,6 +3,7 @@ title: "Reporte PCA reproducible"
 author: "Nombre de la persona"
 format:
   html:
+    theme: vapor
     toc: true
     embed-resources: true
 editor: visual
