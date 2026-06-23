@@ -18,7 +18,7 @@ library(ggplot2)
 
 # Importar datos desde Excel.
 # Recuerda: este script está pensado para ejecutarse desde la raíz del proyecto.
-datos <- read_excel("data/U6_datos_pca.xlsx")
+datos <- read_excel("../data/U6_datos_pca.xlsx")
 
 # Exploración inicial de la tabla.
 head(datos)

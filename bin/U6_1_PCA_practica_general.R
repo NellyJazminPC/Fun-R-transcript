@@ -32,10 +32,10 @@
 ## Si alguno de estos paquetes no está instalado, puedes instalarlo con:
 ## install.packages(c("readxl", "dplyr", "tidyr", "ggplot2"))
 
-library(readxl)   # Para importar archivos de Excel (.xlsx)
-library(dplyr)    # Para seleccionar, revisar y manipular datos
-library(tidyr)    # Para reorganizar datos a formato largo
-library(ggplot2)  # Para construir las figuras del PCA
+#library(readxl)   # Para importar archivos de Excel (.xlsx)
+#library(dplyr)    # Para seleccionar, revisar y manipular datos
+#library(tidyr)    # Para reorganizar datos a formato largo
+#library(ggplot2)  # Para construir las figuras del PCA
 
 
 # 2. Definir rutas de trabajo ---------------------------------------------
@@ -44,7 +44,7 @@ library(ggplot2)  # Para construir las figuras del PCA
 ## Esto facilita corregir la ruta si el archivo cambia de nombre o ubicación.
 # ¿cuál es la ruta para tu archivo U6_datos_pca.xlsx? 
 # Recuerda revisar en donde estas - ubicación con getwd()
-ruta_datos <- "data/U6_datos_pca.xlsx"
+ruta_datos <- "aquí_va_tu_ruta"
 
 
 # 3. Importar datos desde Excel -------------------------------------------
@@ -54,7 +54,6 @@ ruta_datos <- "data/U6_datos_pca.xlsx"
 
 excel_sheets(ruta_datos)
 
-excel_sheets("data/U6_datos_pca.xlsx")
 ## Importamos la primera hoja del archivo.
 ## En esta práctica el archivo contiene una tabla con metadatos y variables numéricas.
 
@@ -114,7 +113,7 @@ metadatos
 ## de forma explícita para que sea claro qué variables se están analizando.
 
 datos_pca <- datos %>%
-  select(TAR,ARF,CO,GA) #Qué variables son las que se seleccionaran? - Los genes
+  select() #Qué variables son las que se seleccionaran? - Los genes
 
 
 ## Revisamos ambos objetos.
@@ -150,7 +149,7 @@ colSums(is.na(datos_pca))
 ## Así evitamos que una variable domine el PCA solo por tener valores más grandes.
 
 pca_resultado <- prcomp(
-  datos_pca,
+  datos_pac,
   center = TRUE,
   scale. = TRUE
 )
@@ -196,20 +195,17 @@ pc3 <- round(tabla_varianza$porcentaje[3], 1)
 ## Ayuda a decidir si PC1 y PC2 resumen una proporción suficiente de la variación.
 
 scree_plot <- ggplot(tabla_varianza, aes(x = componente, y = porcentaje)) +
-  geom_col(fill="blue") +
   labs(
     title = "Varianza explicada por componente principal",
     x = "Componente principal",
     y = "Varianza explicada (%)"
-  ) +
-  theme_bw()
+  ) 
+
+scree_plot
 
 # ¿Qué le falta a este bloque de código? Si queremos una gráfica de barras, qué le faltaría?
 # ¿Cómo agregarias un theme de ggplot? 
 # ¿Como haces que las barras sean de color azul?
-
-scree_plot
-
 
 # 9. Extraer coordenadas de muestras --------------------------------------
 
@@ -237,7 +233,7 @@ head(pca_scores)
 ## Esto permite ver zonas de mayor densidad y evita que la nube de puntos
 ## oculte completamente el patrón general.
 
-pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC3, color = etapa)) +
+pca_etapa <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = etapa)) +
   geom_point(size = 4, alpha = 0.60) +
   labs(
     title = "PCA exploratorio coloreado por etapa",
