@@ -143,7 +143,7 @@ Este es el punto de entrada típico para un análisis de expresión diferencial 
 
 El paquete `airway` de Bioconductor[^1], contiene datos de RNA-seq derivados de un estudio sobre el efecto de la **dexametasona** en células humanas de músculo liso de vía aérea, conocidas como **ASM** por sus siglas en inglés: *airway smooth muscle*.
 
-[^2] [\[https://www.bioconductor.org/packages/release/data/experiment/html/airway.html]][28]
+[\[https://www.bioconductor.org/packages/release/data/experiment/html/airway.html]]
 
 ## 4.1 Contexto general
 
@@ -455,7 +455,7 @@ table(metadata_airway$cell)
 
 ## 9.5 Paquete de análisis DESeq2
 
-Utilizaremos uno de los paquetes más ampliamente utilizados de Bioconductor: **DESeq2[^3]**.
+Utilizaremos uno de los paquetes más ampliamente utilizados de Bioconductor: **DESeq2[^2]**.
 
 ```
 Love, M.I., Huber, W., Anders, S. (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15:550. 10.1186/s13059-014-0550-8
@@ -597,7 +597,7 @@ Esta función realiza internamente:
 3. ajuste del modelo para cada gen;
 4. prueba estadística asociada al contraste de interés.
 
-Su objetivo principal es corregir diferencias en la profundidad de secuenciación y composición global entre muestras, para que los conteos sean comparables. DESeq2 usa por defecto el método median of ratios[^4], implementado en estimateSizeFactors() y ejecutado automáticamente dentro de DESeq().
+Su objetivo principal es corregir diferencias en la profundidad de secuenciación y composición global entre muestras, para que los conteos sean comparables. DESeq2 usa por defecto el método median of ratios[^3], implementado en estimateSizeFactors() y ejecutado automáticamente dentro de DESeq().
 
 ## 13.1 Factores de tamaño
 
@@ -974,11 +974,12 @@ contrast = c("dex", "trt", "untrt")
 
 la interpretación es:
 
-|     |     |
-| --- | --- |
-|     |     |
-|     |     |
-|     |     |
+| Posición en eje Y | Interpretación                  |
+| ----------------- | ------------------------------- |
+| Arriba de 0       | mayor expresión en dexametasona |
+| Cerca de 0        | poco cambio                     |
+| Abajo de 0        | menor expresión en dexametasona |
+
 
 ## 20.2 Interpretación de `log2FoldChange`
 
@@ -991,17 +992,6 @@ la interpretación es:
 | -2               | 4 veces menos expresión   |
 
 ## 20.3 Idea clave
-
-
-
-
-
-
-
-
-
-
-
 
 El MA plot nos recuerda que no todos los cambios de expresión tienen el mismo contexto. Un cambio muy grande en un gen con conteos muy bajos puede ser menos estable que un cambio observado en un gen con expresión abundante y consistente.
 
@@ -1092,36 +1082,6 @@ Puedes modificar tus parámetros de práctica y considera:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 22. Heatmap
 
 ## 22.1 Seleccionar genes
@@ -1190,10 +1150,6 @@ pheatmap(
 
 
 
-
-
-
-
 ---
 
 # 23. Actividades de práctica extra
@@ -1227,16 +1183,6 @@ table(metadata_airway$cell)
 ```
 
 Responde:
-
-
-
-
-
-
-
-
-
-
 
 1. ¿Cuántas muestras hay por tratamiento?
 2. ¿Cuántas líneas celulares hay?
@@ -1278,6 +1224,7 @@ Responde:
 2. ¿El criterio más flexible siempre es mejor?
 3. ¿Qué riesgo tiene usar umbrales muy laxos?
 4. ¿Qué riesgo tiene usar umbrales muy estrictos?
+
 
 ## Actividad 5. Comparar visualizaciones
 
@@ -1499,11 +1446,9 @@ Por favor:
 
 [^1]:	[https://www.bioconductor.org/packages/release/data/experiment/html/airway.html][27]
 
-[^2]:	.
+[^2]:	[http://127.0.0.1:13512/library/DESeq2/doc/DESeq2.html][29]
 
-[^3]:	[http://127.0.0.1:13512/library/DESeq2/doc/DESeq2.html][29]
-
-[^4]:	¿Cómo funciona el método “median of ratios”?
+[^3]:	¿Cómo funciona el método “median of ratios”?
 
 	De forma simplificada:
 
