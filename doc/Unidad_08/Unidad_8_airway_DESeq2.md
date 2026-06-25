@@ -1154,6 +1154,8 @@ pheatmap(
 
 # 23. Actividades de práctica extra
 
+En la carpeta bin encontrarás otro script nombrado U8_practica_extra_visualizacion_airway.R, ahí están disponibles también los ejercicios de práctica extra. O puedes generar tu propio script copiando y pegando las siguientes instrucciones. OJO: verifica que la rutas estén escritas correctamente, recuerda acomodar tus datos y resultados por carpetas.
+
 ## Actividad 1. Anatomía de `airway`
 
 Ejecuta:
