@@ -399,7 +399,7 @@ TPM suele preferirse sobre RPKM/FPKM cuando se desea una métrica descriptiva m�
 
 ---
 
-##Entonces, ¿es válido incorporar en un mismo estudio la normalización de DESeq2 junto con TPM, FPKM y RPKM?
+## Entonces, ¿es válido incorporar en un mismo estudio la normalización de DESeq2 junto con TPM, FPKM y RPKM?
 
 Sí, siempre que se usen de manera complementaria y no como si fueran equivalentes. En un mismo análisis podemos usar DESeq2 para identificar genes diferencialmente expresados y, además, calcular TPM, FPKM o RPKM para describir la abundancia de genes individuales, revisar tendencias, generar gráficas exploratorias o comparar cómo cambia la interpretación visual según la métrica utilizada.
 
