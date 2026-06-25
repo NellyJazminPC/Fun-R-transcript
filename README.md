@@ -325,7 +325,36 @@ BiocManager::install(c(
 
 ```r
 # Unidad 9
-# Código de instalación por liberar.
+
+# Paquetes de CRAN
+```r
+install.packages(c(
+  "tidyverse",
+  "pheatmap",
+  "ggrepel",
+  "patchwork",
+  "RColorBrewer"
+))
+```
+
+# Paquetes de Bioconductor
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+BiocManager::install(c(
+  "DESeq2",
+  "airway",
+  "SummarizedExperiment",
+  "GenomicRanges",
+  "clusterProfiler",
+  "enrichplot",
+  "org.Hs.eg.db",
+  "pathview"
+))
+
+
 ```
 
 ### Unidad 10. Aplicaciones reales y cierre
