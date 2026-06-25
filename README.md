@@ -335,10 +335,8 @@ install.packages(c(
   "patchwork",
   "RColorBrewer"
 ))
-```
 
 # Paquetes de Bioconductor
-```r
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
