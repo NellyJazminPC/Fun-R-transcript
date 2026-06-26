@@ -8,7 +8,7 @@
 
 [Presentación U9 enriquecimiento funcional y visualización](./01_Transcriptomic_Visualization_and_Enrichment.pdf)
 
-[Presentación U9 R+IA](./Unidad_9/02_R+IA.pdf)
+[Presentación U9 R+IA](./02_R+IA.pdf)
 
 
 ---
