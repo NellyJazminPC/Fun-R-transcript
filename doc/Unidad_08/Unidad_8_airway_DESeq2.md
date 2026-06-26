@@ -5,6 +5,8 @@
 **Caso didáctico:** `airway`  
 **Paquetes principales:** `airway`, `SummarizedExperiment`, `DESeq2`, `tidyverse`, `AnnotationDbi`, `org.Hs.eg.db`, `pheatmap`, `ggrepel`
 
+[Presentación U8 Expresión diferencial](./Differential_Expression_and_Visualization.pdf)
+
 ---
 
 ## Índice
