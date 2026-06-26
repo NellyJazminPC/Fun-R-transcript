@@ -693,15 +693,6 @@ anotacion_genes <- res_df %>%
   ) %>%
   distinct(ensembl_id, .keep_all = TRUE)
 
-
-
-
-
-
-
-
-
-
 metricas_expresion_df <- raw_long %>%
   left_join(norm_long, by = c("ensembl_id", "sample_id")) %>%
   left_join(rpkm_long, by = c("ensembl_id", "sample_id")) %>%
