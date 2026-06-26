@@ -14,19 +14,6 @@
 # =============================================================================
 
 
-# 0. Parámetros de práctica ----------------------------------------------------
-
-padj_cutoff <- 0.05
-log2fc_cutoff <- 1
-
-# Si las listas quedan muy pequeñas para enriquecimiento, se puede activar
-# un criterio didáctico más flexible. Esto NO debe usarse sin explicación en
-# un reporte formal.
-
-usar_umbral_flexible_si_hay_pocos_genes <- TRUE
-min_genes_para_enriquecimiento <- 5
-log2fc_cutoff_flexible <- 0.5
-
 
 # 1. Verificar y cargar paquetes ----------------------------------------------
 
@@ -70,6 +57,7 @@ library(clusterProfiler)
 library(enrichplot)
 library(org.Hs.eg.db)
 library(ggplot2)
+library(dplyr)
 
 
 # 2. Crear carpetas ------------------------------------------------------------
@@ -269,10 +257,13 @@ mcols(dds)$basepairs <- gene_lengths_bp[rownames(dds)]
 summary(mcols(dds)$basepairs)
 sum(is.na(mcols(dds)$basepairs))
 
+# sum(is.na(mcols(dds)$basepairs)) debe darte como resultado 0, ya que eso significa
+# que ninguno de tus genes quedó sin datos de rangos genómicos
 
 # 5.3 Calcular conteos crudos, normalizados, RPKM, FPKM y TPM ------------------
 
 counts_raw <- counts(dds, normalized = FALSE)
+
 counts_norm <- counts(dds, normalized = TRUE)
 
 # FPKM calculado por DESeq2. Requiere mcols(dds)$basepairs.
@@ -423,6 +414,20 @@ ggsave(
 
 # 6. Preparar genes significativos --------------------------------------------
 
+# 0. Parámetros de práctica ----------------------------------------------------
+
+padj_cutoff <- 0.05
+log2fc_cutoff <- 1
+
+# Si las listas quedan muy pequeñas para enriquecimiento, se puede activar
+# un criterio didáctico más flexible. Esto NO debe usarse sin explicación en
+# un reporte formal.
+
+usar_umbral_flexible_si_hay_pocos_genes <- TRUE
+min_genes_para_enriquecimiento <- 5
+log2fc_cutoff_flexible <- 0.5
+
+
 preparar_listas <- function(tabla, padj_cutoff, log2fc_cutoff) {
 
   sig_genes <- tabla %>%
@@ -500,19 +505,19 @@ length(universo)
 
 write.csv(
   sig_genes,
-  file = "resultados/genes_significativos_para_enriquecimiento_airway.csv",
+  file = "data/resultados/genes_significativos_para_enriquecimiento_airway.csv",
   row.names = FALSE
 )
 
 write.csv(
   data.frame(entrezid = genes_up),
-  file = "resultados/lista_entrez_genes_up_airway.csv",
+  file = "data/resultados/lista_entrez_genes_up_airway.csv",
   row.names = FALSE
 )
 
 write.csv(
   data.frame(entrezid = genes_down),
-  file = "resultados/lista_entrez_genes_down_airway.csv",
+  file = "data/resultados/lista_entrez_genes_down_airway.csv",
   row.names = FALSE
 )
 
@@ -556,7 +561,7 @@ if (!is.null(ego_up)) {
 
   write.csv(
     ego_up_df,
-    file = "resultados/GO_BP_genes_up_airway.csv",
+    file = "data/resultados/GO_BP_genes_up_airway.csv",
     row.names = FALSE
   )
 }
@@ -566,7 +571,7 @@ if (!is.null(ego_down)) {
 
   write.csv(
     ego_down_df,
-    file = "resultados/GO_BP_genes_down_airway.csv",
+    file = "data/resultados/GO_BP_genes_down_airway.csv",
     row.names = FALSE
   )
 }
@@ -582,7 +587,7 @@ if (!is.null(ego_up) && nrow(as.data.frame(ego_up)) > 0) {
   p_dot_up
 
   ggsave(
-    filename = "figuras/U9/enriquecimiento/dotplot_GO_up_airway.pdf",
+    filename = "data/resultados/U9/figuras/enriquecimiento/dotplot_GO_up_airway.pdf",
     plot = p_dot_up,
     width = 9,
     height = 6
@@ -597,7 +602,7 @@ if (!is.null(ego_up) && nrow(as.data.frame(ego_up)) > 0) {
   p_bar_up
 
   ggsave(
-    filename = "figuras/U9/enriquecimiento/barplot_GO_up_airway.pdf",
+    filename = "data/resultados/U9/figuras/enriquecimiento/barplot_GO_up_airway.pdf",
     plot = p_bar_up,
     width = 9,
     height = 6
@@ -612,7 +617,7 @@ if (!is.null(ego_down) && nrow(as.data.frame(ego_down)) > 0) {
   p_dot_down
 
   ggsave(
-    filename = "figuras/U9/enriquecimiento/dotplot_GO_down_airway.pdf",
+    filename = "data/resultados/U9/figuras/enriquecimiento/dotplot_GO_down_airway.pdf",
     plot = p_dot_down,
     width = 9,
     height = 6
@@ -627,7 +632,7 @@ if (!is.null(ego_down) && nrow(as.data.frame(ego_down)) > 0) {
   p_bar_down
 
   ggsave(
-    filename = "figuras/U9/enriquecimiento/barplot_GO_down_airway.pdf",
+    filename = "data/resultados/U9/figuras/enriquecimiento/barplot_GO_down_airway.pdf",
     plot = p_bar_down,
     width = 9,
     height = 6
