@@ -6,9 +6,9 @@
 **Diseño usado en Unidad 8:** `~ cell + dex`  
 **Paquetes principales:** `DESeq2`, `tidyverse`, `clusterProfiler`, `enrichplot`, `org.Hs.eg.db`, `pheatmap`, `ggrepel`, `patchwork`, `pathview`  
 
-[Presentación U9 enriquecimiento funcional y visualización](Unidad_9/01_Transcriptomic_Visualization_and_Enrichment.pdf)
+[Presentación U9 enriquecimiento funcional y visualización](./01_Transcriptomic_Visualization_and_Enrichment.pdf)
 
-[Presentación U9 R+IA](Unidad_9/02_R+IA.pdf)
+[Presentación U9 R+IA](./Unidad_9/02_R+IA.pdf)
 
 
 ---
